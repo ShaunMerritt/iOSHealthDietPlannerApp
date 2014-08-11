@@ -16,7 +16,6 @@
     NSString *patientsWeight;
     NSString *patientsActivityLevel;
     NSString *userName;
-
 }
 
 @property (nonatomic, strong) IBOutlet ASValueTrackingSlider *slider1;
