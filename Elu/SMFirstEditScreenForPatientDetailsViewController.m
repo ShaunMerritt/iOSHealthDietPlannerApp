@@ -169,7 +169,7 @@
 
 - (IBAction)switchValueChanged:(id)sender {
     
-    // Change isMale based on the value of the uiswitch
+    // Change isMale based on the value of the uiswitch. Here is the if else statement
     if ([self.maleSwitch isOn]) {
         isMale = YES;
     } else {
