@@ -168,11 +168,14 @@
 
 
 - (IBAction)switchValueChanged:(id)sender {
+    
+    // Change isMale based on the value of the uiswitch
     if ([self.maleSwitch isOn]) {
         isMale = YES;
     } else {
         isMale = NO;
     }
+    
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
