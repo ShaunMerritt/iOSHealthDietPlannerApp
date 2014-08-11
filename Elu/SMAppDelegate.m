@@ -63,12 +63,20 @@
     [self save];
 }
 
-- (void) load {
-    isDoctor = [[NSUserDefaults standardUserDefaults] integerForKey:@"isDoctor"];
+- (void) save {
+    
+    // Save the bool isDoctor as a userdefault.
+    [[NSUserDefaults standardUserDefaults] setBool:isDoctor forKey:@"isDoctor"];
+    
 }
 
-- (void) save {
-    [[NSUserDefaults standardUserDefaults] setBool:isDoctor forKey:@"isDoctor"];
+- (void) load {
+    
+    // Load the bool isDoctor from a userdefault and set its value equal to thr bool isDoctor
+    isDoctor = [[NSUserDefaults standardUserDefaults] integerForKey:@"isDoctor"];
+    
 }
+
+
 
 @end

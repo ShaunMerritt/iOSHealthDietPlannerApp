@@ -12,7 +12,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-// Properties to be stored on physical device
+// Properties to be stored on physical device!!!
 @property (readwrite, nonatomic) BOOL isDoctor;
 @property (nonatomic, copy) NSString *userName;
 
