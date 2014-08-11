@@ -11,9 +11,7 @@
 
 @protocol SMYummlyGetHTTPClientDelegate;
 
-@interface SMYummlyGetClient : AFHTTPSessionManager {
-    
-}
+@interface SMYummlyGetClient : AFHTTPSessionManager
 
 @property (nonatomic, weak) id<SMYummlyGetHTTPClientDelegate>delegate;
 

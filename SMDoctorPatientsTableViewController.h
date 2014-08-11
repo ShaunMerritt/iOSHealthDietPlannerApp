@@ -10,16 +10,11 @@
 #import "SMLoginViewController.h"
 
 @interface SMDoctorPatientsTableViewController : UITableViewController
+
 @property (nonatomic, strong) SMAppDelegate         *appDelegate;
 @property (nonatomic, strong) NSArray               *allUsers;
 @property (nonatomic, strong) PFRelation            *doctorsRelation;
 @property (nonatomic, strong) NSArray               *patients;
-
-
-
-
-
-
 @property (nonatomic, strong) SMLoginViewController *logInViewController;
 
 

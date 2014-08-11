@@ -14,12 +14,6 @@
 
 // Properties to be stored on physical device
 @property (readwrite, nonatomic) BOOL isDoctor;
-
-
 @property (nonatomic, copy) NSString *userName;
-
-//@property (nonatomic, copy) NSString *userName;
-//@property (nonatomic, copy) NSString *email;
-//@property (nonatomic, copy) NSString *password;
 
 @end
