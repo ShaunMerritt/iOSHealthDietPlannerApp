@@ -1,0 +1,5 @@
+#include "Pods-MDCSwipeToChoose.xcconfig"
+GCC_PREPROCESSOR_DEFINITIONS = COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/MDCSwipeToChoose" "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/Bolts" "${PODS_ROOT}/Headers/Facebook-iOS-SDK" "${PODS_ROOT}/Headers/Facebook-iOS-SDK/FacebookSDK" "${PODS_ROOT}/Headers/MDCSwipeToChoose"
+OTHER_LDFLAGS = -ObjC ${PODS_MDCSWIPETOCHOOSE_OTHER_LDFLAGS}
+PODS_ROOT = ${SRCROOT}
