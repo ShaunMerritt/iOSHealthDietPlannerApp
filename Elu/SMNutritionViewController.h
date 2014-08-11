@@ -20,7 +20,6 @@
 - (IBAction)logout:(id)sender;
 - (IBAction)scanItemButtonPressed:(id)sender;
 
-@property (nonatomic, strong) SMAppDelegate *appDelegate;
 @property (nonatomic, strong) NSArray       *allDoctors;
 @property (nonatomic, strong) PFUser        *currentUser;
 
