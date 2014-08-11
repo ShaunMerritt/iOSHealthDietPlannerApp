@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>7797517B-7AF1-47E8-9068-7311DB4C755A</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Elu</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>CEDBD2E3-A168-4129-B845-BAF0D2223FA7</key>
+		<string>https://github.com/ShaunOssa/EluPlusRepository.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Elu.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>CEDBD2E3-A168-4129-B845-BAF0D2223FA7</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/ShaunOssa/EluPlusRepository.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>CEDBD2E3-A168-4129-B845-BAF0D2223FA7</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>CEDBD2E3-A168-4129-B845-BAF0D2223FA7</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Elu (original)</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -23,38 +23,22 @@
     return self;
 }
 
-//- (instancetype)initWithName:(NSString *)name
-//                       image:(UIImage *)image
-//                         age:(NSUInteger)age
-//       numberOfSharedFriends:(NSUInteger)numberOfSharedFriends
-//     numberOfSharedInterests:(NSUInteger)numberOfSharedInterests
-//              numberOfPhotos:(NSUInteger)numberOfPhotos {
-//    self = [super init];
-//    if (self) {
-//        _name = name;
-//        _image = image;
-//        _age = age;
-//        _numberOfSharedFriends = numberOfSharedFriends;
-//        _numberOfSharedInterests = numberOfSharedInterests;
-//        _numberOfPhotos = numberOfPhotos;
-//    }
-//    return self;
-//}
-
-- (void)setupWithDictionary:(NSDictionary *)dictionary
-{
-    
-    _image = [UIImage imageNamed:[dictionary valueForKey:@"image"]];
-    
-    _name = [dictionary valueForKey:@"name"];
-    _age = [dictionary valueForKey:@"title"];
-    _numberOfSharedFriends = [dictionary valueForKey:@"location"];
-    _numberOfSharedInterests = [dictionary valueForKey:@"location"];
-    _numberOfPhotos = [dictionary valueForKey:@"location"];
-
-    
+- (instancetype)initWithName:(NSString *)name
+                       image:(UIImage *)image
+                         age:(NSUInteger)age
+       numberOfSharedFriends:(NSUInteger)numberOfSharedFriends
+     numberOfSharedInterests:(NSUInteger)numberOfSharedInterests
+              numberOfPhotos:(NSUInteger)numberOfPhotos {
+    self = [super init];
+    if (self) {
+        _name = name;
+        _image = image;
+        _age = age;
+        _numberOfSharedFriends = numberOfSharedFriends;
+        _numberOfSharedInterests = numberOfSharedInterests;
+        _numberOfPhotos = numberOfPhotos;
+    }
+    return self;
 }
-
-
 
 @end

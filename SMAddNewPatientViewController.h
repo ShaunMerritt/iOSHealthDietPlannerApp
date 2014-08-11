@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface SMAddNewPatientViewController : UIViewController
+
 @property (weak, nonatomic) IBOutlet UITextField *firstNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *lastNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *patientsEmailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *patientsPhoneNumberTextField;
-
 
 @property (weak, nonatomic) IBOutlet UILabel     *uniqueCodeLabel;
 @property (weak, nonatomic) NSString        *uniqueCode;

@@ -27,16 +27,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
+    // Query for objects in class DietRestrictions with the same username as the current user
     PFQuery *query = [PFQuery queryWithClassName:@"DietRestrictions"];
     [query whereKey:@"user" equalTo:PFUser.currentUser];
     
+    // Find the objects from the query
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
                 if (!error) {
-                     //The find succeeded.
-                    NSLog(@"Successfully retrieved %d locations.", objects.count);
-                     //Do something with the found objects
+                    // No error
+                    NSLog(@"Successfully retrieved %lu objects.", (unsigned long)objects.count);
+                    // For each of the objects that is returned
                     for (PFObject *object in objects) {
                         //log the objects that we got back to the NSLOG
                         NSDictionary *caps = [object valueForKey:@"caps"];

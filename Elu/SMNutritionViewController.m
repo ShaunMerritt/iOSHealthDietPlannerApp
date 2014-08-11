@@ -473,8 +473,9 @@
         upcClient.delegate = self;
         [upcClient searchForItemIdFromUPCScan:upcString];
         
-        [reader dismissModalViewControllerAnimated: YES];
-        
+        [reader dismissViewControllerAnimated:YES completion:nil];
+        //[reader dismissModalViewControllerAnimated: YES];
+
     }
     
     

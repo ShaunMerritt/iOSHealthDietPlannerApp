@@ -36,46 +36,12 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
 #pragma  mark - UIViewController Overrides
 
 - (void)viewDidLoad {
-    NSLog(@"load");
+
     _foods = [[self defaultFoods] mutableCopy];
-    
-    //_allFoodsFromJSON = [[NSMutableArray alloc] init];
-    
-    NSError *error;
-    NSData *data = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"TeamMembers" ofType:@"json"]];
-    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-    
-    NSArray *make = json[@"team"];
-    //NSLog(@"FOOD: %@ ", _foods);
-    
-//    for (NSDictionary *test in make) {
-//        
-//        _image = [UIImage imageNamed:[test valueForKey:@"image"]];
-//        
-//        _name = [test valueForKey:@"name"];
-//        NSLog(@"NAME: %@", _name);
-//        _age = [test valueForKey:@"title"];
-//        _numberOfSharedFriends = [test valueForKey:@"location"];
-//        _numberOfSharedInterests = [test valueForKey:@"location"];
-//        _numberOfPhotos = [test valueForKey:@"location"];
-//        
-//        
-//        [_foods addObject: [[Food alloc] initWithName:_name
-//                              image:_image
-//                                age:1
-//              numberOfSharedFriends:2
-//            numberOfSharedInterests:3
-//                     numberOfPhotos:4]];
-//        
-//    }
-//    
-//    NSLog(@"all food: %@", _foods);
-
-
-
     [self.view setBackgroundColor:[UIColor whiteColor]];
+    
     [super viewDidLoad];
-    NSLog(@"loaded");
+    
     // Display the first ChooseFoodView in front. Users can swipe to indicate
     // whether they like or dislike the person displayed.
     self.frontCardView = [self popFoodViewWithFrame:[self frontCardViewFrame]];
@@ -111,27 +77,35 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
     // MDCSwipeToChooseView shows "NOPE" on swipes to the left,
     // and "LIKED" on swipes to the right.
     if (direction == MDCSwipeDirectionLeft) {
+        // Didnt like food
         NSLog(@"You noped %@.", self.currentFood.name);
-        
     } else {
+        // Liked food
         NSLog(@"You liked %@.", self.currentFood.name);
+        
+        // Add food item to like array
         [self.likedFoodsArray addObject:[NSString stringWithFormat:@"%@",self.currentFood.name.lowercaseString]];
         NSLog(@"%@", self.likedFoodsArray);
+        
+        // If all foods have been seen execute this.
         if ([self.foods count] <= self.numberOfItemsSwiped) {
             
+            // Set the liked food array to Liked_Food_Array on Parse
             [[PFUser currentUser] setObject:self.likedFoodsArray forKey:@"Liked_Food_Array"];
             
-            
+            // This is how to make a dictionary and save it on parse. (Doesn't do anything, just here for fun)
             NSDictionary *dictionary = @{@"number": @"1",
                                          @"string": @"hi"};
             [[PFUser currentUser] setObject:dictionary forKey:@"testDictionary"];
             
+            // Save the objects to parse
             [[PFUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (!error) {
                 
                 }
             }];
             
+            // Move to different viewController
             UIStoryboard *sbs        = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
             UIViewController *vcs    = [sbs instantiateViewControllerWithIdentifier:@"testName"];
             vcs.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
@@ -172,58 +146,26 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
 
 
 -(NSArray *)defaultFoods {
-    // It would be trivial to download these from a web service
-    // as needed, but for the purposes of this sample app we'll
-    // simply store them in memory.
-    
-             
-             
-//             for (NSString *test in _foods) {
-//                 
-//                 _image = [UIImage imageNamed:[test valueForKey:@"image"]];
-//                 
-//                 _name = [test valueForKey:@"name"];
-//                 _age = [test valueForKey:@"title"];
-//                 _numberOfSharedFriends = [test valueForKey:@"location"];
-//                 _numberOfSharedInterests = [test valueForKey:@"location"];
-//                 _numberOfPhotos = [test valueForKey:@"location"];
-//                 
-//                 return @[
-//                 [[Food alloc] initWithName:_name
-//                                      image:_image
-//                                        age:_age
-//                      numberOfSharedFriends:_numberOfSharedFriends
-//                    numberOfSharedInterests:_numberOfSharedInterests
-//                             numberOfPhotos:_numberOfPhotos],
-//                 ];
-//             }
-//    
-    
-            return @[
-             
-             [[Food alloc] initWithName:@"Barley"
-                                  image:[UIImage imageNamed:@"Barley"]],
-             [[Food alloc] initWithName:@"Bread"
-                                  image:[UIImage imageNamed:@"Bread(products)"]],
-             [[Food alloc] initWithName:@"Buckwheat"
-                                  image:[UIImage imageNamed:@"Buckwheat"]],
-             [[Food alloc] initWithName:@"Corn"
-                                  image:[UIImage imageNamed:@"Corn "]],
-             [[Food alloc] initWithName:@"Oats"
-                                  image:[UIImage imageNamed:@"Oats"]],
-             [[Food alloc] initWithName:@"Potatoes"
-                                  image:[UIImage imageNamed:@"Potatoes"]],
-             [[Food alloc] initWithName:@"Quinoa"
-                                  image:[UIImage imageNamed:@"Quinoa"]],
-             [[Food alloc] initWithName:@"Rice"
-                                  image:[UIImage imageNamed:@"Rice"]],
-             ];
-    
-    
-    
-//    [Food setupWithDictionary:[self.foods objectAtIndex:indexPath.row]];
 
-    
+    // Create all of the food items
+    return @[
+         [[Food alloc] initWithName:@"Barley"
+                              image:[UIImage imageNamed:@"Barley"]],
+         [[Food alloc] initWithName:@"Bread"
+                              image:[UIImage imageNamed:@"Bread(products)"]],
+         [[Food alloc] initWithName:@"Buckwheat"
+                              image:[UIImage imageNamed:@"Buckwheat"]],
+         [[Food alloc] initWithName:@"Corn"
+                              image:[UIImage imageNamed:@"Corn "]],
+         [[Food alloc] initWithName:@"Oats"
+                              image:[UIImage imageNamed:@"Oats"]],
+         [[Food alloc] initWithName:@"Potatoes"
+                              image:[UIImage imageNamed:@"Potatoes"]],
+         [[Food alloc] initWithName:@"Quinoa"
+                              image:[UIImage imageNamed:@"Quinoa"]],
+         [[Food alloc] initWithName:@"Rice"
+                              image:[UIImage imageNamed:@"Rice"]],
+     ];
     
 }
 
