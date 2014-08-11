@@ -94,6 +94,10 @@
     
     
     
+    
+    
+    
+    
     // Create patientsweight and activity level based on what doctor inputs
     patientsWeight = self.patientsWeightTextField.text;
     patientsActivityLevel = [[NSNumber numberWithFloat:self.slider1.value] stringValue];
