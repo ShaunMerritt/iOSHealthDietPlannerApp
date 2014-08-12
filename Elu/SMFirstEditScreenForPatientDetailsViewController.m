@@ -154,7 +154,7 @@
 #pragma mark - HelperMethods
 - (void) getSuggestedDailyCaloriesForMaintence: (NSString *)weight activityLevel:(NSString *)activity sex:(NSString *)patientsSex age:(NSString *)patientsAge heightInFeet: (NSString *)patientsHeightInFeet heightInches: (NSString *)patientsHeightInInches{
     
-    /* Call cloud code function "generateRecommendedCaloriesForMen", and pass in parameters that are included in method call. This should return the total calories a patient should have a day to maintain weight */
+    /*  Call cloud code function "generateRecommendedCaloriesForMen", and pass in parameters that are included in method call. This should return the total calories a patient should have a day to maintain weight */
     [PFCloud callFunctionInBackground:@"generateRecommendedCaloriesForMen"
                        withParameters: @{@"weight": weight, @"activityNumber": activity, @"sex": patientsSex, @"age": patientsAge, @"heightInFeet": patientsHeightInFeet, @"heightInches": patientsHeightInInches}
                                 block:^(NSString *object, NSError *error) {
