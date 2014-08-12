@@ -74,6 +74,7 @@
 		2843871D1983057E001A3A57 /* YummlyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2843871C1983057E001A3A57 /* YummlyModel.m */; };
 		284387211983063B001A3A57 /* SMConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 284387201983063B001A3A57 /* SMConstants.m */; };
 		2843872519832044001A3A57 /* SMYummlyHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2843872419832044001A3A57 /* SMYummlyHTTPClient.m */; };
+		2853FC2B199AD5E90073B891 /* SMBMICalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2853FC2A199AD5E90073B891 /* SMBMICalculator.m */; };
 		285483421990172C00BE8A97 /* TeamMembers.json in Resources */ = {isa = PBXBuildFile; fileRef = 285483411990172C00BE8A97 /* TeamMembers.json */; };
 		285487F6197EDDDD000320CF /* SMEditPatientDietViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 285487F5197EDDDD000320CF /* SMEditPatientDietViewController.m */; };
 		2855A89519648C6200081F5A /* chickenBW.png in Resources */ = {isa = PBXBuildFile; fileRef = 2855A89019648C6200081F5A /* chickenBW.png */; };
@@ -287,6 +288,8 @@
 		284387201983063B001A3A57 /* SMConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMConstants.m; sourceTree = "<group>"; };
 		2843872319832044001A3A57 /* SMYummlyHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMYummlyHTTPClient.h; sourceTree = "<group>"; };
 		2843872419832044001A3A57 /* SMYummlyHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMYummlyHTTPClient.m; sourceTree = "<group>"; };
+		2853FC29199AD5E90073B891 /* SMBMICalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMBMICalculator.h; sourceTree = "<group>"; };
+		2853FC2A199AD5E90073B891 /* SMBMICalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMBMICalculator.m; sourceTree = "<group>"; };
 		285483411990172C00BE8A97 /* TeamMembers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TeamMembers.json; sourceTree = "<group>"; };
 		285487F4197EDDDD000320CF /* SMEditPatientDietViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMEditPatientDietViewController.h; sourceTree = "<group>"; };
 		285487F5197EDDDD000320CF /* SMEditPatientDietViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMEditPatientDietViewController.m; sourceTree = "<group>"; };
@@ -546,6 +549,7 @@
 		283D4396195A37770054E16D /* Elu */ = {
 			isa = PBXGroup;
 			children = (
+				2853FC2D199AD5F70073B891 /* BMI Calculator */,
 				2843872619832047001A3A57 /* HTTP Client */,
 				2843871E19830580001A3A57 /* JSON Models */,
 				284387221983063E001A3A57 /* Constants */,
@@ -877,6 +881,15 @@
 				28921A721986DF36000D2689 /* Nutritionix UPC Client */,
 			);
 			name = "HTTP Client";
+			sourceTree = "<group>";
+		};
+		2853FC2D199AD5F70073B891 /* BMI Calculator */ = {
+			isa = PBXGroup;
+			children = (
+				2853FC29199AD5E90073B891 /* SMBMICalculator.h */,
+				2853FC2A199AD5E90073B891 /* SMBMICalculator.m */,
+			);
+			name = "BMI Calculator";
 			sourceTree = "<group>";
 		};
 		2866F71919651C940052BAD1 /* Grains */ = {
@@ -1294,6 +1307,7 @@
 				282972D9198049E200ED1287 /* SMHomeScreenViewController.m in Sources */,
 				28D0DE61199440730004A2E2 /* RMStepsController.m in Sources */,
 				28D35884196227C100BAB66B /* SMLikeFoodViewController.m in Sources */,
+				2853FC2B199AD5E90073B891 /* SMBMICalculator.m in Sources */,
 				28921A711986DF34000D2689 /* SMNutritionixUPCClient.m in Sources */,
 				284386EA1982F83C001A3A57 /* UIAlertView+AFNetworking.m in Sources */,
 				28D0DE64199440BA0004A2E2 /* SMEditPatientDetailStepController.m in Sources */,
