@@ -27,10 +27,8 @@
 @synthesize patientsWeightLabel, patientsWeightTextField, heightLabel, heightInFeetTextField, heightInInchesTextField, maleLabel, maleSwitch, patientsAgeTextField;
 
 #pragma mark - LifeCycle
-
 - (void)viewDidLoad
 {
-    NSLog(@"Got hee");
     [super viewDidLoad];
     
     SMAppDelegate *appDelegate = (SMAppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -64,8 +62,35 @@
     
 }
 
-#pragma mark - ASValueTrackingSliderDataSource
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    // Make keyboard go away when touch background
+    UITouch *touch = [[event allTouches] anyObject];
+    if ([self.patientsAgeTextField isFirstResponder] && [touch view] != self.patientsAgeTextField) {
+        [self.patientsAgeTextField resignFirstResponder];
+    }
+    if ([self.heightInFeetTextField isFirstResponder] && [touch view] != self.heightInFeetTextField) {
+        [self.heightInFeetTextField resignFirstResponder];
+    }
+    if ([self.heightInInchesTextField isFirstResponder] && [touch view] != self.heightInInchesTextField) {
+        [self.heightInInchesTextField resignFirstResponder];
+    }
+    if ([self.patientsWeightTextField isFirstResponder] && [touch view] != self.patientsWeightTextField) {
+        [self.patientsWeightTextField resignFirstResponder];
+    }
+    
+    [super touchesBegan:touches withEvent:event];
+    
+}
 
+- (void)setDetailItemForPatient:(id)newDetailItem
+{
+    if (_detailItem != newDetailItem) {
+        _detailItem = newDetailItem;
+    }
+}
+
+#pragma mark - ASValueTrackingSliderDataSource
 - (NSString *)slider:(ASValueTrackingSlider *)slider stringForValue:(float)value;
 {
     value = value;
@@ -107,7 +132,7 @@
     // Call method to initiate cloud code
     [self getSuggestedDailyCaloriesForMaintence:patientsWeight activityLevel:patientsActivityLevel sex:patientsSex age:patientsAge heightInFeet:patientsHeightInFeet heightInches:patientsHeighInInches];
     
-    
+    // Call the next step method for the steps GitHub project
     [self.stepsController showNextStep];
 }
 
@@ -115,14 +140,18 @@
     [self.stepsController showPreviousStep];
 }
 
-- (void)setDetailItemForPatient:(id)newDetailItem
-{
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
+- (IBAction)switchValueChanged:(id)sender {
+    
+    // Change isMale based on the value of the uiswitch. Here is the if else statement
+    if ([self.maleSwitch isOn]) {
+        isMale = YES;
+    } else {
+        isMale = NO;
     }
+    
 }
 
-
+#pragma mark - HelperMethods
 - (void) getSuggestedDailyCaloriesForMaintence: (NSString *)weight activityLevel:(NSString *)activity sex:(NSString *)patientsSex age:(NSString *)patientsAge heightInFeet: (NSString *)patientsHeightInFeet heightInches: (NSString *)patientsHeightInInches{
     
     /* Call cloud code function "generateRecommendedCaloriesForMen", and pass in parameters that are included in method call. This should return the total calories a patient should have a day to maintain weight */
@@ -163,40 +192,6 @@
                                         
                                     }
                                 }];
-}
-
-
-
-- (IBAction)switchValueChanged:(id)sender {
-    
-    // Change isMale based on the value of the uiswitch. Here is the if else statement
-    if ([self.maleSwitch isOn]) {
-        isMale = YES;
-    } else {
-        isMale = NO;
-    }
-    
-}
-
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    
-    // Make keyboard go away when touch background
-    UITouch *touch = [[event allTouches] anyObject];
-    if ([self.patientsAgeTextField isFirstResponder] && [touch view] != self.patientsAgeTextField) {
-        [self.patientsAgeTextField resignFirstResponder];
-    }
-    if ([self.heightInFeetTextField isFirstResponder] && [touch view] != self.heightInFeetTextField) {
-        [self.heightInFeetTextField resignFirstResponder];
-    }
-    if ([self.heightInInchesTextField isFirstResponder] && [touch view] != self.heightInInchesTextField) {
-        [self.heightInInchesTextField resignFirstResponder];
-    }
-    if ([self.patientsWeightTextField isFirstResponder] && [touch view] != self.patientsWeightTextField) {
-        [self.patientsWeightTextField resignFirstResponder];
-    }
-    
-    [super touchesBegan:touches withEvent:event];
-    
 }
 
 @end
