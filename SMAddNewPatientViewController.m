@@ -15,13 +15,14 @@
 @implementation SMAddNewPatientViewController
 @synthesize uniqueCode;
 
+#pragma mark - Lifecycle
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
 }
 
-
+#pragma mark - IBActions
 - (IBAction)createPatientButton:(id)sender {
     
     [self genRandStringLength:5];
@@ -29,6 +30,7 @@
     
 }
 
+#pragma mark - HelperMethods
 - (NSString *)genRandStringLength:(int)len {
     
     // Create string with all possible
