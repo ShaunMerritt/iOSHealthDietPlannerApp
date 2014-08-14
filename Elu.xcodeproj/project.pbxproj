@@ -74,6 +74,7 @@
 		2843871D1983057E001A3A57 /* YummlyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2843871C1983057E001A3A57 /* YummlyModel.m */; };
 		284387211983063B001A3A57 /* SMConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 284387201983063B001A3A57 /* SMConstants.m */; };
 		2843872519832044001A3A57 /* SMYummlyHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2843872419832044001A3A57 /* SMYummlyHTTPClient.m */; };
+		2853FC36199C5FEC0073B891 /* SMSecondEditScreenForPatientDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2853FC35199C5FEC0073B891 /* SMSecondEditScreenForPatientDetailsViewController.m */; };
 		285483421990172C00BE8A97 /* TeamMembers.json in Resources */ = {isa = PBXBuildFile; fileRef = 285483411990172C00BE8A97 /* TeamMembers.json */; };
 		285487F6197EDDDD000320CF /* SMEditPatientDietViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 285487F5197EDDDD000320CF /* SMEditPatientDietViewController.m */; };
 		2855A89519648C6200081F5A /* chickenBW.png in Resources */ = {isa = PBXBuildFile; fileRef = 2855A89019648C6200081F5A /* chickenBW.png */; };
@@ -287,6 +288,8 @@
 		284387201983063B001A3A57 /* SMConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMConstants.m; sourceTree = "<group>"; };
 		2843872319832044001A3A57 /* SMYummlyHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMYummlyHTTPClient.h; sourceTree = "<group>"; };
 		2843872419832044001A3A57 /* SMYummlyHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMYummlyHTTPClient.m; sourceTree = "<group>"; };
+		2853FC34199C5FEC0073B891 /* SMSecondEditScreenForPatientDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSecondEditScreenForPatientDetailsViewController.h; sourceTree = "<group>"; };
+		2853FC35199C5FEC0073B891 /* SMSecondEditScreenForPatientDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSecondEditScreenForPatientDetailsViewController.m; sourceTree = "<group>"; };
 		285483411990172C00BE8A97 /* TeamMembers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TeamMembers.json; sourceTree = "<group>"; };
 		285487F4197EDDDD000320CF /* SMEditPatientDietViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMEditPatientDietViewController.h; sourceTree = "<group>"; };
 		285487F5197EDDDD000320CF /* SMEditPatientDietViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMEditPatientDietViewController.m; sourceTree = "<group>"; };
@@ -557,10 +560,7 @@
 				283D43A2195A37790054E16D /* Images.xcassets */,
 				283D4397195A37770054E16D /* Supporting Files */,
 				28D0DE5719943F950004A2E2 /* Page View For Editing Patient */,
-				28D0DE62199440BA0004A2E2 /* SMEditPatientDetailStepController.h */,
-				28D0DE63199440BA0004A2E2 /* SMEditPatientDetailStepController.m */,
-				28D0DE65199441420004A2E2 /* SMFirstEditScreenForPatientDetailsViewController.h */,
-				28D0DE66199441420004A2E2 /* SMFirstEditScreenForPatientDetailsViewController.m */,
+				2853FC31199C5FB00073B891 /* Edit Patient Steps Controller */,
 			);
 			path = Elu;
 			sourceTree = "<group>";
@@ -877,6 +877,43 @@
 				28921A721986DF36000D2689 /* Nutritionix UPC Client */,
 			);
 			name = "HTTP Client";
+			sourceTree = "<group>";
+		};
+		2853FC31199C5FB00073B891 /* Edit Patient Steps Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2853FC32199C5FC20073B891 /* Main */,
+				2853FC33199C5FC70073B891 /* First */,
+				2853FC37199C5FEE0073B891 /* Second */,
+			);
+			name = "Edit Patient Steps Controller";
+			sourceTree = "<group>";
+		};
+		2853FC32199C5FC20073B891 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				28D0DE62199440BA0004A2E2 /* SMEditPatientDetailStepController.h */,
+				28D0DE63199440BA0004A2E2 /* SMEditPatientDetailStepController.m */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		2853FC33199C5FC70073B891 /* First */ = {
+			isa = PBXGroup;
+			children = (
+				28D0DE65199441420004A2E2 /* SMFirstEditScreenForPatientDetailsViewController.h */,
+				28D0DE66199441420004A2E2 /* SMFirstEditScreenForPatientDetailsViewController.m */,
+			);
+			name = First;
+			sourceTree = "<group>";
+		};
+		2853FC37199C5FEE0073B891 /* Second */ = {
+			isa = PBXGroup;
+			children = (
+				2853FC34199C5FEC0073B891 /* SMSecondEditScreenForPatientDetailsViewController.h */,
+				2853FC35199C5FEC0073B891 /* SMSecondEditScreenForPatientDetailsViewController.m */,
+			);
+			name = Second;
 			sourceTree = "<group>";
 		};
 		2866F71919651C940052BAD1 /* Grains */ = {
@@ -1277,6 +1314,7 @@
 				284387101982F87C001A3A57 /* JSONModelClassProperty.m in Sources */,
 				284386EE1982F83C001A3A57 /* UIRefreshControl+AFNetworking.m in Sources */,
 				28D0DE67199441420004A2E2 /* SMFirstEditScreenForPatientDetailsViewController.m in Sources */,
+				2853FC36199C5FEC0073B891 /* SMSecondEditScreenForPatientDetailsViewController.m in Sources */,
 				284387121982F87C001A3A57 /* NSArray+JSONModel.m in Sources */,
 				286C6C9E1963BE5E0071E678 /* CIImage+Filter.m in Sources */,
 				286C6C621963A0270071E678 /* SMFood.m in Sources */,

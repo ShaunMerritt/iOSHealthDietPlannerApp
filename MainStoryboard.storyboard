@@ -816,10 +816,10 @@
             </objects>
             <point key="canvasLocation" x="3715" y="-1096"/>
         </scene>
-        <!--First Edit Screen For Patient Details View Controller-->
+        <!--Second Edit Screen For Patient Details View Controller-->
         <scene sceneID="G3T-4c-VRs">
             <objects>
-                <viewController storyboardIdentifier="SomeStep2" useStoryboardIdentifierAsRestorationIdentifier="YES" id="emi-Eg-vdf" customClass="SMFirstEditScreenForPatientDetailsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SomeStep2" useStoryboardIdentifierAsRestorationIdentifier="YES" id="emi-Eg-vdf" customClass="SMSecondEditScreenForPatientDetailsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qf0-dR-28p"/>
                         <viewControllerLayoutGuide type="bottom" id="nHT-Uq-f6T"/>
