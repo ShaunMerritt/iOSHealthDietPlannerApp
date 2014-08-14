@@ -561,10 +561,7 @@
 				283D43A2195A37790054E16D /* Images.xcassets */,
 				283D4397195A37770054E16D /* Supporting Files */,
 				28D0DE5719943F950004A2E2 /* Page View For Editing Patient */,
-				28D0DE62199440BA0004A2E2 /* SMEditPatientDetailStepController.h */,
-				28D0DE63199440BA0004A2E2 /* SMEditPatientDetailStepController.m */,
-				28D0DE65199441420004A2E2 /* SMFirstEditScreenForPatientDetailsViewController.h */,
-				28D0DE66199441420004A2E2 /* SMFirstEditScreenForPatientDetailsViewController.m */,
+				2853FC2E199C5EF20073B891 /* Steps For Edit Patient */,
 			);
 			path = Elu;
 			sourceTree = "<group>";
@@ -890,6 +887,33 @@
 				2853FC2A199AD5E90073B891 /* SMBMICalculator.m */,
 			);
 			name = "BMI Calculator";
+			sourceTree = "<group>";
+		};
+		2853FC2E199C5EF20073B891 /* Steps For Edit Patient */ = {
+			isa = PBXGroup;
+			children = (
+				2853FC2F199C5EFE0073B891 /* Main */,
+				2853FC30199C5F040073B891 /* New Group */,
+			);
+			name = "Steps For Edit Patient";
+			sourceTree = "<group>";
+		};
+		2853FC2F199C5EFE0073B891 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				28D0DE62199440BA0004A2E2 /* SMEditPatientDetailStepController.h */,
+				28D0DE63199440BA0004A2E2 /* SMEditPatientDetailStepController.m */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		2853FC30199C5F040073B891 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				28D0DE65199441420004A2E2 /* SMFirstEditScreenForPatientDetailsViewController.h */,
+				28D0DE66199441420004A2E2 /* SMFirstEditScreenForPatientDetailsViewController.m */,
+			);
+			name = "New Group";
 			sourceTree = "<group>";
 		};
 		2866F71919651C940052BAD1 /* Grains */ = {

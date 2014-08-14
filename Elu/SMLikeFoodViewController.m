@@ -163,8 +163,6 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
                               image:[UIImage imageNamed:@"Potatoes"]],
          [[Food alloc] initWithName:@"Quinoa"
                               image:[UIImage imageNamed:@"Quinoa"]],
-         [[Food alloc] initWithName:@"Rice"
-                              image:[UIImage imageNamed:@"Rice"]],
      ];
     
 }
