@@ -75,6 +75,12 @@
 		284387211983063B001A3A57 /* SMConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 284387201983063B001A3A57 /* SMConstants.m */; };
 		2843872519832044001A3A57 /* SMYummlyHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2843872419832044001A3A57 /* SMYummlyHTTPClient.m */; };
 		2853FC36199C5FEC0073B891 /* SMSecondEditScreenForPatientDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2853FC35199C5FEC0073B891 /* SMSecondEditScreenForPatientDetailsViewController.m */; };
+		2853FC48199C67620073B891 /* UIColor+GraphKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2853FC47199C67620073B891 /* UIColor+GraphKit.m */; };
+		2853FC4F199C6CB90073B891 /* FPPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2853FC4A199C6CB90073B891 /* FPPopoverController.m */; };
+		2853FC50199C6CB90073B891 /* FPPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2853FC4C199C6CB90073B891 /* FPPopoverView.m */; };
+		2853FC51199C6CB90073B891 /* FPTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2853FC4E199C6CB90073B891 /* FPTouchView.m */; };
+		2853FC56199C6D6F0073B891 /* SMSecondEditPatientTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2853FC55199C6D6F0073B891 /* SMSecondEditPatientTableViewController.m */; };
+		2853FC59199C6E5F0073B891 /* FPPopoverKeyboardResponsiveController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2853FC58199C6E5F0073B891 /* FPPopoverKeyboardResponsiveController.m */; };
 		285483421990172C00BE8A97 /* TeamMembers.json in Resources */ = {isa = PBXBuildFile; fileRef = 285483411990172C00BE8A97 /* TeamMembers.json */; };
 		285487F6197EDDDD000320CF /* SMEditPatientDietViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 285487F5197EDDDD000320CF /* SMEditPatientDietViewController.m */; };
 		2855A89519648C6200081F5A /* chickenBW.png in Resources */ = {isa = PBXBuildFile; fileRef = 2855A89019648C6200081F5A /* chickenBW.png */; };
@@ -290,6 +296,19 @@
 		2843872419832044001A3A57 /* SMYummlyHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMYummlyHTTPClient.m; sourceTree = "<group>"; };
 		2853FC34199C5FEC0073B891 /* SMSecondEditScreenForPatientDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSecondEditScreenForPatientDetailsViewController.h; sourceTree = "<group>"; };
 		2853FC35199C5FEC0073B891 /* SMSecondEditScreenForPatientDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSecondEditScreenForPatientDetailsViewController.m; sourceTree = "<group>"; };
+		2853FC46199C67620073B891 /* UIColor+GraphKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+GraphKit.h"; sourceTree = "<group>"; };
+		2853FC47199C67620073B891 /* UIColor+GraphKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+GraphKit.m"; sourceTree = "<group>"; };
+		2853FC49199C6CB90073B891 /* FPPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPPopoverController.h; sourceTree = "<group>"; };
+		2853FC4A199C6CB90073B891 /* FPPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPPopoverController.m; sourceTree = "<group>"; };
+		2853FC4B199C6CB90073B891 /* FPPopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPPopoverView.h; sourceTree = "<group>"; };
+		2853FC4C199C6CB90073B891 /* FPPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPPopoverView.m; sourceTree = "<group>"; };
+		2853FC4D199C6CB90073B891 /* FPTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPTouchView.h; sourceTree = "<group>"; };
+		2853FC4E199C6CB90073B891 /* FPTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPTouchView.m; sourceTree = "<group>"; };
+		2853FC53199C6CD50073B891 /* ARCMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARCMacros.h; sourceTree = "<group>"; };
+		2853FC54199C6D6F0073B891 /* SMSecondEditPatientTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSecondEditPatientTableViewController.h; sourceTree = "<group>"; };
+		2853FC55199C6D6F0073B891 /* SMSecondEditPatientTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSecondEditPatientTableViewController.m; sourceTree = "<group>"; };
+		2853FC57199C6E5F0073B891 /* FPPopoverKeyboardResponsiveController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPPopoverKeyboardResponsiveController.h; sourceTree = "<group>"; };
+		2853FC58199C6E5F0073B891 /* FPPopoverKeyboardResponsiveController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPPopoverKeyboardResponsiveController.m; sourceTree = "<group>"; };
 		285483411990172C00BE8A97 /* TeamMembers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TeamMembers.json; sourceTree = "<group>"; };
 		285487F4197EDDDD000320CF /* SMEditPatientDietViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMEditPatientDietViewController.h; sourceTree = "<group>"; };
 		285487F5197EDDDD000320CF /* SMEditPatientDietViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMEditPatientDietViewController.m; sourceTree = "<group>"; };
@@ -568,6 +587,9 @@
 		283D4397195A37770054E16D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2853FC52199C6CBE0073B891 /* PopOver */,
+				2853FC46199C67620073B891 /* UIColor+GraphKit.h */,
+				2853FC47199C67620073B891 /* UIColor+GraphKit.m */,
 				28D0DE6E199446570004A2E2 /* ASValueTrackingSlider */,
 				28D0DE58199440730004A2E2 /* RMStepsController */,
 				28E682DE198AC47F00398E20 /* CHCSVParser.h */,
@@ -912,8 +934,26 @@
 			children = (
 				2853FC34199C5FEC0073B891 /* SMSecondEditScreenForPatientDetailsViewController.h */,
 				2853FC35199C5FEC0073B891 /* SMSecondEditScreenForPatientDetailsViewController.m */,
+				2853FC54199C6D6F0073B891 /* SMSecondEditPatientTableViewController.h */,
+				2853FC55199C6D6F0073B891 /* SMSecondEditPatientTableViewController.m */,
+				2853FC57199C6E5F0073B891 /* FPPopoverKeyboardResponsiveController.h */,
+				2853FC58199C6E5F0073B891 /* FPPopoverKeyboardResponsiveController.m */,
 			);
 			name = Second;
+			sourceTree = "<group>";
+		};
+		2853FC52199C6CBE0073B891 /* PopOver */ = {
+			isa = PBXGroup;
+			children = (
+				2853FC53199C6CD50073B891 /* ARCMacros.h */,
+				2853FC49199C6CB90073B891 /* FPPopoverController.h */,
+				2853FC4A199C6CB90073B891 /* FPPopoverController.m */,
+				2853FC4B199C6CB90073B891 /* FPPopoverView.h */,
+				2853FC4C199C6CB90073B891 /* FPPopoverView.m */,
+				2853FC4D199C6CB90073B891 /* FPTouchView.h */,
+				2853FC4E199C6CB90073B891 /* FPTouchView.m */,
+			);
+			name = PopOver;
 			sourceTree = "<group>";
 		};
 		2866F71919651C940052BAD1 /* Grains */ = {
@@ -1331,6 +1371,7 @@
 				286C6CA11963BE5E0071E678 /* NGFilterConstructor.m in Sources */,
 				282972D9198049E200ED1287 /* SMHomeScreenViewController.m in Sources */,
 				28D0DE61199440730004A2E2 /* RMStepsController.m in Sources */,
+				2853FC59199C6E5F0073B891 /* FPPopoverKeyboardResponsiveController.m in Sources */,
 				28D35884196227C100BAB66B /* SMLikeFoodViewController.m in Sources */,
 				28921A711986DF34000D2689 /* SMNutritionixUPCClient.m in Sources */,
 				284386EA1982F83C001A3A57 /* UIAlertView+AFNetworking.m in Sources */,
@@ -1351,14 +1392,19 @@
 				286C6C9C1963BE5E0071E678 /* CIBlueMoodFilter.m in Sources */,
 				286C6CA01963BE5E0071E678 /* ImageFilterCache.m in Sources */,
 				284386EB1982F83C001A3A57 /* UIButton+AFNetworking.m in Sources */,
+				2853FC51199C6CB90073B891 /* FPTouchView.m in Sources */,
 				28D0DE5F199440730004A2E2 /* RMStep.m in Sources */,
 				283D43ED195A76790054E16D /* SMDoctorPatientsTableViewController.m in Sources */,
 				284386ED1982F83C001A3A57 /* UIProgressView+AFNetworking.m in Sources */,
+				2853FC4F199C6CB90073B891 /* FPPopoverController.m in Sources */,
+				2853FC50199C6CB90073B891 /* FPPopoverView.m in Sources */,
 				280F1F3E19622F8B004BE086 /* ImageLabelView.m in Sources */,
+				2853FC48199C67620073B891 /* UIColor+GraphKit.m in Sources */,
 				283D43EA195A455C0054E16D /* SMSignupViewController.m in Sources */,
 				280F1F3B19622F80004BE086 /* ChooseFoodView.m in Sources */,
 				28D0DE60199440730004A2E2 /* RMStepsBar.m in Sources */,
 				284387141982F87C001A3A57 /* JSONHTTPClient.m in Sources */,
+				2853FC56199C6D6F0073B891 /* SMSecondEditPatientTableViewController.m in Sources */,
 				284386E81982F83C001A3A57 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				2843871D1983057E001A3A57 /* YummlyModel.m in Sources */,
 				2843870D1982F87C001A3A57 /* JSONModel+CoreData.m in Sources */,

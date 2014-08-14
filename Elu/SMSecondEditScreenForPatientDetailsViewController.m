@@ -10,9 +10,12 @@
 #import "RMStepsController.h"
 #import "ASValueTrackingSlider.h"
 #import "SMAppDelegate.h"
+#import "SMSecondEditPatientTableViewController.h"
 
 
 @interface SMSecondEditScreenForPatientDetailsViewController ()
+
+@property (nonatomic, assign) BOOL green;
 
 @end
 
@@ -30,7 +33,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    
+    
+    self.view.backgroundColor = [UIColor gk_cloudsColor];
+    
+    self.data = @[@65, @10, @40, @90, @50, @75];
+    self.labels = @[@"US", @"UK", @"DE", @"PL", @"CN", @"JP"];
+    
+    //    self.graphView.barWidth = 22;
+    //    self.graphView.barHeight = 140;
+    //    self.graphView.marginBar = 25;
+    //    self.graphView.animationDuration = 2.0;
+    
+    self.graphView.dataSource = self;
+    
+    [self.graphView draw];
+    
+    self.green = YES;
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,4 +72,73 @@
 }
 */
 
+#pragma mark - GKBarGraphDataSource
+
+- (NSInteger)numberOfBars {
+    return [self.data count];
+}
+
+- (NSNumber *)valueForBarAtIndex:(NSInteger)index {
+    return [self.data objectAtIndex:index];
+}
+
+- (UIColor *)colorForBarAtIndex:(NSInteger)index {
+    id colors = @[[UIColor gk_turquoiseColor],
+                  [UIColor gk_peterRiverColor],
+                  [UIColor gk_alizarinColor],
+                  [UIColor gk_amethystColor],
+                  [UIColor gk_emerlandColor],
+                  [UIColor gk_sunflowerColor]
+                  ];
+    return [colors objectAtIndex:index];
+}
+
+//- (UIColor *)colorForBarBackgroundAtIndex:(NSInteger)index {
+//    return [UIColor redColor];
+//}
+
+- (CFTimeInterval)animationDurationForBarAtIndex:(NSInteger)index {
+    CGFloat percentage = [[self valueForBarAtIndex:index] doubleValue];
+    percentage = (percentage / 100);
+    return (self.graphView.animationDuration * percentage);
+}
+
+- (NSString *)titleForBarAtIndex:(NSInteger)index {
+    return [self.labels objectAtIndex:index];
+}
+
+- (void)presentedNewPopoverController:(FPPopoverController *)newPopoverController
+          shouldDismissVisiblePopover:(FPPopoverController*)visiblePopoverController
+{
+    NSLog(@"Ri");
+    //[visiblePopoverController dismissPopoverAnimated:YES];
+}
+
+-(void)selectedTableRow:(NSUInteger)rowNum
+{
+    NSLog(@"SELECTED ROW %lu",(unsigned long)rowNum);
+    [popover dismissPopoverAnimated:YES];
+}
+
+
+- (IBAction)carbs:(id)sender {
+    
+    //the view controller you want to present as popover
+    SMSecondEditPatientTableViewController *controller = [[SMSecondEditPatientTableViewController alloc] init];
+    controller.delegate = self;
+
+    //our popover
+    popover = [[FPPopoverController alloc] initWithViewController:controller];
+    
+    //the popover will be presented from the okButton view
+    [popover presentPopoverFromView:sender];
+
+    
+}
+
+- (IBAction)protein:(id)sender {
+}
+
+- (IBAction)fat:(id)sender {
+}
 @end

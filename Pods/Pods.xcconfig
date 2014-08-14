@@ -1,5 +1,5 @@
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/Bolts" "${PODS_ROOT}/Headers/Facebook-iOS-SDK" "${PODS_ROOT}/Headers/Facebook-iOS-SDK/FacebookSDK" "${PODS_ROOT}/Headers/MDCSwipeToChoose"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers" -isystem "${PODS_ROOT}/Headers/Bolts" -isystem "${PODS_ROOT}/Headers/Facebook-iOS-SDK" -isystem "${PODS_ROOT}/Headers/Facebook-iOS-SDK/FacebookSDK" -isystem "${PODS_ROOT}/Headers/MDCSwipeToChoose"
-OTHER_LDFLAGS = -ObjC -framework CoreLocation -framework UIKit -weak_framework Accounts -weak_framework Security -weak_framework Social
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/Bolts" "${PODS_ROOT}/Headers/Facebook-iOS-SDK" "${PODS_ROOT}/Headers/Facebook-iOS-SDK/FacebookSDK" "${PODS_ROOT}/Headers/FrameAccessor" "${PODS_ROOT}/Headers/GraphKit" "${PODS_ROOT}/Headers/MDCSwipeToChoose" "${PODS_ROOT}/Headers/MKFoundationKit" "${PODS_ROOT}/Headers/PNChart" "${PODS_ROOT}/Headers/UICountingLabel"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers" -isystem "${PODS_ROOT}/Headers/Bolts" -isystem "${PODS_ROOT}/Headers/Facebook-iOS-SDK" -isystem "${PODS_ROOT}/Headers/Facebook-iOS-SDK/FacebookSDK" -isystem "${PODS_ROOT}/Headers/FrameAccessor" -isystem "${PODS_ROOT}/Headers/GraphKit" -isystem "${PODS_ROOT}/Headers/MDCSwipeToChoose" -isystem "${PODS_ROOT}/Headers/MKFoundationKit" -isystem "${PODS_ROOT}/Headers/PNChart" -isystem "${PODS_ROOT}/Headers/UICountingLabel"
+OTHER_LDFLAGS = -ObjC -framework CoreGraphics -framework CoreLocation -framework Foundation -framework QuartzCore -framework UIKit -weak_framework Accounts -weak_framework Security -weak_framework Social
 PODS_ROOT = ${SRCROOT}/Pods
