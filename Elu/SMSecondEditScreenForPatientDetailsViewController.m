@@ -7,6 +7,10 @@
 //
 
 #import "SMSecondEditScreenForPatientDetailsViewController.h"
+#import "RMStepsController.h"
+#import "ASValueTrackingSlider.h"
+#import "SMAppDelegate.h"
+
 
 @interface SMSecondEditScreenForPatientDetailsViewController ()
 
