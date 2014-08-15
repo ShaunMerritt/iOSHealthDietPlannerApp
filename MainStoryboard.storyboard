@@ -849,7 +849,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3G7-EY-o2F" customClass="GKBarGraph">
-                                <rect key="frame" x="0.0" y="67" width="320" height="231"/>
+                                <rect key="frame" x="0.0" y="264" width="320" height="231"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -908,7 +908,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="carbsButton" destination="pSu-nj-npN" id="9qR-Wx-J2U"/>
+                        <outlet property="fatButton" destination="LjT-H7-HuI" id="2uL-Ga-FbJ"/>
                         <outlet property="graphView" destination="3G7-EY-o2F" id="pwy-6D-RY7"/>
+                        <outlet property="proteinsButton" destination="7oX-pL-NPI" id="1kP-hu-7gB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IEb-U4-bnI" userLabel="First Responder" sceneMemberID="firstResponder"/>

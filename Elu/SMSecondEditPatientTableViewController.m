@@ -39,7 +39,7 @@
     
     NSLog(@"HERE");
     
-    self.array = @[@"20%", @"30%", @"40%"];
+    self.array = @[@"10%", @"25%", @"30%", @"35%", @"40%", @"45%", @"50%", @"55%", @"60%", @"65%", @"70%", @"75%", @"80%", @"85%", @"90%", @"95%", @"100%"];
 }
 
 -(void)popover:(id)sender
@@ -81,7 +81,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 3;
+    return self.array.count;
 }
 
 
@@ -93,11 +93,9 @@
     if(cell == nil)
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.array objectAtIndex:indexPath.row]];
     }
     
-    NSLog(@"her");
-    
-
     cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.array objectAtIndex:indexPath.row]];
     
     return cell;
