@@ -161,6 +161,7 @@
 		28D35884196227C100BAB66B /* SMLikeFoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D35883196227C100BAB66B /* SMLikeFoodViewController.m */; };
 		28E20805195A9C50004D4AE9 /* SMAddNewPatientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E20804195A9C50004D4AE9 /* SMAddNewPatientViewController.m */; };
 		28E682E0198AC47F00398E20 /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E682DF198AC47F00398E20 /* CHCSVParser.m */; };
+		28E8B89B199E67D200CEFBBA /* XYPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E8B89A199E67D200CEFBBA /* XYPieChart.m */; };
 		9977D0371FB8411589A433F7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99E5A98356784F4AA1C42C61 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -425,6 +426,8 @@
 		28E20804195A9C50004D4AE9 /* SMAddNewPatientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAddNewPatientViewController.m; path = ../SMAddNewPatientViewController.m; sourceTree = "<group>"; };
 		28E682DE198AC47F00398E20 /* CHCSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSVParser.h; sourceTree = "<group>"; };
 		28E682DF198AC47F00398E20 /* CHCSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCSVParser.m; sourceTree = "<group>"; };
+		28E8B899199E67D200CEFBBA /* XYPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYPieChart.h; sourceTree = "<group>"; };
+		28E8B89A199E67D200CEFBBA /* XYPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYPieChart.m; sourceTree = "<group>"; };
 		2927D5903AE74727BECBA9C3 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		99E5A98356784F4AA1C42C61 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -569,6 +572,7 @@
 		283D4397195A37770054E16D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				28E8B898199E67D200CEFBBA /* XYPieChart */,
 				28D0DE6E199446570004A2E2 /* ASValueTrackingSlider */,
 				28D0DE58199440730004A2E2 /* RMStepsController */,
 				28E682DE198AC47F00398E20 /* CHCSVParser.h */,
@@ -1111,6 +1115,15 @@
 			name = "Swipe To Like Views";
 			sourceTree = "<group>";
 		};
+		28E8B898199E67D200CEFBBA /* XYPieChart */ = {
+			isa = PBXGroup;
+			children = (
+				28E8B899199E67D200CEFBBA /* XYPieChart.h */,
+				28E8B89A199E67D200CEFBBA /* XYPieChart.m */,
+			);
+			path = XYPieChart;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1343,6 +1356,7 @@
 				286C6C9F1963BE5E0071E678 /* ImageFilter.m in Sources */,
 				284386EF1982F83C001A3A57 /* UIWebView+AFNetworking.m in Sources */,
 				283D43A1195A37780054E16D /* SMAppDelegate.m in Sources */,
+				28E8B89B199E67D200CEFBBA /* XYPieChart.m in Sources */,
 				28E682E0198AC47F00398E20 /* CHCSVParser.m in Sources */,
 				284386E71982F83C001A3A57 /* AFURLSessionManager.m in Sources */,
 				2843870F1982F87C001A3A57 /* JSONModelArray.m in Sources */,
