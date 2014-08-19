@@ -12,11 +12,21 @@
 #import "ARCMacros.h"
 #import "FPPopoverKeyboardResponsiveController.h"
 #import "PNChart.h"
+#import "XYPieChart.h"
+#import "SMFirstEditScreenForPatientDetailsViewController.h"
 
 
-@interface SMSecondEditScreenForPatientDetailsViewController : UIViewController<GKBarGraphDataSource, FPPopoverControllerDelegate> {
+@interface SMSecondEditScreenForPatientDetailsViewController : UIViewController<GKBarGraphDataSource, FPPopoverControllerDelegate, XYPieChartDelegate, XYPieChartDataSource> {
     FPPopoverController *popover;
 }
+
+
+@property SMFirstEditScreenForPatientDetailsViewController *firstEditScreen;
+
+@property (weak, nonatomic) IBOutlet XYPieChart *pieCharts;
+
+@property(nonatomic, strong) NSMutableArray *slices;
+@property(nonatomic, strong) NSArray        *sliceColors;
 
 @property (weak, nonatomic) IBOutlet UIButton *carbsButton;
 @property (weak, nonatomic) IBOutlet UIButton *proteinsButton;
@@ -29,7 +39,11 @@
 @property int valueForCarbs;
 @property int valueForProteins;
 @property int valueForFats;
+@property int totalCaloriesForMaintenece;
 
+@property int numberOfCaloriesForCarbs;
+@property int numberOfCaloriesForProteiens;
+@property int numberOfCaloriesForFat;
 
 @property (weak, nonatomic) IBOutlet GKBarGraph *graphView;
 @property (weak, nonatomic) IBOutlet PNPieChart *pie;
@@ -46,5 +60,7 @@
           shouldDismissVisiblePopover:(FPPopoverController*)visiblePopoverController;
 
 -(void)selectedTableRow:(NSUInteger)rowNum;
+
+- (float) covertToDecimalForMultiplication: (int)percentage;
 
 @end

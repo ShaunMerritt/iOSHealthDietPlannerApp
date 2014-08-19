@@ -7,6 +7,7 @@
 //
 
 #import "RMStepsController.h"
+#import "SMDoctorPatientsTableViewController.h"
 
 @interface SMEditPatientDetailStepController : RMStepsController
 

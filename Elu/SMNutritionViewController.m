@@ -44,6 +44,8 @@
                 //log the objects that we got back to the NSLOG
                 NSString *reccomendedDailyCalories = [object valueForKey:@"totalDailyCalories"];
                 
+                
+                
                 [[PFUser currentUser] setObject:reccomendedDailyCalories forKey:@"RecommendedCaloriesForMaintenece"];
                 
                 //Save all data to Parse

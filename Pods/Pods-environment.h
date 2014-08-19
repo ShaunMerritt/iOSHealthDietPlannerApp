@@ -6,6 +6,12 @@
 // project.
 
 
+// AMTagListView
+#define COCOAPODS_POD_AVAILABLE_AMTagListView
+#define COCOAPODS_VERSION_MAJOR_AMTagListView 0
+#define COCOAPODS_VERSION_MINOR_AMTagListView 4
+#define COCOAPODS_VERSION_PATCH_AMTagListView 0
+
 // Bolts
 #define COCOAPODS_POD_AVAILABLE_Bolts
 #define COCOAPODS_VERSION_MAJOR_Bolts 1
@@ -29,6 +35,12 @@
 #define COCOAPODS_VERSION_MAJOR_GraphKit 1
 #define COCOAPODS_VERSION_MINOR_GraphKit 1
 #define COCOAPODS_VERSION_PATCH_GraphKit 1
+
+// HTAutocompleteTextField
+#define COCOAPODS_POD_AVAILABLE_HTAutocompleteTextField
+#define COCOAPODS_VERSION_MAJOR_HTAutocompleteTextField 1
+#define COCOAPODS_VERSION_MINOR_HTAutocompleteTextField 3
+#define COCOAPODS_VERSION_PATCH_HTAutocompleteTextField 2
 
 // MDCSwipeToChoose
 #define COCOAPODS_POD_AVAILABLE_MDCSwipeToChoose

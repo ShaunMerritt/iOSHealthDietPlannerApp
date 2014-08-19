@@ -8,6 +8,7 @@
 
 #import "SMEditPatientDetailStepController.h"
 
+
 @interface SMEditPatientDetailStepController () {
     NSString *userName;
 }
@@ -43,11 +44,19 @@
 }
 
 - (void)finishedAllSteps {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    //[self dismissViewControllerAnimated:YES completion:nil];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    SMDoctorPatientsTableViewController *detailViewController = [storyboard instantiateViewControllerWithIdentifier:@"doctorsPatients"];
+    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
 - (void)canceled {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    //[self dismissViewControllerAnimated:YES completion:nil];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    SMDoctorPatientsTableViewController *detailViewController = [storyboard instantiateViewControllerWithIdentifier:@"doctorsPatients"];
+    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
 
