@@ -150,19 +150,26 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
     // Create all of the food items
     return @[
          [[Food alloc] initWithName:@"Barley"
-                              image:[UIImage imageNamed:@"Barley"]],
+                              image:[UIImage imageNamed:@"Barley"]
+                               meal:@"Breakfast"],
          [[Food alloc] initWithName:@"Bread"
-                              image:[UIImage imageNamed:@"Bread(products)"]],
+                              image:[UIImage imageNamed:@"Bread(products)"]
+                               meal:@"Lunch"],
          [[Food alloc] initWithName:@"Buckwheat"
-                              image:[UIImage imageNamed:@"Buckwheat"]],
+                              image:[UIImage imageNamed:@"Buckwheat"]
+                               meal:@"Dinner"],
          [[Food alloc] initWithName:@"Corn"
-                              image:[UIImage imageNamed:@"Corn "]],
+                              image:[UIImage imageNamed:@"Corn "]
+                               meal:@"Breakfast"],
          [[Food alloc] initWithName:@"Oats"
-                              image:[UIImage imageNamed:@"Oats"]],
+                              image:[UIImage imageNamed:@"Oats"]
+                               meal:@"Breakfast"],
          [[Food alloc] initWithName:@"Potatoes"
-                              image:[UIImage imageNamed:@"Potatoes"]],
+                              image:[UIImage imageNamed:@"Potatoes"]
+                               meal:@"Dinner"],
          [[Food alloc] initWithName:@"Quinoa"
-                              image:[UIImage imageNamed:@"Quinoa"]],
+                              image:[UIImage imageNamed:@"Quinoa"]
+                               meal:@"Lunch"],
      ];
     
 }
