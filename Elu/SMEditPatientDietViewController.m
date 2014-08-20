@@ -27,38 +27,10 @@
 @synthesize currentFirstColumn;
 @synthesize currentSecondColumn;
 
-- (void)setDetailItem:(id)newDetailItem
-{
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
-        
-        SMAppDelegate *appDelegate = (SMAppDelegate *)[[UIApplication sharedApplication] delegate];
-        appDelegate.userName = [_detailItem description];
-        
-        // Update the view.
-        [self configureView];
-    }
-}
 
-- (void)configureView
-{
-    // Update the user interface for the detail item.
-    
-    if (self.detailItem) {
-        self.patientsNameLabel.text = [self.detailItem description];
-        userUsername = [self.detailItem description];
-    }
-    
-    thePickerView.showsSelectionIndicator = TRUE;
-    
-    
-    
-}
-
-
+#pragma mark - Lifecycle
 - (void)viewDidLoad
 {
-    
     
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -82,12 +54,38 @@
     
 }
 
+- (void)setDetailItem:(id)newDetailItem
+{
+    if (_detailItem != newDetailItem) {
+        _detailItem = newDetailItem;
+        
+        SMAppDelegate *appDelegate = (SMAppDelegate *)[[UIApplication sharedApplication] delegate];
+        appDelegate.userName = [_detailItem description];
+        
+        // Update the view.
+        [self configureView];
+    }
+}
+
+- (void)configureView
+{
+    // Update the user interface for the detail item.
+    if (self.detailItem) {
+        self.patientsNameLabel.text = [self.detailItem description];
+        userUsername = [self.detailItem description];
+    }
+    
+    thePickerView.showsSelectionIndicator = TRUE;
+    
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - PickerViewDelegate
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
     if (component == 0) {
         return [oneColumnList count];
@@ -110,9 +108,7 @@
     //For mutiple columns
     if (component == 0) {
         return [oneColumnList objectAtIndex:row];
-        
     }
-    
     return [secondColumnList objectAtIndex:row];
     
 }
@@ -132,59 +128,7 @@
     
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-- (void) getSuggestedDailyCaloriesForMaintence: (NSString *)weight activityLevel:(NSString *)activity {
-    [PFCloud callFunctionInBackground:@"generateRecommendedCaloriesForMen"
-                       withParameters: @{@"weight": weight, @"activityNumber": activity}
-                                block:^(NSString *object, NSError *error) {
-                                    if (!error) {
-                                        NSLog(@"Here is the object: %@",object);
-                                        NSLog(@"%@", [PFUser currentUser].username);
-                                        //self.uniqueCodeLabel.text = newPatient.password;
-                                        
-                                        
-                                        
-                                        PFQuery *query = [PFUser query];
-                                        [query whereKey:@"username" equalTo:[self.detailItem description]]; // the editing patient by username
-                                        NSArray *currentPatient = [query findObjects];
-                                        NSLog(@"Current patient is: %@", currentPatient);
-                                        
-                                        
-                                        PFACL *acl = [PFACL ACLWithUser:PFUser.currentUser];
-                                        
-                                        // userList is an NSArray with the users we are sending this message to.
-                                        for (PFUser *user in currentPatient) {
-                                            [acl setReadAccess:YES forUser:user];
-                                            PFObject *calories = [PFObject objectWithClassName:@"CaloriesPerDay"];
-                                            calories[@"totalDailyCalories"] = object;
-                                            calories.ACL = acl;
-                                            calories[@"user"] = user;
-                                            [calories saveInBackground];
-                                        }
-
-                                        
-                                        
-                                        
-                                        
-                                        
-                                    }
-                                    else {
-                                        NSLog(@"%@, %@", error,[error userInfo]);
-                                        NSLog(@"%@", [PFUser currentUser].username);
-                                    }
-                                }];
-}
-
+#pragma mark - IBActions
 - (IBAction)saveAsCapPressed:(id)sender {
     
     if (isMale) {
@@ -252,6 +196,59 @@
     
 }
 
+
+
+- (IBAction)switchValueChanged:(id)sender {
+    if ([self.maleSwitch isOn]) {
+        isMale = YES;
+    } else {
+        isMale = NO;
+    }
+}
+
+#pragma mark - HelperMethods
+- (void) getSuggestedDailyCaloriesForMaintence: (NSString *)weight activityLevel:(NSString *)activity {
+    [PFCloud callFunctionInBackground:@"generateRecommendedCaloriesForMen"
+                       withParameters: @{@"weight": weight, @"activityNumber": activity}
+                                block:^(NSString *object, NSError *error) {
+                                    if (!error) {
+                                        NSLog(@"Here is the object: %@",object);
+                                        NSLog(@"%@", [PFUser currentUser].username);
+                                        //self.uniqueCodeLabel.text = newPatient.password;
+                                        
+                                        
+                                        
+                                        PFQuery *query = [PFUser query];
+                                        [query whereKey:@"username" equalTo:[self.detailItem description]]; // the editing patient by username
+                                        NSArray *currentPatient = [query findObjects];
+                                        NSLog(@"Current patient is: %@", currentPatient);
+                                        
+                                        
+                                        PFACL *acl = [PFACL ACLWithUser:PFUser.currentUser];
+                                        
+                                        // userList is an NSArray with the users we are sending this message to.
+                                        for (PFUser *user in currentPatient) {
+                                            [acl setReadAccess:YES forUser:user];
+                                            PFObject *calories = [PFObject objectWithClassName:@"CaloriesPerDay"];
+                                            calories[@"totalDailyCalories"] = object;
+                                            calories.ACL = acl;
+                                            calories[@"user"] = user;
+                                            [calories saveInBackground];
+                                        }
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                    }
+                                    else {
+                                        NSLog(@"%@, %@", error,[error userInfo]);
+                                        NSLog(@"%@", [PFUser currentUser].username);
+                                    }
+                                }];
+}
+
 - (void)creatACLForPatientsDietType: (NSString *)dietURL {
     
     PFQuery *query = [PFUser query];
@@ -275,18 +272,11 @@
     PFQuery *queryTest = [PFQuery queryWithClassName:@"MainDietName"];
     NSArray *log = [queryTest findObjects];
     NSLog(@"Log says: %@", log);
-
+    
     
 }
 
 
-- (IBAction)switchValueChanged:(id)sender {
-    if ([self.maleSwitch isOn]) {
-        isMale = YES;
-    } else {
-        isMale = NO;
-    }
-}
 
 #pragma mark - Navigation
 

@@ -14,6 +14,7 @@
 
 @implementation SMSignupViewController
 
+#pragma mark - Lifecycle
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -21,6 +22,7 @@
     // Do any additional setup after loading the view.
 }
 
+#pragma mark - IBActions
 - (IBAction)signupButton:(id)sender {
     
     // Create email and password strings

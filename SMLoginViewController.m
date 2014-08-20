@@ -16,6 +16,7 @@
 @implementation SMLoginViewController
 @synthesize signUpViewController;
 
+#pragma mark - Lifecycle
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -23,7 +24,7 @@
     self.navigationItem.hidesBackButton = YES;
 }
 
-
+#pragma mark - IBActions
 - (IBAction)login:(id)sender {
     
     // Set email and password = to textfield text
