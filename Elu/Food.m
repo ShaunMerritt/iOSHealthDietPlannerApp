@@ -13,11 +13,13 @@
 #pragma mark - Object Lifecycle
 
 - (instancetype)initWithName:(NSString *)name
-                       image:(UIImage *)image {
+                       image:(UIImage *)image
+                        meal:(NSString *)meal {
     self = [super init];
     if (self) {
         _name = name;
         _image = image;
+        _meal = meal;
     }
     NSLog(@"SELF : %@", self);
     return self;

@@ -4,11 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-AMTagListView.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-Bolts.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -19,37 +14,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-FrameAccessor.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-GraphKit.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-HTAutocompleteTextField.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-MDCSwipeToChoose.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-MKFoundationKit.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-PNChart.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-UICountingLabel.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -63,6 +28,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>044B8A07217F4956B0456F54</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0BE0D423514447A88BF293AF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,12 +57,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>532CF3A03097437D99C92586</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>56C6052EC45C4614BE9AA1C6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>573E41944F294D819501202E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>5B9BDFF6BCF94989AC93B902</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>62E7C3779F0F4EEE92862EE4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -103,6 +88,16 @@
 			<true/>
 		</dict>
 		<key>7A908354C9C0411CB7A5FEE7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7D15B53087F14EBD95FD05C0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8ADDE976FD2949FDB71034F1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -127,12 +122,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>F55E397BD4A949F68BE1E6F9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>F5DE42506192434DA493BBC9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>FCCD218EFD7948C3BBD19514</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FD19E52CFA454DF787071900</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FF94C686E16B48CF81E51D12</key>
 		<dict>
 			<key>primary</key>
 			<true/>

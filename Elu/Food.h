@@ -13,10 +13,12 @@
 
 
 - (instancetype)initWithName:(NSString *)name
-                       image:(UIImage *)image;
+                       image:(UIImage *)image
+                        meal:(NSString *)meal;
 
 @property (nonatomic, copy  ) NSString   *name;
 @property (nonatomic, strong) UIImage    *image;
+@property (nonatomic, strong) NSString *meal;
 @property (nonatomic, assign) NSUInteger age;
 @property (nonatomic, assign) NSUInteger numberOfSharedFriends;
 @property (nonatomic, assign) NSUInteger numberOfSharedInterests;

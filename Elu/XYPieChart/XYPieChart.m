@@ -377,7 +377,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
             
             if(!color)
             {
-                color = [UIColor colorWithHue:((index/5)%20)/20.0+0.02 saturation:(index%8+3)/10.0 brightness:20/100.0 alpha:1];
+                color = [UIColor colorWithHue:((index/8)%20)/20.0+0.02 saturation:(index%8+3)/10.0 brightness:91/100.0 alpha:1];
             }
             
             [layer setFillColor:color.CGColor];

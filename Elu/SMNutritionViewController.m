@@ -25,6 +25,7 @@
     NSString *doctorChosenDietURL;
 }
 
+#pragma mark - Lifecycle
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -63,8 +64,6 @@
         }
     }];
     
-    //SMAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    
     PFUser *currentUser = [PFUser currentUser];
     if (currentUser) {
         NSString *doctor = [[PFUser currentUser] objectForKey:@"isDoctor"];
@@ -101,7 +100,6 @@
 }
 
 #pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
@@ -157,17 +155,13 @@
     
 }
 
+#pragma mark - IBActions
 - (IBAction)logout:(id)sender {
     [PFUser logOut];
     //PFUser *currentUser = [PFUser currentUser];
     [self performSegueWithIdentifier:@"showLogin" sender:self];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.identifier isEqualToString:@"showLogin"]) {
-        [segue.destinationViewController setHidesBottomBarWhenPushed:YES];
-    }
-}
 
 - (IBAction)scanItemButtonPressed:(id)sender {
     ZBarReaderViewController *reader = [ZBarReaderViewController new];
@@ -204,6 +198,14 @@
     
     
 }
+
+#pragma mark - Navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"showLogin"]) {
+        [segue.destinationViewController setHidesBottomBarWhenPushed:YES];
+    }
+}
+
 @end
 
 
