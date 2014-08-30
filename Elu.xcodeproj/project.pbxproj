@@ -153,7 +153,12 @@
 		28921B2C1986EC47000D2689 /* zbar-help.html in Resources */ = {isa = PBXBuildFile; fileRef = 28921B261986EC47000D2689 /* zbar-help.html */; };
 		28921B2D1986EC47000D2689 /* zbar-helpicons.png in Resources */ = {isa = PBXBuildFile; fileRef = 28921B271986EC47000D2689 /* zbar-helpicons.png */; };
 		28921B2E1986EC47000D2689 /* zbar-samples.png in Resources */ = {isa = PBXBuildFile; fileRef = 28921B281986EC47000D2689 /* zbar-samples.png */; };
+		289C31F319B251A50095911D /* WeeklyDietPropertyList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 289C31F219B251A50095911D /* WeeklyDietPropertyList.plist */; };
 		28B1B49D1984636700F4881A /* SMYummlyGetClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B1B49C1984636700F4881A /* SMYummlyGetClient.m */; };
+		28B96DD419A5BDAE00FA0237 /* SMFirstTimePateientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B96DD319A5BDAE00FA0237 /* SMFirstTimePateientViewController.m */; };
+		28C0B5AC19A7E97A00BB1EC0 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 28C0B5AA19A7E97A00BB1EC0 /* Model.xcdatamodeld */; };
+		28C0B5AF19A7ECD000BB1EC0 /* Details.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C0B5AE19A7ECD000BB1EC0 /* Details.m */; };
+		28C0B5B219A7ECD100BB1EC0 /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C0B5B119A7ECD100BB1EC0 /* Patient.m */; };
 		28C0F1CE19941895007E1D22 /* SMPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C0F1CD19941895007E1D22 /* SMPageViewController.m */; };
 		28C0F1D419941A98007E1D22 /* SMFirstPageForPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C0F1D319941A98007E1D22 /* SMFirstPageForPageViewController.m */; };
 		28C0F1D719941E4B007E1D22 /* SMSecondPageForPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C0F1D619941E4B007E1D22 /* SMSecondPageForPageViewController.m */; };
@@ -420,8 +425,16 @@
 		28921B261986EC47000D2689 /* zbar-help.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "zbar-help.html"; sourceTree = "<group>"; };
 		28921B271986EC47000D2689 /* zbar-helpicons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-helpicons.png"; sourceTree = "<group>"; };
 		28921B281986EC47000D2689 /* zbar-samples.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-samples.png"; sourceTree = "<group>"; };
+		289C31F219B251A50095911D /* WeeklyDietPropertyList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WeeklyDietPropertyList.plist; sourceTree = "<group>"; };
 		28B1B49B1984636700F4881A /* SMYummlyGetClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMYummlyGetClient.h; sourceTree = "<group>"; };
 		28B1B49C1984636700F4881A /* SMYummlyGetClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMYummlyGetClient.m; sourceTree = "<group>"; };
+		28B96DD219A5BDAE00FA0237 /* SMFirstTimePateientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFirstTimePateientViewController.h; sourceTree = "<group>"; };
+		28B96DD319A5BDAE00FA0237 /* SMFirstTimePateientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFirstTimePateientViewController.m; sourceTree = "<group>"; };
+		28C0B5AB19A7E97A00BB1EC0 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		28C0B5AD19A7ECD000BB1EC0 /* Details.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Details.h; sourceTree = "<group>"; };
+		28C0B5AE19A7ECD000BB1EC0 /* Details.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Details.m; sourceTree = "<group>"; };
+		28C0B5B019A7ECD100BB1EC0 /* Patient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Patient.h; sourceTree = "<group>"; };
+		28C0B5B119A7ECD100BB1EC0 /* Patient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Patient.m; sourceTree = "<group>"; };
 		28C0F1CC19941895007E1D22 /* SMPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPageViewController.h; sourceTree = "<group>"; };
 		28C0F1CD19941895007E1D22 /* SMPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPageViewController.m; sourceTree = "<group>"; };
 		28C0F1D219941A98007E1D22 /* SMFirstPageForPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFirstPageForPageViewController.h; sourceTree = "<group>"; };
@@ -533,6 +546,7 @@
 		283D4384195A37760054E16D = {
 			isa = PBXGroup;
 			children = (
+				289C31F219B251A50095911D /* WeeklyDietPropertyList.plist */,
 				283D43CD195A394A0054E16D /* Images */,
 				283D43BF195A37A50054E16D /* MainStoryboard.storyboard */,
 				283D4396195A37770054E16D /* Elu */,
@@ -592,6 +606,11 @@
 				283D43A2195A37790054E16D /* Images.xcassets */,
 				283D4397195A37770054E16D /* Supporting Files */,
 				28D0DE5719943F950004A2E2 /* Page View For Editing Patient */,
+				28C0B5AA19A7E97A00BB1EC0 /* Model.xcdatamodeld */,
+				28C0B5B019A7ECD100BB1EC0 /* Patient.h */,
+				28C0B5B119A7ECD100BB1EC0 /* Patient.m */,
+				28C0B5AD19A7ECD000BB1EC0 /* Details.h */,
+				28C0B5AE19A7ECD000BB1EC0 /* Details.m */,
 			);
 			path = Elu;
 			sourceTree = "<group>";
@@ -691,6 +710,9 @@
 		284386B71982F694001A3A57 /* Patient */ = {
 			isa = PBXGroup;
 			children = (
+				28B96DD219A5BDAE00FA0237 /* SMFirstTimePateientViewController.h */,
+				28B96DD319A5BDAE00FA0237 /* SMFirstTimePateientViewController.m */,
+				28ABD1D119A54E5800797648 /* First Time Patient */,
 				283D43CE195A3E610054E16D /* SMNutritionViewController.h */,
 				283D43CF195A3E610054E16D /* SMNutritionViewController.m */,
 				282972D7198049E200ED1287 /* SMHomeScreenViewController.h */,
@@ -1103,6 +1125,13 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		28ABD1D119A54E5800797648 /* First Time Patient */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "First Time Patient";
+			sourceTree = "<group>";
+		};
 		28B1B49A1984633400F4881A /* Yummly Search Client */ = {
 			isa = PBXGroup;
 			children = (
@@ -1341,6 +1370,7 @@
 				286C6C6E1963A2F30071E678 /* 1Star@2x.png in Resources */,
 				2855A8A219648C6B00081F5A /* salmon.png in Resources */,
 				286C6C831963A7D50071E678 /* 2StarsSmall.png in Resources */,
+				289C31F319B251A50095911D /* WeeklyDietPropertyList.plist in Resources */,
 				286C6C741963A2F30071E678 /* 4Stars@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1402,6 +1432,7 @@
 				284387121982F87C001A3A57 /* NSArray+JSONModel.m in Sources */,
 				286C6C9E1963BE5E0071E678 /* CIImage+Filter.m in Sources */,
 				286C6C621963A0270071E678 /* SMFood.m in Sources */,
+				28C0B5B219A7ECD100BB1EC0 /* Patient.m in Sources */,
 				284387151982F87C001A3A57 /* JSONModel+networking.m in Sources */,
 				28E20805195A9C50004D4AE9 /* SMAddNewPatientViewController.m in Sources */,
 				284387131982F87C001A3A57 /* JSONAPI.m in Sources */,
@@ -1443,6 +1474,7 @@
 				283D43ED195A76790054E16D /* SMDoctorPatientsTableViewController.m in Sources */,
 				284386ED1982F83C001A3A57 /* UIProgressView+AFNetworking.m in Sources */,
 				2853FC4F199C6CB90073B891 /* FPPopoverController.m in Sources */,
+				28C0B5AF19A7ECD000BB1EC0 /* Details.m in Sources */,
 				2853FC50199C6CB90073B891 /* FPPopoverView.m in Sources */,
 				280F1F3E19622F8B004BE086 /* ImageLabelView.m in Sources */,
 				2853FC48199C67620073B891 /* UIColor+GraphKit.m in Sources */,
@@ -1468,8 +1500,10 @@
 				28C0F1D719941E4B007E1D22 /* SMSecondPageForPageViewController.m in Sources */,
 				2843872519832044001A3A57 /* SMYummlyHTTPClient.m in Sources */,
 				28B1B49D1984636700F4881A /* SMYummlyGetClient.m in Sources */,
+				28C0B5AC19A7E97A00BB1EC0 /* Model.xcdatamodeld in Sources */,
 				284386DF1982F83C001A3A57 /* AFHTTPRequestOperation.m in Sources */,
 				283D43D0195A3E610054E16D /* SMNutritionViewController.m in Sources */,
+				28B96DD419A5BDAE00FA0237 /* SMFirstTimePateientViewController.m in Sources */,
 				2843870E1982F87C001A3A57 /* JSONModel.m in Sources */,
 				284386E61982F83C001A3A57 /* AFURLResponseSerialization.m in Sources */,
 				286C6C9D1963BE5E0071E678 /* CIFilter+Filter.m in Sources */,
@@ -1711,6 +1745,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		28C0B5AA19A7E97A00BB1EC0 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				28C0B5AB19A7E97A00BB1EC0 /* Model.xcdatamodel */,
+			);
+			currentVersion = 28C0B5AB19A7E97A00BB1EC0 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 283D4385195A37760054E16D /* Project object */;
 }

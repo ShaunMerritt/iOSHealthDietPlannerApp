@@ -24,4 +24,29 @@ NSString *const kSMAllowedHoliday = @"&allowedHoliday[]=holiday^holiday-";
 NSString *const kSMExcludedHoliday = @"&excludedHoliday[]=holiday^holiday-";
 NSString *const kSMMaxTotalTimeInSeconds = @"&maxTotalTimeInSeconds=";
 
+NSString *const kSMMainDishes = @"course^course-Main Dishes";
+
+NSString *const kSMDesserts = @"course^course-Desserts";
+
+NSString *const kSMSideDishes = @"course^course-Side Dishes";
+
+NSString *const kSMLunchAndSnacks = @"course^course-Lunch and Snacks";
+
+NSString *const kSMAppetizers = @"course^course-Appetizers";
+
+NSString *const kSMSalads = @"course^course-Salads";
+
+NSString *const kSMBreakfast = @"course^course-Breakfast and Brunch";
+
+NSString *const kSMBreads = @"course^course-Breads";
+
+NSString *const kSMSoups = @"course^course-Soups";
+
+NSString *const kSMBeverages = @"course^course-Beverages";
+
+NSString *const kSMCondimentsAndSauces = @"course^course-Condiments and Sauces";
+
+NSString *const kSMCoctails = @"course^course-Cocktails";
+
+
 @end

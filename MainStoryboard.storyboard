@@ -1290,6 +1290,36 @@
             </objects>
             <point key="canvasLocation" x="1607" y="-51"/>
         </scene>
+        <!--First Time Pateient View Controller-->
+        <scene sceneID="cq2-re-yvN">
+            <objects>
+                <viewController storyboardIdentifier="FirstTimeForPatient" id="aRT-du-3dY" customClass="SMFirstTimePateientViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Kc4-9u-GGf"/>
+                        <viewControllerLayoutGuide type="bottom" id="vbS-A4-D12"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mEA-bc-HWj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y3m-Cd-95f">
+                                <rect key="frame" x="137" y="457" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Yes">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="yesButton:" destination="aRT-du-3dY" eventType="touchUpInside" id="duN-e7-57M"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HeW-Js-jxE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="479" y="-715"/>
+        </scene>
         <!--Navigation Controller - Nutrition-->
         <scene sceneID="zY4-64-Hzx">
             <objects>
@@ -1369,7 +1399,7 @@
         <!--Like Food View Controller-->
         <scene sceneID="YJm-yt-VYq">
             <objects>
-                <viewController storyboardIdentifier="firstTimePatientSignedIn" id="5ET-s8-FHh" customClass="SMLikeFoodViewController" sceneMemberID="viewController"/>
+                <viewController storyboardIdentifier="firstTimePatientSignedIn" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5ET-s8-FHh" customClass="SMLikeFoodViewController" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gAB-oL-kNd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-846" y="601"/>

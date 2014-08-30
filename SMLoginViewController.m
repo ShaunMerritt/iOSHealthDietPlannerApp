@@ -78,8 +78,12 @@
                     
                     // Error
                     NSLog(@"%@", error);
-                    [self.navigationController popToRootViewControllerAnimated:YES];
+                    //[self.navigationController popToRootViewControllerAnimated:YES];
                     
+                    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+                    UIViewController *vc = [sb instantiateViewControllerWithIdentifier:@"FirstTimeForPatient"];
+                    vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+                    [self presentViewController:vc animated:YES completion:NULL];
                 }
                 
             }

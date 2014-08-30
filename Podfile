@@ -6,6 +6,7 @@ pod 'PNChart', '~> 0.5'
 pod 'GraphKit', '1.1.1'
 pod 'HTAutocompleteTextField'
 pod 'AMTagListView'
+pod "TOMSMorphingLabel", "~> 0.2.2"
 
 
 target :Elu, :exclusive => true do

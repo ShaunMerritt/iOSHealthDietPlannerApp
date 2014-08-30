@@ -15,7 +15,7 @@
 #import "CHCSVParser.h"
 
 
-@interface SMNutritionViewController : UITableViewController <SMYummlyHTTPClientDelegate, SMYummlyGetHTTPClientDelegate, SMNutritionixHTTPClientDelegate, SMNutritionixUPCClientDelegate, ZBarReaderDelegate, CHCSVParserDelegate>
+@interface SMNutritionViewController : UITableViewController <ZBarReaderDelegate, CHCSVParserDelegate>
 
 - (IBAction)logout:(id)sender;
 - (IBAction)scanItemButtonPressed:(id)sender;
