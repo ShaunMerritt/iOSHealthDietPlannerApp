@@ -45,7 +45,7 @@ static NSString *const SMAppKey = @"a8908fd1f6e4bff434989f91b138526e";
     //NSLog(@"Suggested Bool: %d", firstTime);
 
     if (firstTime == YES) {
-        int myInt = suggestedAmount - 500;
+        int myInt = suggestedAmount * -0.05;
         firstTime = NO;
 
         if (myInt < 1) {
@@ -67,7 +67,7 @@ static NSString *const SMAppKey = @"a8908fd1f6e4bff434989f91b138526e";
         firstTime = YES;
 
         //NSLog(@"FIsrs time no");
-        int myInt = suggestedAmount + 500;
+        int myInt = suggestedAmount * 0.05;
         
        // NSString *strValue = [@(myInt) stringValue];
         return myInt;
@@ -75,7 +75,10 @@ static NSString *const SMAppKey = @"a8908fd1f6e4bff434989f91b138526e";
     return 0;
 }
 
-- (void)searchForRecipe:(NSString *)recipe meal:(NSString *)meal allergies:(NSArray *)allergies valueForCarbs:(int)valueForCarbs valueForFats:(int)valueForFats valueForProteins:(int)valueForProteins valueForCalcium:(int)valueForCalcium valueForCholesterol:(int)valueForCholesterol valueForFiber:(int)valueForFiber valueForIron:(int)valueForIron valueForPotassium:(int)valueForPotassium valueForSodium:(int)valueForSodium valueForSugar:(int)valueForSugar valueForVitaminA:(int)valueForVitaminA valueForVitaminC:(int)valueForVitaminC {
+- (void)searchForRecipe:(NSString *)recipe meal:(NSString *)meal allergies:(NSArray *)allergies valueForCarbs:(int)valueForCarbs valueForFats:(int)valueForFats valueForProteins:(int)valueForProteins  {
+    
+   // valueForCalcium:(int)valueForCalcium valueForCholesterol:(int)valueForCholesterol valueForFiber:(int)valueForFiber valueForIron:(int)valueForIron valueForPotassium:(int)valueForPotassium valueForSodium:(int)valueForSodium valueForSugar:(int)valueForSugar valueForVitaminA:(int)valueForVitaminA valueForVitaminC:(int)valueForVitaminC
+    
     
     //valueForVitaminA:(int)valueForVitaminA valueForVitaminC:(int)valueForVitaminC
     
@@ -110,23 +113,23 @@ static NSString *const SMAppKey = @"a8908fd1f6e4bff434989f91b138526e";
 //    parameters[@"nutrition.CA.min"] = [self calculateMinAndMax:valueForCalcium];
 //    parameters[@"nutrition.CA.max"] = [self calculateMinAndMax:valueForCalcium];
 
-    parameters[@"nutrition.CHOLE.min"] = [NSString stringWithFormat:@"%d",[self calculateMinAndMax:valueForCholesterol]];
-    parameters[@"nutrition.CHOLE.max"] = [NSString stringWithFormat:@"%d",[self calculateMinAndMax:valueForCholesterol]];
+//    parameters[@"nutrition.CHOLE.min"] = [NSString stringWithFormat:@"%d",[self calculateMinAndMax:valueForCholesterol]];
+//    parameters[@"nutrition.CHOLE.max"] = [NSString stringWithFormat:@"%d",[self calculateMinAndMax:valueForCholesterol]];
+////
+//    parameters[@"nutrition.FIBTG.min"] = [NSString stringWithFormat:@"%d",[self calculateMinAndMax:valueForFiber]];
+//    parameters[@"nutrition.FIBTG.max"] = [NSString stringWithFormat:@"%d",[self calculateMinAndMax:valueForFiber]];
 //
-    parameters[@"nutrition.FIBTG.min"] = [NSString stringWithFormat:@"%d",[self calculateMinAndMax:valueForFiber]];
-    parameters[@"nutrition.FIBTG.max"] = [NSString stringWithFormat:@"%d",[self calculateMinAndMax:valueForFiber]];
-
-//    parameters[@"nutrition.FE.min"] = [self calculateMinAndMax:valueForIron];
-//    parameters[@"nutrition.FE.max"] = [self calculateMinAndMax:valueForIron];
-
-    parameters[@"nutrition.K.min"] = [NSString stringWithFormat:@"%d",[self calculateMinAndMax:valueForPotassium]];
-    parameters[@"nutrition.K.max"] = [NSString stringWithFormat:@"%d",[self calculateMinAndMax:valueForPotassium]];
+////    parameters[@"nutrition.FE.min"] = [self calculateMinAndMax:valueForIron];
+////    parameters[@"nutrition.FE.max"] = [self calculateMinAndMax:valueForIron];
 //
-    parameters[@"nutrition.NA.min"] = [NSString stringWithFormat:@"%d",[self calculateMinAndMax:valueForSodium]];
-    parameters[@"nutrition.NA.max"] = [NSString stringWithFormat:@"%d",[self calculateMinAndMax:valueForSodium]];
-//
-    parameters[@"nutrition.SUGAR.min"] = [NSString stringWithFormat:@"%d",[self calculateMinAndMax:valueForSugar]];
-    parameters[@"nutrition.SUGAR.max"] = [NSString stringWithFormat:@"%d",[self calculateMinAndMax:valueForSugar]];
+//    parameters[@"nutrition.K.min"] = [NSString stringWithFormat:@"%d",[self calculateMinAndMax:valueForPotassium]];
+//    parameters[@"nutrition.K.max"] = [NSString stringWithFormat:@"%d",[self calculateMinAndMax:valueForPotassium]];
+////
+//    parameters[@"nutrition.NA.min"] = [NSString stringWithFormat:@"%d",[self calculateMinAndMax:valueForSodium]];
+//    parameters[@"nutrition.NA.max"] = [NSString stringWithFormat:@"%d",[self calculateMinAndMax:valueForSodium]];
+////
+//    parameters[@"nutrition.SUGAR.min"] = [NSString stringWithFormat:@"%d",[self calculateMinAndMax:valueForSugar]];
+//    parameters[@"nutrition.SUGAR.max"] = [NSString stringWithFormat:@"%d",[self calculateMinAndMax:valueForSugar]];
 
 //    parameters[@"nutrition.VITA_IU.min"] = [self calculateMinAndMax:valueForVitaminA];
 //    parameters[@"nutrition.VITA_IU.max"] = [self calculateMinAndMax:valueForVitaminA];

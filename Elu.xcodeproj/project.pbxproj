@@ -142,6 +142,7 @@
 		286C6CA31963BE5E0071E678 /* UIImage+Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = 286C6C9B1963BE5E0071E678 /* UIImage+Filter.m */; };
 		287202071986BEF40019C5DC /* SMNutritionixClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 287202061986BEF40019C5DC /* SMNutritionixClient.m */; };
 		288D874B19624A7A005A93C6 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288D874A19624A7A005A93C6 /* Parse.framework */; };
+		288DEB0619B3A9CF001B5B6D /* PAImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 288DEB0519B3A9CF001B5B6D /* PAImageView.m */; };
 		28921A711986DF34000D2689 /* SMNutritionixUPCClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 28921A701986DF34000D2689 /* SMNutritionixUPCClient.m */; };
 		28921A741986E5F0000D2689 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28921A731986E5F0000D2689 /* AVFoundation.framework */; };
 		28921A761986E5FA000D2689 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28921A751986E5FA000D2689 /* CoreMedia.framework */; };
@@ -393,6 +394,8 @@
 		287202051986BEF40019C5DC /* SMNutritionixClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMNutritionixClient.h; sourceTree = "<group>"; };
 		287202061986BEF40019C5DC /* SMNutritionixClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMNutritionixClient.m; sourceTree = "<group>"; };
 		288D874A19624A7A005A93C6 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		288DEB0419B3A9CF001B5B6D /* PAImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAImageView.h; sourceTree = "<group>"; };
+		288DEB0519B3A9CF001B5B6D /* PAImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAImageView.m; sourceTree = "<group>"; };
 		28921A6F1986DF34000D2689 /* SMNutritionixUPCClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMNutritionixUPCClient.h; sourceTree = "<group>"; };
 		28921A701986DF34000D2689 /* SMNutritionixUPCClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMNutritionixUPCClient.m; sourceTree = "<group>"; };
 		28921A731986E5F0000D2689 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -618,6 +621,8 @@
 		283D4397195A37770054E16D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				288DEB0419B3A9CF001B5B6D /* PAImageView.h */,
+				288DEB0519B3A9CF001B5B6D /* PAImageView.m */,
 				28D61AFD19A2AA3A00C9C3BB /* HTAutocompleteManager.h */,
 				28D61AFE19A2AA3A00C9C3BB /* HTAutocompleteManager.m */,
 				28E8B89C199E682500CEFBBA /* XYPieChart */,
@@ -1484,6 +1489,7 @@
 				284387141982F87C001A3A57 /* JSONHTTPClient.m in Sources */,
 				2853FC56199C6D6F0073B891 /* SMSecondEditPatientTableViewController.m in Sources */,
 				284386E81982F83C001A3A57 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				288DEB0619B3A9CF001B5B6D /* PAImageView.m in Sources */,
 				28D61AFF19A2AA3A00C9C3BB /* HTAutocompleteManager.m in Sources */,
 				2843871D1983057E001A3A57 /* YummlyModel.m in Sources */,
 				2843870D1982F87C001A3A57 /* JSONModel+CoreData.m in Sources */,

@@ -151,20 +151,20 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
     return @[
          [[Food alloc] initWithName:@"Barley"
                               image:[UIImage imageNamed:@"Barley"]],
-         [[Food alloc] initWithName:@"Bread"
-                              image:[UIImage imageNamed:@"Bread(products)"]],
-         [[Food alloc] initWithName:@"Buckwheat"
-                              image:[UIImage imageNamed:@"Buckwheat"]],
-         [[Food alloc] initWithName:@"Corn"
-                              image:[UIImage imageNamed:@"Corn "]],
-         [[Food alloc] initWithName:@"Oats"
-                              image:[UIImage imageNamed:@"Oats"]],
-         [[Food alloc] initWithName:@"Potatoes"
-                              image:[UIImage imageNamed:@"Potatoes"]],
-         [[Food alloc] initWithName:@"Quinoa"
-                              image:[UIImage imageNamed:@"Quinoa"]],
-         [[Food alloc] initWithName:@"Rice"
-                              image:[UIImage imageNamed:@"Rice"]],
+//         [[Food alloc] initWithName:@"Bread"
+//                              image:[UIImage imageNamed:@"Bread(products)"]],
+//         [[Food alloc] initWithName:@"Buckwheat"
+//                              image:[UIImage imageNamed:@"Buckwheat"]],
+//         [[Food alloc] initWithName:@"Corn"
+//                              image:[UIImage imageNamed:@"Corn "]],
+//         [[Food alloc] initWithName:@"Oats"
+//                              image:[UIImage imageNamed:@"Oats"]],
+//         [[Food alloc] initWithName:@"Potatoes"
+//                              image:[UIImage imageNamed:@"Potatoes"]],
+//         [[Food alloc] initWithName:@"Quinoa"
+//                              image:[UIImage imageNamed:@"Quinoa"]],
+//         [[Food alloc] initWithName:@"Rice"
+//                              image:[UIImage imageNamed:@"Rice"]],
      ];
     
 }

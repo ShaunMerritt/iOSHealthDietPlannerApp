@@ -2,187 +2,306 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
-	<array>
+	<dict>
+		<key>Number Of Servings</key>
+		<string></string>
+		<key>Ingredient Lines</key>
+		<array/>
+		<key>Source Recipe URL</key>
+		<string></string>
+		<key>Hosted Medium URL</key>
+		<string></string>
+		<key>Yield</key>
+		<string></string>
+		<key>Rating</key>
+		<string></string>
+		<key>Flavors</key>
 		<dict>
-			<key>Recipe Name</key>
+			<key>piquant</key>
 			<string></string>
-			<key>Recipe Id</key>
+			<key>meaty</key>
+			<string></string>
+			<key>sour</key>
+			<string></string>
+			<key>bitter</key>
+			<string></string>
+			<key>salty</key>
+			<string></string>
+			<key>sweet</key>
 			<string></string>
 		</dict>
+		<key>Total Time In Seconds</key>
+		<string></string>
+		<key>Course</key>
+		<string></string>
+		<key>Ingredients</key>
+		<array/>
+		<key>Source Display Name</key>
+		<string></string>
+		<key>Recipe Number</key>
+		<string>1</string>
+		<key>Recipe Name</key>
+		<string></string>
+		<key>Recipe Id</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>Number Of Servings</key>
+		<string></string>
+		<key>Ingredient Lines</key>
+		<array/>
+		<key>Source Recipe URL</key>
+		<string></string>
+		<key>Hosted Medium URL</key>
+		<string></string>
+		<key>Yield</key>
+		<string></string>
+		<key>Rating</key>
+		<string></string>
+		<key>Flavors</key>
 		<dict>
-			<key>Recipe Name</key>
+			<key>piquant</key>
 			<string></string>
-			<key>Recipe Id</key>
+			<key>meaty</key>
+			<string></string>
+			<key>sour</key>
+			<string></string>
+			<key>bitter</key>
+			<string></string>
+			<key>salty</key>
+			<string></string>
+			<key>sweet</key>
 			<string></string>
 		</dict>
+		<key>Total Time In Seconds</key>
+		<string></string>
+		<key>Course</key>
+		<string></string>
+		<key>Ingredients</key>
+		<array/>
+		<key>Source Display Name</key>
+		<string></string>
+		<key>Recipe Number</key>
+		<string>2</string>
+		<key>Recipe Name</key>
+		<string></string>
+		<key>Recipe Id</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>Number Of Servings</key>
+		<string></string>
+		<key>Ingredient Lines</key>
+		<array/>
+		<key>Source Recipe URL</key>
+		<string></string>
+		<key>Hosted Medium URL</key>
+		<string></string>
+		<key>Yield</key>
+		<string></string>
+		<key>Rating</key>
+		<string></string>
+		<key>Flavors</key>
 		<dict>
-			<key>Recipe Name</key>
+			<key>piquant</key>
 			<string></string>
-			<key>Recipe Id</key>
+			<key>meaty</key>
+			<string></string>
+			<key>sour</key>
+			<string></string>
+			<key>bitter</key>
+			<string></string>
+			<key>salty</key>
+			<string></string>
+			<key>sweet</key>
 			<string></string>
 		</dict>
+		<key>Total Time In Seconds</key>
+		<string></string>
+		<key>Course</key>
+		<string></string>
+		<key>Ingredients</key>
+		<array/>
+		<key>Source Display Name</key>
+		<string></string>
+		<key>Recipe Number</key>
+		<string>3</string>
+		<key>Recipe Name</key>
+		<string></string>
+		<key>Recipe Id</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>Number Of Servings</key>
+		<string></string>
+		<key>Ingredient Lines</key>
+		<array/>
+		<key>Source Recipe URL</key>
+		<string></string>
+		<key>Hosted Medium URL</key>
+		<string></string>
+		<key>Yield</key>
+		<string></string>
+		<key>Rating</key>
+		<string></string>
+		<key>Flavors</key>
 		<dict>
-			<key>Recipe Name</key>
+			<key>piquant</key>
 			<string></string>
-			<key>Recipe Id</key>
+			<key>meaty</key>
+			<string></string>
+			<key>sour</key>
+			<string></string>
+			<key>bitter</key>
+			<string></string>
+			<key>salty</key>
+			<string></string>
+			<key>sweet</key>
 			<string></string>
 		</dict>
-	</array>
-	<array>
+		<key>Total Time In Seconds</key>
+		<string></string>
+		<key>Course</key>
+		<string></string>
+		<key>Ingredients</key>
+		<array/>
+		<key>Source Display Name</key>
+		<string></string>
+		<key>Recipe Number</key>
+		<string>4</string>
+		<key>Recipe Name</key>
+		<string></string>
+		<key>Recipe Id</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>Number Of Servings</key>
+		<string></string>
+		<key>Ingredient Lines</key>
+		<array/>
+		<key>Source Recipe URL</key>
+		<string></string>
+		<key>Hosted Medium URL</key>
+		<string></string>
+		<key>Yield</key>
+		<string></string>
+		<key>Rating</key>
+		<string></string>
+		<key>Flavors</key>
 		<dict>
-			<key>Recipe Name</key>
+			<key>piquant</key>
 			<string></string>
-			<key>Recipe Id</key>
+			<key>meaty</key>
+			<string></string>
+			<key>sour</key>
+			<string></string>
+			<key>bitter</key>
+			<string></string>
+			<key>salty</key>
+			<string></string>
+			<key>sweet</key>
 			<string></string>
 		</dict>
+		<key>Total Time In Seconds</key>
+		<string></string>
+		<key>Course</key>
+		<string></string>
+		<key>Ingredients</key>
+		<array/>
+		<key>Source Display Name</key>
+		<string></string>
+		<key>Recipe Number</key>
+		<string>5</string>
+		<key>Recipe Name</key>
+		<string></string>
+		<key>Recipe Id</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>Number Of Servings</key>
+		<string></string>
+		<key>Ingredient Lines</key>
+		<array/>
+		<key>Source Recipe URL</key>
+		<string></string>
+		<key>Hosted Medium URL</key>
+		<string></string>
+		<key>Yield</key>
+		<string></string>
+		<key>Rating</key>
+		<string></string>
+		<key>Flavors</key>
 		<dict>
-			<key>Recipe Name</key>
+			<key>piquant</key>
 			<string></string>
-			<key>Recipe Id</key>
+			<key>meaty</key>
+			<string></string>
+			<key>sour</key>
+			<string></string>
+			<key>bitter</key>
+			<string></string>
+			<key>salty</key>
+			<string></string>
+			<key>sweet</key>
 			<string></string>
 		</dict>
+		<key>Total Time In Seconds</key>
+		<string></string>
+		<key>Course</key>
+		<string></string>
+		<key>Ingredients</key>
+		<array/>
+		<key>Source Display Name</key>
+		<string></string>
+		<key>Recipe Number</key>
+		<string>6</string>
+		<key>Recipe Name</key>
+		<string></string>
+		<key>Recipe Id</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>Number Of Servings</key>
+		<string></string>
+		<key>Ingredient Lines</key>
+		<array/>
+		<key>Source Recipe URL</key>
+		<string></string>
+		<key>Hosted Medium URL</key>
+		<string></string>
+		<key>Yield</key>
+		<string></string>
+		<key>Rating</key>
+		<string></string>
+		<key>Flavors</key>
 		<dict>
-			<key>Recipe Name</key>
+			<key>piquant</key>
 			<string></string>
-			<key>Recipe Id</key>
+			<key>meaty</key>
+			<string></string>
+			<key>sour</key>
+			<string></string>
+			<key>bitter</key>
+			<string></string>
+			<key>salty</key>
+			<string></string>
+			<key>sweet</key>
 			<string></string>
 		</dict>
-		<dict>
-			<key>Recipe Name</key>
-			<string></string>
-			<key>Recipe Id</key>
-			<string></string>
-		</dict>
-	</array>
-	<array>
-		<dict>
-			<key>Recipe Name</key>
-			<string></string>
-			<key>Recipe Id</key>
-			<string></string>
-		</dict>
-		<dict>
-			<key>Recipe Name</key>
-			<string></string>
-			<key>Recipe Id</key>
-			<string></string>
-		</dict>
-		<dict>
-			<key>Recipe Name</key>
-			<string></string>
-			<key>Recipe Id</key>
-			<string></string>
-		</dict>
-		<dict>
-			<key>Recipe Name</key>
-			<string></string>
-			<key>Recipe Id</key>
-			<string></string>
-		</dict>
-	</array>
-	<array>
-		<dict>
-			<key>Recipe Name</key>
-			<string></string>
-			<key>Recipe Id</key>
-			<string></string>
-		</dict>
-		<dict>
-			<key>Recipe Name</key>
-			<string></string>
-			<key>Recipe Id</key>
-			<string></string>
-		</dict>
-		<dict>
-			<key>Recipe Name</key>
-			<string></string>
-			<key>Recipe Id</key>
-			<string></string>
-		</dict>
-		<dict>
-			<key>Recipe Name</key>
-			<string></string>
-			<key>Recipe Id</key>
-			<string></string>
-		</dict>
-	</array>
-	<array>
-		<dict>
-			<key>Recipe Name</key>
-			<string></string>
-			<key>Recipe Id</key>
-			<string></string>
-		</dict>
-		<dict>
-			<key>Recipe Name</key>
-			<string></string>
-			<key>Recipe Id</key>
-			<string></string>
-		</dict>
-		<dict>
-			<key>Recipe Name</key>
-			<string></string>
-			<key>Recipe Id</key>
-			<string></string>
-		</dict>
-		<dict>
-			<key>Recipe Name</key>
-			<string></string>
-			<key>Recipe Id</key>
-			<string></string>
-		</dict>
-	</array>
-	<array>
-		<dict>
-			<key>Recipe Name</key>
-			<string></string>
-			<key>Recipe Id</key>
-			<string></string>
-		</dict>
-		<dict>
-			<key>Recipe Name</key>
-			<string></string>
-			<key>Recipe Id</key>
-			<string></string>
-		</dict>
-		<dict>
-			<key>Recipe Name</key>
-			<string></string>
-			<key>Recipe Id</key>
-			<string></string>
-		</dict>
-		<dict>
-			<key>Recipe Name</key>
-			<string></string>
-			<key>Recipe Id</key>
-			<string></string>
-		</dict>
-	</array>
-	<array>
-		<dict>
-			<key>Recipe Name</key>
-			<string></string>
-			<key>Recipe Id</key>
-			<string></string>
-		</dict>
-		<dict>
-			<key>Recipe Name</key>
-			<string></string>
-			<key>Recipe Id</key>
-			<string></string>
-		</dict>
-		<dict>
-			<key>Recipe Name</key>
-			<string></string>
-			<key>Recipe Id</key>
-			<string></string>
-		</dict>
-		<dict>
-			<key>Recipe Name</key>
-			<string></string>
-			<key>Recipe Id</key>
-			<string></string>
-		</dict>
-	</array>
+		<key>Total Time In Seconds</key>
+		<string></string>
+		<key>Course</key>
+		<string></string>
+		<key>Ingredients</key>
+		<array/>
+		<key>Source Display Name</key>
+		<string></string>
+		<key>Recipe Number</key>
+		<string>7</string>
+		<key>Recipe Name</key>
+		<string></string>
+		<key>Recipe Id</key>
+		<string></string>
+	</dict>
 </array>
 </plist>

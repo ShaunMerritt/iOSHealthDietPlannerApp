@@ -135,12 +135,16 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="Lgv-D7-nB5">
-                                <rect key="frame" x="20" y="138" width="280" height="312"/>
+                                <rect key="frame" x="20" y="223" width="280" height="312"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nir-1l-Ume" customClass="PFImageView">
+                                <rect key="frame" x="40" y="89" width="240" height="240"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -150,6 +154,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="RxC-Yu-eso"/>
                     <connections>
+                        <outlet property="imageView" destination="nir-1l-Ume" id="rAp-ML-6Vw"/>
                         <outlet property="restrictionsLabel" destination="Lgv-D7-nB5" id="vEJ-si-wjP"/>
                     </connections>
                 </viewController>
