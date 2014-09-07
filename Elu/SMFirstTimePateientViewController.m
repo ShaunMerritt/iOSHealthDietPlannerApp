@@ -7,6 +7,8 @@
 //
 
 #import "SMFirstTimePateientViewController.h"
+#import "SMAppDelegate.h"
+#import "SMHomeScreenViewController.h"
 
 @interface SMFirstTimePateientViewController ()
 
@@ -50,6 +52,9 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        NSLog(@"Initilaixe");
+        SMHomeScreenViewController *view2 = [[SMHomeScreenViewController alloc] init];
+        [self.navigationController pushViewController:view2 animated:YES];
     }
     return self;
 }
@@ -57,6 +62,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    SMAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+
+    if (appDelegate.hasBeenHere == YES) {
+        
+        NSLog(@"IM HER");
+    } else {
+        appDelegate.hasBeenHere = YES;
+    }
+    
     // Do any additional setup after loading the view.
     self.numberForUpdate = 0;
     self.growingIntro = [[NSMutableString alloc] initWithString:@"Welcome to Elu+\n"];
@@ -212,11 +227,28 @@
     [self.fadeTimer invalidate];
     self.fadeTimer = nil;
     
-    UIStoryboard *sbs        = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    UIViewController *vcs    = [sbs instantiateViewControllerWithIdentifier:@"firstTimePatientSignedIn"];
-    vcs.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    [self presentViewController:vcs animated:YES completion:nil];
-    NSLog(@"Hello");
+//    SMLikeFoodViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"firstTimePatientSignedIn"];
+//    [self.navigationController pushViewController:newView animated:YES];
+    
+    [self performSegueWithIdentifier:@"pushedToLikeFoods" sender:self];
+
+    
+    
+        
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"pushedToLikeFoods"])
+    {
+        NSLog(@"TEST HERE");
+    }
+    
+    if ([[segue identifier] isEqualToString:@"pushToHome"])
+    {
+        [segue.destinationViewController setHidesBottomBarWhenPushed:NO];
+    }
     
 }
+
 @end

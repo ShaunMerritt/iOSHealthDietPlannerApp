@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TOMSMorphingLabel.h"
+#import "SMLikeFoodViewController.h"
 
 @interface SMFirstTimePateientViewController : UIViewController
 

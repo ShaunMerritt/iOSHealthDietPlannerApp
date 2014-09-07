@@ -148,13 +148,13 @@
     [self presentViewController:vcs animated:YES completion:nil];
     */
      
-    
+    /*
     UIStoryboard *sbs        = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     UIViewController *vcs    = [sbs instantiateViewControllerWithIdentifier:@"firstTimePatientSignedIn"];
     vcs.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     [self presentViewController:vcs animated:YES completion:nil];
     
-    
+    */
 }
 
 - (IBAction)logout:(id)sender {
@@ -165,7 +165,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"showLogin"]) {
-        [segue.destinationViewController setHidesBottomBarWhenPushed:YES];
+        //[segue.destinationViewController setHidesBottomBarWhenPushed:YES];
     }
 }
 

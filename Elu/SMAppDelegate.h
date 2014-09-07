@@ -15,6 +15,8 @@
 
 // Properties to be stored on physical device!!!
 @property (readwrite, nonatomic) BOOL isDoctor;
+@property (readwrite, nonatomic) BOOL hasBeenHere;
+
 @property (nonatomic, copy) NSString *userName;
 @property int totalCaloriesForMaintenece;
 
