@@ -43,6 +43,23 @@
 @property int caloriesDedicatedToSnackBetweenLunchAndDinner;
 @property int caloriesDedicatedToDinner;
 
+@property int caloriesForFatsForBreakfast;
+@property int caloriesForFatsForLunch;
+@property int caloriesForFatsForDinner;
+
+@property int caloriesForProteinsForBreakfast;
+@property int caloriesForProteinsForLunch;
+@property int caloriesForProteinsForDinner;
+
+@property int caloriesForCarbsForBreakfast;
+@property int caloriesForCarbsForLunch;
+@property int caloriesForCarbsForDinner;
+
+
+
+
+
+
 @property (strong, nonatomic) NSString *mealString;
 @property (strong, nonatomic) NSString *plistPath;
 @property (strong, nonatomic) NSData *plistData;
@@ -60,7 +77,8 @@
 @property (strong, nonatomic) NSString *returnedRecipeMediumImage;
 @property (strong, nonatomic) NSString *returnedRecipeNumberOfServings;
 
-
+@property int timeForPup;
+@property int testValue;
 
 
 //@property (nonatomic, strong) SMYummlyHTTPClient *client;

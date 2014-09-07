@@ -7,7 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MZDayPicker.h"
+
 
 @interface SMMealPlanTableViewController : UITableViewController
+
+@property (nonatomic, strong) NSMutableArray *allMeals;
+@property (weak, nonatomic) IBOutlet MZDayPicker *dayPicker;
+
+@property (weak, nonatomic) NSMutableDictionary *dictionaryOne;
+@property (weak, nonatomic) NSMutableDictionary *dictionaryTwo;
+
+@property int test;
+
+@property int dayNumber;
 
 @end
