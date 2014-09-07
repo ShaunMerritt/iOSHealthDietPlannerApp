@@ -156,6 +156,7 @@
 		28921B2E1986EC47000D2689 /* zbar-samples.png in Resources */ = {isa = PBXBuildFile; fileRef = 28921B281986EC47000D2689 /* zbar-samples.png */; };
 		289C31F319B251A50095911D /* WeeklyDietPropertyList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 289C31F219B251A50095911D /* WeeklyDietPropertyList.plist */; };
 		28B1B49D1984636700F4881A /* SMYummlyGetClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B1B49C1984636700F4881A /* SMYummlyGetClient.m */; };
+		28B45BD219BCD1190018600F /* SMMealPlanTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B45BD119BCD1190018600F /* SMMealPlanTableViewController.m */; };
 		28B96DD419A5BDAE00FA0237 /* SMFirstTimePateientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B96DD319A5BDAE00FA0237 /* SMFirstTimePateientViewController.m */; };
 		28C0B5AC19A7E97A00BB1EC0 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 28C0B5AA19A7E97A00BB1EC0 /* Model.xcdatamodeld */; };
 		28C0B5AF19A7ECD000BB1EC0 /* Details.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C0B5AE19A7ECD000BB1EC0 /* Details.m */; };
@@ -431,6 +432,8 @@
 		289C31F219B251A50095911D /* WeeklyDietPropertyList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WeeklyDietPropertyList.plist; sourceTree = "<group>"; };
 		28B1B49B1984636700F4881A /* SMYummlyGetClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMYummlyGetClient.h; sourceTree = "<group>"; };
 		28B1B49C1984636700F4881A /* SMYummlyGetClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMYummlyGetClient.m; sourceTree = "<group>"; };
+		28B45BD019BCD1190018600F /* SMMealPlanTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMMealPlanTableViewController.h; sourceTree = "<group>"; };
+		28B45BD119BCD1190018600F /* SMMealPlanTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMMealPlanTableViewController.m; sourceTree = "<group>"; };
 		28B96DD219A5BDAE00FA0237 /* SMFirstTimePateientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFirstTimePateientViewController.h; sourceTree = "<group>"; };
 		28B96DD319A5BDAE00FA0237 /* SMFirstTimePateientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFirstTimePateientViewController.m; sourceTree = "<group>"; };
 		28C0B5AB19A7E97A00BB1EC0 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -715,13 +718,8 @@
 		284386B71982F694001A3A57 /* Patient */ = {
 			isa = PBXGroup;
 			children = (
-				28B96DD219A5BDAE00FA0237 /* SMFirstTimePateientViewController.h */,
-				28B96DD319A5BDAE00FA0237 /* SMFirstTimePateientViewController.m */,
 				28ABD1D119A54E5800797648 /* First Time Patient */,
-				283D43CE195A3E610054E16D /* SMNutritionViewController.h */,
-				283D43CF195A3E610054E16D /* SMNutritionViewController.m */,
-				282972D7198049E200ED1287 /* SMHomeScreenViewController.h */,
-				282972D8198049E200ED1287 /* SMHomeScreenViewController.m */,
+				28B45BCD19BCD0E40018600F /* Tabs */,
 				28D3588E1962285100BAB66B /* Swipe To Like Views */,
 			);
 			name = Patient;
@@ -1133,6 +1131,8 @@
 		28ABD1D119A54E5800797648 /* First Time Patient */ = {
 			isa = PBXGroup;
 			children = (
+				28B96DD219A5BDAE00FA0237 /* SMFirstTimePateientViewController.h */,
+				28B96DD319A5BDAE00FA0237 /* SMFirstTimePateientViewController.m */,
 			);
 			name = "First Time Patient";
 			sourceTree = "<group>";
@@ -1153,6 +1153,43 @@
 				28B1B49C1984636700F4881A /* SMYummlyGetClient.m */,
 			);
 			name = "Yummly Get Client";
+			sourceTree = "<group>";
+		};
+		28B45BCD19BCD0E40018600F /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				28B45BCE19BCD0ED0018600F /* First */,
+				28B45BCF19BCD0F20018600F /* Third */,
+				28B45BD319BCD11C0018600F /* Second */,
+			);
+			name = Tabs;
+			sourceTree = "<group>";
+		};
+		28B45BCE19BCD0ED0018600F /* First */ = {
+			isa = PBXGroup;
+			children = (
+				283D43CE195A3E610054E16D /* SMNutritionViewController.h */,
+				283D43CF195A3E610054E16D /* SMNutritionViewController.m */,
+			);
+			name = First;
+			sourceTree = "<group>";
+		};
+		28B45BCF19BCD0F20018600F /* Third */ = {
+			isa = PBXGroup;
+			children = (
+				282972D7198049E200ED1287 /* SMHomeScreenViewController.h */,
+				282972D8198049E200ED1287 /* SMHomeScreenViewController.m */,
+			);
+			name = Third;
+			sourceTree = "<group>";
+		};
+		28B45BD319BCD11C0018600F /* Second */ = {
+			isa = PBXGroup;
+			children = (
+				28B45BD019BCD1190018600F /* SMMealPlanTableViewController.h */,
+				28B45BD119BCD1190018600F /* SMMealPlanTableViewController.m */,
+			);
+			name = Second;
 			sourceTree = "<group>";
 		};
 		28D0DE5719943F950004A2E2 /* Page View For Editing Patient */ = {
@@ -1485,6 +1522,7 @@
 				2853FC48199C67620073B891 /* UIColor+GraphKit.m in Sources */,
 				283D43EA195A455C0054E16D /* SMSignupViewController.m in Sources */,
 				280F1F3B19622F80004BE086 /* ChooseFoodView.m in Sources */,
+				28B45BD219BCD1190018600F /* SMMealPlanTableViewController.m in Sources */,
 				28D0DE60199440730004A2E2 /* RMStepsBar.m in Sources */,
 				284387141982F87C001A3A57 /* JSONHTTPClient.m in Sources */,
 				2853FC56199C6D6F0073B891 /* SMSecondEditPatientTableViewController.m in Sources */,
