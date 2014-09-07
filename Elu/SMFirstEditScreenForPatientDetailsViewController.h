@@ -14,6 +14,7 @@
 
 @property (nonatomic, readwrite) BOOL isMale;
 @property (strong, nonatomic) id detailItem;
+@property (strong, nonatomic) NSString *userName;
 
 @property (weak, nonatomic) IBOutlet UILabel *patientsWeightLabel;
 @property (weak, nonatomic) IBOutlet UITextField *patientsWeightTextField;

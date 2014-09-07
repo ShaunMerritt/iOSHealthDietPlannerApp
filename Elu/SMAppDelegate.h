@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 @interface SMAppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -15,5 +16,7 @@
 // Properties to be stored on physical device!!!
 @property (readwrite, nonatomic) BOOL isDoctor;
 @property (nonatomic, copy) NSString *userName;
+@property int totalCaloriesForMaintenece;
+
 
 @end

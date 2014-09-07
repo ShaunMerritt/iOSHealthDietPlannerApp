@@ -46,6 +46,11 @@ static NSString *const SMAppKey = @"a8908fd1f6e4bff434989f91b138526e";
     //parameters[@""] = recipeId;
     parameters[@"_app_id"] = SMAppId;
     parameters[@"_app_key"] = SMAppKey;
+//    parameters[@"nutrition.CHOCDF.min"] = @"0";
+//    parameters[@"nutrition.CHOCDF.max"] = @"20";
+//    parameters[@"nutrition.PROCNT.min"] = @"20";
+//    parameters[@"nutrition.PROCNT.max"] = @"50";
+//
     
     NSString *sampleUrl = [NSString stringWithFormat:@"recipe/%@?",recipeId];
     NSString* encodedUrl = [sampleUrl stringByAddingPercentEscapesUsingEncoding:

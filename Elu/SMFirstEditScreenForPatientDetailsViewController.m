@@ -15,7 +15,7 @@
 @interface SMFirstEditScreenForPatientDetailsViewController () <ASValueTrackingSliderDataSource> {
     NSString *patientsWeight;
     NSString *patientsActivityLevel;
-    NSString *userName;
+    //NSString *userName;
 }
 
 @property (nonatomic, strong) IBOutlet ASValueTrackingSlider *slider1;
@@ -24,17 +24,16 @@
 
 @implementation SMFirstEditScreenForPatientDetailsViewController
 @synthesize isMale;
+@synthesize userName = _userName;
 @synthesize patientsWeightLabel, patientsWeightTextField, heightLabel, heightInFeetTextField, heightInInchesTextField, maleLabel, maleSwitch, patientsAgeTextField;
 
 #pragma mark - LifeCycle
-
 - (void)viewDidLoad
 {
-    NSLog(@"Got hee");
     [super viewDidLoad];
     
     SMAppDelegate *appDelegate = (SMAppDelegate *)[[UIApplication sharedApplication] delegate];
-    userName = appDelegate.userName;
+    _userName = appDelegate.userName;
     
     // Set default value for isMale Bool
     isMale = YES;
@@ -64,8 +63,35 @@
     
 }
 
-#pragma mark - ASValueTrackingSliderDataSource
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    // Make keyboard go away when touch background
+    UITouch *touch = [[event allTouches] anyObject];
+    if ([self.patientsAgeTextField isFirstResponder] && [touch view] != self.patientsAgeTextField) {
+        [self.patientsAgeTextField resignFirstResponder];
+    }
+    if ([self.heightInFeetTextField isFirstResponder] && [touch view] != self.heightInFeetTextField) {
+        [self.heightInFeetTextField resignFirstResponder];
+    }
+    if ([self.heightInInchesTextField isFirstResponder] && [touch view] != self.heightInInchesTextField) {
+        [self.heightInInchesTextField resignFirstResponder];
+    }
+    if ([self.patientsWeightTextField isFirstResponder] && [touch view] != self.patientsWeightTextField) {
+        [self.patientsWeightTextField resignFirstResponder];
+    }
+    
+    [super touchesBegan:touches withEvent:event];
+    
+}
 
+- (void)setDetailItemForPatient:(id)newDetailItem
+{
+    if (_detailItem != newDetailItem) {
+        _detailItem = newDetailItem;
+    }
+}
+
+#pragma mark - ASValueTrackingSliderDataSource
 - (NSString *)slider:(ASValueTrackingSlider *)slider stringForValue:(float)value;
 {
     value = value;
@@ -107,65 +133,11 @@
     // Call method to initiate cloud code
     [self getSuggestedDailyCaloriesForMaintence:patientsWeight activityLevel:patientsActivityLevel sex:patientsSex age:patientsAge heightInFeet:patientsHeightInFeet heightInches:patientsHeighInInches];
     
-    
-    [self.stepsController showNextStep];
 }
 
 - (IBAction)previousStepTapped:(id)sender {
     [self.stepsController showPreviousStep];
 }
-
-- (void)setDetailItemForPatient:(id)newDetailItem
-{
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
-    }
-}
-
-
-- (void) getSuggestedDailyCaloriesForMaintence: (NSString *)weight activityLevel:(NSString *)activity sex:(NSString *)patientsSex age:(NSString *)patientsAge heightInFeet: (NSString *)patientsHeightInFeet heightInches: (NSString *)patientsHeightInInches{
-    
-    /* Call cloud code function "generateRecommendedCaloriesForMen", and pass in parameters that are included in method call. This should return the total calories a patient should have a day to maintain weight */
-    [PFCloud callFunctionInBackground:@"generateRecommendedCaloriesForMen"
-                       withParameters: @{@"weight": weight, @"activityNumber": activity, @"sex": patientsSex, @"age": patientsAge, @"heightInFeet": patientsHeightInFeet, @"heightInches": patientsHeightInInches}
-                                block:^(NSString *object, NSError *error) {
-                                    // If there is no error
-                                    if (!error) {
-                                        
-                                        NSLog(@"Here is the object: %@",object);
-                                        NSLog(@"%@", [PFUser currentUser].username);
-                                        
-                                        // Query for users with the same username as the one passed in from the tablecell
-                                        PFQuery *query = [PFUser query];
-                                        [query whereKey:@"username" equalTo:userName]; // the editing patient by username
-                                        NSArray *currentPatient = [query findObjects];
-                                        NSLog(@"Current patient is: %@", currentPatient);
-                                        
-                                        // Create PFACL object with the current user (doctor)
-                                        PFACL *acl = [PFACL ACLWithUser:PFUser.currentUser];
-                                        
-                                        // userList is an NSArray with the users we are sending this message to.
-                                        // For each user in userList add them to the PFACL and also add all of the info needed
-                                        for (PFUser *user in currentPatient) {
-                                            [acl setReadAccess:YES forUser:user];
-                                            PFObject *calories = [PFObject objectWithClassName:@"CaloriesPerDay"];
-                                            calories[@"totalDailyCalories"] = object;
-                                            calories.ACL = acl;
-                                            calories[@"user"] = user;
-                                            [calories saveInBackground];
-                                        }
-                                    }
-                                    else {
-                                        
-                                        // If there is an error
-                                        NSLog(@"%@, %@", error,[error userInfo]);
-                                        NSLog(@"%@", [PFUser currentUser].username);
-                                        
-                                    }
-                                }];
-}
-
-
 
 - (IBAction)switchValueChanged:(id)sender {
     
@@ -178,25 +150,90 @@
     
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+#pragma mark - HelperMethods
+- (void) getSuggestedDailyCaloriesForMaintence: (NSString *)weight activityLevel:(NSString *)activity sex:(NSString *)patientsSex age:(NSString *)patientsAge heightInFeet: (NSString *)patientsHeightInFeet heightInches: (NSString *)patientsHeightInInches{
     
-    // Make keyboard go away when touch background
-    UITouch *touch = [[event allTouches] anyObject];
-    if ([self.patientsAgeTextField isFirstResponder] && [touch view] != self.patientsAgeTextField) {
-        [self.patientsAgeTextField resignFirstResponder];
-    }
-    if ([self.heightInFeetTextField isFirstResponder] && [touch view] != self.heightInFeetTextField) {
-        [self.heightInFeetTextField resignFirstResponder];
-    }
-    if ([self.heightInInchesTextField isFirstResponder] && [touch view] != self.heightInInchesTextField) {
-        [self.heightInInchesTextField resignFirstResponder];
-    }
-    if ([self.patientsWeightTextField isFirstResponder] && [touch view] != self.patientsWeightTextField) {
-        [self.patientsWeightTextField resignFirstResponder];
-    }
-    
-    [super touchesBegan:touches withEvent:event];
-    
+    /*  Call cloud code function "generateRecommendedCaloriesForMen", and pass in parameters that are included in method call. This should return the total calories a patient should have a day to maintain weight */
+    [PFCloud callFunctionInBackground:@"generateRecommendedCaloriesForMen"
+                       withParameters: @{@"weight": weight, @"activityNumber": activity, @"sex": patientsSex, @"age": patientsAge, @"heightInFeet": patientsHeightInFeet, @"heightInches": patientsHeightInInches}
+                                block:^(NSString *object, NSError *error) {
+                                    // If there is no error
+                                    if (!error) {
+                                        
+                                        NSLog(@"Here is the object: %@",object);
+                                        NSLog(@"%@", [PFUser currentUser].username);
+                                        
+                                        // Save the total calories in the app delegate for the next step
+                                        SMAppDelegate *appDelegate = (SMAppDelegate *)[[UIApplication sharedApplication] delegate];
+                                        appDelegate.totalCaloriesForMaintenece = [object intValue];
+                                        
+                                        // Query for users with the same username as the one passed in from the tablecell
+                                        PFQuery *query = [PFUser query];
+                                        [query whereKey:@"username" equalTo:_userName]; // the editing patient by username
+                                        NSArray *currentPatient = [query findObjects];
+                                        NSLog(@"Current patient is: %@", currentPatient);
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        PFQuery *queryForUser = [PFQuery queryWithClassName:@"CaloriesPerDay"];
+                                        [queryForUser whereKey:@"user" equalTo:[currentPatient objectAtIndex:0]];
+                                        [queryForUser countObjectsInBackgroundWithBlock:^(int count, NSError *error) {
+                                            if (!error) {
+                                                if (count < 1) {
+                                                    
+                                                    NSLog(@"Im here still");
+                                                    // Create PFACL object with the current user (doctor)
+                                                    PFACL *acl = [PFACL ACLWithUser:PFUser.currentUser];
+                                                    
+                                                    // userList is an NSArray with the users we are sending this message to.
+                                                    // For each user in userList add them to the PFACL and also add all of the info needed
+                                                    for (PFUser *user in currentPatient) {
+                                                        [acl setReadAccess:YES forUser:user];
+                                                        PFObject *calories = [PFObject objectWithClassName:@"CaloriesPerDay"];
+                                                        calories[@"totalDailyCalories"] = object;
+                                                        calories.ACL = acl;
+                                                        calories[@"user"] = user;
+                                                        [calories saveInBackground];
+                                                    }
+
+                                                } else {
+                                                    PFQuery *query = [PFQuery queryWithClassName:@"CaloriesPerDay"];
+                                                    //[query whereKey:@"user" equalTo:[currentPatient objectAtIndex:0]];
+                                                    [query includeKey:[currentPatient objectAtIndex:0]];
+                                                    [query getFirstObjectInBackgroundWithBlock:^(PFObject * userStats, NSError *error) {
+                                                        
+                                                        // Now let's update it with some new data. In this case, only cheatMode and score
+                                                        // will get sent to the cloud. playerName hasn't changed.
+                                                        userStats[@"totalDailyCalories"] = object;
+                                                        [userStats saveInBackground];
+                                                        
+                                                    }];
+
+                                                }
+                                            } else {
+                                                // The request failed
+                                            }
+                                            
+                                        }];
+                                        
+                                        
+                                        
+                                        
+                                        // Call the next step method for the steps GitHub project
+                                        [self.stepsController showNextStep];
+                                        NSLog(@"%@", [PFUser currentUser].username);
+
+                                    }
+                                    else {
+                                        
+                                        // If there is an error
+                                        NSLog(@"%@, %@", error,[error userInfo]);
+                                        NSLog(@"%@", [PFUser currentUser].username);
+                                        
+                                    }
+                                }];
 }
 
 @end
