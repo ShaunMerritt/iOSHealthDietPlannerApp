@@ -24,4 +24,6 @@
 @property (nonatomic, assign) NSString *numberOfSharedInterests;
 @property (nonatomic, assign) NSString *numberOfPhotos;
 
+@property (nonatomic, strong) UIViewController *home;
+
 @end

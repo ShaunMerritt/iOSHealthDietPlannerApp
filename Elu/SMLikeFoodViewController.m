@@ -8,7 +8,9 @@
 
 #import "SMLikeFoodViewController.h"
 #import "Food.h"
+#import "SMHomeScreenViewController.h"
 #import <MDCSwipeToChoose/MDCSwipeToChoose.h>
+#import "SMFirstTimePateientViewController.h"
 
 static const CGFloat ChooseFoodButtonHorizontalPadding = 80.f;
 static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
@@ -28,7 +30,7 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
         // This view controller maintains a list of ChoosePersonView
         // instances to display.
         NSLog(@"init");
-        //_foods = [[self defaultFoods] mutableCopy];
+        _foods = [[self defaultFoods] mutableCopy];
     }
     return self;
 }
@@ -37,6 +39,7 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
 
 - (void)viewDidLoad {
 
+    NSLog(@"Gpt here");
     _foods = [[self defaultFoods] mutableCopy];
     [self.view setBackgroundColor:[UIColor whiteColor]];
     
@@ -106,13 +109,38 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
             }];
             
             // Move to different viewController
-            UIStoryboard *sbs        = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-            UIViewController *vcs    = [sbs instantiateViewControllerWithIdentifier:@"testName"];
-            vcs.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-            [self presentViewController:vcs animated:YES completion:nil];
+//            UIStoryboard *sbs        = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+//            UIViewController *vcs    = [sbs instantiateViewControllerWithIdentifier:@"testName"];
+//            vcs.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+//            [self presentViewController:vcs animated:YES completion:nil];
+            
+            //push profile view
+//            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+//            SMHomeScreenViewController *profileViewController = (SMHomeScreenViewController *)[storyboard instantiateViewControllerWithIdentifier:@"testName"];
+//            
+//            [self.navigationController pushViewController:profileViewController animated:YES];
+        
+            //execute segue programmatically
+           //[self performSegueWithIdentifier: @"pushSegue" sender: self];
             
             
+            // locally store the navigation controller since
+            // self.navigationController will be nil once we are popped
+            //[self.navigationController popViewControllerAnimated:YES];
+
             
+            //[self dismissViewControllerAnimated:YES completion:nil];
+            
+//            [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+//            SMFirstTimePateientViewController *controller = [[SMFirstTimePateientViewController alloc] init];
+
+            //[self removeFromParentViewController];
+            
+            
+            NSString * storyboardName = @"MainStoryboard";
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
+            UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"hereIsTheID"];
+            [self presentViewController:vc animated:YES completion:nil];
 
         }
     }
@@ -135,6 +163,9 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
     }
 }
 
+#pragma mark - Navigation
+
+
 #pragma mark - Internal Methods
 
 -(void) setFrontCardView:(ChooseFoodView *)frontCardView {
@@ -152,24 +183,24 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
          [[Food alloc] initWithName:@"Barley"
                               image:[UIImage imageNamed:@"Barley"]
                                meal:@"Breakfast"],
-         [[Food alloc] initWithName:@"Bread"
-                              image:[UIImage imageNamed:@"Bread(products)"]
-                               meal:@"Lunch"],
-         [[Food alloc] initWithName:@"Buckwheat"
-                              image:[UIImage imageNamed:@"Buckwheat"]
-                               meal:@"Dinner"],
-         [[Food alloc] initWithName:@"Corn"
-                              image:[UIImage imageNamed:@"Corn "]
-                               meal:@"Breakfast"],
-         [[Food alloc] initWithName:@"Oats"
-                              image:[UIImage imageNamed:@"Oats"]
-                               meal:@"Breakfast"],
-         [[Food alloc] initWithName:@"Potatoes"
-                              image:[UIImage imageNamed:@"Potatoes"]
-                               meal:@"Dinner"],
-         [[Food alloc] initWithName:@"Quinoa"
-                              image:[UIImage imageNamed:@"Quinoa"]
-                               meal:@"Lunch"],
+//         [[Food alloc] initWithName:@"Bread"
+//                              image:[UIImage imageNamed:@"Bread(products)"]
+//                               meal:@"Lunch"],
+//         [[Food alloc] initWithName:@"Buckwheat"
+//                              image:[UIImage imageNamed:@"Buckwheat"]
+//                               meal:@"Dinner"],
+//         [[Food alloc] initWithName:@"Corn"
+//                              image:[UIImage imageNamed:@"Corn "]
+//                               meal:@"Breakfast"],
+//         [[Food alloc] initWithName:@"Oats"
+//                              image:[UIImage imageNamed:@"Oats"]
+//                               meal:@"Breakfast"],
+//         [[Food alloc] initWithName:@"Potatoes"
+//                              image:[UIImage imageNamed:@"Potatoes"]
+//                               meal:@"Dinner"],
+//         [[Food alloc] initWithName:@"Quinoa"
+//                              image:[UIImage imageNamed:@"Quinoa"]
+//                               meal:@"Lunch"],
      ];
     
 }
@@ -272,6 +303,20 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
 // Programmatically "likes" the front card view.
 - (void)likeFrontCardView {
     [self.frontCardView mdc_swipe:MDCSwipeDirectionRight];
+}
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    [segue.destinationViewController setHidesBottomBarWhenPushed:NO];
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+
+-(void) viewWillDisappear:(BOOL)animated
+{
+    [self.navigationController.toolbar setHidden: NO];
+    
 }
 
 @end

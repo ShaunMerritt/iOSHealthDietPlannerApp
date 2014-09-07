@@ -84,6 +84,8 @@
                     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
                     UIViewController *vc = [sb instantiateViewControllerWithIdentifier:@"FirstTimeForPatient"];
                     vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+                    vc.hidesBottomBarWhenPushed = NO;
+                    vc.navigationController.toolbar.hidden = NO;
                     [self presentViewController:vc animated:YES completion:NULL];
                 }
                 
@@ -91,6 +93,11 @@
         }];
     }
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+        [segue.destinationViewController setHidesBottomBarWhenPushed:NO];
+}
+
 @end
 
 

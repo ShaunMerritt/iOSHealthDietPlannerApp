@@ -8,6 +8,7 @@
 
 #import "SMHomeScreenViewController.h"
 #import "SMConstants.h"
+#import "SMAppDelegate.h"
 
 @interface SMHomeScreenViewController () {
     NSMutableDictionary *dicts;
@@ -47,6 +48,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+
+    
+    
+    
     
     //create array from Plist document of all mountains
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -395,6 +401,12 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    [self.navigationController.toolbar setHidden: YES];
+}
+
 
 /*
 #pragma mark - Navigation
