@@ -62,6 +62,8 @@
     PFUser *user        = [self.allUsers objectAtIndex:indexPath.row];
     cell.textLabel.text = user.username;
     
+    NSLog(@"Im Here");
+    
     //Use for relations
     //PFUser *user = [self.patients objectAtIndex:indexPath.row];
     //cell.textLabel.text = user.username;
