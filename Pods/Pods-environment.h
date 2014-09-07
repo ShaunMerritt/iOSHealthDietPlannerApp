@@ -72,3 +72,9 @@
 #define COCOAPODS_VERSION_MINOR_UICountingLabel 0
 #define COCOAPODS_VERSION_PATCH_UICountingLabel 0
 
+// VENSeparatorView
+#define COCOAPODS_POD_AVAILABLE_VENSeparatorView
+#define COCOAPODS_VERSION_MAJOR_VENSeparatorView 1
+#define COCOAPODS_VERSION_MINOR_VENSeparatorView 0
+#define COCOAPODS_VERSION_PATCH_VENSeparatorView 1
+
