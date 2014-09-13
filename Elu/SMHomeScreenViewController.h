@@ -38,6 +38,7 @@
 @property (nonatomic, strong) NSMutableArray *currentMeal;
 
 
+
 @property int caloriesDedicatedToBreakfast;
 @property int caloriesDedicatedToLunch;
 @property int caloriesDedicatedToSnackBetweenLunchAndDinner;
