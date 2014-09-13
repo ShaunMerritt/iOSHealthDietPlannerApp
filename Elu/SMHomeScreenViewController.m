@@ -14,6 +14,10 @@
     NSMutableDictionary *dicts;
     NSMutableDictionary *dict;
     SMYummlyHTTPClient *client;
+    NSDate *currentDate;
+    NSCalendar *calendar;
+    NSDateComponents *components;
+    int numberOfTimesPlistSaved;
 }
 
 @end
@@ -49,7 +53,18 @@
 {
     [super viewDidLoad];
     
+    numberOfTimesPlistSaved = 0;
+    
 
+    currentDate = [NSDate date];
+    calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    components = [[NSDateComponents alloc] init];
+//    [components setDay:1];
+//    currentDate = [calendar dateByAddingComponents:components
+//                                            toDate:currentDate
+//                                           options:0];
+    
+    NSLog(@"Date Plus 1 = %@", currentDate);
     
     
     
@@ -386,7 +401,7 @@
         [avatarView setImageURL:url];
     }
     
-    if (mealNumber < 7) {
+    if (mealNumber < 8) {
         
 //        //create array from Plist document of all mountains
 //        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -408,6 +423,7 @@
 
 - (void) savePlistInfo:(int)meal {
     
+    
     NSString *mealNumberString = [[NSString alloc] initWithFormat:@"%d",meal];
     NSLog(@"MEAL STRING NUMBER: %@", mealNumberString);
     int x = mealNumber - 1;
@@ -421,8 +437,21 @@
             NSLog(@"Temp Array: %@", tempArray);
         }
     }
+    
     NSMutableDictionary *dictsy = [tempArray objectAtIndex:0];
     
+    if (numberOfTimesPlistSaved > 3) {
+        [components setDay:1];
+        currentDate = [calendar dateByAddingComponents:components
+                                                toDate:currentDate
+                                               options:0];
+        numberOfTimesPlistSaved = 0;
+    }
+    
+    
+    numberOfTimesPlistSaved ++;
+
+    [dictsy setObject:currentDate forKey:@"Date For Meal"];
     [dictsy setObject:@"Test Object" forKey:@"Test Key"];
     [dictsy setObject:[NSString stringWithFormat:@"%@",returnedRecipeName] forKey:@"Recipe Name"];
     [dictsy setObject:[NSString stringWithFormat:@"%@",returnedRecipeMediumImage] forKey:@"Hosted Medium URL"];
@@ -431,6 +460,8 @@
     [dictsy setObject:[NSString stringWithFormat:@"%@",returnedRecipeYield] forKey:@"Yield"];
     [dictsy setObject:[NSString stringWithFormat:@"%@",returnedRecipeID] forKey:@"Recipe Id"];
     [dictsy setObject:[NSString stringWithFormat:@"%@",returnedRecipeTotalTimeInSeconds] forKey:@"Total Time In Seconds"];
+    
+    
     
     
     
