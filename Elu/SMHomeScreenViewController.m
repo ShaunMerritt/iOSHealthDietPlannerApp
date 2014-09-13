@@ -207,6 +207,21 @@
     
     NSLog(@"Pup");
     
+    NSArray *arrayOfBreakfast = [[NSArray alloc] initWithObjects:@"Eggs", @"Potatoes", @"Pancakes", @"Pancakes", @"Potatoes", @"Eggs",@"Pancakes",nil];
+    NSArray *arrayOfLunch = [[NSArray alloc] initWithObjects:@"Hamburger", @"Sandwhich", @"Macaroni", @"Macaroni",@"Sandwhich",@"Hamburger", @"Macaroni", @"Sandwhich", @"Macaroni",@"Hamburger", @"Sandwhich", @"Macaroni", @"Hamburger", @"Sandwhich", @"Macaroni", @"Macaroni",@"Sandwhich",@"Hamburger", @"Macaroni", @"Sandwhich", @"Macaroni",@"Hamburger", @"Sandwhich", nil];
+    NSArray *arrayOfDinner = [[NSArray alloc] initWithObjects:@"Hotdog", @"Fish", @"Sushi", @"Pasta",  @"Fish", @"Sushi", @"Sushi", @"Pasta", @"Hotdog", @"Fish", @"Fish", @"Sushi", @"Pasta",  @"Fish", @"Sushi", @"Hotdog", @"Fish", @"Sushi", @"Pasta",  @"Fish", @"Sushi", @"Sushi", @"Pasta", @"Hotdog", @"Fish", @"Fish", @"Sushi", @"Pasta",  @"Fish",nil];
+
+    NSString *stringForBreakfast = [[NSString alloc] init];
+    NSString *stringForLunch = [[NSString alloc] init];
+    NSString *stringForDinner = [[NSString alloc] init];
+    
+    NSString *searchFor = [[NSString alloc] init];
+    
+    int caloriesForFat = 0;
+    int caloriesForProteins = 0;
+    int caloriesForCarbs = 0;
+
+    
     self.caloriesDedicatedToBreakfast = self.caloriesForDay * 0.25;
     self.caloriesDedicatedToLunch = self.caloriesForDay * 0.4;
     self.caloriesDedicatedToSnackBetweenLunchAndDinner = self.caloriesForDay * 0.1;
@@ -219,31 +234,65 @@
         switch (self.i) {
             case 0:
                 self.mealString = kSMBreakfast;
-                self.caloriesForFats = self.caloriesForFats * 0.2;
-                self.caloriesForProteins = self.caloriesForProteins * 0.2;
-                self.caloriesForCarbs = self.caloriesForCarbs * 0.3;
+                self.caloriesForFatsForBreakfast = self.caloriesForFats * 0.2;
+                self.caloriesForProteinsForBreakfast = self.caloriesForProteins * 0.2;
+                self.caloriesForCarbsForBreakfast = self.caloriesForCarbs * 0.3;
+                
+                caloriesForFat = self.caloriesForFatsForBreakfast;
+                caloriesForProteins = self.caloriesForProteinsForBreakfast;
+                caloriesForCarbs = self.caloriesForCarbsForBreakfast;
+
+                
+                stringForBreakfast = [arrayOfBreakfast objectAtIndex:self.timeForPup];
+                searchFor = stringForBreakfast;
+                NSLog(@"Search for Bre :%@", searchFor);
+
                 break;
             case 1:
                 self.mealString = kSMLunchAndSnacks;
-                self.caloriesForFats = self.caloriesForFats * 0.4;
-                self.caloriesForProteins = self.caloriesForProteins * 0.45;
-                self.caloriesForCarbs = self.caloriesForCarbs * 0.4;
+                self.caloriesForFatsForLunch = self.caloriesForFats * 0.4;
+                self.caloriesForProteinsForLunch = self.caloriesForProteins * 0.45;
+                self.caloriesForCarbsForLunch = self.caloriesForCarbs * 0.4;
+                
+                caloriesForFat = self.caloriesForFatsForBreakfast;
+                caloriesForProteins = self.caloriesForProteinsForBreakfast;
+                caloriesForCarbs = self.caloriesForCarbsForBreakfast;
+
+                stringForLunch = [arrayOfLunch objectAtIndex:self.timeForPup];
+                searchFor = stringForLunch;
+                NSLog(@"Search for Lunch :%@", searchFor);
+
                 break;
             default:
                 self.mealString = kSMMainDishes;
-                self.caloriesForFats = self.caloriesForFats * 0.2;
-                self.caloriesForProteins = self.caloriesForProteins * 0.3;
-                self.caloriesForCarbs = self.caloriesForCarbs * 0.3;
+                self.caloriesForFatsForDinner = self.caloriesForFats * .2;
+                self.caloriesForProteinsForDinner = self.caloriesForProteins * .2;
+                self.caloriesForCarbsForDinner = self.caloriesForCarbs * .3;
+                
+                caloriesForFat = self.caloriesForFatsForBreakfast;
+                caloriesForProteins = self.caloriesForProteinsForBreakfast;
+                caloriesForCarbs = self.caloriesForCarbsForBreakfast;
+
+                stringForDinner = [arrayOfDinner objectAtIndex:self.timeForPup];
+                searchFor = stringForDinner;
+                NSLog(@"Search for Dinner :%@", searchFor);
+
+
+
+                self.i = 0;
                 break;
         }
 
+        self.timeForPup ++;
+
         NSLog(@"Meal str: %@", self.mealString);
     
-        [client searchForRecipe:@"" meal:self.mealString allergies:self.allergiesArray valueForCarbs:self.caloriesForCarbs valueForFats:self.caloriesForFats valueForProteins:self.caloriesForProteins ];
+        [client searchForRecipe:searchFor meal:self.mealString allergies:self.allergiesArray valueForCarbs:caloriesForCarbs valueForFats:caloriesForFat valueForProteins:caloriesForProteins ];
     
     //valueForCalcium:self.calcium valueForCholesterol:self.cholesterol valueForFiber:self.fiber valueForIron:self.iron valueForPotassium:self.potassium valueForSodium:self.sodium valueForSugar:self.sugar valueForVitaminA:self.vitaminA valueForVitaminC:self.vitaminC
     
     self.i++;
+    
     
 }
 
@@ -270,7 +319,16 @@
     
     NSArray* listOfMatchingFoods = [dicts objectForKey:@"matches"]; //2
     
+    if (listOfMatchingFoods == nil || [listOfMatchingFoods count] == 0) {
+        [self pupJesusIsBorn];
+    } else {
+    
     NSDictionary* bestFoodMatch = [listOfMatchingFoods objectAtIndex:0];
+    
+    
+    
+    self.testValue ++;
+    NSLog(@"Best Food Match: %@", bestFoodMatch);
     
     returnedRecipeID = [bestFoodMatch objectForKey:@"id"];
     returnedRecipeName = [bestFoodMatch objectForKey:@"recipeName"];
@@ -286,6 +344,7 @@
     SMYummlyGetClient *getClient = [SMYummlyGetClient sharedSMYummlyGetHTTPClient];
     getClient.delegate = self;
     [getClient findRecipeWithId:returnedRecipeID];
+    }
 }
 
 - (void)yummlyGetHTTPClient:(SMYummlyGetClient *)client didUpdateWithRecipe:(id)recipe {
@@ -315,7 +374,7 @@
     returnedRecipeImagesDictionary = returnedRecipeImagesArray[0];
     //NSLog(@"Here is the image dict: %@", returnedRecipeImagesDictionary);
 
-    returnedRecipeMediumImage = returnedRecipeImagesDictionary[@"hostedMediumUrl"];
+    returnedRecipeMediumImage = returnedRecipeImagesDictionary[@"hostedLargeUrl"];
     //NSLog(@"Here is the medium image: %@", returnedRecipeMediumImage);
     
     if (mealNumber == 2) {
@@ -327,7 +386,7 @@
         [avatarView setImageURL:url];
     }
     
-    if (mealNumber < 8) {
+    if (mealNumber < 7) {
         
 //        //create array from Plist document of all mountains
 //        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);

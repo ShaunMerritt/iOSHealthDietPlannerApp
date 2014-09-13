@@ -2,6 +2,74 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Pods-AMTagListView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Bolts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Facebook-iOS-SDK.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-FrameAccessor.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-GraphKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-HTAutocompleteTextField.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-MDCSwipeToChoose.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-MKFoundationKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-PNChart.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-TOMSMorphingLabel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-UICountingLabel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-VENSeparatorView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>17DE2B5BD59D4120BEF446B8</key>
@@ -19,37 +87,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>35B9085F48FA4DE88E45DC63</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>37A1376CE6AB4510882415D8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>4ED0D8C2AB4A4A0380549E18</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>533BA2ADFD7F49998F240E77</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>59B6C8149F6D42459BDF9A01</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5ADE2573CA294C86B6F2EA3E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5AECE2DB62984274AFBCCBC3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -59,22 +97,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6C9D6EC8CE31414EBFCF0BC8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>86618A09CE9342BDA5930C7C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>88C0341D0C5F4CF8993CD32B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>8DC82AED78894909961A7DC9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -99,11 +122,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CFD20D46BE4A44DB9435D2CB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>DBC078AE6ECD40D1A0B2B68E</key>
 		<dict>
 			<key>primary</key>
@@ -115,16 +133,6 @@
 			<true/>
 		</dict>
 		<key>F239C760963B46B1A7C52680</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FA387210AE1A415B8F5C26C9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FEBBAEE31C6A4B29A08B3FE1</key>
 		<dict>
 			<key>primary</key>
 			<true/>

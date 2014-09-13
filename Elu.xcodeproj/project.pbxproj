@@ -156,6 +156,10 @@
 		28921B2E1986EC47000D2689 /* zbar-samples.png in Resources */ = {isa = PBXBuildFile; fileRef = 28921B281986EC47000D2689 /* zbar-samples.png */; };
 		289C31F319B251A50095911D /* WeeklyDietPropertyList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 289C31F219B251A50095911D /* WeeklyDietPropertyList.plist */; };
 		28B1B49D1984636700F4881A /* SMYummlyGetClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B1B49C1984636700F4881A /* SMYummlyGetClient.m */; };
+		28B45BD219BCD1190018600F /* SMMealPlanTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B45BD119BCD1190018600F /* SMMealPlanTableViewController.m */; };
+		28B45BDB19BCFD120018600F /* MZDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B45BD619BCFD120018600F /* MZDay.m */; };
+		28B45BDC19BCFD120018600F /* MZDayPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B45BD819BCFD120018600F /* MZDayPicker.m */; };
+		28B45BDD19BCFD120018600F /* MZDayPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B45BDA19BCFD120018600F /* MZDayPickerCell.m */; };
 		28B96DD419A5BDAE00FA0237 /* SMFirstTimePateientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B96DD319A5BDAE00FA0237 /* SMFirstTimePateientViewController.m */; };
 		28C0B5AC19A7E97A00BB1EC0 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 28C0B5AA19A7E97A00BB1EC0 /* Model.xcdatamodeld */; };
 		28C0B5AF19A7ECD000BB1EC0 /* Details.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C0B5AE19A7ECD000BB1EC0 /* Details.m */; };
@@ -431,6 +435,14 @@
 		289C31F219B251A50095911D /* WeeklyDietPropertyList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WeeklyDietPropertyList.plist; sourceTree = "<group>"; };
 		28B1B49B1984636700F4881A /* SMYummlyGetClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMYummlyGetClient.h; sourceTree = "<group>"; };
 		28B1B49C1984636700F4881A /* SMYummlyGetClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMYummlyGetClient.m; sourceTree = "<group>"; };
+		28B45BD019BCD1190018600F /* SMMealPlanTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMMealPlanTableViewController.h; sourceTree = "<group>"; };
+		28B45BD119BCD1190018600F /* SMMealPlanTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMMealPlanTableViewController.m; sourceTree = "<group>"; };
+		28B45BD519BCFD120018600F /* MZDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZDay.h; sourceTree = "<group>"; };
+		28B45BD619BCFD120018600F /* MZDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZDay.m; sourceTree = "<group>"; };
+		28B45BD719BCFD120018600F /* MZDayPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZDayPicker.h; sourceTree = "<group>"; };
+		28B45BD819BCFD120018600F /* MZDayPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZDayPicker.m; sourceTree = "<group>"; };
+		28B45BD919BCFD120018600F /* MZDayPickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZDayPickerCell.h; sourceTree = "<group>"; };
+		28B45BDA19BCFD120018600F /* MZDayPickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZDayPickerCell.m; sourceTree = "<group>"; };
 		28B96DD219A5BDAE00FA0237 /* SMFirstTimePateientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFirstTimePateientViewController.h; sourceTree = "<group>"; };
 		28B96DD319A5BDAE00FA0237 /* SMFirstTimePateientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFirstTimePateientViewController.m; sourceTree = "<group>"; };
 		28C0B5AB19A7E97A00BB1EC0 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -621,6 +633,7 @@
 		283D4397195A37770054E16D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				28B45BD419BCFD120018600F /* MZDayPicker */,
 				288DEB0419B3A9CF001B5B6D /* PAImageView.h */,
 				288DEB0519B3A9CF001B5B6D /* PAImageView.m */,
 				28D61AFD19A2AA3A00C9C3BB /* HTAutocompleteManager.h */,
@@ -715,13 +728,8 @@
 		284386B71982F694001A3A57 /* Patient */ = {
 			isa = PBXGroup;
 			children = (
-				28B96DD219A5BDAE00FA0237 /* SMFirstTimePateientViewController.h */,
-				28B96DD319A5BDAE00FA0237 /* SMFirstTimePateientViewController.m */,
 				28ABD1D119A54E5800797648 /* First Time Patient */,
-				283D43CE195A3E610054E16D /* SMNutritionViewController.h */,
-				283D43CF195A3E610054E16D /* SMNutritionViewController.m */,
-				282972D7198049E200ED1287 /* SMHomeScreenViewController.h */,
-				282972D8198049E200ED1287 /* SMHomeScreenViewController.m */,
+				28B45BCD19BCD0E40018600F /* Tabs */,
 				28D3588E1962285100BAB66B /* Swipe To Like Views */,
 			);
 			name = Patient;
@@ -1133,6 +1141,8 @@
 		28ABD1D119A54E5800797648 /* First Time Patient */ = {
 			isa = PBXGroup;
 			children = (
+				28B96DD219A5BDAE00FA0237 /* SMFirstTimePateientViewController.h */,
+				28B96DD319A5BDAE00FA0237 /* SMFirstTimePateientViewController.m */,
 			);
 			name = "First Time Patient";
 			sourceTree = "<group>";
@@ -1153,6 +1163,56 @@
 				28B1B49C1984636700F4881A /* SMYummlyGetClient.m */,
 			);
 			name = "Yummly Get Client";
+			sourceTree = "<group>";
+		};
+		28B45BCD19BCD0E40018600F /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				28B45BCE19BCD0ED0018600F /* First */,
+				28B45BCF19BCD0F20018600F /* Third */,
+				28B45BD319BCD11C0018600F /* Second */,
+			);
+			name = Tabs;
+			sourceTree = "<group>";
+		};
+		28B45BCE19BCD0ED0018600F /* First */ = {
+			isa = PBXGroup;
+			children = (
+				283D43CE195A3E610054E16D /* SMNutritionViewController.h */,
+				283D43CF195A3E610054E16D /* SMNutritionViewController.m */,
+			);
+			name = First;
+			sourceTree = "<group>";
+		};
+		28B45BCF19BCD0F20018600F /* Third */ = {
+			isa = PBXGroup;
+			children = (
+				282972D7198049E200ED1287 /* SMHomeScreenViewController.h */,
+				282972D8198049E200ED1287 /* SMHomeScreenViewController.m */,
+			);
+			name = Third;
+			sourceTree = "<group>";
+		};
+		28B45BD319BCD11C0018600F /* Second */ = {
+			isa = PBXGroup;
+			children = (
+				28B45BD019BCD1190018600F /* SMMealPlanTableViewController.h */,
+				28B45BD119BCD1190018600F /* SMMealPlanTableViewController.m */,
+			);
+			name = Second;
+			sourceTree = "<group>";
+		};
+		28B45BD419BCFD120018600F /* MZDayPicker */ = {
+			isa = PBXGroup;
+			children = (
+				28B45BD519BCFD120018600F /* MZDay.h */,
+				28B45BD619BCFD120018600F /* MZDay.m */,
+				28B45BD719BCFD120018600F /* MZDayPicker.h */,
+				28B45BD819BCFD120018600F /* MZDayPicker.m */,
+				28B45BD919BCFD120018600F /* MZDayPickerCell.h */,
+				28B45BDA19BCFD120018600F /* MZDayPickerCell.m */,
+			);
+			path = MZDayPicker;
 			sourceTree = "<group>";
 		};
 		28D0DE5719943F950004A2E2 /* Page View For Editing Patient */ = {
@@ -1452,6 +1512,7 @@
 				287202071986BEF40019C5DC /* SMNutritionixClient.m in Sources */,
 				286C6CA11963BE5E0071E678 /* NGFilterConstructor.m in Sources */,
 				282972D9198049E200ED1287 /* SMHomeScreenViewController.m in Sources */,
+				28B45BDB19BCFD120018600F /* MZDay.m in Sources */,
 				28D0DE61199440730004A2E2 /* RMStepsController.m in Sources */,
 				2853FC59199C6E5F0073B891 /* FPPopoverKeyboardResponsiveController.m in Sources */,
 				28D35884196227C100BAB66B /* SMLikeFoodViewController.m in Sources */,
@@ -1478,6 +1539,7 @@
 				28D0DE5F199440730004A2E2 /* RMStep.m in Sources */,
 				283D43ED195A76790054E16D /* SMDoctorPatientsTableViewController.m in Sources */,
 				284386ED1982F83C001A3A57 /* UIProgressView+AFNetworking.m in Sources */,
+				28B45BDC19BCFD120018600F /* MZDayPicker.m in Sources */,
 				2853FC4F199C6CB90073B891 /* FPPopoverController.m in Sources */,
 				28C0B5AF19A7ECD000BB1EC0 /* Details.m in Sources */,
 				2853FC50199C6CB90073B891 /* FPPopoverView.m in Sources */,
@@ -1485,6 +1547,7 @@
 				2853FC48199C67620073B891 /* UIColor+GraphKit.m in Sources */,
 				283D43EA195A455C0054E16D /* SMSignupViewController.m in Sources */,
 				280F1F3B19622F80004BE086 /* ChooseFoodView.m in Sources */,
+				28B45BD219BCD1190018600F /* SMMealPlanTableViewController.m in Sources */,
 				28D0DE60199440730004A2E2 /* RMStepsBar.m in Sources */,
 				284387141982F87C001A3A57 /* JSONHTTPClient.m in Sources */,
 				2853FC56199C6D6F0073B891 /* SMSecondEditPatientTableViewController.m in Sources */,
@@ -1503,6 +1566,7 @@
 				286C6CA31963BE5E0071E678 /* UIImage+Filter.m in Sources */,
 				284387161982F87C001A3A57 /* JSONKeyMapper.m in Sources */,
 				28E8B89F199E682500CEFBBA /* XYPieChart.m in Sources */,
+				28B45BDD19BCFD120018600F /* MZDayPickerCell.m in Sources */,
 				28C0F1D719941E4B007E1D22 /* SMSecondPageForPageViewController.m in Sources */,
 				2843872519832044001A3A57 /* SMYummlyHTTPClient.m in Sources */,
 				28B1B49D1984636700F4881A /* SMYummlyGetClient.m in Sources */,

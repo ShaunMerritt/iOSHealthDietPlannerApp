@@ -14,6 +14,7 @@ PODS:
     - UICountingLabel (~> 1.0.0)
   - TOMSMorphingLabel (0.2.2)
   - UICountingLabel (1.0.0)
+  - VENSeparatorView (1.0.1)
 
 DEPENDENCIES:
   - AMTagListView
@@ -23,6 +24,7 @@ DEPENDENCIES:
   - MDCSwipeToChoose
   - PNChart (~> 0.5)
   - TOMSMorphingLabel (~> 0.2.2)
+  - VENSeparatorView (~> 1.0.0)
 
 SPEC CHECKSUMS:
   AMTagListView: 813647966e1ff37957475af271e20358a1ba76c6
@@ -36,5 +38,6 @@ SPEC CHECKSUMS:
   PNChart: 0d0cf4531de3aa7f2b12434a54845d70d9c9cfe3
   TOMSMorphingLabel: b0ef90ad7a660a3a30bdf626cfc23028fa0b67f9
   UICountingLabel: 0a0e9e34bf4690dbd127aaec552d19ed938087a9
+  VENSeparatorView: 402a48d9ba37eecad30bc806dab17e76f7a0818b
 
 COCOAPODS: 0.33.1
