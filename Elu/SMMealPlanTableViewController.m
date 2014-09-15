@@ -10,6 +10,7 @@
 #import "VENSeparatorTableViewCellProvider.h"
 #import "AFNetworking.h"
 #import "UIImageView+AFNetworking.h"
+#import "SMRecipeDetailViewController.h"
 
 @interface SMMealPlanTableViewController () <VENSeparatorTableViewCellProviderDelegate, MZDayPickerDelegate, MZDayPickerDataSource> {
     NSDate *currentDate;
@@ -49,19 +50,6 @@
     overlay.dataSource = self;
     overlay.delegate = self;
     
-    UILongPressGestureRecognizer* _longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:overlay action:@selector(longPressDetected:)];
-    
-    _longPressRecognizer.cancelsTouchesInView = NO;
-    
-    
-    UIView *test = [[UIView alloc] initWithFrame:CGRectMake(80.0, 300.0, 300, 300)];
-    
-    [self.view addSubview:test];
-    test.backgroundColor = [UIColor blackColor];
-    
-
-    
-    [test addGestureRecognizer:_longPressRecognizer];
     
     self.dayPicker.delegate = self;
     self.dayPicker.dataSource = self;
@@ -72,7 +60,15 @@
     self.dateFormatter = [[NSDateFormatter alloc] init];
     [self.dateFormatter setDateFormat:@"EE"];
     
-    [self.dayPicker setStartDate:[NSDate date] endDate:[NSDate dateFromDay:5 month:10 year:2015]];
+    NSDateComponents *dayComponent = [[NSDateComponents alloc] init];
+    dayComponent.day = 2;
+    
+    NSCalendar *theCalendar = [NSCalendar currentCalendar];
+    NSDate *nextDate = [theCalendar dateByAddingComponents:dayComponent toDate:[NSDate date] options:0];
+    
+    NSLog(@"nextDate: %@ ...", nextDate);
+    
+    [self.dayPicker setStartDate:[NSDate date] endDate:nextDate];
     
     [self.dayPicker setCurrentDate:[NSDate date] animated:NO];
     
@@ -105,7 +101,7 @@
     while (x < 6) {
         
         if (x < 4) {
-            
+            x++;
             NSCalendar *cal = [NSCalendar currentCalendar];
             NSDateComponents *date1Components = [cal components:NSEraCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:mealDate];
             NSDateComponents *date2Components = [cal components:NSEraCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:selectedDate];
@@ -117,7 +113,7 @@
             {
                 NSLog(@"SAME");
             }
-            x++;
+            
 
         } else if (x < 7) {
             
@@ -134,6 +130,8 @@
             NSComparisonResult comparison = [[cal dateFromComponents:date1Components] compare:[cal dateFromComponents:date2Components]];
             
             NSLog(@"comparison: %ld", comparison);
+            
+            x++;
             
             if (comparison == NSOrderedSame)
             {
@@ -506,15 +504,31 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+     if ([segue.identifier isEqualToString:@"showRecipeDetail"]) {
+     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+     SMRecipeDetailViewController *destViewController = segue.destinationViewController;
+//         NSLog(@"HEEEERE: %@", [allMeals objectAtIndex:indexPath.row]);
+//         
+//         
+//         
+//         
+//     destViewController.recipeName = [allMeals objectAtIndex:indexPath.row];
+         
+         NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
+         dictionary = [allMeals objectAtIndex:indexPath.row];
+//         NSLog(@"Here is my dictionary: %@", dictionary);
+//         
+//         NSLog(@"The rating is: %@ star", [dictionary objectForKey:@"Rating"]);
+//         NSLog(@"The total time is: %@ seconds", [dictionary objectForKey:@"Total Time In Seconds"]);
+//         
+//         NSDate *mealDate = [dictionary objectForKey:@"Date For Meal"];
+         destViewController.recipeName = dictionary;
+
+     }
+ }
 
 @end

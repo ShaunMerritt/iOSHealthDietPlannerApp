@@ -204,6 +204,8 @@
 		28D9DB8319A3CB57006D9F9F /* SMFourthEditScreenForPatientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D9DB8219A3CB57006D9F9F /* SMFourthEditScreenForPatientViewController.m */; };
 		28E20805195A9C50004D4AE9 /* SMAddNewPatientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E20804195A9C50004D4AE9 /* SMAddNewPatientViewController.m */; };
 		28E682E0198AC47F00398E20 /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E682DF198AC47F00398E20 /* CHCSVParser.m */; };
+		28E78AB419C69E1600802D9F /* SMRecipeDetailViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 28E78AB219C69E1600802D9F /* SMRecipeDetailViewController.h */; };
+		28E78AB519C69E1600802D9F /* SMRecipeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E78AB319C69E1600802D9F /* SMRecipeDetailViewController.m */; };
 		28E8B89F199E682500CEFBBA /* XYPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E8B89E199E682500CEFBBA /* XYPieChart.m */; };
 		9977D0371FB8411589A433F7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99E5A98356784F4AA1C42C61 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -529,6 +531,8 @@
 		28E20804195A9C50004D4AE9 /* SMAddNewPatientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAddNewPatientViewController.m; path = ../SMAddNewPatientViewController.m; sourceTree = "<group>"; };
 		28E682DE198AC47F00398E20 /* CHCSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSVParser.h; sourceTree = "<group>"; };
 		28E682DF198AC47F00398E20 /* CHCSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCSVParser.m; sourceTree = "<group>"; };
+		28E78AB219C69E1600802D9F /* SMRecipeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMRecipeDetailViewController.h; sourceTree = "<group>"; };
+		28E78AB319C69E1600802D9F /* SMRecipeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMRecipeDetailViewController.m; sourceTree = "<group>"; };
 		28E8B89D199E682500CEFBBA /* XYPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYPieChart.h; sourceTree = "<group>"; };
 		28E8B89E199E682500CEFBBA /* XYPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYPieChart.m; sourceTree = "<group>"; };
 		2927D5903AE74727BECBA9C3 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -678,6 +682,8 @@
 		283D4396195A37770054E16D /* Elu */ = {
 			isa = PBXGroup;
 			children = (
+				28E78AB219C69E1600802D9F /* SMRecipeDetailViewController.h */,
+				28E78AB319C69E1600802D9F /* SMRecipeDetailViewController.m */,
 				2803916B19C541E90014D0C3 /* GHContextMenuView.h */,
 				2803916C19C541E90014D0C3 /* GHContextMenuView.m */,
 				2803911719C528180014D0C3 /* YLLongTapShareControl */,
@@ -1384,6 +1390,7 @@
 				2803913019C528180014D0C3 /* YLShareAnimationHelper.h in Headers */,
 				2803912C19C528180014D0C3 /* UIButton+LongTapShare.h in Headers */,
 				2803913419C528180014D0C3 /* YLShareView.h in Headers */,
+				28E78AB419C69E1600802D9F /* SMRecipeDetailViewController.h in Headers */,
 				2803916D19C541E90014D0C3 /* GHContextMenuView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1658,6 +1665,7 @@
 				283D43EA195A455C0054E16D /* SMSignupViewController.m in Sources */,
 				280F1F3B19622F80004BE086 /* ChooseFoodView.m in Sources */,
 				28B45BD219BCD1190018600F /* SMMealPlanTableViewController.m in Sources */,
+				28E78AB519C69E1600802D9F /* SMRecipeDetailViewController.m in Sources */,
 				28D0DE60199440730004A2E2 /* RMStepsBar.m in Sources */,
 				284387141982F87C001A3A57 /* JSONHTTPClient.m in Sources */,
 				2853FC56199C6D6F0073B891 /* SMSecondEditPatientTableViewController.m in Sources */,
