@@ -45,7 +45,23 @@
 {
     [super viewDidLoad];
     
+    GHContextMenuView* overlay = [[GHContextMenuView alloc] init];
+    overlay.dataSource = self;
+    overlay.delegate = self;
     
+    UILongPressGestureRecognizer* _longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:overlay action:@selector(longPressDetected:)];
+    
+    _longPressRecognizer.cancelsTouchesInView = NO;
+    
+    
+    UIView *test = [[UIView alloc] initWithFrame:CGRectMake(80.0, 300.0, 300, 300)];
+    
+    [self.view addSubview:test];
+    test.backgroundColor = [UIColor blackColor];
+    
+
+    
+    [test addGestureRecognizer:_longPressRecognizer];
     
     self.dayPicker.delegate = self;
     self.dayPicker.dataSource = self;
@@ -148,6 +164,56 @@
 
 
 }
+
+// Implementing data source methods
+- (NSInteger) numberOfMenuItems
+{
+    return 3;
+}
+
+-(UIImage*) imageForItemAtIndex:(NSInteger)index
+{
+    NSString* imageName = nil;
+    switch (index) {
+        case 0:
+            imageName = @"facebook";
+            break;
+        case 1:
+            imageName = @"twitter";
+            break;
+        case 2:
+            imageName = @"google-plus";
+            break;
+            
+        default:
+            break;
+    }
+    return [UIImage imageNamed:imageName];
+}
+
+- (void) didSelectItemAtIndex:(NSInteger)selectedIndex forMenuAtPoint:(CGPoint)point
+{
+    NSString* msg = nil;
+    switch (selectedIndex) {
+        case 0:
+            msg = @"Facebook Selected";
+            break;
+        case 1:
+            msg = @"Twitter Selected";
+            break;
+        case 2:
+            msg = @"Google Plus Selected";
+            break;
+            
+        default:
+            break;
+    }
+    
+    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:nil message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alertView show];
+    
+}
+
 
 - (NSString *)dayPicker:(MZDayPicker *)dayPicker titleForCellDayNameLabelInDay:(MZDay *)day
 {

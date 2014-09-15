@@ -17,6 +17,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="36p-JR-6XR"/>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xBc-MI-2zd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -164,6 +168,56 @@
                 <pinchGestureRecognizer id="A7q-1T-P50"/>
             </objects>
             <point key="canvasLocation" x="880" y="1258"/>
+        </scene>
+        <!--Log Food Table View Controller-->
+        <scene sceneID="p4Q-H8-TSS">
+            <objects>
+                <tableViewController storyboardIdentifier="logFood" id="PAL-LB-var" customClass="SMLogFoodTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="jLo-Yx-yjt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="r54-OM-8je">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="PAL-LB-var" id="1Dp-UW-OvE"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="Cell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="90a-Xe-Ybn">
+                                <rect key="frame" x="0.0" y="66" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="90a-Xe-Ybn" id="g8W-rD-rgP">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="PAL-LB-var" id="iY8-y7-Uac"/>
+                            <outlet property="delegate" destination="PAL-LB-var" id="Pkr-7Z-ZcQ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="62h-Lb-fZb"/>
+                    <connections>
+                        <outlet property="searchBar" destination="r54-OM-8je" id="YDf-eT-ScF"/>
+                        <outlet property="searchDisplayController" destination="sKg-nC-IK2" id="2F0-JJ-88E"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QLo-JI-vuV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="sKg-nC-IK2">
+                    <connections>
+                        <outlet property="delegate" destination="PAL-LB-var" id="mNG-3B-tW2"/>
+                        <outlet property="searchBar" destination="r54-OM-8je" id="LUV-NO-bcR"/>
+                        <outlet property="searchContentsController" destination="PAL-LB-var" id="6T1-hE-Nhh"/>
+                        <outlet property="searchResultsDataSource" destination="PAL-LB-var" id="H8a-pP-H2e"/>
+                        <outlet property="searchResultsDelegate" destination="PAL-LB-var" id="gu4-zK-Wfy"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="1282" y="1258"/>
         </scene>
         <!--Edit Patient Diet View Controller-->
         <scene sceneID="l1t-VV-KnD">

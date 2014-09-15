@@ -64,6 +64,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-YLLongTapShare.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -82,11 +87,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>17DE2B5BD59D4120BEF446B8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>1E3DB393D55C4874B4CCAD09</key>
 		<dict>
 			<key>primary</key>
@@ -97,37 +97,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2A6D9B79A0604C19A55C5146</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2B49D45A06BD4751BD93269E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>4ED0D8C2AB4A4A0380549E18</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>50D4BC2A15C34C9EB6DB5D6B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>5FB411ADCB924DDC83750FC2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>639FF70135C445F1B4FD5DA1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>86618A09CE9342BDA5930C7C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -152,27 +127,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A487479DE6554770A4264C41</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A890F7CA54E64F21A71ED2EB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>AB0FF6E9916142C2B1536E47</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>C939C337FEEE44C6B7F3E8BA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>CE2AECCC44B84AA99D542CB8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -182,22 +137,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DBC078AE6ECD40D1A0B2B68E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EC51E7D915E2493BB636AEC2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>EFDE1801E0C84F5DAED43ADF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F239C760963B46B1A7C52680</key>
 		<dict>
 			<key>primary</key>
 			<true/>
