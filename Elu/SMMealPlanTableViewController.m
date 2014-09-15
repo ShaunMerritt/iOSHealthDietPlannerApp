@@ -11,7 +11,17 @@
 #import "AFNetworking.h"
 #import "UIImageView+AFNetworking.h"
 
-@interface SMMealPlanTableViewController () <VENSeparatorTableViewCellProviderDelegate, MZDayPickerDelegate, MZDayPickerDataSource>
+@interface SMMealPlanTableViewController () <VENSeparatorTableViewCellProviderDelegate, MZDayPickerDelegate, MZDayPickerDataSource> {
+    NSDate *currentDate;
+    NSCalendar *calendar;
+    NSDateComponents *components;
+    NSDate *selectedDate;
+    BOOL *dateYes;
+    int mealAhead;
+    long numberOfDays;
+    long number;
+    NSDate *datePicked;
+}
 
 @property (nonatomic, strong) VENSeparatorTableViewCellProvider *separatorProvider;
 @property (nonatomic,strong) NSDateFormatter *dateFormatter;
@@ -46,9 +56,11 @@
     self.dateFormatter = [[NSDateFormatter alloc] init];
     [self.dateFormatter setDateFormat:@"EE"];
     
-    [self.dayPicker setStartDate:[NSDate dateFromDay:28 month:9 year:2013] endDate:[NSDate dateFromDay:5 month:10 year:2013]];
+    [self.dayPicker setStartDate:[NSDate date] endDate:[NSDate dateFromDay:5 month:10 year:2015]];
     
-    [self.dayPicker setCurrentDate:[NSDate dateFromDay:3 month:10 year:2013] animated:NO];
+    [self.dayPicker setCurrentDate:[NSDate date] animated:NO];
+    
+    selectedDate = self.dayPicker.currentDate;
 
     
     
@@ -70,6 +82,68 @@
     NSLog(@"The rating is: %@ star", [dictionary objectForKey:@"Rating"]);
     NSLog(@"The total time is: %@ seconds", [dictionary objectForKey:@"Total Time In Seconds"]);
     
+    NSDate *mealDate = [dictionary objectForKey:@"Date For Meal"];
+    
+    int x;
+    
+    while (x < 6) {
+        
+        if (x < 4) {
+            
+            NSCalendar *cal = [NSCalendar currentCalendar];
+            NSDateComponents *date1Components = [cal components:NSEraCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:mealDate];
+            NSDateComponents *date2Components = [cal components:NSEraCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:selectedDate];
+            NSComparisonResult comparison = [[cal dateFromComponents:date1Components] compare:[cal dateFromComponents:date2Components]];
+            
+            NSLog(@"comparison: %ld", comparison);
+            
+            if (comparison == NSOrderedSame)
+            {
+                NSLog(@"SAME");
+            }
+            x++;
+
+        } else if (x < 7) {
+            
+            if (x== 4) {
+                [components setDay:1];
+                currentDate = [calendar dateByAddingComponents:components
+                                                        toDate:currentDate
+                                                       options:0];
+            }
+            
+            NSCalendar *cal = [NSCalendar currentCalendar];
+            NSDateComponents *date1Components = [cal components:NSEraCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:mealDate];
+            NSDateComponents *date2Components = [cal components:NSEraCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:selectedDate];
+            NSComparisonResult comparison = [[cal dateFromComponents:date1Components] compare:[cal dateFromComponents:date2Components]];
+            
+            NSLog(@"comparison: %ld", comparison);
+            
+            if (comparison == NSOrderedSame)
+            {
+                NSLog(@"SAME");
+            }
+
+        }
+        
+        
+        
+        
+    }
+    
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDateComponents *date1Components = [cal components:NSEraCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:mealDate];
+    NSDateComponents *date2Components = [cal components:NSEraCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:selectedDate];
+    NSComparisonResult comparison = [[cal dateFromComponents:date1Components] compare:[cal dateFromComponents:date2Components]];
+    
+    NSLog(@"comparison: %ld", comparison);
+    
+    if (comparison == NSOrderedSame)
+    {
+        NSLog(@"SAME");
+    }
+
+    
     
 
 
@@ -80,16 +154,37 @@
     return [self.dateFormatter stringFromDate:day.date];
 }
 
+- (long)daysBetween:(NSDate *)dt1 and:(NSDate *)dt2 {
+    NSUInteger unitFlags = NSDayCalendarUnit;
+    NSCalendar *calendarss = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *componentss = [calendarss components:unitFlags fromDate:dt1 toDate:dt2 options:0];
+    return [componentss day]+1;
+}
 
 - (void)dayPicker:(MZDayPicker *)dayPicker didSelectDay:(MZDay *)day
 {
+    currentDate = [NSDate date];
+    
+    numberOfDays = [self daysBetween:selectedDate and:day.date];
+    
+    number = (numberOfDays * 9 / 4) - 1;
+    
+    
+
+    
+    
+    
     NSLog(@"Did select day %@",day.day);
     
-    if (_dayNumber >0) {
+    if (_dayNumber > 0) {
         _dayNumber --;
     } else {
         self.dayNumber ++;
     }
+    
+    selectedDate = day.date;
+    
+    
     
     [self.tableView reloadData];
 }
@@ -128,10 +223,94 @@
     
     //cell.textLabel.backgroundColor = [UIColor clearColor];
     
-    if (_test < 4) {
+//    [components setDay:1];
+//    currentDate = [calendar dateByAddingComponents:components
+//                                            toDate:currentDate
+//                                           options:0];
+    
+//    NSDate *start = [NSDate date];
+//    NSDate *end = selectedDate;
+//    NSCalendarUnit units = NSDayCalendarUnit;
+//    components = [calendar components:units
+//                                               fromDate:start
+//                                                 toDate:end
+//                                                options:0];
+//    NSLog(@"It has been %ld weeks since January 1st, 2001",
+//          [components week]);
+    
+//    NSDate *start = [NSDate dateWithTimeInterval:0 sinceDate:currentDate];
+//    
+//    NSCalendar *calendaar = [[NSCalendar alloc]
+//                            initWithCalendarIdentifier:NSGregorianCalendar];
+//    NSDateComponents *componentst = [[NSDateComponents alloc] init];
+//    [componentst setDay:1];
+//    NSDate *end = [calendaar dateByAddingComponents:componentst
+//                                                        toDate:start
+//                                                       options:0];
+//    
+//    //NSDate *end = [NSDate date];
+//    NSCalendar *calendars = [NSCalendar currentCalendar];
+//    NSCalendarUnit units = NSDayCalendarUnit;
+//    NSDateComponents *componentss = [calendars components:units
+//                                               fromDate:start
+//                                                 toDate:end
+//                                                options:0];
+//    NSLog(@"It has been %ld weeks since January 1st, 2001",
+//          [componentss day]);
+//    
+//    int x;
+    
+    //    while (dateYes == NO) {
+//        NSLog(@"Here");
+//        NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
+//        dictionary = [allMeals objectAtIndex:_test];
+//        NSLog(@"Here is my dictionary: %@", dictionary);
+//        
+//        NSLog(@"My meal is here");
+//        
+//        NSDate *mealDate = [dictionary objectForKey:@"Date For Meal"];
+//        NSLog(@"meal date: %@", mealDate);
+//        NSLog(@"selected date: %@", mealDate);
+//        if ([mealDate isEqualToDate:selectedDate]) {
+//            NSLog(@"HOOra!");
+//        }
+//        x ++;
+//        if (x>6) {
+//            dateYes = YES;
+//        }
+//    }
+//    
+//    if (_test < 4) {
+//        NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
+//        dictionary = [allMeals objectAtIndex:_test];
+//        NSLog(@"Here is my dictionary: %@", dictionary);
+//        
+//        
+//        NSDate *mealDate = [dictionary objectForKey:@"Date For Meal"];
+//        
+//        NSCalendar *cal = [NSCalendar currentCalendar];
+//        NSDateComponents *date1Components = [cal components:NSEraCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:mealDate];
+//        NSDateComponents *date2Components = [cal components:NSEraCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:selectedDate];
+//        NSComparisonResult comparison = [[cal dateFromComponents:date1Components] compare:[cal dateFromComponents:date2Components]];
+//        
+//        NSLog(@"comparison: %ld", comparison);
+//        
+//        if (comparison == NSOrderedSame)
+//        {
+//            NSLog(@"SAME");
+//        }
+    
         NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
-        dictionary = [allMeals objectAtIndex:_test];
-        NSLog(@"Here is my dictionary: %@", dictionary);
+    
+        if (number < 4) {
+            dictionary = [allMeals objectAtIndex:number];
+            number ++;
+        } else if (number > 3 && number < 7) {
+            dictionary = [allMeals objectAtIndex:number];
+            number ++;
+        }
+        
+        
         
         UIImageView *imageHolder = (UIImageView *)[cell viewWithTag:1];
         
@@ -156,7 +335,9 @@
                                         
                                     } failure:nil];
         [self.separatorProvider applySeparatorsToCell:cell atIndexPath:indexPath inTableView:tableView cellHeight:0];
-    } else {
+    
+
+ /*else {
     
         NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
         dictionary = [allMeals objectAtIndex:_test];
@@ -187,9 +368,12 @@
                                            
                                        } failure:nil];
         [self.separatorProvider applySeparatorsToCell:cell atIndexPath:indexPath inTableView:tableView cellHeight:0];
-    }
+    
 
-    _test ++;
+    //_test ++;
+  
+  */
+
     return cell;
 
 }
