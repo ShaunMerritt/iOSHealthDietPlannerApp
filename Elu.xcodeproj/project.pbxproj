@@ -96,6 +96,8 @@
 		2843871D1983057E001A3A57 /* YummlyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2843871C1983057E001A3A57 /* YummlyModel.m */; };
 		284387211983063B001A3A57 /* SMConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 284387201983063B001A3A57 /* SMConstants.m */; };
 		2843872519832044001A3A57 /* SMYummlyHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2843872419832044001A3A57 /* SMYummlyHTTPClient.m */; };
+		284402BF19DF05C800E36E5B /* Water.h in Headers */ = {isa = PBXBuildFile; fileRef = 284402BD19DF05C800E36E5B /* Water.h */; };
+		284402C019DF05C800E36E5B /* Water.m in Sources */ = {isa = PBXBuildFile; fileRef = 284402BE19DF05C800E36E5B /* Water.m */; };
 		2853FC36199C5FEC0073B891 /* SMSecondEditScreenForPatientDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2853FC35199C5FEC0073B891 /* SMSecondEditScreenForPatientDetailsViewController.m */; };
 		2853FC48199C67620073B891 /* UIColor+GraphKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2853FC47199C67620073B891 /* UIColor+GraphKit.m */; };
 		2853FC4F199C6CB90073B891 /* FPPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2853FC4A199C6CB90073B891 /* FPPopoverController.m */; };
@@ -355,6 +357,8 @@
 		284387201983063B001A3A57 /* SMConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMConstants.m; sourceTree = "<group>"; };
 		2843872319832044001A3A57 /* SMYummlyHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMYummlyHTTPClient.h; sourceTree = "<group>"; };
 		2843872419832044001A3A57 /* SMYummlyHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMYummlyHTTPClient.m; sourceTree = "<group>"; };
+		284402BD19DF05C800E36E5B /* Water.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Water.h; sourceTree = "<group>"; };
+		284402BE19DF05C800E36E5B /* Water.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Water.m; sourceTree = "<group>"; };
 		2853FC34199C5FEC0073B891 /* SMSecondEditScreenForPatientDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSecondEditScreenForPatientDetailsViewController.h; sourceTree = "<group>"; };
 		2853FC35199C5FEC0073B891 /* SMSecondEditScreenForPatientDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSecondEditScreenForPatientDetailsViewController.m; sourceTree = "<group>"; };
 		2853FC46199C67620073B891 /* UIColor+GraphKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+GraphKit.h"; sourceTree = "<group>"; };
@@ -634,6 +638,8 @@
 		283D4384195A37760054E16D = {
 			isa = PBXGroup;
 			children = (
+				284402BD19DF05C800E36E5B /* Water.h */,
+				284402BE19DF05C800E36E5B /* Water.m */,
 				289C31F219B251A50095911D /* WeeklyDietPropertyList.plist */,
 				283D43CD195A394A0054E16D /* Images */,
 				283D43BF195A37A50054E16D /* MainStoryboard.storyboard */,
@@ -1392,6 +1398,7 @@
 				2803913419C528180014D0C3 /* YLShareView.h in Headers */,
 				28E78AB419C69E1600802D9F /* SMRecipeDetailViewController.h in Headers */,
 				2803916D19C541E90014D0C3 /* GHContextMenuView.h in Headers */,
+				284402BF19DF05C800E36E5B /* Water.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1617,6 +1624,7 @@
 				28D0DE73199446570004A2E2 /* ASValuePopUpView.m in Sources */,
 				284386E41982F83C001A3A57 /* AFURLConnectionOperation.m in Sources */,
 				284386E91982F83C001A3A57 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				284402C019DF05C800E36E5B /* Water.m in Sources */,
 				28D9DB8319A3CB57006D9F9F /* SMFourthEditScreenForPatientViewController.m in Sources */,
 				286C6C5F19639C920071E678 /* SMLikesFoodTableViewCell.m in Sources */,
 				285487F6197EDDDD000320CF /* SMEditPatientDietViewController.m in Sources */,
