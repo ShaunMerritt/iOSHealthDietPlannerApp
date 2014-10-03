@@ -54,9 +54,9 @@
     NSLog(@"User Name %@", self.firstEditScreen.userName);
     
     //50, 20, 30
-    self.valueForCarbs = 50;
-    self.valueForProteins = 20;
-    self.valueForFats = 30;
+    self.valueForCarbs = 35;
+    self.valueForProteins = 40;
+    self.valueForFats = 25;
     
     arrayOfAllPercentages = [[NSArray alloc] initWithObjects:@"10%", @"25%", @"30%", @"35%", @"40%", @"45%", @"50%", @"55%", @"60%", @"65%", @"70%", @"75%", @"80%", @"85%", @"90%", @"95%", @"100%", nil];
     

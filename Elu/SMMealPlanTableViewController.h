@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "MZDayPicker.h"
+#import "GHContextMenuView.h"
 
 
-@interface SMMealPlanTableViewController : UITableViewController
+@interface SMMealPlanTableViewController : UITableViewController <GHContextOverlayViewDelegate, GHContextOverlayViewDataSource>
 
 @property (nonatomic, strong) NSMutableArray *allMeals;
 @property (weak, nonatomic) IBOutlet MZDayPicker *dayPicker;

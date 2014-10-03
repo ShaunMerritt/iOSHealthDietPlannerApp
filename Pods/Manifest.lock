@@ -15,6 +15,7 @@ PODS:
   - TOMSMorphingLabel (0.2.2)
   - UICountingLabel (1.0.0)
   - VENSeparatorView (1.0.1)
+  - YLLongTapShare (0.1)
 
 DEPENDENCIES:
   - AMTagListView
@@ -25,6 +26,7 @@ DEPENDENCIES:
   - PNChart (~> 0.5)
   - TOMSMorphingLabel (~> 0.2.2)
   - VENSeparatorView (~> 1.0.0)
+  - YLLongTapShare
 
 SPEC CHECKSUMS:
   AMTagListView: 813647966e1ff37957475af271e20358a1ba76c6
@@ -39,5 +41,6 @@ SPEC CHECKSUMS:
   TOMSMorphingLabel: b0ef90ad7a660a3a30bdf626cfc23028fa0b67f9
   UICountingLabel: 0a0e9e34bf4690dbd127aaec552d19ed938087a9
   VENSeparatorView: 402a48d9ba37eecad30bc806dab17e76f7a0818b
+  YLLongTapShare: 98fe22113963b5b7da2366f52db3d7f89399c9ea
 
 COCOAPODS: 0.33.1

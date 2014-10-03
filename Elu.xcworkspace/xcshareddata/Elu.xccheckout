@@ -10,6 +10,8 @@
 	<string>Elu</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>48410F07D9AA03F0DBE2CBCD536D4B813103C369</key>
+		<string>https://github.com/ShaunOssa/EluPlusRepository.git</string>
 		<key>CEDBD2E3-A168-4129-B845-BAF0D2223FA7</key>
 		<string>https://github.com/ShaunOssa/EluPlusRepository.git</string>
 	</dict>
@@ -17,15 +19,17 @@
 	<string>Elu.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>CEDBD2E3-A168-4129-B845-BAF0D2223FA7</key>
+		<key>48410F07D9AA03F0DBE2CBCD536D4B813103C369</key>
 		<string>..</string>
+		<key>CEDBD2E3-A168-4129-B845-BAF0D2223FA7</key>
+		<string>../../Elu (original)</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/ShaunOssa/EluPlusRepository.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>CEDBD2E3-A168-4129-B845-BAF0D2223FA7</string>
+	<string>48410F07D9AA03F0DBE2CBCD536D4B813103C369</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -35,6 +39,14 @@
 			<string>CEDBD2E3-A168-4129-B845-BAF0D2223FA7</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Elu (original)</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>48410F07D9AA03F0DBE2CBCD536D4B813103C369</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Elu%20(original)</string>
 		</dict>
 	</array>
 </dict>

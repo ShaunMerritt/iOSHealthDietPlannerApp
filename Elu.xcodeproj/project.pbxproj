@@ -7,6 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2803912719C528180014D0C3 /* CAAnimation+Blocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 2803911819C528180014D0C3 /* CAAnimation+Blocks.h */; };
+		2803912819C528180014D0C3 /* CAAnimation+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 2803911919C528180014D0C3 /* CAAnimation+Blocks.m */; };
+		2803912919C528180014D0C3 /* Evaluate.h in Headers */ = {isa = PBXBuildFile; fileRef = 2803911A19C528180014D0C3 /* Evaluate.h */; };
+		2803912A19C528180014D0C3 /* Evaluate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2803911B19C528180014D0C3 /* Evaluate.m */; };
+		2803912B19C528180014D0C3 /* OMVector.h in Headers */ = {isa = PBXBuildFile; fileRef = 2803911C19C528180014D0C3 /* OMVector.h */; };
+		2803912C19C528180014D0C3 /* UIButton+LongTapShare.h in Headers */ = {isa = PBXBuildFile; fileRef = 2803911D19C528180014D0C3 /* UIButton+LongTapShare.h */; };
+		2803912D19C528180014D0C3 /* UIButton+LongTapShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 2803911E19C528180014D0C3 /* UIButton+LongTapShare.m */; };
+		2803912E19C528180014D0C3 /* YLLongTapShareView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2803911F19C528180014D0C3 /* YLLongTapShareView.h */; };
+		2803912F19C528180014D0C3 /* YLLongTapShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2803912019C528180014D0C3 /* YLLongTapShareView.m */; };
+		2803913019C528180014D0C3 /* YLShareAnimationHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 2803912119C528180014D0C3 /* YLShareAnimationHelper.h */; };
+		2803913119C528180014D0C3 /* YLShareAnimationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2803912219C528180014D0C3 /* YLShareAnimationHelper.m */; };
+		2803913219C528180014D0C3 /* YLShareButtonView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2803912319C528180014D0C3 /* YLShareButtonView.h */; };
+		2803913319C528180014D0C3 /* YLShareButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2803912419C528180014D0C3 /* YLShareButtonView.m */; };
+		2803913419C528180014D0C3 /* YLShareView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2803912519C528180014D0C3 /* YLShareView.h */; };
+		2803913519C528180014D0C3 /* YLShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2803912619C528180014D0C3 /* YLShareView.m */; };
+		2803916D19C541E90014D0C3 /* GHContextMenuView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2803916B19C541E90014D0C3 /* GHContextMenuView.h */; };
+		2803916E19C541E90014D0C3 /* GHContextMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2803916C19C541E90014D0C3 /* GHContextMenuView.m */; };
+		280C794B19C5156C0094B56C /* hood.png in Resources */ = {isa = PBXBuildFile; fileRef = 280C794919C5156C0094B56C /* hood.png */; };
+		280C794C19C5156C0094B56C /* hood@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 280C794A19C5156C0094B56C /* hood@2x.png */; };
+		280C794F19C515E20094B56C /* hood-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 280C794D19C515E20094B56C /* hood-selected.png */; };
+		280C795019C515E20094B56C /* hood-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 280C794E19C515E20094B56C /* hood-selected@2x.png */; };
+		280C795319C51C200094B56C /* SMNutritionixClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 287202051986BEF40019C5DC /* SMNutritionixClient.h */; };
 		280F1F3B19622F80004BE086 /* ChooseFoodView.m in Sources */ = {isa = PBXBuildFile; fileRef = 280F1F3A19622F80004BE086 /* ChooseFoodView.m */; };
 		280F1F3E19622F8B004BE086 /* ImageLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 280F1F3D19622F8B004BE086 /* ImageLabelView.m */; };
 		280F1F4119622F9E004BE086 /* Food.m in Sources */ = {isa = PBXBuildFile; fileRef = 280F1F4019622F9E004BE086 /* Food.m */; };
@@ -74,6 +96,8 @@
 		2843871D1983057E001A3A57 /* YummlyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2843871C1983057E001A3A57 /* YummlyModel.m */; };
 		284387211983063B001A3A57 /* SMConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 284387201983063B001A3A57 /* SMConstants.m */; };
 		2843872519832044001A3A57 /* SMYummlyHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2843872419832044001A3A57 /* SMYummlyHTTPClient.m */; };
+		284402BF19DF05C800E36E5B /* Water.h in Headers */ = {isa = PBXBuildFile; fileRef = 284402BD19DF05C800E36E5B /* Water.h */; };
+		284402C019DF05C800E36E5B /* Water.m in Sources */ = {isa = PBXBuildFile; fileRef = 284402BE19DF05C800E36E5B /* Water.m */; };
 		2853FC36199C5FEC0073B891 /* SMSecondEditScreenForPatientDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2853FC35199C5FEC0073B891 /* SMSecondEditScreenForPatientDetailsViewController.m */; };
 		2853FC48199C67620073B891 /* UIColor+GraphKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2853FC47199C67620073B891 /* UIColor+GraphKit.m */; };
 		2853FC4F199C6CB90073B891 /* FPPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2853FC4A199C6CB90073B891 /* FPPopoverController.m */; };
@@ -161,6 +185,8 @@
 		28B45BDC19BCFD120018600F /* MZDayPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B45BD819BCFD120018600F /* MZDayPicker.m */; };
 		28B45BDD19BCFD120018600F /* MZDayPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B45BDA19BCFD120018600F /* MZDayPickerCell.m */; };
 		28B96DD419A5BDAE00FA0237 /* SMFirstTimePateientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B96DD319A5BDAE00FA0237 /* SMFirstTimePateientViewController.m */; };
+		28BDBB9319C651060052D5BB /* SMLogFoodTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 28BDBB9119C651060052D5BB /* SMLogFoodTableViewController.h */; };
+		28BDBB9419C651060052D5BB /* SMLogFoodTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BDBB9219C651060052D5BB /* SMLogFoodTableViewController.m */; };
 		28C0B5AC19A7E97A00BB1EC0 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 28C0B5AA19A7E97A00BB1EC0 /* Model.xcdatamodeld */; };
 		28C0B5AF19A7ECD000BB1EC0 /* Details.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C0B5AE19A7ECD000BB1EC0 /* Details.m */; };
 		28C0B5B219A7ECD100BB1EC0 /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C0B5B119A7ECD100BB1EC0 /* Patient.m */; };
@@ -180,6 +206,8 @@
 		28D9DB8319A3CB57006D9F9F /* SMFourthEditScreenForPatientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D9DB8219A3CB57006D9F9F /* SMFourthEditScreenForPatientViewController.m */; };
 		28E20805195A9C50004D4AE9 /* SMAddNewPatientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E20804195A9C50004D4AE9 /* SMAddNewPatientViewController.m */; };
 		28E682E0198AC47F00398E20 /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E682DF198AC47F00398E20 /* CHCSVParser.m */; };
+		28E78AB419C69E1600802D9F /* SMRecipeDetailViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 28E78AB219C69E1600802D9F /* SMRecipeDetailViewController.h */; };
+		28E78AB519C69E1600802D9F /* SMRecipeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E78AB319C69E1600802D9F /* SMRecipeDetailViewController.m */; };
 		28E8B89F199E682500CEFBBA /* XYPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E8B89E199E682500CEFBBA /* XYPieChart.m */; };
 		9977D0371FB8411589A433F7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99E5A98356784F4AA1C42C61 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -195,6 +223,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2803911819C528180014D0C3 /* CAAnimation+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CAAnimation+Blocks.h"; sourceTree = "<group>"; };
+		2803911919C528180014D0C3 /* CAAnimation+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CAAnimation+Blocks.m"; sourceTree = "<group>"; };
+		2803911A19C528180014D0C3 /* Evaluate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Evaluate.h; sourceTree = "<group>"; };
+		2803911B19C528180014D0C3 /* Evaluate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Evaluate.m; sourceTree = "<group>"; };
+		2803911C19C528180014D0C3 /* OMVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMVector.h; sourceTree = "<group>"; };
+		2803911D19C528180014D0C3 /* UIButton+LongTapShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+LongTapShare.h"; sourceTree = "<group>"; };
+		2803911E19C528180014D0C3 /* UIButton+LongTapShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+LongTapShare.m"; sourceTree = "<group>"; };
+		2803911F19C528180014D0C3 /* YLLongTapShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLLongTapShareView.h; sourceTree = "<group>"; };
+		2803912019C528180014D0C3 /* YLLongTapShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLLongTapShareView.m; sourceTree = "<group>"; };
+		2803912119C528180014D0C3 /* YLShareAnimationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLShareAnimationHelper.h; sourceTree = "<group>"; };
+		2803912219C528180014D0C3 /* YLShareAnimationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLShareAnimationHelper.m; sourceTree = "<group>"; };
+		2803912319C528180014D0C3 /* YLShareButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLShareButtonView.h; sourceTree = "<group>"; };
+		2803912419C528180014D0C3 /* YLShareButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLShareButtonView.m; sourceTree = "<group>"; };
+		2803912519C528180014D0C3 /* YLShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLShareView.h; sourceTree = "<group>"; };
+		2803912619C528180014D0C3 /* YLShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLShareView.m; sourceTree = "<group>"; };
+		2803916B19C541E90014D0C3 /* GHContextMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHContextMenuView.h; sourceTree = "<group>"; };
+		2803916C19C541E90014D0C3 /* GHContextMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHContextMenuView.m; sourceTree = "<group>"; };
+		280C794919C5156C0094B56C /* hood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hood.png; sourceTree = "<group>"; };
+		280C794A19C5156C0094B56C /* hood@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hood@2x.png"; sourceTree = "<group>"; };
+		280C794D19C515E20094B56C /* hood-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hood-selected.png"; sourceTree = "<group>"; };
+		280C794E19C515E20094B56C /* hood-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hood-selected@2x.png"; sourceTree = "<group>"; };
 		280F1F3919622F80004BE086 /* ChooseFoodView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseFoodView.h; sourceTree = "<group>"; };
 		280F1F3A19622F80004BE086 /* ChooseFoodView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseFoodView.m; sourceTree = "<group>"; };
 		280F1F3C19622F8B004BE086 /* ImageLabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageLabelView.h; sourceTree = "<group>"; };
@@ -308,6 +357,8 @@
 		284387201983063B001A3A57 /* SMConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMConstants.m; sourceTree = "<group>"; };
 		2843872319832044001A3A57 /* SMYummlyHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMYummlyHTTPClient.h; sourceTree = "<group>"; };
 		2843872419832044001A3A57 /* SMYummlyHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMYummlyHTTPClient.m; sourceTree = "<group>"; };
+		284402BD19DF05C800E36E5B /* Water.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Water.h; sourceTree = "<group>"; };
+		284402BE19DF05C800E36E5B /* Water.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Water.m; sourceTree = "<group>"; };
 		2853FC34199C5FEC0073B891 /* SMSecondEditScreenForPatientDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSecondEditScreenForPatientDetailsViewController.h; sourceTree = "<group>"; };
 		2853FC35199C5FEC0073B891 /* SMSecondEditScreenForPatientDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSecondEditScreenForPatientDetailsViewController.m; sourceTree = "<group>"; };
 		2853FC46199C67620073B891 /* UIColor+GraphKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+GraphKit.h"; sourceTree = "<group>"; };
@@ -445,6 +496,8 @@
 		28B45BDA19BCFD120018600F /* MZDayPickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZDayPickerCell.m; sourceTree = "<group>"; };
 		28B96DD219A5BDAE00FA0237 /* SMFirstTimePateientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFirstTimePateientViewController.h; sourceTree = "<group>"; };
 		28B96DD319A5BDAE00FA0237 /* SMFirstTimePateientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFirstTimePateientViewController.m; sourceTree = "<group>"; };
+		28BDBB9119C651060052D5BB /* SMLogFoodTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMLogFoodTableViewController.h; sourceTree = "<group>"; };
+		28BDBB9219C651060052D5BB /* SMLogFoodTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMLogFoodTableViewController.m; sourceTree = "<group>"; };
 		28C0B5AB19A7E97A00BB1EC0 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		28C0B5AD19A7ECD000BB1EC0 /* Details.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Details.h; sourceTree = "<group>"; };
 		28C0B5AE19A7ECD000BB1EC0 /* Details.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Details.m; sourceTree = "<group>"; };
@@ -482,6 +535,8 @@
 		28E20804195A9C50004D4AE9 /* SMAddNewPatientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAddNewPatientViewController.m; path = ../SMAddNewPatientViewController.m; sourceTree = "<group>"; };
 		28E682DE198AC47F00398E20 /* CHCSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSVParser.h; sourceTree = "<group>"; };
 		28E682DF198AC47F00398E20 /* CHCSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCSVParser.m; sourceTree = "<group>"; };
+		28E78AB219C69E1600802D9F /* SMRecipeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMRecipeDetailViewController.h; sourceTree = "<group>"; };
+		28E78AB319C69E1600802D9F /* SMRecipeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMRecipeDetailViewController.m; sourceTree = "<group>"; };
 		28E8B89D199E682500CEFBBA /* XYPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYPieChart.h; sourceTree = "<group>"; };
 		28E8B89E199E682500CEFBBA /* XYPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYPieChart.m; sourceTree = "<group>"; };
 		2927D5903AE74727BECBA9C3 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -528,6 +583,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2803911719C528180014D0C3 /* YLLongTapShareControl */ = {
+			isa = PBXGroup;
+			children = (
+				2803911819C528180014D0C3 /* CAAnimation+Blocks.h */,
+				2803911919C528180014D0C3 /* CAAnimation+Blocks.m */,
+				2803911A19C528180014D0C3 /* Evaluate.h */,
+				2803911B19C528180014D0C3 /* Evaluate.m */,
+				2803911C19C528180014D0C3 /* OMVector.h */,
+				2803911D19C528180014D0C3 /* UIButton+LongTapShare.h */,
+				2803911E19C528180014D0C3 /* UIButton+LongTapShare.m */,
+				2803911F19C528180014D0C3 /* YLLongTapShareView.h */,
+				2803912019C528180014D0C3 /* YLLongTapShareView.m */,
+				2803912119C528180014D0C3 /* YLShareAnimationHelper.h */,
+				2803912219C528180014D0C3 /* YLShareAnimationHelper.m */,
+				2803912319C528180014D0C3 /* YLShareButtonView.h */,
+				2803912419C528180014D0C3 /* YLShareButtonView.m */,
+				2803912519C528180014D0C3 /* YLShareView.h */,
+				2803912619C528180014D0C3 /* YLShareView.m */,
+			);
+			path = YLLongTapShareControl;
+			sourceTree = "<group>";
+		};
 		280F1F4219622FA9004BE086 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -561,6 +638,8 @@
 		283D4384195A37760054E16D = {
 			isa = PBXGroup;
 			children = (
+				284402BD19DF05C800E36E5B /* Water.h */,
+				284402BE19DF05C800E36E5B /* Water.m */,
 				289C31F219B251A50095911D /* WeeklyDietPropertyList.plist */,
 				283D43CD195A394A0054E16D /* Images */,
 				283D43BF195A37A50054E16D /* MainStoryboard.storyboard */,
@@ -609,6 +688,11 @@
 		283D4396195A37770054E16D /* Elu */ = {
 			isa = PBXGroup;
 			children = (
+				28E78AB219C69E1600802D9F /* SMRecipeDetailViewController.h */,
+				28E78AB319C69E1600802D9F /* SMRecipeDetailViewController.m */,
+				2803916B19C541E90014D0C3 /* GHContextMenuView.h */,
+				2803916C19C541E90014D0C3 /* GHContextMenuView.m */,
+				2803911719C528180014D0C3 /* YLLongTapShareControl */,
 				2853FC31199C5FB00073B891 /* Edit Patient Steps Controller */,
 				2843872619832047001A3A57 /* HTTP Client */,
 				2843871E19830580001A3A57 /* JSON Models */,
@@ -626,6 +710,8 @@
 				28C0B5B119A7ECD100BB1EC0 /* Patient.m */,
 				28C0B5AD19A7ECD000BB1EC0 /* Details.h */,
 				28C0B5AE19A7ECD000BB1EC0 /* Details.m */,
+				28BDBB9119C651060052D5BB /* SMLogFoodTableViewController.h */,
+				28BDBB9219C651060052D5BB /* SMLogFoodTableViewController.m */,
 			);
 			path = Elu;
 			sourceTree = "<group>";
@@ -682,6 +768,10 @@
 		283D43CD195A394A0054E16D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				280C794919C5156C0094B56C /* hood.png */,
+				280C794A19C5156C0094B56C /* hood@2x.png */,
+				280C794D19C515E20094B56C /* hood-selected.png */,
+				280C794E19C515E20094B56C /* hood-selected@2x.png */,
 				283D43C1195A39440054E16D /* camera.png */,
 				283D43C2195A39440054E16D /* camera@2x.png */,
 				283D43C3195A39440054E16D /* friends.png */,
@@ -1291,6 +1381,29 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		280C795119C51BEB0094B56C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2803913219C528180014D0C3 /* YLShareButtonView.h in Headers */,
+				2803912919C528180014D0C3 /* Evaluate.h in Headers */,
+				28BDBB9319C651060052D5BB /* SMLogFoodTableViewController.h in Headers */,
+				280C795319C51C200094B56C /* SMNutritionixClient.h in Headers */,
+				2803912719C528180014D0C3 /* CAAnimation+Blocks.h in Headers */,
+				2803912B19C528180014D0C3 /* OMVector.h in Headers */,
+				2803912E19C528180014D0C3 /* YLLongTapShareView.h in Headers */,
+				2803913019C528180014D0C3 /* YLShareAnimationHelper.h in Headers */,
+				2803912C19C528180014D0C3 /* UIButton+LongTapShare.h in Headers */,
+				2803913419C528180014D0C3 /* YLShareView.h in Headers */,
+				28E78AB419C69E1600802D9F /* SMRecipeDetailViewController.h in Headers */,
+				2803916D19C541E90014D0C3 /* GHContextMenuView.h in Headers */,
+				284402BF19DF05C800E36E5B /* Water.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		283D438C195A37760054E16D /* Elu */ = {
 			isa = PBXNativeTarget;
@@ -1301,6 +1414,7 @@
 				283D438A195A37760054E16D /* Frameworks */,
 				283D438B195A37760054E16D /* Resources */,
 				8F83366B56F44ED8A5D271C0 /* Copy Pods Resources */,
+				280C795119C51BEB0094B56C /* Headers */,
 			);
 			buildRules = (
 			);
@@ -1358,6 +1472,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 283D4384195A37760054E16D;
 			productRefGroup = 283D438E195A37770054E16D /* Products */;
@@ -1390,9 +1505,11 @@
 				2855A89819648C6200081F5A /* fruitBW.png in Resources */,
 				286C6C8A1963A7D50071E678 /* 5StarsSmall@2x.png in Resources */,
 				286C6C761963A2F30071E678 /* 5Stars@2x.png in Resources */,
+				280C795019C515E20094B56C /* hood-selected@2x.png in Resources */,
 				28921B2D1986EC47000D2689 /* zbar-helpicons.png in Resources */,
 				2866F70C19651C830052BAD1 /* Bread(products)@2x.png in Resources */,
 				2855A89519648C6200081F5A /* chickenBW.png in Resources */,
+				280C794C19C5156C0094B56C /* hood@2x.png in Resources */,
 				2866F71519651C830052BAD1 /* Quinoa.png in Resources */,
 				2866F70B19651C830052BAD1 /* Bread(products).png in Resources */,
 				283D43CA195A39440054E16D /* friends@2x.png in Resources */,
@@ -1408,11 +1525,13 @@
 				28921B2C1986EC47000D2689 /* zbar-help.html in Resources */,
 				283D43CB195A39440054E16D /* inbox.png in Resources */,
 				286C6C721963A2F30071E678 /* 3Stars@2x.png in Resources */,
+				280C794F19C515E20094B56C /* hood-selected.png in Resources */,
 				286C6C841963A7D50071E678 /* 2StarsSmall@2x.png in Resources */,
 				286C6C851963A7D50071E678 /* 3StarsSmall.png in Resources */,
 				286C6C811963A7D50071E678 /* 1StarSmall.png in Resources */,
 				2866F71219651C830052BAD1 /* Oats@2x.png in Resources */,
 				286C6C881963A7D50071E678 /* 4StarsSmall@2x.png in Resources */,
+				280C794B19C5156C0094B56C /* hood.png in Resources */,
 				2855A8A019648C6B00081F5A /* egg.png in Resources */,
 				283D439B195A37780054E16D /* InfoPlist.strings in Resources */,
 				28921B2B1986EC47000D2689 /* zbar-back.png in Resources */,
@@ -1505,6 +1624,7 @@
 				28D0DE73199446570004A2E2 /* ASValuePopUpView.m in Sources */,
 				284386E41982F83C001A3A57 /* AFURLConnectionOperation.m in Sources */,
 				284386E91982F83C001A3A57 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				284402C019DF05C800E36E5B /* Water.m in Sources */,
 				28D9DB8319A3CB57006D9F9F /* SMFourthEditScreenForPatientViewController.m in Sources */,
 				286C6C5F19639C920071E678 /* SMLikesFoodTableViewCell.m in Sources */,
 				285487F6197EDDDD000320CF /* SMEditPatientDietViewController.m in Sources */,
@@ -1527,9 +1647,11 @@
 				286C6C9F1963BE5E0071E678 /* ImageFilter.m in Sources */,
 				284386EF1982F83C001A3A57 /* UIWebView+AFNetworking.m in Sources */,
 				283D43A1195A37780054E16D /* SMAppDelegate.m in Sources */,
+				2803912A19C528180014D0C3 /* Evaluate.m in Sources */,
 				28E682E0198AC47F00398E20 /* CHCSVParser.m in Sources */,
 				284386E71982F83C001A3A57 /* AFURLSessionManager.m in Sources */,
 				2843870F1982F87C001A3A57 /* JSONModelArray.m in Sources */,
+				2803912D19C528180014D0C3 /* UIButton+LongTapShare.m in Sources */,
 				283D439D195A37780054E16D /* main.m in Sources */,
 				286C6CA21963BE5E0071E678 /* NGFilterStore.m in Sources */,
 				286C6C9C1963BE5E0071E678 /* CIBlueMoodFilter.m in Sources */,
@@ -1541,13 +1663,17 @@
 				284386ED1982F83C001A3A57 /* UIProgressView+AFNetworking.m in Sources */,
 				28B45BDC19BCFD120018600F /* MZDayPicker.m in Sources */,
 				2853FC4F199C6CB90073B891 /* FPPopoverController.m in Sources */,
+				2803916E19C541E90014D0C3 /* GHContextMenuView.m in Sources */,
 				28C0B5AF19A7ECD000BB1EC0 /* Details.m in Sources */,
 				2853FC50199C6CB90073B891 /* FPPopoverView.m in Sources */,
 				280F1F3E19622F8B004BE086 /* ImageLabelView.m in Sources */,
 				2853FC48199C67620073B891 /* UIColor+GraphKit.m in Sources */,
+				2803913519C528180014D0C3 /* YLShareView.m in Sources */,
+				2803913119C528180014D0C3 /* YLShareAnimationHelper.m in Sources */,
 				283D43EA195A455C0054E16D /* SMSignupViewController.m in Sources */,
 				280F1F3B19622F80004BE086 /* ChooseFoodView.m in Sources */,
 				28B45BD219BCD1190018600F /* SMMealPlanTableViewController.m in Sources */,
+				28E78AB519C69E1600802D9F /* SMRecipeDetailViewController.m in Sources */,
 				28D0DE60199440730004A2E2 /* RMStepsBar.m in Sources */,
 				284387141982F87C001A3A57 /* JSONHTTPClient.m in Sources */,
 				2853FC56199C6D6F0073B891 /* SMSecondEditPatientTableViewController.m in Sources */,
@@ -1555,6 +1681,7 @@
 				288DEB0619B3A9CF001B5B6D /* PAImageView.m in Sources */,
 				28D61AFF19A2AA3A00C9C3BB /* HTAutocompleteManager.m in Sources */,
 				2843871D1983057E001A3A57 /* YummlyModel.m in Sources */,
+				28BDBB9419C651060052D5BB /* SMLogFoodTableViewController.m in Sources */,
 				2843870D1982F87C001A3A57 /* JSONModel+CoreData.m in Sources */,
 				284386E31982F83C001A3A57 /* AFSecurityPolicy.m in Sources */,
 				28C0F1CE19941895007E1D22 /* SMPageViewController.m in Sources */,
@@ -1565,6 +1692,7 @@
 				283D43E7195A45380054E16D /* SMLoginViewController.m in Sources */,
 				286C6CA31963BE5E0071E678 /* UIImage+Filter.m in Sources */,
 				284387161982F87C001A3A57 /* JSONKeyMapper.m in Sources */,
+				2803913319C528180014D0C3 /* YLShareButtonView.m in Sources */,
 				28E8B89F199E682500CEFBBA /* XYPieChart.m in Sources */,
 				28B45BDD19BCFD120018600F /* MZDayPickerCell.m in Sources */,
 				28C0F1D719941E4B007E1D22 /* SMSecondPageForPageViewController.m in Sources */,
@@ -1574,6 +1702,8 @@
 				284386DF1982F83C001A3A57 /* AFHTTPRequestOperation.m in Sources */,
 				283D43D0195A3E610054E16D /* SMNutritionViewController.m in Sources */,
 				28B96DD419A5BDAE00FA0237 /* SMFirstTimePateientViewController.m in Sources */,
+				2803912819C528180014D0C3 /* CAAnimation+Blocks.m in Sources */,
+				2803912F19C528180014D0C3 /* YLLongTapShareView.m in Sources */,
 				2843870E1982F87C001A3A57 /* JSONModel.m in Sources */,
 				284386E61982F83C001A3A57 /* AFURLResponseSerialization.m in Sources */,
 				286C6C9D1963BE5E0071E678 /* CIFilter+Filter.m in Sources */,
@@ -1712,6 +1842,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/Headers";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1740,6 +1871,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/Headers";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

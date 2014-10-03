@@ -10,8 +10,12 @@
 #import "YummlyModel.h"
 #import "YummlyGetModel.h"
 #import "SMNutritionixClient.h"
+#import "YLLongTapShareView.h"
+#import "UIButton+LongTapShare.h"
 
-@interface SMNutritionViewController ()
+
+@interface SMNutritionViewController () <YLLongTapShareDelegate>
+
 
 @end
 
@@ -25,9 +29,113 @@
     NSString *doctorChosenDietURL;
 }
 
+- (id) init {
+    
+    NSLog(@"herrr");
+    
+    if ([self isViewLoaded]) {
+        self.view=nil;
+        [self viewDidLoad];
+    }
+    
+    [self viewDidLoad];
+    
+    return self;
+    
+    
+    
+    
+}
+
+- (void)buttonPressed:(id)sender
+{
+    
+}
+
+- (void) testMethod {
+    
+    //[super viewDidLoad];
+    
+    //[self.view addSubview:self.view];
+    //[self viewDidLoad];
+    
+    //[self.view setNeedsDisplay];
+    
+    
+    
+    NSLog(@"YAYAYA");
+    ZBarReaderViewController *reader = [ZBarReaderViewController new];
+    reader.readerDelegate = self;
+    
+    [reader.scanner setSymbology: ZBAR_UPCA config: ZBAR_CFG_ENABLE to: 0];
+    reader.readerView.zoom = 1.0;
+    
+    [self presentViewController:reader animated:YES completion:nil];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSLog(@"HEREEEE");
+    
+    
+    
+    
+
+    
+    // Do any additional setup after loading the view, typically from a nib.
+    UIImage *buttonImage = [UIImage imageNamed:@"hood.png"];
+    UIImage *highlightImage = [UIImage imageNamed:@"hood.png"];
+    UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(0.0, 0.0, buttonImage.size.width, buttonImage.size.height);
+    [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    [button setBackgroundImage:highlightImage forState:UIControlStateHighlighted];
+    CGFloat heightDifference = buttonImage.size.height - self.tabBarController.tabBar.frame.size.height;
+    if (heightDifference < 0)
+        button.center = self.tabBarController.tabBar.center;
+    else
+    {
+        CGPoint center = self.tabBarController.tabBar.center;
+        center.y = center.y - heightDifference/2.0;
+        button.center = center;
+    }
+    //[button addTarget:self action:@selector(share:) forControlEvents:UIControlEventTouchUpInside];
+    [self.tabBarController.view addSubview:button];
+    
+    
+    GHContextMenuView* overlay = [[GHContextMenuView alloc] init];
+    overlay.dataSource = self;
+    overlay.delegate = self;
+    
+    UILongPressGestureRecognizer* _longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:overlay action:@selector(longPressDetected:)];
+    
+    
+    
+    
+    
+    
+    [button addGestureRecognizer:_longPressRecognizer];
+
+    
+//    YLLongTapShareView *test = [[YLLongTapShareView alloc] initWithFrame:CGRectMake(80.0, 300.0, 300, 300)];
+//    
+//    [self.view addSubview:test];
+//    test.backgroundColor = [UIColor blackColor];
+//    [test addShareItem:[YLShareItem itemWithIcon:[UIImage imageNamed:@"facebook"] andTitle:@"Facebook"]];
+//    
+//    
+//    [button addShareItem:[YLShareItem itemWithIcon:[UIImage imageNamed:@"facebook"] andTitle:@"Facebook"]];
+//    [self.view addSubview:button];
+//    
+//    [self testMethod];
+
+    
+    //[self addCenterButtonWithImage:[UIImage imageNamed:@"hood.png"] highlightImage:[UIImage imageNamed:@"hood-selected.png"] target:self action:@selector(buttonPressed:)];
+    
+//    [self.view addShareItem:[YLShareItem itemWithIcon:[UIImage imageNamed:@"facebook"] andTitle:@"Facebook"]];
+//    [self.longTapShareButton addShareItem:[YLShareItem itemWithIcon:[UIImage imageNamed:@"pinterest"] andTitle:@"Pinterest"]];
+//    [self.longTapShareButton addShareItem:[YLShareItem itemWithIcon:[UIImage imageNamed:@"instagram"] andTitle:@"Instagram"]];
     
     // FIXME: Remember to add exception if there is no logged in user.
     
@@ -100,6 +208,95 @@
     
 }
 
+// Implementing data source methods
+- (NSInteger) numberOfMenuItems
+{
+    return 3;
+}
+
+-(UIImage*) imageForItemAtIndex:(NSInteger)index
+{
+    NSString* imageName = nil;
+    switch (index) {
+        case 0:
+            imageName = @"facebook";
+            break;
+        case 1:
+            imageName = @"twitter";
+            break;
+        case 2:
+            imageName = @"google-plus";
+            break;
+            
+        default:
+            break;
+    }
+    return [UIImage imageNamed:imageName];
+}
+
+#pragma mark - HERE
+
+- (void) didSelectItemAtIndex:(NSInteger)selectedIndex forMenuAtPoint:(CGPoint)point
+{
+    NSString* msg = nil;
+    switch (selectedIndex) {
+        case 0:
+            msg = @"Facebook Selected";
+            [self testMethod];
+
+            break;
+        case 1:
+            //msg = @"Twitter Selected";
+            
+            [self showLog];
+            
+            break;
+        case 2:
+            msg = @"Google Plus Selected";
+            break;
+            
+        default:
+            break;
+    }
+    
+//    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:nil message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//    [alertView show];
+    
+}
+
+- (void) showLog {
+    
+    SMLogFoodTableViewController *secondViewController =
+    [self.storyboard instantiateViewControllerWithIdentifier:@"logFood"];
+    [self.navigationController pushViewController:secondViewController animated:YES];
+
+}
+
+- (void)addCenterButtonWithImage:(UIImage *)buttonImage highlightImage:(UIImage *)highlightImage target:(id)target action:(SEL)action
+{
+    UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin;
+    button.frame = CGRectMake(0.0, 0.0, buttonImage.size.width, buttonImage.size.height);
+    [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    [button setBackgroundImage:highlightImage forState:UIControlStateHighlighted];
+    
+    CGFloat heightDifference = buttonImage.size.height - self.tabBarController.tabBar.frame.size.height;
+    if (heightDifference < 0) {
+        button.center = self.tabBarController.tabBar.center;
+    } else {
+        CGPoint center = self.tabBarController.tabBar.center;
+        center.y = center.y - heightDifference/2.0;
+        button.center = center;
+    }
+    
+    NSLog(@"Im e");
+    [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:button];
+    self.centerButton = button;
+}
+
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -168,6 +365,51 @@
         //[segue.destinationViewController setHidesBottomBarWhenPushed:YES];
     }
 }
+
+- (void)yourNewFunction
+{
+        //[self.view addSubview:self.view];
+    
+    
+    ZBarReaderViewController *reader = [ZBarReaderViewController new];
+    reader.readerDelegate = self;
+    
+    [reader.scanner setSymbology: ZBAR_UPCA config: ZBAR_CFG_ENABLE to: 0];
+    reader.readerView.zoom = 1.0;
+    
+    [self presentViewController:reader animated:YES completion:nil];
+}
+
+- (void) nutritionixUPCClient:(SMNutritionixUPCClient *)client didUpdateWithIdFromUPCScan:(id)itemId {
+    infoFromUPCScanReturned = itemId;
+    NSLog(@"FOOD ITEM HERE: %@", itemId);
+    [self logItemsReturnedFromUPCSCAN];
+}
+
+- (void) nutritionixUPCClient:(SMNutritionixClient *)client didFailWithError:(NSError *)error {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"%@", error] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil];
+    
+    [alert show];
+}
+
+- (void) logItemsReturnedFromUPCSCAN {
+    
+    
+    NSString* item_id = [infoFromUPCScanReturned objectForKey:@"item_id"];
+    NSString* item_name = [infoFromUPCScanReturned objectForKey:@"item_name"];
+    NSString* brand_name = [infoFromUPCScanReturned objectForKey:@"brand_name"];
+    NSString* nf_calories = [infoFromUPCScanReturned objectForKey:@"nf_calories"];
+    
+    NSLog(@"Regular Index: %@", item_id);
+    NSLog(@"Regular Type: %@", item_name);
+    NSLog(@"Regular Score: %@", brand_name);
+    NSLog(@"Regular Id: %@", nf_calories);
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"YAY!!!" message:[NSString stringWithFormat:@"You scanned an item with the id: %@. The items name is: %@. The Brand Name is: %@. And it has %@ calories.", item_id, item_name, brand_name, nf_calories] delegate:nil cancelButtonTitle:@"Thanks" otherButtonTitles: nil];
+    
+    [alert show];
+}
+
 
 - (IBAction)scanItemButtonPressed:(id)sender {
     ZBarReaderViewController *reader = [ZBarReaderViewController new];

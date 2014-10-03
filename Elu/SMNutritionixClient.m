@@ -58,7 +58,7 @@ static NSString *const SMAppKey = @"3b8f01ca64a3d758f3461605f13df49b";
             [self.delegate nutritionixHTTPClient:self didFailWithError:error];
         }
     }];
-
+    
     
 }
 
