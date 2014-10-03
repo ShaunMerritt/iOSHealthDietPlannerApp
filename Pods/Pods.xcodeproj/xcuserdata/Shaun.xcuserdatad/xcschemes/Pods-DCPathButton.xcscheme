@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F419293846044839BE45868D"
-               BuildableName = "libPods-YLLongTapShare.a"
-               BlueprintName = "Pods-YLLongTapShare"
+               BlueprintIdentifier = "97972A2F2211429CB50B1A02"
+               BuildableName = "libPods-DCPathButton.a"
+               BlueprintName = "Pods-DCPathButton"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

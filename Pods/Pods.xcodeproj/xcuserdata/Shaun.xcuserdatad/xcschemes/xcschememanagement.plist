@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-DCPathButton.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Facebook-iOS-SDK.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -64,11 +69,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-YLLongTapShare.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -77,72 +77,72 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>07431F9B2574438BBD3E5A17</key>
+		<key>1913D1BF673643BE9A64D903</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0CD394C0F16F4599A2EB1AE7</key>
+		<key>1AD77B7C3A44499BA81915BB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1E3DB393D55C4874B4CCAD09</key>
+		<key>2F54810143A84E4EA392ADDC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>25DA6B1368FC437EB0F032F5</key>
+		<key>4375F39675024BBE9C23365B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>50D4BC2A15C34C9EB6DB5D6B</key>
+		<key>5C898B5D063744F29FE77B49</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5FB411ADCB924DDC83750FC2</key>
+		<key>61AD45BE2B4C4977AA290E7C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8CA529C5E21C4964984039AA</key>
+		<key>61C660E6A9544C44A01153E7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>90CD15C2A95148BBAE733857</key>
+		<key>628BE93F08014C56A6BBB30C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9EB25D5FE9364FC989960E54</key>
+		<key>9752A86E2E6E45AEB787E758</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9EF8216BFFD449E894E55E58</key>
+		<key>97972A2F2211429CB50B1A02</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C939C337FEEE44C6B7F3E8BA</key>
+		<key>9C6C22A25B5D47D2954275C0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D0706C14F99E4EB8AEBB5A10</key>
+		<key>D5BA14A05FC940CFB7E56970</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EFDE1801E0C84F5DAED43ADF</key>
+		<key>E631368F83BF43EB9B943D36</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F419293846044839BE45868D</key>
+		<key>F62A360C14984552AAC4EF52</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -1,6 +1,7 @@
 PODS:
   - AMTagListView (0.4)
   - Bolts (1.1.2)
+  - DCPathButton (2.0)
   - Facebook-iOS-SDK (3.14.1):
     - Bolts
   - FrameAccessor (1.3.2)
@@ -9,16 +10,16 @@ PODS:
     - MKFoundationKit/NSArray (~> 1.2.2)
   - HTAutocompleteTextField (1.3.2)
   - MDCSwipeToChoose (0.2.1)
-  - MKFoundationKit/NSArray (1.2.2)
+  - MKFoundationKit/NSArray (1.2.3)
   - PNChart (0.5):
     - UICountingLabel (~> 1.0.0)
   - TOMSMorphingLabel (0.2.2)
   - UICountingLabel (1.0.0)
   - VENSeparatorView (1.0.1)
-  - YLLongTapShare (0.1)
 
 DEPENDENCIES:
   - AMTagListView
+  - DCPathButton (~> 2.0)
   - Facebook-iOS-SDK (= 3.14.1)
   - GraphKit (= 1.1.1)
   - HTAutocompleteTextField
@@ -26,21 +27,20 @@ DEPENDENCIES:
   - PNChart (~> 0.5)
   - TOMSMorphingLabel (~> 0.2.2)
   - VENSeparatorView (~> 1.0.0)
-  - YLLongTapShare
 
 SPEC CHECKSUMS:
   AMTagListView: 813647966e1ff37957475af271e20358a1ba76c6
   Bolts: 2635e8698a630774689441047f3465d78c48d485
+  DCPathButton: 3be37892168b5651716786cbeab42d0c66073ace
   Facebook-iOS-SDK: e9b3d5ac54ee3e5e693f4eef470b97911b3d076d
   FrameAccessor: 5eec95b29b5e9a3afe72a7a2e9ed25b000d3bcc3
   GraphKit: 951cdad6f6fad9f77e06185af3e1c20be349061b
   HTAutocompleteTextField: 554b1eb39e58a54cb2078a063e078d263ae05a76
   MDCSwipeToChoose: 54f7b1675eff182cdc46c582360c7fca4c766a67
-  MKFoundationKit: f8a268133483c1aa686f208d3944624cc0e68dd2
+  MKFoundationKit: 4858fe474ee45f988db5ff1e229d700743e71ed8
   PNChart: 0d0cf4531de3aa7f2b12434a54845d70d9c9cfe3
   TOMSMorphingLabel: b0ef90ad7a660a3a30bdf626cfc23028fa0b67f9
   UICountingLabel: 0a0e9e34bf4690dbd127aaec552d19ed938087a9
   VENSeparatorView: 402a48d9ba37eecad30bc806dab17e76f7a0818b
-  YLLongTapShare: 98fe22113963b5b7da2366f52db3d7f89399c9ea
 
 COCOAPODS: 0.33.1

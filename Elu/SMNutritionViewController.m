@@ -12,9 +12,11 @@
 #import "SMNutritionixClient.h"
 #import "YLLongTapShareView.h"
 #import "UIButton+LongTapShare.h"
+#import "DCPathButton.h"
+#import "SMWaterLogViewController.h"
 
 
-@interface SMNutritionViewController () <YLLongTapShareDelegate>
+@interface SMNutritionViewController () <YLLongTapShareDelegate, DCPathButtonDelegate>
 
 
 @end
@@ -82,40 +84,42 @@
     
     
     
+    
+    
 
     
-    // Do any additional setup after loading the view, typically from a nib.
-    UIImage *buttonImage = [UIImage imageNamed:@"hood.png"];
-    UIImage *highlightImage = [UIImage imageNamed:@"hood.png"];
-    UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(0.0, 0.0, buttonImage.size.width, buttonImage.size.height);
-    [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
-    [button setBackgroundImage:highlightImage forState:UIControlStateHighlighted];
-    CGFloat heightDifference = buttonImage.size.height - self.tabBarController.tabBar.frame.size.height;
-    if (heightDifference < 0)
-        button.center = self.tabBarController.tabBar.center;
-    else
-    {
-        CGPoint center = self.tabBarController.tabBar.center;
-        center.y = center.y - heightDifference/2.0;
-        button.center = center;
-    }
-    //[button addTarget:self action:@selector(share:) forControlEvents:UIControlEventTouchUpInside];
-    [self.tabBarController.view addSubview:button];
-    
-    
-    GHContextMenuView* overlay = [[GHContextMenuView alloc] init];
-    overlay.dataSource = self;
-    overlay.delegate = self;
-    
-    UILongPressGestureRecognizer* _longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:overlay action:@selector(longPressDetected:)];
-    
-    
-    
-    
-    
-    
-    [button addGestureRecognizer:_longPressRecognizer];
+//    // Do any additional setup after loading the view, typically from a nib.
+//    UIImage *buttonImage = [UIImage imageNamed:@"hood.png"];
+//    UIImage *highlightImage = [UIImage imageNamed:@"hood.png"];
+//    UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
+//    button.frame = CGRectMake(0.0, 0.0, buttonImage.size.width, buttonImage.size.height);
+//    [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
+//    [button setBackgroundImage:highlightImage forState:UIControlStateHighlighted];
+//    CGFloat heightDifference = buttonImage.size.height - self.tabBarController.tabBar.frame.size.height;
+//    if (heightDifference < 0)
+//        button.center = self.tabBarController.tabBar.center;
+//    else
+//    {
+//        CGPoint center = self.tabBarController.tabBar.center;
+//        center.y = center.y - heightDifference/2.0;
+//        button.center = center;
+//    }
+//    //[button addTarget:self action:@selector(share:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.tabBarController.view addSubview:button];
+//    
+//    
+//    GHContextMenuView* overlay = [[GHContextMenuView alloc] init];
+//    overlay.dataSource = self;
+//    overlay.delegate = self;
+//    
+//    UILongPressGestureRecognizer* _longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:overlay action:@selector(longPressDetected:)];
+//    
+//    
+//    
+//    
+//    
+//    
+//    [button addGestureRecognizer:_longPressRecognizer];
 
     
 //    YLLongTapShareView *test = [[YLLongTapShareView alloc] initWithFrame:CGRectMake(80.0, 300.0, 300, 300)];
@@ -203,10 +207,61 @@
 //    
 //    self.currentUser = [PFUser currentUser];
 //
-//    
+//
+    
+    
+    DCPathButton *centerButton = [[DCPathButton alloc]initWithCenterImage:[UIImage imageNamed:@"chooser-button-tab"]
+                                                          hilightedImage:[UIImage imageNamed:@"chooser-button-tab-highlighted"]];
+    [self.tabBarController.view addSubview:centerButton];
+    
+    centerButton.delegate = self;
+    
+    DCPathItemButton *itemButton_1 = [[DCPathItemButton alloc]initWithImage:[UIImage imageNamed:@"chooser-button-tab"]
+                                                           highlightedImage:[UIImage imageNamed:@"chooser-button-tab"]
+                                                            backgroundImage:[UIImage imageNamed:@"chooser-button-tab"]
+                                                 backgroundHighlightedImage:[UIImage imageNamed:@"chooser-button-tab"]];
+    DCPathItemButton *itemButton_2 = [[DCPathItemButton alloc]initWithImage:[UIImage imageNamed:@"chooser-button-tab"]
+                                                           highlightedImage:[UIImage imageNamed:@"chooser-button-tab"]
+                                                            backgroundImage:[UIImage imageNamed:@"chooser-button-tab"]
+                                                 backgroundHighlightedImage:[UIImage imageNamed:@"chooser-button-tab"]];
+    DCPathItemButton *itemButton_3 = [[DCPathItemButton alloc]initWithImage:[UIImage imageNamed:@"chooser-button-tab"]
+                                                           highlightedImage:[UIImage imageNamed:@"chooser-button-tab"]
+                                                            backgroundImage:[UIImage imageNamed:@"chooser-button-tab"]
+                                                 backgroundHighlightedImage:[UIImage imageNamed:@"chooser-button-tab"]];
+    DCPathItemButton *itemButton_4 = [[DCPathItemButton alloc]initWithImage:[UIImage imageNamed:@"chooser-button-tab"]
+                                                           highlightedImage:[UIImage imageNamed:@"chooser-button-tab"]
+                                                            backgroundImage:[UIImage imageNamed:@"chooser-button-tab"]
+                                                 backgroundHighlightedImage:[UIImage imageNamed:@"chooser-button-tab"]];
+    
+    [centerButton addPathItem:@[itemButton_1, itemButton_2, itemButton_3, itemButton_4]];
 
+    NSLog(@"added");
     
 }
+
+- (void)itemButtonTappedAtIndex:(NSUInteger)index
+{
+    if(index == 0){
+        // When the user tap index 1 here ...
+        ZBarReaderViewController *reader = [ZBarReaderViewController new];
+        reader.readerDelegate = self;
+        
+        [reader.scanner setSymbology: ZBAR_UPCA config: ZBAR_CFG_ENABLE to: 0];
+        reader.readerView.zoom = 1.0;
+        
+        [self presentViewController:reader animated:YES completion:nil];
+    }
+    if (index == 1) {
+        [self showLog];
+    } else{
+        // other code here ...
+        SMWaterLogViewController *secondViewController =
+        [self.storyboard instantiateViewControllerWithIdentifier:@"logWater"];
+        [self.navigationController pushViewController:secondViewController animated:YES];
+    }
+}
+
+
 
 // Implementing data source methods
 - (NSInteger) numberOfMenuItems

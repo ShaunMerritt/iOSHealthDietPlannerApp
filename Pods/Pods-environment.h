@@ -18,6 +18,12 @@
 #define COCOAPODS_VERSION_MINOR_Bolts 1
 #define COCOAPODS_VERSION_PATCH_Bolts 2
 
+// DCPathButton
+#define COCOAPODS_POD_AVAILABLE_DCPathButton
+#define COCOAPODS_VERSION_MAJOR_DCPathButton 2
+#define COCOAPODS_VERSION_MINOR_DCPathButton 0
+#define COCOAPODS_VERSION_PATCH_DCPathButton 0
+
 // Facebook-iOS-SDK
 #define COCOAPODS_POD_AVAILABLE_Facebook_iOS_SDK
 #define COCOAPODS_VERSION_MAJOR_Facebook_iOS_SDK 3
@@ -52,7 +58,7 @@
 #define COCOAPODS_POD_AVAILABLE_MKFoundationKit_NSArray
 #define COCOAPODS_VERSION_MAJOR_MKFoundationKit_NSArray 1
 #define COCOAPODS_VERSION_MINOR_MKFoundationKit_NSArray 2
-#define COCOAPODS_VERSION_PATCH_MKFoundationKit_NSArray 2
+#define COCOAPODS_VERSION_PATCH_MKFoundationKit_NSArray 3
 
 // PNChart
 #define COCOAPODS_POD_AVAILABLE_PNChart
@@ -77,10 +83,4 @@
 #define COCOAPODS_VERSION_MAJOR_VENSeparatorView 1
 #define COCOAPODS_VERSION_MINOR_VENSeparatorView 0
 #define COCOAPODS_VERSION_PATCH_VENSeparatorView 1
-
-// YLLongTapShare
-#define COCOAPODS_POD_AVAILABLE_YLLongTapShare
-#define COCOAPODS_VERSION_MAJOR_YLLongTapShare 0
-#define COCOAPODS_VERSION_MINOR_YLLongTapShare 1
-#define COCOAPODS_VERSION_PATCH_YLLongTapShare 0
 

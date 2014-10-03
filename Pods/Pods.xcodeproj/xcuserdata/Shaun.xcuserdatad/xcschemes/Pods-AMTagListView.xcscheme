@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1E3DB393D55C4874B4CCAD09"
+               BlueprintIdentifier = "628BE93F08014C56A6BBB30C"
                BuildableName = "libPods-AMTagListView.a"
                BlueprintName = "Pods-AMTagListView"
                ReferencedContainer = "container:Pods.xcodeproj">

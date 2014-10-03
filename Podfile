@@ -8,6 +8,7 @@ pod 'HTAutocompleteTextField'
 pod 'AMTagListView'
 pod "TOMSMorphingLabel", "~> 0.2.2"
 pod 'VENSeparatorView', '~> 1.0.0'
+pod 'DCPathButton', '~> 2.0'
 
 target :Elu, :exclusive => true do
   # pod 'Kiwi'

@@ -98,6 +98,12 @@
 		2843872519832044001A3A57 /* SMYummlyHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2843872419832044001A3A57 /* SMYummlyHTTPClient.m */; };
 		284402BF19DF05C800E36E5B /* Water.h in Headers */ = {isa = PBXBuildFile; fileRef = 284402BD19DF05C800E36E5B /* Water.h */; };
 		284402C019DF05C800E36E5B /* Water.m in Sources */ = {isa = PBXBuildFile; fileRef = 284402BE19DF05C800E36E5B /* Water.m */; };
+		284402C319DF09CF00E36E5B /* chooser-button-tab-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 284402C119DF09CF00E36E5B /* chooser-button-tab-highlighted.png */; };
+		284402C419DF09CF00E36E5B /* chooser-button-tab-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 284402C219DF09CF00E36E5B /* chooser-button-tab-highlighted@2x.png */; };
+		284402C719DF09DC00E36E5B /* chooser-button-tab.png in Resources */ = {isa = PBXBuildFile; fileRef = 284402C519DF09DC00E36E5B /* chooser-button-tab.png */; };
+		284402C819DF09DC00E36E5B /* chooser-button-tab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 284402C619DF09DC00E36E5B /* chooser-button-tab@2x.png */; };
+		284402CB19DF0D7D00E36E5B /* SMWaterLogViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 284402C919DF0D7D00E36E5B /* SMWaterLogViewController.h */; };
+		284402CC19DF0D7D00E36E5B /* SMWaterLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 284402CA19DF0D7D00E36E5B /* SMWaterLogViewController.m */; };
 		2853FC36199C5FEC0073B891 /* SMSecondEditScreenForPatientDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2853FC35199C5FEC0073B891 /* SMSecondEditScreenForPatientDetailsViewController.m */; };
 		2853FC48199C67620073B891 /* UIColor+GraphKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2853FC47199C67620073B891 /* UIColor+GraphKit.m */; };
 		2853FC4F199C6CB90073B891 /* FPPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2853FC4A199C6CB90073B891 /* FPPopoverController.m */; };
@@ -359,6 +365,12 @@
 		2843872419832044001A3A57 /* SMYummlyHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMYummlyHTTPClient.m; sourceTree = "<group>"; };
 		284402BD19DF05C800E36E5B /* Water.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Water.h; sourceTree = "<group>"; };
 		284402BE19DF05C800E36E5B /* Water.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Water.m; sourceTree = "<group>"; };
+		284402C119DF09CF00E36E5B /* chooser-button-tab-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chooser-button-tab-highlighted.png"; sourceTree = "<group>"; };
+		284402C219DF09CF00E36E5B /* chooser-button-tab-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chooser-button-tab-highlighted@2x.png"; sourceTree = "<group>"; };
+		284402C519DF09DC00E36E5B /* chooser-button-tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chooser-button-tab.png"; sourceTree = "<group>"; };
+		284402C619DF09DC00E36E5B /* chooser-button-tab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chooser-button-tab@2x.png"; sourceTree = "<group>"; };
+		284402C919DF0D7D00E36E5B /* SMWaterLogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMWaterLogViewController.h; sourceTree = "<group>"; };
+		284402CA19DF0D7D00E36E5B /* SMWaterLogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMWaterLogViewController.m; sourceTree = "<group>"; };
 		2853FC34199C5FEC0073B891 /* SMSecondEditScreenForPatientDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSecondEditScreenForPatientDetailsViewController.h; sourceTree = "<group>"; };
 		2853FC35199C5FEC0073B891 /* SMSecondEditScreenForPatientDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSecondEditScreenForPatientDetailsViewController.m; sourceTree = "<group>"; };
 		2853FC46199C67620073B891 /* UIColor+GraphKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+GraphKit.h"; sourceTree = "<group>"; };
@@ -1268,8 +1280,14 @@
 		28B45BCE19BCD0ED0018600F /* First */ = {
 			isa = PBXGroup;
 			children = (
+				284402C519DF09DC00E36E5B /* chooser-button-tab.png */,
+				284402C619DF09DC00E36E5B /* chooser-button-tab@2x.png */,
+				284402C119DF09CF00E36E5B /* chooser-button-tab-highlighted.png */,
+				284402C219DF09CF00E36E5B /* chooser-button-tab-highlighted@2x.png */,
 				283D43CE195A3E610054E16D /* SMNutritionViewController.h */,
 				283D43CF195A3E610054E16D /* SMNutritionViewController.m */,
+				284402C919DF0D7D00E36E5B /* SMWaterLogViewController.h */,
+				284402CA19DF0D7D00E36E5B /* SMWaterLogViewController.m */,
 			);
 			name = First;
 			sourceTree = "<group>";
@@ -1392,6 +1410,7 @@
 				280C795319C51C200094B56C /* SMNutritionixClient.h in Headers */,
 				2803912719C528180014D0C3 /* CAAnimation+Blocks.h in Headers */,
 				2803912B19C528180014D0C3 /* OMVector.h in Headers */,
+				284402CB19DF0D7D00E36E5B /* SMWaterLogViewController.h in Headers */,
 				2803912E19C528180014D0C3 /* YLLongTapShareView.h in Headers */,
 				2803913019C528180014D0C3 /* YLShareAnimationHelper.h in Headers */,
 				2803912C19C528180014D0C3 /* UIButton+LongTapShare.h in Headers */,
@@ -1492,6 +1511,7 @@
 			files = (
 				2866F71719651C830052BAD1 /* Rice.png in Resources */,
 				2866F71319651C830052BAD1 /* Potatoes.png in Resources */,
+				284402C319DF09CF00E36E5B /* chooser-button-tab-highlighted.png in Resources */,
 				2855A89719648C6200081F5A /* fishBW.png in Resources */,
 				286C6C871963A7D50071E678 /* 4StarsSmall.png in Resources */,
 				2855A89619648C6200081F5A /* eggsBW.png in Resources */,
@@ -1521,6 +1541,8 @@
 				2855A8A319648C6B00081F5A /* vegetables.png in Resources */,
 				286C6C6F1963A2F30071E678 /* 2Stars.png in Resources */,
 				286C6C821963A7D50071E678 /* 1StarSmall@2x.png in Resources */,
+				284402C419DF09CF00E36E5B /* chooser-button-tab-highlighted@2x.png in Resources */,
+				284402C719DF09DC00E36E5B /* chooser-button-tab.png in Resources */,
 				2855A89F19648C6B00081F5A /* chicken.png in Resources */,
 				28921B2C1986EC47000D2689 /* zbar-help.html in Resources */,
 				283D43CB195A39440054E16D /* inbox.png in Resources */,
@@ -1555,6 +1577,7 @@
 				2855A8A219648C6B00081F5A /* salmon.png in Resources */,
 				286C6C831963A7D50071E678 /* 2StarsSmall.png in Resources */,
 				289C31F319B251A50095911D /* WeeklyDietPropertyList.plist in Resources */,
+				284402C819DF09DC00E36E5B /* chooser-button-tab@2x.png in Resources */,
 				286C6C741963A2F30071E678 /* 4Stars@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1614,6 +1637,7 @@
 				28D0DE67199441420004A2E2 /* SMFirstEditScreenForPatientDetailsViewController.m in Sources */,
 				2853FC36199C5FEC0073B891 /* SMSecondEditScreenForPatientDetailsViewController.m in Sources */,
 				284387121982F87C001A3A57 /* NSArray+JSONModel.m in Sources */,
+				284402CC19DF0D7D00E36E5B /* SMWaterLogViewController.m in Sources */,
 				286C6C9E1963BE5E0071E678 /* CIImage+Filter.m in Sources */,
 				286C6C621963A0270071E678 /* SMFood.m in Sources */,
 				28C0B5B219A7ECD100BB1EC0 /* Patient.m in Sources */,
