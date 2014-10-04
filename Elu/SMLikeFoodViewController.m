@@ -178,27 +178,291 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
 
     // Create all of the food items
     return @[
-         [[Food alloc] initWithName:@"Barley"
-                              image:[UIImage imageNamed:@"Barley"]
-                               meal:@"Breakfast"],
-//         [[Food alloc] initWithName:@"Bread"
-//                              image:[UIImage imageNamed:@"Bread(products)"]
-//                               meal:@"Lunch"],
-//         [[Food alloc] initWithName:@"Buckwheat"
-//                              image:[UIImage imageNamed:@"Buckwheat"]
-//                               meal:@"Dinner"],
-//         [[Food alloc] initWithName:@"Corn"
-//                              image:[UIImage imageNamed:@"Corn "]
-//                               meal:@"Breakfast"],
-//         [[Food alloc] initWithName:@"Oats"
-//                              image:[UIImage imageNamed:@"Oats"]
-//                               meal:@"Breakfast"],
-//         [[Food alloc] initWithName:@"Potatoes"
-//                              image:[UIImage imageNamed:@"Potatoes"]
-//                               meal:@"Dinner"],
-//         [[Food alloc] initWithName:@"Quinoa"
-//                              image:[UIImage imageNamed:@"Quinoa"]
-//                               meal:@"Lunch"],
+             [[Food alloc] initWithName:@"Rice"
+              image:[UIImage imageNamed:@"Rice"]
+                                             meal:@"Dinner"],
+                      [[Food alloc] initWithName:@"Quinoa"
+                                                     image:[UIImage imageNamed:@"Quinoa"]
+                                                      meal:@"Lunch"],
+                      [[Food alloc] initWithName:@"Potatoes"
+                                                     image:[UIImage imageNamed:@"Potatoes"]
+                                                      meal:@"Lunch"],
+                      [[Food alloc] initWithName:@"Oatmeal"
+                                                     image:[UIImage imageNamed:@"Oats"]
+                                                      meal:@"Breakfast"],
+                      [[Food alloc] initWithName:@"Corn"
+                                                     image:[UIImage imageNamed:@"Corn"]
+                                                      meal:@"Lunch"],
+                      [[Food alloc] initWithName:@"Buckwheat"
+                                                     image:[UIImage imageNamed:@"Buckwheat"]
+                                                      meal:@"Lunch"],
+                      [[Food alloc] initWithName:@"Toast"
+                                                     image:[UIImage imageNamed:@"Bread"]
+                                                      meal:@"Breakfast"],
+                      [[Food alloc] initWithName:@"Barley"
+                                                     image:[UIImage imageNamed:@"Barley"]
+                                                      meal:@"Breakfast"],
+                      [[Food alloc] initWithName:@"Trout"
+                                                     image:[UIImage imageNamed:@"Trout"]
+                                                      meal:@"Dinner"],
+                      [[Food alloc] initWithName:@"Clams"
+                                                     image:[UIImage imageNamed:@"Clams"]
+                                                      meal:@"Dinner"],
+                      [[Food alloc] initWithName:@"Halibut"
+                                                     image:[UIImage imageNamed:@"Halibut"]
+                                                      meal:@"Dinner"],
+                      [[Food alloc] initWithName:@"Seabass"
+                                                     image:[UIImage imageNamed:@"Seabass"]
+                                                      meal:@"Dinner"],
+                      [[Food alloc] initWithName:@"Tuna"
+                                                     image:[UIImage imageNamed:@"Tuna"]
+                                                      meal:@"Lunch"],
+                      [[Food alloc] initWithName:@"Oysters"
+                                                     image:[UIImage imageNamed:@"Oysters"]
+                                                      meal:@"Dinner"],
+                      [[Food alloc] initWithName:@"Crab"
+                                                     image:[UIImage imageNamed:@"Crab"]
+                                                      meal:@"Dinner"],
+                      [[Food alloc] initWithName:@"Salmon"
+                                                     image:[UIImage imageNamed:@"Salmon"]
+                                                      meal:@"Dinner"],
+                      [[Food alloc] initWithName:@"Cod"
+                                                     image:[UIImage imageNamed:@"Cod"]
+                                                      meal:@"Dinner"],
+                      [[Food alloc] initWithName:@"Lobster"
+                                                     image:[UIImage imageNamed:@"Lobster"]
+                                                      meal:@"Dinner"],
+                      [[Food alloc] initWithName:@"Shrimp"
+                                                     image:[UIImage imageNamed:@"Mexican Shrimp"]
+                                                      meal:@"Dinner"],
+                      [[Food alloc] initWithName:@"Pork"
+                                                     image:[UIImage imageNamed:@"Pork"]
+                                                      meal:@"Dinner"],
+                      [[Food alloc] initWithName:@"Eggwhites"
+                                                     image:[UIImage imageNamed:@"Eggwhite"]
+                                                      meal:@"Breakfast"],
+                      [[Food alloc] initWithName:@"Lamb"
+                                                     image:[UIImage imageNamed:@"Lamb"]
+                                                      meal:@"Dinner"],
+                      [[Food alloc] initWithName:@"Sunny Side Up Eggs"
+                                                     image:[UIImage imageNamed:@"Egg"]
+                                                      meal:@"Breakfast"],
+                      [[Food alloc] initWithName:@"Beef"
+                                                     image:[UIImage imageNamed:@"Beef"]
+                                                      meal:@"Lunch"],
+                      [[Food alloc] initWithName:@"Turkey"
+                                                     image:[UIImage imageNamed:@"Turkey"]
+                                                      meal:@"Lunch"],
+                      [[Food alloc] initWithName:@"Duck"
+                                                     image:[UIImage imageNamed:@"Duck"]
+                                                      meal:@"Dinner"],
+                      [[Food alloc] initWithName:@"Chicken"
+                                                     image:[UIImage imageNamed:@"Chicken"]
+                                                      meal:@"Lunch"],
+                      [[Food alloc] initWithName:@"Veal"
+                                                     image:[UIImage imageNamed:@"Veal"]
+                                                      meal:@"Dinner"],
+                      [[Food alloc] initWithName:@"Walnuts"
+                                                     image:[UIImage imageNamed:@"Walnut"]
+                                                      meal:@"Breakfast"],
+                      [[Food alloc] initWithName:@"Veggie Burger"
+                                                     image:[UIImage imageNamed:@"Veggie Burger"]
+                                                      meal:@"Lunch"],
+                      [[Food alloc] initWithName:@"TVP"
+                                                     image:[UIImage imageNamed:@"TVP"]
+                                                      meal:@"Lunch"],
+                      [[Food alloc] initWithName:@"Tofu"
+                                                     image:[UIImage imageNamed:@"Tofu"]
+                                                      meal:@"Lunch"],
+                      [[Food alloc] initWithName:@"Soy Beans"
+                                                     image:[UIImage imageNamed:@"Soy Beans"]
+                                                      meal:@"Lunch"],
+                      [[Food alloc] initWithName:@"Pistachios"
+                                                     image:[UIImage imageNamed:@"Pistachios"]
+                                                      meal:@"Snack"],
+                      [[Food alloc] initWithName:@"Pinto Beans"
+                                                     image:[UIImage imageNamed:@"Quinoa"]
+                                                      meal:@"Lunch"],
+                      [[Food alloc] initWithName:@"Pecans"
+                                                     image:[UIImage imageNamed:@"Pecan"]
+                                                      meal:@"Snack"],
+                      [[Food alloc] initWithName:@"Peanuts"
+                                                     image:[UIImage imageNamed:@"Peanuts"]
+                                                      meal:@"Snack"],
+                      [[Food alloc] initWithName:@"Peanut Butter"
+                                                     image:[UIImage imageNamed:@"Peanut Butter"]
+                                                      meal:@"Breakfast"],
+                      [[Food alloc] initWithName:@"Lentils"
+                                                     image:[UIImage imageNamed:@"Lentils"]
+                                                      meal:@"Dinner"],
+                      [[Food alloc] initWithName:@"Kashews"
+                                                     image:[UIImage imageNamed:@"Kashews"]
+                                                      meal:@"Snack"],
+                      [[Food alloc] initWithName:@"Hazelnuts"
+                                                     image:[UIImage imageNamed:@"Hazelnuts"]
+                                                      meal:@"Snack"],
+                      [[Food alloc] initWithName:@"Chickpeas"
+                                                     image:[UIImage imageNamed:@"Chickpeas"]
+                                                      meal:@"Dinner"],
+                      [[Food alloc] initWithName:@"Black Eyed Peas"
+                                                     image:[UIImage imageNamed:@"Black Eyed Peas"]
+                                                      meal:@"Lunch"],
+                      [[Food alloc] initWithName:@"Black Beans"
+                                                     image:[UIImage imageNamed:@"Black Beans"]
+                                                      meal:@"Dinner"],
+                      [[Food alloc] initWithName:@"Almonds"
+                                                     image:[UIImage imageNamed:@"Almonds"]
+                                                      meal:@"Snack"],
+                     [[Food alloc] initWithName:@"Zucchini"
+                                                    image:[UIImage imageNamed:@"Zucchini"]
+                                                     meal:@"Dinner"],
+                     [[Food alloc] initWithName:@"Tomatos"
+                                                    image:[UIImage imageNamed:@"Tomato"]
+                                                     meal:@"Lunch"],
+                     [[Food alloc] initWithName:@"Sweet Potatoes"
+                                                    image:[UIImage imageNamed:@"Sweet Potatoes"]
+                                                     meal:@"Lunch"],
+                     [[Food alloc] initWithName:@"Squash"
+                                                    image:[UIImage imageNamed:@"Squash"]
+                                                     meal:@"Dinner"],
+                     [[Food alloc] initWithName:@"Spinach"
+                                                    image:[UIImage imageNamed:@"Spinach"]
+                                                     meal:@"Dinner"],
+                     [[Food alloc] initWithName:@"Radishes"
+                                                    image:[UIImage imageNamed:@"Radish"]
+                                                     meal:@"Lunch"],
+                     [[Food alloc] initWithName:@"Pumpkin Seeds"
+                                                    image:[UIImage imageNamed:@"Pumpkin"]
+                                                     meal:@"Snack"],
+                     [[Food alloc] initWithName:@"Onions"
+                                                    image:[UIImage imageNamed:@"Onions"]
+                                                     meal:@"Lunch"],
+                     [[Food alloc] initWithName:@"Mushrooms"
+                                                    image:[UIImage imageNamed:@"Mushrooms"]
+                                                     meal:@"Dinner"],
+                     [[Food alloc] initWithName:@"Kale"
+                                                    image:[UIImage imageNamed:@"Kale"]
+                                                     meal:@"Snack"],
+                     [[Food alloc] initWithName:@"Green Beans"
+                                                    image:[UIImage imageNamed:@"Green Beans"]
+                                                     meal:@"Dinner"],
+                     [[Food alloc] initWithName:@"Eggplant"
+                                                    image:[UIImage imageNamed:@"Eggplant"]
+                                                     meal:@"Dinner"],
+                     [[Food alloc] initWithName:@"Cucumber"
+                                                    image:[UIImage imageNamed:@"Cucumber"]
+                                                     meal:@"Lunch"],
+                     [[Food alloc] initWithName:@"Cauliflower"
+                                                    image:[UIImage imageNamed:@"Coliflour"]
+                                                     meal:@"Lunch"],
+                     [[Food alloc] initWithName:@"Celery"
+                                                    image:[UIImage imageNamed:@"Celery"]
+                                                     meal:@"Snack"],
+                     [[Food alloc] initWithName:@"Carrots"
+                                                    image:[UIImage imageNamed:@"Carrots"]
+                                                     meal:@"Snack"],
+                     [[Food alloc] initWithName:@"Coleslaw"
+                                                    image:[UIImage imageNamed:@"Cabbage"]
+                                                     meal:@"Snack"],
+                     [[Food alloc] initWithName:@"Roasted Brussel Sprouts"
+                                                    image:[UIImage imageNamed:@"Brussel Sprouts"]
+                                                     meal:@"Snack"],
+                     [[Food alloc] initWithName:@"Steamed Broccoli"
+                                                    image:[UIImage imageNamed:@"Brocolli"]
+                                                     meal:@"Dinner"],
+                     [[Food alloc] initWithName:@"Bell Pepper"
+                                                    image:[UIImage imageNamed:@"Bell Pepper"]
+                                                     meal:@"Lunch"],
+                     [[Food alloc] initWithName:@"Beets"
+                                                    image:[UIImage imageNamed:@"Beets"]
+                                                     meal:@"Lunch"],
+                     [[Food alloc] initWithName:@"Avocado"
+                                                    image:[UIImage imageNamed:@"Avocado "]
+                                                     meal:@"Breakfast"],
+                     [[Food alloc] initWithName:@"Asparagus"
+                                                    image:[UIImage imageNamed:@"Asparagus"]
+                                                     meal:@"Dinner"],
+                     [[Food alloc] initWithName:@"Steamed Artichoke"
+                                                    image:[UIImage imageNamed:@"Artichoke"]
+                                                     meal:@"Dinner"],
+                     [[Food alloc] initWithName:@"Watermelon"
+                                                    image:[UIImage imageNamed:@"Watermelon"]
+                                                     meal:@"Snack"],
+                     [[Food alloc] initWithName:@"Tangerine"
+                                                    image:[UIImage imageNamed:@"Tangerine"]
+                                                     meal:@"Snack"],
+                     [[Food alloc] initWithName:@"Strawberries"
+                                                    image:[UIImage imageNamed:@"Strawberries "]
+                                                     meal:@"Snack"],
+                     [[Food alloc] initWithName:@"Rasberries"
+                                                    image:[UIImage imageNamed:@"Rasberries"]
+                                                     meal:@"Snack"],
+                     [[Food alloc] initWithName:@"Raisins"
+                                                    image:[UIImage imageNamed:@"Raisins"]
+                                                     meal:@"Snack"],
+                     [[Food alloc] initWithName:@"Prunes"
+                                                    image:[UIImage imageNamed:@"Prunes "]
+                                                     meal:@"Snack"],
+                     [[Food alloc] initWithName:@"Plums"
+                                                    image:[UIImage imageNamed:@"Plum"]
+                                                     meal:@"Snack"],
+                     [[Food alloc] initWithName:@"Pineapples"
+                                                    image:[UIImage imageNamed:@"Pineapple"]
+                                                     meal:@"Snack"],
+                     [[Food alloc] initWithName:@"Pears"
+                                                    image:[UIImage imageNamed:@"Pear"]
+                                                     meal:@"Snack"],
+                     [[Food alloc] initWithName:@"Peach"
+                                                    image:[UIImage imageNamed:@"Peach"]
+                                                     meal:@"Snack"],
+                     [[Food alloc] initWithName:@"Papayas"
+                                                    image:[UIImage imageNamed:@"Papayas"]
+                                                     meal:@"Snack"],
+                     [[Food alloc] initWithName:@"Oranges"
+                                                    image:[UIImage imageNamed:@"Orange "]
+                                                     meal:@"Snack"],
+                     [[Food alloc] initWithName:@"Nectarines"
+                                                    image:[UIImage imageNamed:@"Nectarines"]
+                                                     meal:@"Snack"],
+                     [[Food alloc] initWithName:@"Mangoes"
+                                                    image:[UIImage imageNamed:@"Mangoes "]
+                                                     meal:@"Snack"],
+                     [[Food alloc] initWithName:@"Lime"
+                                                    image:[UIImage imageNamed:@"Lime"]
+                                                     meal:@"Lunch"],
+                     [[Food alloc] initWithName:@"Lemons"
+                                                    image:[UIImage imageNamed:@"Lemons"]
+                                                     meal:@"Lunch"],
+                     [[Food alloc] initWithName:@"Kiwi"
+                                                    image:[UIImage imageNamed:@"Kiwi"]
+                                                     meal:@"Snack"],
+                     [[Food alloc] initWithName:@"Honeydew"
+                                                    image:[UIImage imageNamed:@"Honeydew"]
+                                                     meal:@"Snack"],
+                     [[Food alloc] initWithName:@"Grapes"
+                                                    image:[UIImage imageNamed:@"Grapes"]
+                                                     meal:@"Snack"],
+                     [[Food alloc] initWithName:@"Grapefruit"
+                                                    image:[UIImage imageNamed:@"Grapefruit "]
+                                                     meal:@"Snack"],
+                     [[Food alloc] initWithName:@"Cherries"
+                                                    image:[UIImage imageNamed:@"Cherry"]
+                                                     meal:@"Snack"],
+                     [[Food alloc] initWithName:@"Cantaloupes"
+                                                    image:[UIImage imageNamed:@"Cantaloupe"]
+                                                     meal:@"Snack"],
+                     [[Food alloc] initWithName:@"Blueberries"
+                                                    image:[UIImage imageNamed:@"Blueberries"]
+                                                     meal:@"Snack"],
+                     [[Food alloc] initWithName:@"Banana"
+                                                    image:[UIImage imageNamed:@"Banana"]
+                                                     meal:@"Snack"],
+                     [[Food alloc] initWithName:@"Apricots"
+                                                    image:[UIImage imageNamed:@"Apricot"]
+                                                     meal:@"Snack"],
+                     [[Food alloc] initWithName:@"Apples"
+                                                    image:[UIImage imageNamed:@"Apple"]
+                                                     meal:@"Snack"],
      ];
     
 }
