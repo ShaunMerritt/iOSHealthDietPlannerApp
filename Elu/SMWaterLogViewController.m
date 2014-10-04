@@ -248,6 +248,104 @@
 }
 
 - (IBAction)minusOneCupButton:(id)sender {
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    
+    if (_cupsOfWater == 0) {
+        _cupsOfWater = 0;
+        
+        
+        [cupsOfWaterObject setValue:@(_cupsOfWater) forKey:@"numberOfCups"];
+        
+        
+        // Creates a date object representing the current date
+        NSDate *now = [NSDate date];
+        
+        // Creates an object representing the Gregorian calendar
+        NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+        
+        // Sets the calendar object with an object representing the time zone specified in System Preferences
+        [calendar setTimeZone:[NSTimeZone systemTimeZone]];
+        
+        // Calls the components:fromDate: method on the calendar object, passing in the date object created in line 2. This call returns an object containing the hour, minute, and second components of the date object
+        NSDateComponents *dc = [calendar components:(NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay) fromDate:now];
+        
+        // Logs the current hour, minute, and second to the console
+        
+        
+        [cupsOfWaterObject setValue:now forKey:@"dateLogged"];
+        //_cupsOfWater++;
+        self.amountOfWaterLabel.text = [NSString stringWithFormat:@"%d", _cupsOfWater];
+        [self saveToParse:_cupsOfWater];
+
+        NSError *error = nil;
+        // Save the object to persistent store
+        if (![context save:&error]) {
+            NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+        }
+        
+        
+    } else {
+        _cupsOfWater--;
+        
+        
+        
+        
+        // Fetch the devices from persistent data store
+        NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Water"];
+        NSMutableArray *devices = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+        
+        NSManagedObject *selectedDevice = [devices objectAtIndex:(devices.count - 1)];
+        
+        
+        
+        
+        
+        
+        
+        
+        NSManagedObjectContext *context = [self managedObjectContext];
+        
+        
+        
+        
+        NSLog(@"right here");
+        
+        // Creates a date object representing the current date
+        NSDate *now = [NSDate date];
+        
+        // Creates an object representing the Gregorian calendar
+        NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+        
+        // Sets the calendar object with an object representing the time zone specified in System Preferences
+        [calendar setTimeZone:[NSTimeZone systemTimeZone]];
+        
+        // Calls the components:fromDate: method on the calendar object, passing in the date object created in line 2. This call returns an object containing the hour, minute, and second components of the date object
+        NSDateComponents *dc = [calendar components:(NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay) fromDate:now];
+        
+        // Logs the current hour, minute, and second to the console
+        //NSManagedObject *selectedDevice = [self.devices objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
+        
+        
+        
+        [selectedDevice setValue:now forKey:@"dateLogged"];
+        
+        [selectedDevice setValue:@(_cupsOfWater) forKey:@"numberOfCups"];
+        self.amountOfWaterLabel.text = [NSString stringWithFormat:@"%d", _cupsOfWater];
+        [self saveToParse:_cupsOfWater];
+
+        NSError *error = nil;
+        // Save the object to persistent store
+        if (![context save:&error]) {
+            NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+        }
+        
+        
+    }
+
+    
 }
 
 - (IBAction)addOneCupButton:(id)sender {
@@ -280,6 +378,8 @@
         [cupsOfWaterObject setValue:now forKey:@"dateLogged"];
         _cupsOfWater++;
         self.amountOfWaterLabel.text = [NSString stringWithFormat:@"%d", _cupsOfWater];
+        [self saveToParse:_cupsOfWater];
+
         NSError *error = nil;
         // Save the object to persistent store
         if (![context save:&error]) {
@@ -335,6 +435,8 @@
 
         [selectedDevice setValue:@(_cupsOfWater) forKey:@"numberOfCups"];
         self.amountOfWaterLabel.text = [NSString stringWithFormat:@"%d", _cupsOfWater];
+        [self saveToParse:_cupsOfWater];
+        
         NSError *error = nil;
         // Save the object to persistent store
         if (![context save:&error]) {
@@ -346,6 +448,20 @@
     
     
 
+}
+
+- (void) saveToParse:(int)numberOfCupsToSaveForParse {
+    
+    // Set the liked food array to Liked_Food_Array on Parse
+    [[PFUser currentUser] setObject:@(numberOfCupsToSaveForParse) forKey:@"Number_Of_Cups_Today"];
+    
+    // Save the objects to parse
+    [[PFUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            
+        }
+    }];
+    
 }
 
 //- (NSManagedObjectModel *)managedObjectModel {
