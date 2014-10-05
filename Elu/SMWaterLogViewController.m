@@ -30,14 +30,188 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     // Fetch the devices from persistent data store
-//    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
-//    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Water"];
-//    NSArray * t = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
-//    NSLog(@"t: %@", t);
-//    
+    
+   // if (managedObjectContext != nil) {
+        
+//        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Water"];
+//        NSArray * t = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+//        NSLog(@"t: %@", t);
+//        NSManagedObject *device = [t objectAtIndex:t.count - 1];
+//        NSLog(@"NumberL %@", [device valueForKey:@"numberOfCups"]);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+//        // Fetch the devices from persistent data store
+//        NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+//
+//        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Water"];
+//        self.cupsOfWaterArray = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+//        NSLog(@"cups: %@", _cupsOfWaterArray);
+//        
+//        if (self.cupsOfWaterArray == nil || [self.cupsOfWaterArray count] == 0) {
+//            NSManagedObject *device = [self.cupsOfWaterArray objectAtIndex:_cupsOfWaterArray.count -1 ];
+//            NSLog(@"Here: %@",[device valueForKey:@"numberOfCups"]);
+//            
+//            _cupsOfWater = [[device valueForKey:@"numberOfCups"] intValue];
+//            self.amountOfWaterLabel.text = [NSString stringWithFormat:@"%d",_cupsOfWater];
+//        } else {
+//            
+//            NSLog(@"else");
+//            self.amountOfWaterLabel.text = @"0";
+//            
+//
+//            
+//        }
+    
+    if ([self coreDataHasEntriesForEntityName:@"Water"] == YES) {
+        NSLog(@"Exists");
+        // Fetch the devices from persistent data store
+        NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Water"];
+        self.cupsOfWaterArray = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+
+        NSManagedObject *device = [self.cupsOfWaterArray objectAtIndex:_cupsOfWaterArray.count -1 ];
+
+        _cupsOfWater = [[device valueForKey:@"numberOfCups"] intValue];
+        self.amountOfWaterLabel.text = [NSString stringWithFormat:@"%d",_cupsOfWater];
+        
+    
+        NSDate *dateCreated = [device valueForKey:@"dateLogged"];
+        NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+        [calendar setTimeZone:[NSTimeZone systemTimeZone]];
+        NSDateComponents *dc = [calendar components:(NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay) fromDate:dateCreated];
+        
+        NSDate *now = [NSDate date];
+        
+        // Creates an object representing the Gregorian calendar
+        NSCalendar *calendars = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+        
+        // Sets the calendar object with an object representing the time zone specified in System Preferences
+        [calendars setTimeZone:[NSTimeZone systemTimeZone]];
+        
+        // Calls the components:fromDate: method on the calendar object, passing in the date object created in line 2. This call returns an object containing the hour, minute, and second components of the date object
+        NSDateComponents *dcs = [calendar components:(NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay) fromDate:now];
+        
+        // Logs the current hour, minute, and second to the console
+
+        if (dcs.year != dc.year || dcs.month != dc.month || dcs.day != dc.day) {
+            // Create a new managed object
+            
+            NSLog(@"Not some date");
+            
+            NSManagedObjectContext *context = [self managedObjectContext];
+            
+            // Create a new managed object
+            NSManagedObject *newDevice = [NSEntityDescription insertNewObjectForEntityForName:@"Water" inManagedObjectContext:context];
+            [newDevice setValue:@(0) forKey:@"numberOfCups"];
+            self.amountOfWaterLabel.text = @"0";
+
+            // Create a new managed object
+            //NSManagedObject *newDevice = [NSEntityDescription insertNewObjectForEntityForName:@"Water" inManagedObjectContext:managedObjectContext];
+            //[cupsOfWaterObject setValue:@(0) forKey:@"numberOfCups"];
+            
+            // Creates a date object representing the current date
+            NSDate *now = [NSDate date];
+            
+            // Creates an object representing the Gregorian calendar
+            NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+            
+            // Sets the calendar object with an object representing the time zone specified in System Preferences
+            [calendar setTimeZone:[NSTimeZone systemTimeZone]];
+            
+            // Calls the components:fromDate: method on the calendar object, passing in the date object created in line 2. This call returns an object containing the hour, minute, and second components of the date object
+            NSDateComponents *dc = [calendar components:(NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay) fromDate:now];
+            
+            // Logs the current hour, minute, and second to the console
+            NSLog(@"The time is %d:%d:%d", [dc year], [dc month], [dc day]);
+            
+            
+            [newDevice setValue:now forKey:@"dateLogged"];
+            _cupsOfWater = 0;
+            
+            NSError *error = nil;
+            // Save the object to persistent store
+            if (![managedObjectContext save:&error]) {
+                NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+            }
+
+
+        } else {
+            NSLog(@"Same Date");
+        }
+
+        
+            } else {
+        NSLog(@"NONONOO");
+                NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+                
+                // Create a new managed object
+                cupsOfWaterObject = [NSEntityDescription insertNewObjectForEntityForName:@"Water" inManagedObjectContext:managedObjectContext];
+                [cupsOfWaterObject setValue:@(0) forKey:@"numberOfCups"];
+                
+                // Creates a date object representing the current date
+                NSDate *now = [NSDate date];
+                
+                // Creates an object representing the Gregorian calendar
+                NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+                
+                // Sets the calendar object with an object representing the time zone specified in System Preferences
+                [calendar setTimeZone:[NSTimeZone systemTimeZone]];
+                
+                // Calls the components:fromDate: method on the calendar object, passing in the date object created in line 2. This call returns an object containing the hour, minute, and second components of the date object
+                NSDateComponents *dc = [calendar components:(NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay) fromDate:now];
+                
+                // Logs the current hour, minute, and second to the console
+                
+                
+                [cupsOfWaterObject setValue:now forKey:@"dateLogged"];
+                
+                NSError *error = nil;
+                // Save the object to persistent store
+                if (![managedObjectContext save:&error]) {
+                    NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+                }
+
+        _cupsOfWater = 0;
+    }
+        
+        
+        //[cell.detailTextLabel setText:[device valueForKey:@"company"]];
+        
+    //} else {
+        
+    //}
+//
 //    NSManagedObject *device = [t objectAtIndex:t.count - 1];
 //    NSLog(@"NumberL %@", [device valueForKey:@"numberOfCups"]);
-    _cupsOfWater = 0;
+    
+    //NSLog(@"Managed: %@", cupsOfWaterObject);
+    
+    //_cupsOfWater = 0;
+    
+    
+    
+    // Creates a date object representing the current date
+    NSDate *now = [NSDate date];
+    
+    // Creates an object representing the Gregorian calendar
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    
+    // Sets the calendar object with an object representing the time zone specified in System Preferences
+    [calendar setTimeZone:[NSTimeZone systemTimeZone]];
+    
+    // Calls the components:fromDate: method on the calendar object, passing in the date object created in line 2. This call returns an object containing the hour, minute, and second components of the date object
+    NSDateComponents *dc = [calendar components:(NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay) fromDate:now];
+    
+    // Logs the current hour, minute, and second to the console
     
 }
 
@@ -56,6 +230,23 @@
 }
 */
 
+- (BOOL)coreDataHasEntriesForEntityName:(NSString *)entityName {
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:self.managedObjectContext];
+    [request setEntity:entity];
+    [request setFetchLimit:1];
+    NSError *error = nil;
+    NSArray *results = [self.managedObjectContext executeFetchRequest:request error:&error];
+    if (!results) {
+        NSLog(@"Fetch error: %@", error);
+        abort();
+    }
+    if ([results count] == 0) {
+        return NO;
+    }
+    return YES;
+}
+
 - (IBAction)minusOneCupButton:(id)sender {
 }
 
@@ -67,22 +258,93 @@
     if (_cupsOfWater == 0) {
         _cupsOfWater = 0;
         
-        // Create a new managed object
-        cupsOfWaterObject = [NSEntityDescription insertNewObjectForEntityForName:@"Water" inManagedObjectContext:context];
+       
         [cupsOfWaterObject setValue:@(_cupsOfWater) forKey:@"numberOfCups"];
+        
+        
+        // Creates a date object representing the current date
+        NSDate *now = [NSDate date];
+        
+        // Creates an object representing the Gregorian calendar
+        NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+        
+        // Sets the calendar object with an object representing the time zone specified in System Preferences
+        [calendar setTimeZone:[NSTimeZone systemTimeZone]];
+        
+        // Calls the components:fromDate: method on the calendar object, passing in the date object created in line 2. This call returns an object containing the hour, minute, and second components of the date object
+        NSDateComponents *dc = [calendar components:(NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay) fromDate:now];
+        
+        // Logs the current hour, minute, and second to the console
+        
+        
+        [cupsOfWaterObject setValue:now forKey:@"dateLogged"];
         _cupsOfWater++;
+        self.amountOfWaterLabel.text = [NSString stringWithFormat:@"%d", _cupsOfWater];
+        NSError *error = nil;
+        // Save the object to persistent store
+        if (![context save:&error]) {
+            NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+        }
+
         
     } else {
-        [cupsOfWaterObject setValue:@(_cupsOfWater) forKey:@"numberOfCups"];
         _cupsOfWater++;
+        
+        
+        
+        
+        // Fetch the devices from persistent data store
+        NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Water"];
+        NSMutableArray *devices = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+        
+        NSManagedObject *selectedDevice = [devices objectAtIndex:(devices.count - 1)];
+        
+        
+        
+        
+        
+        
+        
+        
+        NSManagedObjectContext *context = [self managedObjectContext];
+        
+        
+        
+        
+        NSLog(@"right here");
+        
+        // Creates a date object representing the current date
+        NSDate *now = [NSDate date];
+        
+        // Creates an object representing the Gregorian calendar
+        NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+        
+        // Sets the calendar object with an object representing the time zone specified in System Preferences
+        [calendar setTimeZone:[NSTimeZone systemTimeZone]];
+        
+        // Calls the components:fromDate: method on the calendar object, passing in the date object created in line 2. This call returns an object containing the hour, minute, and second components of the date object
+        NSDateComponents *dc = [calendar components:(NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay) fromDate:now];
+        
+        // Logs the current hour, minute, and second to the console
+        //NSManagedObject *selectedDevice = [self.devices objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
+
+        
+        
+        [selectedDevice setValue:now forKey:@"dateLogged"];
+
+        [selectedDevice setValue:@(_cupsOfWater) forKey:@"numberOfCups"];
+        self.amountOfWaterLabel.text = [NSString stringWithFormat:@"%d", _cupsOfWater];
+        NSError *error = nil;
+        // Save the object to persistent store
+        if (![context save:&error]) {
+            NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+        }
+
+
     }
     
-    NSError *error = nil;
-    // Save the object to persistent store
-    if (![context save:&error]) {
-        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
-    }
-
+    
 
 }
 
