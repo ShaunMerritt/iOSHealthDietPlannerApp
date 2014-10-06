@@ -18,6 +18,10 @@
         <attribute name="vitaminC" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="details" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="patientDetails" inverseEntity="Patient" syncable="YES"/>
     </entity>
+    <entity name="Exercise" syncable="YES">
+        <attribute name="dateLogged" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="numberOfCalories" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
     <entity name="Patient" representedClassName="Patient" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="patientDetails" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Details" inverseName="details" inverseEntity="Details" syncable="YES"/>
@@ -30,5 +34,6 @@
         <element name="Details" positionX="-83" positionY="-238" width="128" height="283"/>
         <element name="Patient" positionX="-270" positionY="-28" width="128" height="73"/>
         <element name="Water" positionX="-272" positionY="53" width="128" height="73"/>
+        <element name="Exercise" positionX="-180" positionY="-90" width="128" height="75"/>
     </elements>
 </model>

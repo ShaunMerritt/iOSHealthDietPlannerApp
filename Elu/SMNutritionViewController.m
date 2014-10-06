@@ -14,6 +14,7 @@
 #import "UIButton+LongTapShare.h"
 #import "DCPathButton.h"
 #import "SMWaterLogViewController.h"
+#import "SMExerciseLoggingViewController.h"
 
 
 @interface SMNutritionViewController () <YLLongTapShareDelegate, DCPathButtonDelegate>
@@ -253,11 +254,17 @@
     }
     if (index == 1) {
         [self showLog];
-    } else{
-        // other code here ...
+    } if (index == 2) {
         SMWaterLogViewController *secondViewController =
         [self.storyboard instantiateViewControllerWithIdentifier:@"logWater"];
         [self.navigationController pushViewController:secondViewController animated:YES];
+        
+    } else {
+        // other code here ...
+        NSLog(@"dsfdsf");
+        SMExerciseLoggingViewController *exerciseLogViewController =
+        [self.storyboard instantiateViewControllerWithIdentifier:@"ExerciseLog"];
+        [self.navigationController pushViewController:exerciseLogViewController animated:YES];
     }
 }
 

@@ -18,6 +18,7 @@
     NSArray* returnedFoods;
 }
 @synthesize isDoctor;
+
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
@@ -95,6 +96,9 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     
     [self save];
+    
+    // Saves changes in the application's managed object context before the application terminates.
+    [self saveContext];
 }
 
 - (void) save {

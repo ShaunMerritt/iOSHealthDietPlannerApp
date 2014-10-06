@@ -32,6 +32,8 @@
 		280F1F3B19622F80004BE086 /* ChooseFoodView.m in Sources */ = {isa = PBXBuildFile; fileRef = 280F1F3A19622F80004BE086 /* ChooseFoodView.m */; };
 		280F1F3E19622F8B004BE086 /* ImageLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 280F1F3D19622F8B004BE086 /* ImageLabelView.m */; };
 		280F1F4119622F9E004BE086 /* Food.m in Sources */ = {isa = PBXBuildFile; fileRef = 280F1F4019622F9E004BE086 /* Food.m */; };
+		281C570F19E072EB00494E0F /* SMExerciseLoggingViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 281C570D19E072EB00494E0F /* SMExerciseLoggingViewController.h */; };
+		281C571019E072EB00494E0F /* SMExerciseLoggingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 281C570E19E072EB00494E0F /* SMExerciseLoggingViewController.m */; };
 		282972D9198049E200ED1287 /* SMHomeScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 282972D8198049E200ED1287 /* SMHomeScreenViewController.m */; };
 		282B4E4519DF4A4200BD1871 /* Almonds.png in Resources */ = {isa = PBXBuildFile; fileRef = 282B4D8619DF4A4100BD1871 /* Almonds.png */; };
 		282B4E4619DF4A4200BD1871 /* Almonds@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 282B4D8719DF4A4100BD1871 /* Almonds@2x.png */; };
@@ -447,6 +449,8 @@
 		280F1F3D19622F8B004BE086 /* ImageLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageLabelView.m; sourceTree = "<group>"; };
 		280F1F3F19622F9E004BE086 /* Food.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Food.h; sourceTree = "<group>"; };
 		280F1F4019622F9E004BE086 /* Food.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Food.m; sourceTree = "<group>"; };
+		281C570D19E072EB00494E0F /* SMExerciseLoggingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMExerciseLoggingViewController.h; sourceTree = "<group>"; };
+		281C570E19E072EB00494E0F /* SMExerciseLoggingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMExerciseLoggingViewController.m; sourceTree = "<group>"; };
 		282972D7198049E200ED1287 /* SMHomeScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMHomeScreenViewController.h; sourceTree = "<group>"; };
 		282972D8198049E200ED1287 /* SMHomeScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMHomeScreenViewController.m; sourceTree = "<group>"; };
 		282B4D8619DF4A4100BD1871 /* Almonds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Almonds.png; sourceTree = "<group>"; };
@@ -1230,6 +1234,8 @@
 		283D4384195A37760054E16D = {
 			isa = PBXGroup;
 			children = (
+				281C570D19E072EB00494E0F /* SMExerciseLoggingViewController.h */,
+				281C570E19E072EB00494E0F /* SMExerciseLoggingViewController.m */,
 				284402BD19DF05C800E36E5B /* Water.h */,
 				284402BE19DF05C800E36E5B /* Water.m */,
 				289C31F219B251A50095911D /* WeeklyDietPropertyList.plist */,
@@ -1993,6 +1999,7 @@
 				2803912B19C528180014D0C3 /* OMVector.h in Headers */,
 				284402CB19DF0D7D00E36E5B /* SMWaterLogViewController.h in Headers */,
 				2803912E19C528180014D0C3 /* YLLongTapShareView.h in Headers */,
+				281C570F19E072EB00494E0F /* SMExerciseLoggingViewController.h in Headers */,
 				2803913019C528180014D0C3 /* YLShareAnimationHelper.h in Headers */,
 				2803912C19C528180014D0C3 /* UIButton+LongTapShare.h in Headers */,
 				2803913419C528180014D0C3 /* YLShareView.h in Headers */,
@@ -2434,6 +2441,7 @@
 				28D35884196227C100BAB66B /* SMLikeFoodViewController.m in Sources */,
 				28921A711986DF34000D2689 /* SMNutritionixUPCClient.m in Sources */,
 				284386EA1982F83C001A3A57 /* UIAlertView+AFNetworking.m in Sources */,
+				281C571019E072EB00494E0F /* SMExerciseLoggingViewController.m in Sources */,
 				28D0DE64199440BA0004A2E2 /* SMEditPatientDetailStepController.m in Sources */,
 				284387211983063B001A3A57 /* SMConstants.m in Sources */,
 				280F1F4119622F9E004BE086 /* Food.m in Sources */,
