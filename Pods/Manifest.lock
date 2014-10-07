@@ -2,6 +2,7 @@ PODS:
   - AMTagListView (0.4)
   - Bolts (1.1.2)
   - DCPathButton (2.0)
+  - DIDatepicker (0.1)
   - Facebook-iOS-SDK (3.14.1):
     - Bolts
   - FrameAccessor (1.3.2)
@@ -20,6 +21,7 @@ PODS:
 DEPENDENCIES:
   - AMTagListView
   - DCPathButton (~> 2.0)
+  - DIDatepicker
   - Facebook-iOS-SDK (= 3.14.1)
   - GraphKit (= 1.1.1)
   - HTAutocompleteTextField
@@ -32,6 +34,7 @@ SPEC CHECKSUMS:
   AMTagListView: 813647966e1ff37957475af271e20358a1ba76c6
   Bolts: 2635e8698a630774689441047f3465d78c48d485
   DCPathButton: 3be37892168b5651716786cbeab42d0c66073ace
+  DIDatepicker: bcfe36a32ea90270f31da37010e074bab6f7a4aa
   Facebook-iOS-SDK: e9b3d5ac54ee3e5e693f4eef470b97911b3d076d
   FrameAccessor: 5eec95b29b5e9a3afe72a7a2e9ed25b000d3bcc3
   GraphKit: 951cdad6f6fad9f77e06185af3e1c20be349061b

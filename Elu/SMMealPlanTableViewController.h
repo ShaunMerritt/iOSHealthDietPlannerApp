@@ -19,6 +19,9 @@
 @property (weak, nonatomic) NSMutableDictionary *dictionaryOne;
 @property (weak, nonatomic) NSMutableDictionary *dictionaryTwo;
 
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsContoller;
+
 @property int test;
 
 @property int dayNumber;

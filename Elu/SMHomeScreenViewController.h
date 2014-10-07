@@ -56,6 +56,8 @@
 @property int caloriesForCarbsForLunch;
 @property int caloriesForCarbsForDinner;
 
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+
 
 
 

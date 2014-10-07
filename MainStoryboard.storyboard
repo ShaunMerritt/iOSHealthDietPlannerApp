@@ -1405,7 +1405,7 @@
         <scene sceneID="zY4-64-Hzx">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="R5B-w5-AFU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Nutrition" image="4363BA02-C8DB-40D3-95F7-C588A7D05CFF" id="1jo-P0-J4L"/>
+                    <tabBarItem key="tabBarItem" title="Nutrition" image="FA7D0E73-9D8D-419D-9D4B-E2FEAE846F2B" id="1jo-P0-J4L"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Dva-hD-uaB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1447,7 +1447,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="icm-ns-TYR" customClass="MZDayPicker">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="icm-ns-TYR" customClass="DIDatepicker">
                             <rect key="frame" x="0.0" y="64" width="320" height="62"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -1491,6 +1491,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="The Plan" id="34J-gs-x0h"/>
                     <connections>
+                        <outlet property="datepicker" destination="icm-ns-TYR" id="Awx-Wv-iou"/>
                         <outlet property="dayPicker" destination="icm-ns-TYR" id="VIq-3B-gvG"/>
                     </connections>
                 </tableViewController>
@@ -1588,7 +1589,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="4363BA02-C8DB-40D3-95F7-C588A7D05CFF" width="32" height="21">
+        <image name="FA7D0E73-9D8D-419D-9D4B-E2FEAE846F2B" width="32" height="21">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA

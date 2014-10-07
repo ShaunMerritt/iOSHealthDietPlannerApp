@@ -16,5 +16,7 @@
     #import <Parse/Parse.h>
     #import "SMAppDelegate.h"
     #import "SMConstants.h"
+    #import <CoreData/CoreData.h>
+
     //#import "PNChart.h"
 #endif

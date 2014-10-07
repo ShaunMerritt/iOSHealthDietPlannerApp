@@ -51,6 +51,9 @@
 
 - (void)viewDidLoad
 {
+    _managedObjectContext = [self managedObjectContext];
+
+    
     [super viewDidLoad];
     
     numberOfTimesPlistSaved = 0;
@@ -496,6 +499,16 @@
 {
     [self.navigationController.toolbar setHidden: YES];
 }
+
+- (NSManagedObjectContext *)managedObjectContext {
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
+
 
 
 /*

@@ -227,6 +227,8 @@
 		282B4F0219DF4A4200BD1871 /* Zucchini.png in Resources */ = {isa = PBXBuildFile; fileRef = 282B4E4319DF4A4200BD1871 /* Zucchini.png */; };
 		282B4F0319DF4A4200BD1871 /* Zucchini@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 282B4E4419DF4A4200BD1871 /* Zucchini@2x.png */; };
 		283118BD198AFFC8003BA51D /* Data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 283118BC198AFFC8003BA51D /* Data.plist */; };
+		2837191519E35E5000BD76CA /* Meal.h in Headers */ = {isa = PBXBuildFile; fileRef = 2837191319E35E5000BD76CA /* Meal.h */; };
+		2837191619E35E5000BD76CA /* Meal.m in Sources */ = {isa = PBXBuildFile; fileRef = 2837191419E35E5000BD76CA /* Meal.m */; };
 		283D4391195A37770054E16D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 283D4390195A37770054E16D /* Foundation.framework */; };
 		283D4393195A37770054E16D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 283D4392195A37770054E16D /* CoreGraphics.framework */; };
 		283D4395195A37770054E16D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 283D4394195A37770054E16D /* UIKit.framework */; };
@@ -645,6 +647,8 @@
 		282B4E4319DF4A4200BD1871 /* Zucchini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Zucchini.png; sourceTree = "<group>"; };
 		282B4E4419DF4A4200BD1871 /* Zucchini@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Zucchini@2x.png"; sourceTree = "<group>"; };
 		283118BC198AFFC8003BA51D /* Data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Data.plist; sourceTree = "<group>"; };
+		2837191319E35E5000BD76CA /* Meal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Meal.h; sourceTree = "<group>"; };
+		2837191419E35E5000BD76CA /* Meal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Meal.m; sourceTree = "<group>"; };
 		283D438D195A37770054E16D /* Elu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Elu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		283D4390195A37770054E16D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		283D4392195A37770054E16D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -1235,6 +1239,8 @@
 			isa = PBXGroup;
 			children = (
 				281C570D19E072EB00494E0F /* SMExerciseLoggingViewController.h */,
+				2837191319E35E5000BD76CA /* Meal.h */,
+				2837191419E35E5000BD76CA /* Meal.m */,
 				281C570E19E072EB00494E0F /* SMExerciseLoggingViewController.m */,
 				284402BD19DF05C800E36E5B /* Water.h */,
 				284402BE19DF05C800E36E5B /* Water.m */,
@@ -2002,6 +2008,7 @@
 				281C570F19E072EB00494E0F /* SMExerciseLoggingViewController.h in Headers */,
 				2803913019C528180014D0C3 /* YLShareAnimationHelper.h in Headers */,
 				2803912C19C528180014D0C3 /* UIButton+LongTapShare.h in Headers */,
+				2837191519E35E5000BD76CA /* Meal.h in Headers */,
 				2803913419C528180014D0C3 /* YLShareView.h in Headers */,
 				28E78AB419C69E1600802D9F /* SMRecipeDetailViewController.h in Headers */,
 				2803916D19C541E90014D0C3 /* GHContextMenuView.h in Headers */,
@@ -2504,6 +2511,7 @@
 				28B1B49D1984636700F4881A /* SMYummlyGetClient.m in Sources */,
 				28C0B5AC19A7E97A00BB1EC0 /* Model.xcdatamodeld in Sources */,
 				284386DF1982F83C001A3A57 /* AFHTTPRequestOperation.m in Sources */,
+				2837191619E35E5000BD76CA /* Meal.m in Sources */,
 				283D43D0195A3E610054E16D /* SMNutritionViewController.m in Sources */,
 				28B96DD419A5BDAE00FA0237 /* SMFirstTimePateientViewController.m in Sources */,
 				2803912819C528180014D0C3 /* CAAnimation+Blocks.m in Sources */,

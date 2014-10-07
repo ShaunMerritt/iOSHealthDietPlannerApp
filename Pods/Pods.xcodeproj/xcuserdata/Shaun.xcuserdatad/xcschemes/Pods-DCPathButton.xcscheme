@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "97972A2F2211429CB50B1A02"
+               BlueprintIdentifier = "18751AB6E3214A30BFF14728"
                BuildableName = "libPods-DCPathButton.a"
                BlueprintName = "Pods-DCPathButton"
                ReferencedContainer = "container:Pods.xcodeproj">
