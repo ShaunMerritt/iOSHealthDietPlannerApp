@@ -74,7 +74,7 @@
 @property (strong, nonatomic) NSMutableDictionary *returnedRecipeFlavors;
 @property (strong, nonatomic) NSString *returnedRecipeRating;
 
-@property (strong, nonatomic) NSString *returnedRecipeYield;
+@property (strong, nonatomic) NSNumber *returnedRecipeYield;
 @property (strong, nonatomic) NSMutableArray *returnedRecipeImagesArray;
 @property (strong, nonatomic) NSMutableDictionary *returnedRecipeImagesDictionary;
 @property (strong, nonatomic) NSString *returnedRecipeMediumImage;

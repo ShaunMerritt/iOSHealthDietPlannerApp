@@ -427,56 +427,91 @@
 - (void) savePlistInfo:(int)meal {
     
     
+//    NSString *mealNumberString = [[NSString alloc] initWithFormat:@"%d",meal];
+//    NSLog(@"MEAL STRING NUMBER: %@", mealNumberString);
+//    int x = mealNumber - 1;
+//    
+//    NSMutableArray *tempArray = [[NSMutableArray alloc] init];
+//    //NSLog(@"Current Meal: %@", allMeals);
+//    for (NSDictionary *object in allMeals) {
+//        //NSLog(@"Object: %@", object);
+//        if ([[object objectForKey:@"Recipe Number"] isEqualToString:[NSString stringWithFormat:@"%d", meal]]) {
+//            [tempArray insertObject:object atIndex:0];
+//            NSLog(@"Temp Array: %@", tempArray);
+//        }
+//    }
+//    
+//    NSMutableDictionary *dictsy = [tempArray objectAtIndex:0];
+//    
+//    if (numberOfTimesPlistSaved > 3) {
+//        [components setDay:1];
+//        currentDate = [calendar dateByAddingComponents:components
+//                                                toDate:currentDate
+//                                               options:0];
+//        numberOfTimesPlistSaved = 0;
+//    }
+//    
+//    
+//    numberOfTimesPlistSaved ++;
+//
+//    [dictsy setObject:currentDate forKey:@"Date For Meal"];
+//    [dictsy setObject:@"Test Object" forKey:@"Test Key"];
+//    [dictsy setObject:[NSString stringWithFormat:@"%@",returnedRecipeName] forKey:@"Recipe Name"];
+//    [dictsy setObject:[NSString stringWithFormat:@"%@",returnedRecipeMediumImage] forKey:@"Hosted Medium URL"];
+//    [dictsy setObject:[NSString stringWithFormat:@"%@",returnedRecipeNumberOfServings] forKey:@"Number Of Servings"];
+//    [dictsy setObject:[NSString stringWithFormat:@"%@",returnedRecipeRating] forKey:@"Rating"];
+//    [dictsy setObject:[NSString stringWithFormat:@"%@",returnedRecipeYield] forKey:@"Yield"];
+//    [dictsy setObject:[NSString stringWithFormat:@"%@",returnedRecipeID] forKey:@"Recipe Id"];
+//    [dictsy setObject:[NSString stringWithFormat:@"%@",returnedRecipeTotalTimeInSeconds] forKey:@"Total Time In Seconds"];
+//    
+//    
+//    
+//    
+//    
+//    [allMeals replaceObjectAtIndex:x withObject:dictsy];
+//    NSLog(@"ALL MEALS RIGHT HERE: %@", allMeals);
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    NSString *documentsDirectory =  [paths objectAtIndex:0];
+//    NSString *path = [documentsDirectory stringByAppendingPathComponent:@"WeeklyDietPropertyList.plist"];
+//    [allMeals writeToFile:path atomically:YES];
+//    
+//    NSLog(@"ALLL MEALS HERE: %@", allMeals);
+
+    
+    
+    
+    
+    
+    
+    
     NSString *mealNumberString = [[NSString alloc] initWithFormat:@"%d",meal];
     NSLog(@"MEAL STRING NUMBER: %@", mealNumberString);
     int x = mealNumber - 1;
     
-    NSMutableArray *tempArray = [[NSMutableArray alloc] init];
-    //NSLog(@"Current Meal: %@", allMeals);
-    for (NSDictionary *object in allMeals) {
-        //NSLog(@"Object: %@", object);
-        if ([[object objectForKey:@"Recipe Number"] isEqualToString:[NSString stringWithFormat:@"%d", meal]]) {
-            [tempArray insertObject:object atIndex:0];
-            NSLog(@"Temp Array: %@", tempArray);
-        }
+    
+    
+    
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSManagedObject *mealObject = [NSEntityDescription
+                                   insertNewObjectForEntityForName:@"Meal"
+                                   inManagedObjectContext:context];
+    
+    [mealObject setValue:[NSString stringWithFormat:@"%@",returnedRecipeName] forKey:@"recipeName"];
+    [mealObject setValue:[NSString stringWithFormat:@"%@",returnedRecipeMediumImage] forKey:@"imageURL"];
+    [mealObject setValue:(returnedRecipeNumberOfServings) forKey:@"numberOfServings"];
+    [mealObject setValue:(returnedRecipeRating) forKey:@"recipeRating"];
+    //[mealObject setValue:(returnedRecipeYield) forKey:@"recipeYield"];
+    [mealObject setValue:[NSString stringWithFormat:@"%@",returnedRecipeID] forKey:@"recipeID"];
+    [mealObject setValue:(returnedRecipeTotalTimeInSeconds) forKey:@"timeInSeconds"];
+    
+    
+    
+    NSError *error;
+    if (![context save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
     }
     
-    NSMutableDictionary *dictsy = [tempArray objectAtIndex:0];
-    
-    if (numberOfTimesPlistSaved > 3) {
-        [components setDay:1];
-        currentDate = [calendar dateByAddingComponents:components
-                                                toDate:currentDate
-                                               options:0];
-        numberOfTimesPlistSaved = 0;
-    }
-    
-    
-    numberOfTimesPlistSaved ++;
-
-    [dictsy setObject:currentDate forKey:@"Date For Meal"];
-    [dictsy setObject:@"Test Object" forKey:@"Test Key"];
-    [dictsy setObject:[NSString stringWithFormat:@"%@",returnedRecipeName] forKey:@"Recipe Name"];
-    [dictsy setObject:[NSString stringWithFormat:@"%@",returnedRecipeMediumImage] forKey:@"Hosted Medium URL"];
-    [dictsy setObject:[NSString stringWithFormat:@"%@",returnedRecipeNumberOfServings] forKey:@"Number Of Servings"];
-    [dictsy setObject:[NSString stringWithFormat:@"%@",returnedRecipeRating] forKey:@"Rating"];
-    [dictsy setObject:[NSString stringWithFormat:@"%@",returnedRecipeYield] forKey:@"Yield"];
-    [dictsy setObject:[NSString stringWithFormat:@"%@",returnedRecipeID] forKey:@"Recipe Id"];
-    [dictsy setObject:[NSString stringWithFormat:@"%@",returnedRecipeTotalTimeInSeconds] forKey:@"Total Time In Seconds"];
-    
-    
-    
-    
-    
-    [allMeals replaceObjectAtIndex:x withObject:dictsy];
-    NSLog(@"ALL MEALS RIGHT HERE: %@", allMeals);
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory =  [paths objectAtIndex:0];
-    NSString *path = [documentsDirectory stringByAppendingPathComponent:@"WeeklyDietPropertyList.plist"];
-    [allMeals writeToFile:path atomically:YES];
-    
-    NSLog(@"ALLL MEALS HERE: %@", allMeals);
-
     
     
     
