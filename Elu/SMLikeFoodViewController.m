@@ -15,7 +15,12 @@
 static const CGFloat ChooseFoodButtonHorizontalPadding = 80.f;
 static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
 
-@interface SMLikeFoodViewController ()
+@interface SMLikeFoodViewController () {
+    NSMutableArray *_likedBreakfasts;
+    NSMutableArray *_likedLunches;
+    NSMutableArray *_likedSnacks;
+    NSMutableArray *_likedDinners;
+}
 @property (nonatomic, strong) NSMutableArray *foods;
 @property (nonatomic, strong) NSMutableArray *allFoodsFromJSON;
 @end
@@ -40,6 +45,13 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
 - (void)viewDidLoad {
 
     NSLog(@"Gpt here");
+    
+    _likedBreakfasts = [[NSMutableArray alloc] init];
+    _likedLunches = [[NSMutableArray alloc] init];
+    _likedSnacks = [[NSMutableArray alloc] init];
+    _likedDinners = [[NSMutableArray alloc] init];
+
+    
     _foods = [[self defaultFoods] mutableCopy];
     [self.view setBackgroundColor:[UIColor whiteColor]];
     
@@ -88,13 +100,47 @@ static const CGFloat ChooseFoodButtonVerticalPadding = 20.f;
         
         // Add food item to like array
         [self.likedFoodsArray addObject:[NSString stringWithFormat:@"%@",self.currentFood.name.lowercaseString]];
-        NSLog(@"%@", self.likedFoodsArray);
+        
+        
+        if ([self.currentFood.meal.lowercaseString  isEqual: @"breakfast"]) {
+            [_likedBreakfasts addObject:[NSString stringWithFormat:@"%@",self.currentFood.name.lowercaseString]];
+            NSLog(@"%@", _likedBreakfasts);
+
+
+        } else if ([self.currentFood.meal.lowercaseString  isEqual: @"lunch"]) {
+            [_likedLunches addObject:[NSString stringWithFormat:@"%@",self.currentFood.name.lowercaseString]];
+            NSLog(@"%@", _likedLunches);
+
+            
+        } else if ([self.currentFood.meal.lowercaseString  isEqual: @"snack"]) {
+            [_likedSnacks addObject:[NSString stringWithFormat:@"%@",self.currentFood.name.lowercaseString]];
+            NSLog(@"%@", _likedSnacks);
+
+            
+        } else {
+            [_likedDinners addObject:[NSString stringWithFormat:@"%@",self.currentFood.name.lowercaseString]];
+            NSLog(@"%@", _likedDinners);
+
+            
+        }
+        
+        
+        
+
         
         // If all foods have been seen execute this.
         if ([self.foods count] <= self.numberOfItemsSwiped) {
             
             // Set the liked food array to Liked_Food_Array on Parse
             [[PFUser currentUser] setObject:self.likedFoodsArray forKey:@"Liked_Food_Array"];
+            
+            
+            [[PFUser currentUser] setObject:_likedBreakfasts forKey:@"Liked_Breakfast_Array"];
+            [[PFUser currentUser] setObject:_likedLunches forKey:@"Liked_Lunch_Array"];
+            [[PFUser currentUser] setObject:_likedSnacks forKey:@"Liked_Snack_Array"];
+            [[PFUser currentUser] setObject:_likedDinners forKey:@"Liked_Dinner_Array"];
+
+
             
             // This is how to make a dictionary and save it on parse. (Doesn't do anything, just here for fun)
             NSDictionary *dictionary = @{@"number": @"1",

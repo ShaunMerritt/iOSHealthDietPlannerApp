@@ -62,26 +62,6 @@
     currentDate = [NSDate date];
     
     
-    
-    //create array from Plist document of all mountains
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory =  [paths objectAtIndex:0];
-    NSString *plistPath = [documentsDirectory stringByAppendingPathComponent:@"WeeklyDietPropertyList.plist"];
-    allMeals = [[[NSMutableArray alloc] initWithContentsOfFile:plistPath]mutableCopy];
-    NSLog(@"%@", [allMeals objectAtIndex:0]);
-    currentMeal = [[NSMutableArray alloc] init];
-    currentMeal = [allMeals objectAtIndex:0];
-    
-    
-    mealNumber = 0;
-    returnedRecipeNumberOfServings = @"2";
-    returnedRecipeID =@"";
-    returnedRecipeTotalTimeInSeconds = 0;
-    returnedRecipeYield = 0;
-    returnedRecipeRating = @"";
-    returnedRecipeName = @"";
-    returnedRecipeMediumImage = @"";
-    
     returnedRecipeImagesArray = [[NSMutableArray alloc] init];
     returnedRecipeImagesDictionary = [[NSMutableDictionary alloc] init];
     
@@ -89,48 +69,13 @@
     
     returnedRecipeFlavors = [[NSMutableDictionary alloc] init];
     
-    [self testEdit];
-    
-    
-//    self.plistPath = [[NSBundle mainBundle] pathForResource:@"WeeklyDietPropertyList" ofType:@"plist"];
-//    self.plistData = [[NSFileManager defaultManager] contentsAtPath:self.plistPath];
-//    
-//    NSError *error;
-//    NSArray *meals = [NSPropertyListSerialization propertyListWithData:_plistData options:NSPropertyListImmutable format:nil error:&error];
-//    
-//    if (meals) {
-//        
-//        NSArray *meal = [meals firstObject];
-//        NSDictionary *mealDetails = [meal firstObject];
-//        NSString *mealName = mealDetails[@"Recipe Name"];
-//        NSLog(@"Here is the name of the meal: %@", mealName);
-//        
-//        NSMutableArray *secondMeal = [[NSMutableArray alloc] init];
-//        
-//        NSMutableDictionary *mealOne = [[NSMutableDictionary alloc] init];
-//        mealOne[@"Recipe Name"] = @"Name";
-//        mealOne[@"Recipe Id"] = @(123);
-//        
-//        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-//        NSString *documentsDirectory = [paths objectAtIndex:0];
-//        NSString *path = [documentsDirectory stringByAppendingPathComponent:@"plist.plist"]; NSFileManager *fileManager = [NSFileManager defaultManager];
-//        
-//        if (![fileManager fileExistsAtPath: path])
-//        {
-//            path = [documentsDirectory stringByAppendingPathComponent: [NSString stringWithFormat: @"plist.plist"] ];
-//        }
-//        
-//    }
+    self.mealString = [[NSString alloc] init];
 
-
+    
     
     // Query for objects in class DietRestrictions with the same username as the current user
     PFQuery *query = [PFQuery queryWithClassName:@"CaloriesPerDay"];
     [query whereKey:@"user" equalTo:PFUser.currentUser];
-    
-    NSLog(@"I got th here");
-    
-    self.mealString = [[NSString alloc] init];
     
     // Find the objects from the query
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -161,8 +106,6 @@
                             
                             [self pupJesusIsBorn];
                             
-                    
-                        
                     }
                 }
                 else {
@@ -176,50 +119,39 @@
 
 }
 
-- (void) testEdit {
-    NSMutableArray *tempArray = [[NSMutableArray alloc] init];
-    NSLog(@"Current Meal: %@", allMeals);
-    for (NSDictionary *object in allMeals) {
-        NSLog(@"Object: %@", object);
-        if ([[object objectForKey:@"Recipe Number"] isEqualToString:@"1"]) {
-            [tempArray insertObject:object atIndex:0];
-            NSLog(@"Temp Array: %@", tempArray);
-        }
-    }
-    NSMutableDictionary *dictsy = [tempArray objectAtIndex:0];
-    [dictsy setObject:@"Test Object" forKey:@"Test Key"];
-    [dictsy setObject:[NSString stringWithFormat:@"%@",returnedRecipeName] forKey:@"Recipe Name"];
-    [dictsy setObject:[NSString stringWithFormat:@"%@",returnedRecipeMediumImage] forKey:@"Hosted Medium URL"];
-    [dictsy setObject:[NSString stringWithFormat:@"%@",returnedRecipeNumberOfServings] forKey:@"Number Of Servings"];
-    [dictsy setObject:[NSString stringWithFormat:@"%@",returnedRecipeRating] forKey:@"Rating"];
-    [dictsy setObject:[NSString stringWithFormat:@"%@",returnedRecipeYield] forKey:@"Yield"];
-    [dictsy setObject:[NSString stringWithFormat:@"%@",returnedRecipeID] forKey:@"Recipe Id"];
-    [dictsy setObject:[NSString stringWithFormat:@"%@",returnedRecipeTotalTimeInSeconds] forKey:@"Total Time In Seconds"];
-    NSLog(@"Dictsy: %@", dictsy);
-
+- (NSArray *)arrayOfBreakfasts {
     
-    NSLog(@"time: %@", returnedRecipeTotalTimeInSeconds);
-    NSLog(@"med ima: %@", returnedRecipeMediumImage);
-    NSLog(@"num ser: %@", returnedRecipeNumberOfServings);
-    NSLog(@"ratig: %@", returnedRecipeRating);
-    NSLog(@"yield: %@", returnedRecipeYield);
-    NSLog(@"id: %@", returnedRecipeID);
+    return [[PFUser currentUser] objectForKey:@"Liked_Breakfast_Array"];
+    
+}
 
-    [allMeals replaceObjectAtIndex:0 withObject:dictsy];
-    NSLog(@"ALL MEALS RIGHT HERE: %@", allMeals);
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory =  [paths objectAtIndex:0];
-    NSString *path = [documentsDirectory stringByAppendingPathComponent:@"WeeklyDietPropertyList.plist"];
-    [allMeals writeToFile:path atomically:YES];
+- (NSArray *)arrayOfLunch {
+    
+    return [[PFUser currentUser] objectForKey:@"Liked_Lunch_Array"];
+    
+}
+
+- (NSArray *)arrayOfSnack {
+    
+    return [[PFUser currentUser] objectForKey:@"Liked_Snack_Array"];
+    
+}
+
+- (NSArray *)arrayOfDinner {
+    
+    return [[PFUser currentUser] objectForKey:@"Liked_Dinner_Array"];
+    
 }
 
 - (void) pupJesusIsBorn {
     
     NSLog(@"Pup");
     
-    NSArray *arrayOfBreakfast = [[NSArray alloc] initWithObjects:@"Eggs", @"Potatoes", @"Pancakes", @"Pancakes", @"Potatoes", @"Eggs",@"Pancakes",nil];
-    NSArray *arrayOfLunch = [[NSArray alloc] initWithObjects:@"Hamburger", @"Sandwhich", @"Macaroni", @"Macaroni",@"Sandwhich",@"Hamburger", @"Macaroni", @"Sandwhich", @"Macaroni",@"Hamburger", @"Sandwhich", @"Macaroni", @"Hamburger", @"Sandwhich", @"Macaroni", @"Macaroni",@"Sandwhich",@"Hamburger", @"Macaroni", @"Sandwhich", @"Macaroni",@"Hamburger", @"Sandwhich", nil];
-    NSArray *arrayOfDinner = [[NSArray alloc] initWithObjects:@"Hotdog", @"Fish", @"Sushi", @"Pasta",  @"Fish", @"Sushi", @"Sushi", @"Pasta", @"Hotdog", @"Fish", @"Fish", @"Sushi", @"Pasta",  @"Fish", @"Sushi", @"Hotdog", @"Fish", @"Sushi", @"Pasta",  @"Fish", @"Sushi", @"Sushi", @"Pasta", @"Hotdog", @"Fish", @"Fish", @"Sushi", @"Pasta",  @"Fish",nil];
+    
+    
+    NSArray *arrayOfBreakfast = [self arrayOfBreakfasts];
+    NSArray *arrayOfLunch = [self arrayOfLunch];
+    NSArray *arrayOfDinner = [self arrayOfDinner];
 
     NSString *stringForBreakfast = [[NSString alloc] init];
     NSString *stringForLunch = [[NSString alloc] init];
@@ -277,6 +209,23 @@
 
 
                 break;
+            case 2:
+                self.mealString = kSMLunchAndSnacks;
+                self.caloriesForFatsForLunch = self.caloriesForFats * 0.2;
+                self.caloriesForProteinsForLunch = self.caloriesForProteins * 0.25;
+                self.caloriesForCarbsForLunch = self.caloriesForCarbs * 0.2;
+                
+                caloriesForFat = self.caloriesForFatsForBreakfast;
+                caloriesForProteins = self.caloriesForProteinsForBreakfast;
+                caloriesForCarbs = self.caloriesForCarbsForBreakfast;
+                
+                stringForLunch = [arrayOfLunch objectAtIndex: arc4random() % [arrayOfLunch count]];
+                searchFor = stringForLunch;
+                NSLog(@"Search for Lunch :%@", searchFor);
+                self.i++;
+                
+                break;
+                
             default:
                 self.mealString = kSMMainDishes;
                 self.caloriesForFatsForDinner = self.caloriesForFats * .2;
