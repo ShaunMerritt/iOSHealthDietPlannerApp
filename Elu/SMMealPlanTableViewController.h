@@ -11,7 +11,7 @@
 #import "GHContextMenuView.h"
 
 
-@interface SMMealPlanTableViewController : UITableViewController <GHContextOverlayViewDelegate, GHContextOverlayViewDataSource>
+@interface SMMealPlanTableViewController : UITableViewController <GHContextOverlayViewDelegate, GHContextOverlayViewDataSource, NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, strong) NSMutableArray *allMeals;
 @property (weak, nonatomic) IBOutlet MZDayPicker *dayPicker;

@@ -69,7 +69,7 @@
 
 @property (strong, nonatomic) NSString *returnedRecipeID;
 @property (strong, nonatomic) NSString *returnedRecipeName;
-@property (strong, nonatomic) NSString *returnedRecipeTotalTimeInSeconds;
+@property (strong, nonatomic) NSNumber *returnedRecipeTotalTimeInSeconds;
 @property (strong, nonatomic) NSString *returnedRecipeCourse;
 @property (strong, nonatomic) NSMutableDictionary *returnedRecipeFlavors;
 @property (strong, nonatomic) NSString *returnedRecipeRating;

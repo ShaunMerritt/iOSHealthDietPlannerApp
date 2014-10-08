@@ -52,6 +52,35 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"hey!");
+    
+    
+    
+    
+    
+//    NSManagedObjectContext *context = [self managedObjectContext];
+//    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+//    
+//    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Meal" inManagedObjectContext:context];
+//    [request setEntity:entity];
+//    
+//    NSError *error = nil;
+//    NSArray *results = [context executeFetchRequest:request error:&error];
+//    
+//    NSLog(@"redsults: %@", results);
+    
+    
+    
+    _dateChosenByUser = [NSDate date];
+    
+    [self updateSelectedDate];
+    
+    NSError *error;
+    if (![[self fetchedResultsContoller] performFetch:&error]) {
+        // Update to handle the error appropriately.
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        exit(-1);  // Fail
+    }
     
     [self.datepicker addTarget:self action:@selector(updateSelectedDate) forControlEvents:UIControlEventValueChanged];
     
@@ -583,17 +612,75 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Meal" inManagedObjectContext:[self managedObjectContext]];
     [fetchRequest setEntity:entity];
-    // Specify criteria for filtering which objects to fetch
+    //Specify criteria for filtering which objects to fetch
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"dateForMeal == %@", _dateChosenByUser];
     [fetchRequest setPredicate:predicate];
-    // Specify how the fetched objects should be sorted
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"mealNumber"
+    
+    NSLog(@"HEHEHEHE: %@", _dateChosenByUser);
+    //Specify how the fetched objects should be sorted
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"recipeRating"
                                                                    ascending:YES];
     [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
     
     _fetchedResultsContoller = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
     
+    _fetchedResultsContoller.delegate = self;
+    
+    NSArray *fetchedData = [_fetchedResultsContoller fetchedObjects];
+
+    NSLog(@"HHHHHHH: %@", fetchedData);
+    
     return _fetchedResultsContoller;
+}
+
+- (void) controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView beginUpdates];
+}
+
+- (void) controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView endUpdates];
+}
+
+- (void) controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
+    
+    UITableView *tableView = self.tableView;
+    
+    switch (type) {
+        case NSFetchedResultsChangeInsert:
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeUpdate: {
+            Meal *changedCourse = [self.fetchedResultsContoller objectAtIndexPath:indexPath];
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.textLabel.text = changedCourse.recipeName;
+        }
+            break;
+            
+        case NSFetchedResultsChangeMove:
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+    
+}
+
+- (void) controller:(NSFetchedResultsController *)controller didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+    
+    switch (type) {
+        case NSFetchedResultsChangeInsert:
+            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        case NSFetchedResultsChangeDelete:
+            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+
+    
 }
 
 
@@ -641,14 +728,44 @@
     
     unsigned int flags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay;
     NSCalendar* calendarForDatePicker = [NSCalendar currentCalendar];
+    NSDateComponents* componentsForDatePicker = [[NSDateComponents alloc] init];
     
-    NSDateComponents* componentsForDatePicker = [calendarForDatePicker components:flags fromDate:self.datepicker.selectedDate];
+    if (self.datepicker.selectedDate != nil) {
+        componentsForDatePicker = [calendarForDatePicker components:flags fromDate:self.datepicker.selectedDate];
+        NSDate* dateOnly = [calendarForDatePicker dateFromComponents:componentsForDatePicker];
+        
+        _dateChosenByUser = dateOnly;
+        
+        NSPredicate *predicate =[NSPredicate predicateWithFormat:@"dateForMeal == %@", _dateChosenByUser];
+        [_fetchedResultsContoller.fetchRequest setPredicate:predicate];
+        
+        NSError *error = nil;
+        if (![[self fetchedResultsContoller] performFetch:&error]) {
+            // Handle error
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            exit(-1);  // Fail
+        }
+        
+        [self.tableView reloadData];
+    } else {
+        componentsForDatePicker = [calendarForDatePicker components:flags fromDate:[NSDate date]];
+        
+        
+    }
+
     
     NSDate* dateOnly = [calendarForDatePicker dateFromComponents:componentsForDatePicker];
     
     NSLog(@"Date only: %@", dateOnly);
     
     NSLog(@"Date: %@", self.datepicker.selectedDate);
+    
+    _dateChosenByUser = dateOnly;
+    
+//    _fetchedResultsContoller = nil;
+//    // Or: self.fetchedResultsController = nil, it does not make a difference
+//    [self fetchedResultsContoller];
+//    [self.tableView reloadData];
     
     
 }

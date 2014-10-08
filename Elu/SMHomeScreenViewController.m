@@ -18,6 +18,8 @@
     NSCalendar *calendar;
     NSDateComponents *components;
     int numberOfTimesPlistSaved;
+    double numberOfMealsCreated;
+    int numberOfDaysOfMealsCreated;
 }
 
 @end
@@ -55,20 +57,9 @@
 
     
     [super viewDidLoad];
-    
-    numberOfTimesPlistSaved = 0;
-    
 
+    
     currentDate = [NSDate date];
-    calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    components = [[NSDateComponents alloc] init];
-//    [components setDay:1];
-//    currentDate = [calendar dateByAddingComponents:components
-//                                            toDate:currentDate
-//                                           options:0];
-    
-    NSLog(@"Date Plus 1 = %@", currentDate);
-    
     
     
     
@@ -85,14 +76,15 @@
     mealNumber = 0;
     returnedRecipeNumberOfServings = @"2";
     returnedRecipeID =@"";
-    returnedRecipeTotalTimeInSeconds = @"";
-    returnedRecipeYield = @"";
+    returnedRecipeTotalTimeInSeconds = 0;
+    returnedRecipeYield = 0;
     returnedRecipeRating = @"";
     returnedRecipeName = @"";
     returnedRecipeMediumImage = @"";
     
     returnedRecipeImagesArray = [[NSMutableArray alloc] init];
     returnedRecipeImagesDictionary = [[NSMutableDictionary alloc] init];
+    
 
     
     returnedRecipeFlavors = [[NSMutableDictionary alloc] init];
@@ -261,9 +253,11 @@
                 caloriesForCarbs = self.caloriesForCarbsForBreakfast;
 
                 
-                stringForBreakfast = [arrayOfBreakfast objectAtIndex:self.timeForPup];
+                stringForBreakfast = [arrayOfBreakfast objectAtIndex: arc4random() % [arrayOfBreakfast count]];
                 searchFor = stringForBreakfast;
                 NSLog(@"Search for Bre :%@", searchFor);
+                self.i++;
+
 
                 break;
             case 1:
@@ -276,9 +270,11 @@
                 caloriesForProteins = self.caloriesForProteinsForBreakfast;
                 caloriesForCarbs = self.caloriesForCarbsForBreakfast;
 
-                stringForLunch = [arrayOfLunch objectAtIndex:self.timeForPup];
+                stringForLunch = [arrayOfLunch objectAtIndex: arc4random() % [arrayOfLunch count]];
                 searchFor = stringForLunch;
                 NSLog(@"Search for Lunch :%@", searchFor);
+                self.i++;
+
 
                 break;
             default:
@@ -291,7 +287,7 @@
                 caloriesForProteins = self.caloriesForProteinsForBreakfast;
                 caloriesForCarbs = self.caloriesForCarbsForBreakfast;
 
-                stringForDinner = [arrayOfDinner objectAtIndex:self.timeForPup];
+                stringForDinner = [arrayOfDinner objectAtIndex: arc4random() % [arrayOfDinner count]];
                 searchFor = stringForDinner;
                 NSLog(@"Search for Dinner :%@", searchFor);
 
@@ -309,7 +305,6 @@
     
     //valueForCalcium:self.calcium valueForCholesterol:self.cholesterol valueForFiber:self.fiber valueForIron:self.iron valueForPotassium:self.potassium valueForSodium:self.sodium valueForSugar:self.sugar valueForVitaminA:self.vitaminA valueForVitaminC:self.vitaminC
     
-    self.i++;
     
     
 }
@@ -327,7 +322,6 @@
 
 - (void) log {
     
-    mealNumber ++;
     
     // Create the dictionary and set the key mapping structure
     NSDictionary *test = [[NSDictionary alloc] init];
@@ -372,15 +366,9 @@
 
 - (void) logRecipe {
     
-//    NSLog(@"ingredientLines: %@", [dict objectForKey:@"ingredientLines"]);
-//    NSLog(@"flavors: %@", [dict objectForKey:@"flavors"]);
-//    //NSLog(@"nutritionEstimates: %@", [dict objectForKey:@"nutritionEstimates"]);
-//    NSLog(@"numberOfServings: %@", [dict objectForKey:@"numberOfServings"]);
-//    NSLog(@"yield: %@", [dict objectForKey:@"yield"]);
-//    NSLog(@"name: %@", [dict objectForKey:@"name"]);
+    numberOfMealsCreated ++;
     
     NSArray *listOfMatchingCuisines = [dicts objectForKey:@"attribute"];
-    NSArray *bestFoodMatch = [listOfMatchingCuisines objectAtIndex:1];
     //NSLog(@"Best Meal Match = %@", bestFoodMatch);
     
     returnedRecipeYield = [dict objectForKey:@"yield"];
@@ -395,25 +383,14 @@
     returnedRecipeMediumImage = returnedRecipeImagesDictionary[@"hostedLargeUrl"];
     //NSLog(@"Here is the medium image: %@", returnedRecipeMediumImage);
     
-    if (mealNumber == 2) {
-        NSURL *url = [[NSURL alloc] initWithString:self.returnedRecipeMediumImage];
-        PAImageView *avatarView = [[PAImageView alloc] initWithFrame:CGRectMake(self.view.center.x, self.view.center.y, 200, 200) backgroundProgressColor:[UIColor lightGrayColor] progressColor:[UIColor redColor]];
-        avatarView.center = CGPointMake(self.view.center.x, self.view.center.y);
-        [self.view addSubview:avatarView];
-        // Later
-        [avatarView setImageURL:url];
-    }
     
-    if (mealNumber < 8) {
+    if (numberOfMealsCreated < 28) {
         
-//        //create array from Plist document of all mountains
-//        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-//        NSString *documentsDirectory =  [paths objectAtIndex:0];
-//        NSString *plistPath = [documentsDirectory stringByAppendingPathComponent:@"WeeklyDietPropertyList.plist"];
-//        allMeals = [[[NSMutableArray alloc] initWithContentsOfFile:plistPath]mutableCopy];
-
-        //[self testEdit];
-
+        if (fmodf(numberOfMealsCreated, 4) == 0 || numberOfMealsCreated == 0) {
+            NSLog(@"YAYAYAYAYAYAYAYAYAYAYAYAAYAYYAYAYAYAYA");
+            NSLog(@"number of meals: %f", numberOfMealsCreated);
+            numberOfDaysOfMealsCreated ++;
+        }
         
         [self savePlistInfo:mealNumber];
 
@@ -424,72 +401,34 @@
     
 }
 
-- (void) savePlistInfo:(int)meal {
+- (NSDate *)calculateDateToSaveOnMealFrom:(int)numberOfDays {
     
+    NSDateComponents *dayComponent = [[NSDateComponents alloc] init];
+    dayComponent.day = numberOfDays;
     
-//    NSString *mealNumberString = [[NSString alloc] initWithFormat:@"%d",meal];
-//    NSLog(@"MEAL STRING NUMBER: %@", mealNumberString);
-//    int x = mealNumber - 1;
-//    
-//    NSMutableArray *tempArray = [[NSMutableArray alloc] init];
-//    //NSLog(@"Current Meal: %@", allMeals);
-//    for (NSDictionary *object in allMeals) {
-//        //NSLog(@"Object: %@", object);
-//        if ([[object objectForKey:@"Recipe Number"] isEqualToString:[NSString stringWithFormat:@"%d", meal]]) {
-//            [tempArray insertObject:object atIndex:0];
-//            NSLog(@"Temp Array: %@", tempArray);
-//        }
-//    }
-//    
-//    NSMutableDictionary *dictsy = [tempArray objectAtIndex:0];
-//    
-//    if (numberOfTimesPlistSaved > 3) {
-//        [components setDay:1];
-//        currentDate = [calendar dateByAddingComponents:components
-//                                                toDate:currentDate
-//                                               options:0];
-//        numberOfTimesPlistSaved = 0;
-//    }
-//    
-//    
-//    numberOfTimesPlistSaved ++;
-//
-//    [dictsy setObject:currentDate forKey:@"Date For Meal"];
-//    [dictsy setObject:@"Test Object" forKey:@"Test Key"];
-//    [dictsy setObject:[NSString stringWithFormat:@"%@",returnedRecipeName] forKey:@"Recipe Name"];
-//    [dictsy setObject:[NSString stringWithFormat:@"%@",returnedRecipeMediumImage] forKey:@"Hosted Medium URL"];
-//    [dictsy setObject:[NSString stringWithFormat:@"%@",returnedRecipeNumberOfServings] forKey:@"Number Of Servings"];
-//    [dictsy setObject:[NSString stringWithFormat:@"%@",returnedRecipeRating] forKey:@"Rating"];
-//    [dictsy setObject:[NSString stringWithFormat:@"%@",returnedRecipeYield] forKey:@"Yield"];
-//    [dictsy setObject:[NSString stringWithFormat:@"%@",returnedRecipeID] forKey:@"Recipe Id"];
-//    [dictsy setObject:[NSString stringWithFormat:@"%@",returnedRecipeTotalTimeInSeconds] forKey:@"Total Time In Seconds"];
-//    
-//    
-//    
-//    
-//    
-//    [allMeals replaceObjectAtIndex:x withObject:dictsy];
-//    NSLog(@"ALL MEALS RIGHT HERE: %@", allMeals);
-//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-//    NSString *documentsDirectory =  [paths objectAtIndex:0];
-//    NSString *path = [documentsDirectory stringByAppendingPathComponent:@"WeeklyDietPropertyList.plist"];
-//    [allMeals writeToFile:path atomically:YES];
-//    
-//    NSLog(@"ALLL MEALS HERE: %@", allMeals);
+    NSCalendar *theCalendar = [NSCalendar currentCalendar];
+    NSDate *nextDate = [theCalendar dateByAddingComponents:dayComponent toDate:[NSDate date] options:0];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = [NSDateFormatter dateFormatFromTemplate:@"EEEEddMMMM" options:0 locale:nil];
+    
+    unsigned int flags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay;
+    NSCalendar* calendarForDatePicker = [NSCalendar currentCalendar];
+    
+    NSDateComponents* componentsForDatePicker = [calendarForDatePicker components:flags fromDate:nextDate];
+    
+    NSDate* dateOnly = [calendarForDatePicker dateFromComponents:componentsForDatePicker];
+    
+    NSLog(@"Date only: %@", dateOnly);
 
     
+    return dateOnly;
+}
+
+- (void) savePlistInfo:(int)meal {
     
-    
-    
-    
-    
-    
-    NSString *mealNumberString = [[NSString alloc] initWithFormat:@"%d",meal];
-    NSLog(@"MEAL STRING NUMBER: %@", mealNumberString);
-    int x = mealNumber - 1;
-    
-    
-    
+
+
     
     
     NSManagedObjectContext *context = [self managedObjectContext];
@@ -503,7 +442,10 @@
     [mealObject setValue:(returnedRecipeRating) forKey:@"recipeRating"];
     //[mealObject setValue:(returnedRecipeYield) forKey:@"recipeYield"];
     [mealObject setValue:[NSString stringWithFormat:@"%@",returnedRecipeID] forKey:@"recipeID"];
-    [mealObject setValue:(returnedRecipeTotalTimeInSeconds) forKey:@"timeInSeconds"];
+    [mealObject setValue:[self calculateDateToSaveOnMealFrom:numberOfDaysOfMealsCreated] forKey:@"dateForMeal"];
+    if (returnedRecipeTotalTimeInSeconds != nil) {
+        //[mealObject setValue:(returnedRecipeTotalTimeInSeconds) forKey:@"timeInSeconds"];
+    }
     
     
     
