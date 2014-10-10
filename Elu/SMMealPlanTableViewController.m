@@ -148,23 +148,23 @@
     cell.textLabel.text = meal.recipeName;
     
     UIImageView *imageHolder = (UIImageView *)[cell viewWithTag:1];
-
+    
     NSURL *url = [NSURL URLWithString:meal.imageURL];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
-
+    
     __weak UITableViewCell *weakCell = cell;
-
+    
     [imageHolder setImageWithURLRequest:request
                        placeholderImage:placeholderImage
                                 success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-
+                                    
                                     weakCell.backgroundView = [[UIImageView alloc] initWithImage:image];
-
+                                    
                                     [weakCell setNeedsLayout];
-
+                                    
                                 } failure:nil];
-
+    
     return cell;
 
 }
@@ -198,7 +198,7 @@
     [fetchRequest setPredicate:predicate];
     
     //TODO: change sort to meal number
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"recipeRating"
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"mealNumber"
                                                                    ascending:YES];
     [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
     
@@ -296,6 +296,13 @@
         
         NSPredicate *predicate =[NSPredicate predicateWithFormat:@"dateForMeal == %@", _dateChosenByUser];
         [_fetchedResultsContoller.fetchRequest setPredicate:predicate];
+        
+        //TODO: change sort to meal number
+        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"mealNumber"
+                                                                       ascending:YES];
+        NSArray *sortDescriptors = [NSArray arrayWithObject: sortDescriptor];
+        [[_fetchedResultsContoller fetchRequest] setSortDescriptors:sortDescriptors];
+        
         
         NSError *error = nil;
         if (![[self fetchedResultsContoller] performFetch:&error]) {

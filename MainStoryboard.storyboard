@@ -1405,7 +1405,7 @@
         <scene sceneID="zY4-64-Hzx">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="R5B-w5-AFU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Nutrition" image="FA7D0E73-9D8D-419D-9D4B-E2FEAE846F2B" id="1jo-P0-J4L"/>
+                    <tabBarItem key="tabBarItem" title="Nutrition" image="932312EF-4098-4F99-B3B8-8176B37B08BE" id="1jo-P0-J4L"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Dva-hD-uaB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1589,7 +1589,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="FA7D0E73-9D8D-419D-9D4B-E2FEAE846F2B" width="32" height="21">
+        <image name="932312EF-4098-4F99-B3B8-8176B37B08BE" width="32" height="21">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA

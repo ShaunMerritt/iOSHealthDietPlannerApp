@@ -20,6 +20,8 @@
     int numberOfTimesPlistSaved;
     double numberOfMealsCreated;
     int numberOfDaysOfMealsCreated;
+    int _currentDayOfWeek;
+    int _mealNumberForDay;
 }
 
 @end
@@ -41,6 +43,8 @@
 @synthesize returnedRecipeImagesDictionary;
 @synthesize returnedRecipeNumberOfServings;
 
+
+#pragma mark - Lifecycle
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -70,54 +74,61 @@
     returnedRecipeFlavors = [[NSMutableDictionary alloc] init];
     
     self.mealString = [[NSString alloc] init];
+    
 
-    
-    
-    // Query for objects in class DietRestrictions with the same username as the current user
-    PFQuery *query = [PFQuery queryWithClassName:@"CaloriesPerDay"];
-    [query whereKey:@"user" equalTo:PFUser.currentUser];
-    
-    // Find the objects from the query
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-                if (!error) {
-                    // No error
-                    NSLog(@"Successfully retrieved %lu objects.", (unsigned long)objects.count);
-                    // For each of the objects that is returned
-                    client = [SMYummlyHTTPClient sharedSMYummlyHTTPClient];
-                    client.delegate = self;
-
-                        NSLog(@"I is: %d", self.i);
-                        for (PFObject *object in objects) {
-                            //log the objects that we got back to the NSLOG
-                            self.allergiesArray = [object valueForKey:@"arrayOfAllergies"];
-                            self.caloriesForFats = [[object valueForKey:@"caloriesDedicatedToFats"] intValue];
-                            self.caloriesForProteins = [[object valueForKey:@"caloriesDedicatedToProteins"] intValue];
-                            self.caloriesForCarbs = [[object valueForKey:@"caloriesDedicatedToCarbs"] intValue];
-                            self.caloriesForDay = [[object valueForKey:@"totalDailyCalories"] intValue];
-                            self.calcium = [[object valueForKey:@"calcium"] intValue];
-                            self.cholesterol = [[object valueForKey:@"cholesterol"] intValue];
-                            self.fiber = [[object valueForKey:@"fiber"] intValue];
-                            self.iron = [[object valueForKey:@"iron"] intValue]/3;
-                            self.potassium = [[object valueForKey:@"potassium"] intValue];
-                            self.sodium = [[object valueForKey:@"sodium"] intValue];
-                            self.sugar = [[object valueForKey:@"sugar"] intValue];
-                            self.vitaminA = [[object valueForKey:@"vitaminA"] intValue];
-                            self.vitaminC = [[object valueForKey:@"vitaminC"] intValue];
-                            
-                            [self pupJesusIsBorn];
-                            
-                    }
-                }
-                else {
-                    // Log details of the failure
-                    NSLog(@"Error: %@ %@", error, [error userInfo]);
-                }
+    if ([self isCurrentDayLastDayOfWeek] == YES) {
         
-          }];
+        _mealNumberForDay = 0;
     
+        // Query for objects in class DietRestrictions with the same username as the current user
+        PFQuery *query = [PFQuery queryWithClassName:@"CaloriesPerDay"];
+        [query whereKey:@"user" equalTo:PFUser.currentUser];
+        
+        // Find the objects from the query
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                    if (!error) {
+                        // No error
+                        //NSLog(@"Successfully retrieved %lu objects.", (unsigned long)objects.count);
+                        // For each of the objects that is returned
+                        client = [SMYummlyHTTPClient sharedSMYummlyHTTPClient];
+                        client.delegate = self;
+
+                            //NSLog(@"I is: %d", self.i);
+                            for (PFObject *object in objects) {
+                                //log the objects that we got back to the NSLOG
+                                self.allergiesArray = [object valueForKey:@"arrayOfAllergies"];
+                                self.caloriesForFats = [[object valueForKey:@"caloriesDedicatedToFats"] intValue];
+                                self.caloriesForProteins = [[object valueForKey:@"caloriesDedicatedToProteins"] intValue];
+                                self.caloriesForCarbs = [[object valueForKey:@"caloriesDedicatedToCarbs"] intValue];
+                                self.caloriesForDay = [[object valueForKey:@"totalDailyCalories"] intValue];
+                                self.calcium = [[object valueForKey:@"calcium"] intValue];
+                                self.cholesterol = [[object valueForKey:@"cholesterol"] intValue];
+                                self.fiber = [[object valueForKey:@"fiber"] intValue];
+                                self.iron = [[object valueForKey:@"iron"] intValue]/3;
+                                self.potassium = [[object valueForKey:@"potassium"] intValue];
+                                self.sodium = [[object valueForKey:@"sodium"] intValue];
+                                self.sugar = [[object valueForKey:@"sugar"] intValue];
+                                self.vitaminA = [[object valueForKey:@"vitaminA"] intValue];
+                                self.vitaminC = [[object valueForKey:@"vitaminC"] intValue];
+                                
+                                [self pupJesusIsBorn];
+                                
+                                //NSLog(@"hhhhh");
+                                
+                        }
+                    }
+                    else {
+                        // Log details of the failure
+                        NSLog(@"Error: %@ %@", error, [error userInfo]);
+                    }
+            
+              }];
+    }
     
 
 }
+
+#pragma mark - Helper Methods
 
 - (NSArray *)arrayOfBreakfasts {
     
@@ -143,15 +154,35 @@
     
 }
 
+- (BOOL) isCurrentDayLastDayOfWeek {
+    
+    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *componentsForWeekdayCalculation = [gregorianCalendar components:NSCalendarUnitWeekday fromDate:[NSDate date]];
+    _currentDayOfWeek = (int)[componentsForWeekdayCalculation weekday];
+    
+    //NSLog(@"Current Day Of Week: %d", _currentDayOfWeek);
+    
+    if (_currentDayOfWeek == 1) {
+        NSLog(@"1");
+        return YES;
+    }
+
+    return YES;
+    
+    
+}
+
 - (void) pupJesusIsBorn {
     
-    NSLog(@"Pup");
+    //NSLog(@"Pup");
     
     
     
     NSArray *arrayOfBreakfast = [self arrayOfBreakfasts];
     NSArray *arrayOfLunch = [self arrayOfLunch];
     NSArray *arrayOfDinner = [self arrayOfDinner];
+    NSArray *arrayOfSnack = [self arrayOfSnack];
+
 
     NSString *stringForBreakfast = [[NSString alloc] init];
     NSString *stringForLunch = [[NSString alloc] init];
@@ -169,11 +200,11 @@
     self.caloriesDedicatedToSnackBetweenLunchAndDinner = self.caloriesForDay * 0.1;
     self.caloriesDedicatedToDinner = self.caloriesForDay * 0.25;
     
-    NSLog(@"Value for fats here %d", self.caloriesForFats);
+    //NSLog(@"Value for fats here %d", self.caloriesForFats);
     
     
         
-        switch (self.i) {
+        switch (_mealNumberForDay) {
             case 0:
                 self.mealString = kSMBreakfast;
                 self.caloriesForFatsForBreakfast = self.caloriesForFats * 0.2;
@@ -188,7 +219,7 @@
                 stringForBreakfast = [arrayOfBreakfast objectAtIndex: arc4random() % [arrayOfBreakfast count]];
                 searchFor = stringForBreakfast;
                 NSLog(@"Search for Bre :%@", searchFor);
-                self.i++;
+                _mealNumberForDay ++;
 
 
                 break;
@@ -198,14 +229,14 @@
                 self.caloriesForProteinsForLunch = self.caloriesForProteins * 0.45;
                 self.caloriesForCarbsForLunch = self.caloriesForCarbs * 0.4;
                 
-                caloriesForFat = self.caloriesForFatsForBreakfast;
-                caloriesForProteins = self.caloriesForProteinsForBreakfast;
-                caloriesForCarbs = self.caloriesForCarbsForBreakfast;
+                caloriesForFat = self.caloriesForFatsForLunch;
+                caloriesForProteins = self.caloriesForProteinsForLunch;
+                caloriesForCarbs = self.caloriesForCarbsForLunch;
 
                 stringForLunch = [arrayOfLunch objectAtIndex: arc4random() % [arrayOfLunch count]];
                 searchFor = stringForLunch;
                 NSLog(@"Search for Lunch :%@", searchFor);
-                self.i++;
+                _mealNumberForDay ++;
 
 
                 break;
@@ -215,14 +246,14 @@
                 self.caloriesForProteinsForLunch = self.caloriesForProteins * 0.25;
                 self.caloriesForCarbsForLunch = self.caloriesForCarbs * 0.2;
                 
-                caloriesForFat = self.caloriesForFatsForBreakfast;
-                caloriesForProteins = self.caloriesForProteinsForBreakfast;
-                caloriesForCarbs = self.caloriesForCarbsForBreakfast;
+                caloriesForFat = self.caloriesForFatsForLunch;
+                caloriesForProteins = self.caloriesForProteinsForLunch;
+                caloriesForCarbs = self.caloriesForCarbsForLunch;
                 
-                stringForLunch = [arrayOfLunch objectAtIndex: arc4random() % [arrayOfLunch count]];
+                stringForLunch = [arrayOfSnack objectAtIndex: arc4random() % [arrayOfSnack count]];
                 searchFor = stringForLunch;
                 NSLog(@"Search for Lunch :%@", searchFor);
-                self.i++;
+                _mealNumberForDay ++;
                 
                 break;
                 
@@ -232,9 +263,9 @@
                 self.caloriesForProteinsForDinner = self.caloriesForProteins * .2;
                 self.caloriesForCarbsForDinner = self.caloriesForCarbs * .3;
                 
-                caloriesForFat = self.caloriesForFatsForBreakfast;
-                caloriesForProteins = self.caloriesForProteinsForBreakfast;
-                caloriesForCarbs = self.caloriesForCarbsForBreakfast;
+                caloriesForFat = self.caloriesForFatsForDinner;
+                caloriesForProteins = self.caloriesForProteinsForDinner;
+                caloriesForCarbs = self.caloriesForCarbsForDinner;
 
                 stringForDinner = [arrayOfDinner objectAtIndex: arc4random() % [arrayOfDinner count]];
                 searchFor = stringForDinner;
@@ -242,6 +273,7 @@
 
 
 
+                _mealNumberForDay = 0;
                 self.i = 0;
                 break;
         }
@@ -256,17 +288,6 @@
     
     
     
-}
-
-- (void) yummlyHTTPClient:(SMYummlyHTTPClient *)client didUpdateWithFood:(id)food {
-    //NSLog(@"HERE");
-    dicts = food;
-    [self log];
-}
-
-- (void) yummlyHTTPClient:(SMYummlyHTTPClient *)client didFailWithError:(NSError *)error {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"%@", error] delegate:nil 			cancelButtonTitle:@"ok" otherButtonTitles: nil];
-    [alert show];
 }
 
 - (void) log {
@@ -289,7 +310,7 @@
     
     
     self.testValue ++;
-    NSLog(@"Best Food Match: %@", bestFoodMatch);
+    //NSLog(@"Best Food Match: %@", bestFoodMatch);
     
     returnedRecipeID = [bestFoodMatch objectForKey:@"id"];
     returnedRecipeName = [bestFoodMatch objectForKey:@"recipeName"];
@@ -297,7 +318,7 @@
     returnedRecipeRating = [bestFoodMatch objectForKey:@"rating"];
     
     
-    NSLog(@"Recipe Name: %@", returnedRecipeName);
+    //NSLog(@"Recipe Name: %@", returnedRecipeName);
 //    NSLog(@"Recipe total time in sec: %@", totalTimeInSeconds);
 //    NSLog(@"Recipe id: %@", id);
     
@@ -306,11 +327,6 @@
     getClient.delegate = self;
     [getClient findRecipeWithId:returnedRecipeID];
     }
-}
-
-- (void)yummlyGetHTTPClient:(SMYummlyGetClient *)client didUpdateWithRecipe:(id)recipe {
-    dict = recipe;
-    [self logRecipe];
 }
 
 - (void) logRecipe {
@@ -335,15 +351,30 @@
     
     if (numberOfMealsCreated < 28) {
         
-        if (fmodf(numberOfMealsCreated, 4) == 0 || numberOfMealsCreated == 0) {
-            NSLog(@"YAYAYAYAYAYAYAYAYAYAYAYAAYAYYAYAYAYAYA");
-            NSLog(@"number of meals: %f", numberOfMealsCreated);
-            numberOfDaysOfMealsCreated ++;
+        
+        if ([self isCurrentDayLastDayOfWeek] == YES) {
+            
+            if (fmodf(numberOfMealsCreated, 4) == 0 || numberOfMealsCreated == 0) {
+                NSLog(@"YAYAYAYAYAYAYAYAYAYAYAYAAYAYYAYAYAYAYA");
+                NSLog(@"number of meals: %f", numberOfMealsCreated);
+                numberOfDaysOfMealsCreated ++;
+//                if (fmod(_mealNumberForDay, 0) == 0 || _mealNumberForDay == 0) {
+//                    _mealNumberForDay = 1;
+//                } else if (fmod(_mealNumberForDay, 1) == 0) {
+//                    _mealNumberForDay = 2;
+//                } else if (fmod(_mealNumberForDay, 2) == 0) {
+//                    _mealNumberForDay = 3;
+//                } else if (fmod(_mealNumberForDay, 3) == 0) {
+//                    _mealNumberForDay = 4;
+//                }
+            }
+            
+            [self savePlistInfo:mealNumber];
+            
+            [self pupJesusIsBorn];
+            
         }
         
-        [self savePlistInfo:mealNumber];
-
-        [self pupJesusIsBorn];
 
     }
     
@@ -368,7 +399,7 @@
     
     NSDate* dateOnly = [calendarForDatePicker dateFromComponents:componentsForDatePicker];
     
-    NSLog(@"Date only: %@", dateOnly);
+    //NSLog(@"Date only: %@", dateOnly);
 
     
     return dateOnly;
@@ -376,7 +407,15 @@
 
 - (void) savePlistInfo:(int)meal {
     
+    int testNumber;
 
+    if ([self.mealString isEqualToString:kSMBreakfast]) {
+        testNumber = 1;
+    } else if ([self.mealString isEqualToString:kSMLunchAndSnacks]) {
+        testNumber = 2;
+    } else {
+        testNumber = 4;
+    }
 
     
     
@@ -392,6 +431,9 @@
     //[mealObject setValue:(returnedRecipeYield) forKey:@"recipeYield"];
     [mealObject setValue:[NSString stringWithFormat:@"%@",returnedRecipeID] forKey:@"recipeID"];
     [mealObject setValue:[self calculateDateToSaveOnMealFrom:numberOfDaysOfMealsCreated] forKey:@"dateForMeal"];
+    [mealObject setValue:@(testNumber) forKey:@"mealNumber"];
+    
+    
     if (returnedRecipeTotalTimeInSeconds != nil) {
         //[mealObject setValue:(returnedRecipeTotalTimeInSeconds) forKey:@"timeInSeconds"];
     }
@@ -409,10 +451,30 @@
     
 }
 
+#pragma mark - Yummly HTTP Client Delegate
+
+- (void) yummlyHTTPClient:(SMYummlyHTTPClient *)client didUpdateWithFood:(id)food {
+    //NSLog(@"HERE");
+    dicts = food;
+    [self log];
+}
+
+- (void) yummlyHTTPClient:(SMYummlyHTTPClient *)client didFailWithError:(NSError *)error {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"%@", error] delegate:nil 			cancelButtonTitle:@"ok" otherButtonTitles: nil];
+    [alert show];
+}
+
+#pragma mark - Yummly Get HTTP Client Delegate
+
 - (void)yummlyGetHTTPClient:(SMYummlyGetClient *)client didFailWithError:(NSError *)error {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[NSString 						stringWithFormat:@"%@", error] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil];
     
     [alert show];
+}
+
+- (void)yummlyGetHTTPClient:(SMYummlyGetClient *)client didUpdateWithRecipe:(id)recipe {
+    dict = recipe;
+    [self logRecipe];
 }
 
 - (void)didReceiveMemoryWarning
@@ -426,6 +488,8 @@
     [self.navigationController.toolbar setHidden: YES];
 }
 
+#pragma mark - Core Data
+
 - (NSManagedObjectContext *)managedObjectContext {
     NSManagedObjectContext *context = nil;
     id delegate = [[UIApplication sharedApplication] delegate];
@@ -434,18 +498,5 @@
     }
     return context;
 }
-
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

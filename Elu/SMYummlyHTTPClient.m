@@ -83,7 +83,7 @@ static NSString *const SMAppKey = @"a8908fd1f6e4bff434989f91b138526e";
     //valueForVitaminA:(int)valueForVitaminA valueForVitaminC:(int)valueForVitaminC
     
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    NSLog(@"Par");
+    //NSLog(@"Par");
     parameters[@"_app_id"] = SMAppId;
     parameters[@"_app_key"] = SMAppKey;
     parameters[@"q"] = recipe;
@@ -142,16 +142,16 @@ static NSString *const SMAppKey = @"a8908fd1f6e4bff434989f91b138526e";
     //NSLog(@"Hear ere param %@", parameters);
     
     [self GET:@"recipes?" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"hello");
+        //NSLog(@"hello");
         if ([self.delegate respondsToSelector:@selector(yummlyHTTPClient:didUpdateWithFood:)]) {
             [self.delegate  yummlyHTTPClient:self didUpdateWithFood:responseObject];
-            NSLog(@"Got here");
+          //  NSLog(@"Got here");
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         if ([self.delegate respondsToSelector:@selector(yummlyHTTPClient:didFailWithError:)]) {
             [self.delegate yummlyHTTPClient:self didFailWithError:error];
-            NSLog(@"TESTS");
-            NSLog(@"%@", error);
+           // NSLog(@"TESTS");
+            //NSLog(@"%@", error);
         }
     }];
 }
