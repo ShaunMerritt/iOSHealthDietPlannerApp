@@ -265,6 +265,11 @@
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
      if ([segue.identifier isEqualToString:@"showRecipeDetail"]) {
          //TODO: add handler for going to detail view
+         SMRecipeDetailViewController *rDVC = (SMRecipeDetailViewController *)[segue destinationViewController];
+         NSIndexPath *path = [self.tableView indexPathForSelectedRow];
+         Meal *selectedMeal = (Meal *) [self.fetchedResultsContoller objectAtIndexPath:path];
+         rDVC.currentMeal = selectedMeal;
+         
      }
  }
 

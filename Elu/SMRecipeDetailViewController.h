@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Meal.h"
 
 @interface SMRecipeDetailViewController : UIViewController
 
@@ -15,5 +16,16 @@
 @property (weak, nonatomic) IBOutlet UILabel *calorieLabel;
 
 @property (nonatomic, strong) NSMutableDictionary *recipeName;
+
+
+
+@property (weak, nonatomic) IBOutlet UIWebView *recipeWebView;
+
+
+//
+@property (nonatomic, strong) Meal *currentMeal;
+
+
+
 
 @end
