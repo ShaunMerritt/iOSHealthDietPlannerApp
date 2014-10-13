@@ -27,9 +27,38 @@
     return self;
 }
 
+-(void)handleSwipe{
+    NSLog(@"here");
+    if (self.navigationController.navigationBarHidden) {
+        [self.navigationController setNavigationBarHidden:NO animated:YES];
+        //[self.navigationController setToolbarHidden:NO animated:YES];
+        [UIView animateWithDuration:0.3 animations:^{
+            self.recipeWebView.frame = CGRectMake(self.recipeWebView.frame.origin.x, self.recipeWebView.frame.origin.y + 100, self.recipeWebView.frame.size.width, self.recipeWebView.frame.size.height - 250);
+        }];
+    } else {
+        [self.navigationController setNavigationBarHidden:YES animated:YES];
+        //[self.navigationController setToolbarHidden:YES animated:YES];
+        [UIView animateWithDuration:0.3 animations:^{
+            self.recipeWebView.frame = CGRectMake(self.recipeWebView.frame.origin.x, self.recipeWebView.frame.origin.y - 250, self.recipeWebView.frame.size.width, self.recipeWebView.frame.size.height + 250);
+        }];
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UISwipeGestureRecognizer *swipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe)];
+    
+    UISwipeGestureRecognizer *swipeGestureRecognizerDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe)];
+    
+    swipeGestureRecognizerDown.direction = UISwipeGestureRecognizerDirectionDown;
+    swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionUp;
+    
+    [self.view addGestureRecognizer:swipeGestureRecognizer];
+    [self.view addGestureRecognizer:swipeGestureRecognizerDown];
+
+    
     // Do any additional setup after loading the view.
     
     //NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
@@ -61,8 +90,10 @@
 
     _recipeNameLabel.text = _currentMeal.recipeName;
     
+    _calorieLabel.text = [NSString stringWithFormat:@"%@", _currentMeal.numberOfCalories];
     
-    NSURLRequest *requestForWebView = [[NSURLRequest alloc] initWithURL: [NSURL URLWithString: @"http://www.yummly.com/recipe/Hot-Turkey-Salad-Sandwiches-TasteOfHome"] cachePolicy: NSURLRequestUseProtocolCachePolicy timeoutInterval: 3];
+    
+    NSURLRequest *requestForWebView = [[NSURLRequest alloc] initWithURL: [NSURL URLWithString: [NSString stringWithFormat:@"%@",_currentMeal.recipeURL]] cachePolicy: NSURLRequestUseProtocolCachePolicy timeoutInterval: 3];
     [_recipeWebView loadRequest: requestForWebView];
     
     NSURL *url = [NSURL URLWithString:_currentMeal.imageURL];

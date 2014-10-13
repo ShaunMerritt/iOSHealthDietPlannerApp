@@ -42,6 +42,8 @@
 @synthesize returnedRecipeMediumImage;
 @synthesize returnedRecipeImagesDictionary;
 @synthesize returnedRecipeNumberOfServings;
+@synthesize returnedRecipeWebsiteURL;
+@synthesize returnedRecipeNumberCalories;
 
 
 #pragma mark - Lifecycle
@@ -68,6 +70,7 @@
     
     returnedRecipeImagesArray = [[NSMutableArray alloc] init];
     returnedRecipeImagesDictionary = [[NSMutableDictionary alloc] init];
+    _allIngredientsArray = [[NSMutableArray alloc] init];
     
 
     
@@ -316,7 +319,68 @@
     returnedRecipeName = [bestFoodMatch objectForKey:@"recipeName"];
     returnedRecipeTotalTimeInSeconds = [bestFoodMatch objectForKey:@"totalTimeInSeconds"];
     returnedRecipeRating = [bestFoodMatch objectForKey:@"rating"];
-    
+        
+        NSArray *ingredientsArray = [bestFoodMatch objectForKey:@"ingredients"];
+        
+        NSLog(@"ingredients = %@", ingredientsArray);
+        
+        [_allIngredientsArray addObjectsFromArray:ingredientsArray];
+            
+//        for (NSString *name in ingredientsArray) {
+//            
+//            
+//            
+//            
+//            
+//            NSManagedObjectContext *context = [self managedObjectContext];
+//            NSManagedObject *mealObject = [NSEntityDescription
+//                                           insertNewObjectForEntityForName:@"Ingredients"
+//                                           inManagedObjectContext:context];
+//            
+//            
+//            NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+//            NSEntityDescription *entity = [NSEntityDescription entityForName:@"Ingredients" inManagedObjectContext:context];
+//            [fetchRequest setEntity:entity];
+//            // Specify criteria for filtering which objects to fetch
+//            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ingredientsName == %@", name];
+//            [fetchRequest setPredicate:predicate];
+//            // Specify how the fetched objects should be sorted
+//            NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"ingredientsName"
+//            ascending:YES];
+//            [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+//
+//            NSError *error = nil;
+//            NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+//            if (fetchedObjects == nil) {
+//                
+//                
+//                NSLog(@"HEEEEEEEEERRRRRRRRRRREEEEEEE");
+//                
+//                [mealObject setValue:[NSString stringWithFormat:@"%@",name] forKey:@"ingredientsName"];
+//                
+//                NSError *error;
+//                if (![context save:&error]) {
+//                    NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+//                }
+//
+//            } else {
+//                NSLog(@"Already Exists");
+//            }
+//            
+//            
+//            
+//        }
+//    
+        
+        
+        
+        
+        
+        
+        // Get the names to parse in sorted order.
+        
+        
+        
     
     //NSLog(@"Recipe Name: %@", returnedRecipeName);
 //    NSLog(@"Recipe total time in sec: %@", totalTimeInSeconds);
@@ -348,6 +412,24 @@
     returnedRecipeMediumImage = returnedRecipeImagesDictionary[@"hostedLargeUrl"];
     //NSLog(@"Here is the medium image: %@", returnedRecipeMediumImage);
     
+    NSDictionary *dicti = [[NSDictionary alloc] init];
+    dicti = [dict objectForKey:@"attribution"];
+    returnedRecipeWebsiteURL = [dicti objectForKey:@"url"];
+    
+    NSArray *array = [[NSArray alloc] init];
+    array = [dict objectForKey:@"nutritionEstimates"];
+    
+    //NSLog(@"0 is here: %@", array);
+
+    
+    NSDictionary *dis = [[NSDictionary alloc] init];
+    dis = array[0];
+    
+    
+    returnedRecipeNumberCalories = [dis objectForKey:@"value"];
+    
+    NSLog(@"One is here: %@", returnedRecipeNumberCalories);
+
     
     if (numberOfMealsCreated < 28) {
         
@@ -375,6 +457,70 @@
             
         }
         
+
+    } else {
+        
+        
+        NSArray *cleanedArray = [[NSSet setWithArray:_allIngredientsArray] allObjects];
+        NSLog(@"cleaned array: %@", cleanedArray);
+        NSLog(@"_all ingredients %@", _allIngredientsArray);
+        
+        for (NSString *name in cleanedArray) {
+
+            NSManagedObjectContext *context = [self managedObjectContext];
+            NSManagedObject *mealObject = [NSEntityDescription
+                                           insertNewObjectForEntityForName:@"Ingredients"
+                                           inManagedObjectContext:context];
+        
+        
+            [mealObject setValue:[NSString stringWithFormat:@"%@",name] forKey:@"ingredientsName"];
+
+            NSError *error;
+            if (![context save:&error]) {
+                NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+            }
+        }
+        
+        
+        
+        
+        
+        
+        
+//        NSManagedObjectContext *context = [self managedObjectContext];
+//        
+//        
+//        
+//        NSArray *employeeIDs = [_allIngredientsArray sortedArrayUsingSelector: @selector(compare:)];
+//        
+//        
+//        
+//        // create the fetch request to get all Employees matching the IDs
+//        
+//        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+//        
+//        [fetchRequest setEntity:
+//         
+//         [NSEntityDescription entityForName:@"Ingredients" inManagedObjectContext:context]];
+//        
+//        [fetchRequest setPredicate: [NSPredicate predicateWithFormat: @"(ingredientsName IN %@)", employeeIDs]];
+//        
+//        
+//        
+//        // Make sure the results are sorted as well.
+//        
+//        [fetchRequest setSortDescriptors:
+//         
+//         @[ [[NSSortDescriptor alloc] initWithKey: @"employeeID" ascending:YES] ]];
+//        
+//        // Execute the fetch.
+//        
+//        NSError *error;
+//        
+//        NSArray *employeesMatchingNames = [context executeFetchRequest:fetchRequest error:&error];
+//        
+//        NSLog(@"matching: %@", employeesMatchingNames);
+//        
 
     }
     
@@ -430,8 +576,12 @@
     [mealObject setValue:(returnedRecipeRating) forKey:@"recipeRating"];
     //[mealObject setValue:(returnedRecipeYield) forKey:@"recipeYield"];
     [mealObject setValue:[NSString stringWithFormat:@"%@",returnedRecipeID] forKey:@"recipeID"];
+    [mealObject setValue:[NSString stringWithFormat:@"%@",returnedRecipeWebsiteURL] forKey:@"recipeURL"];
     [mealObject setValue:[self calculateDateToSaveOnMealFrom:numberOfDaysOfMealsCreated] forKey:@"dateForMeal"];
     [mealObject setValue:@(testNumber) forKey:@"mealNumber"];
+    [mealObject setValue:(returnedRecipeNumberCalories) forKey:@"numberOfCalories"];
+
+    
     
     
     if (returnedRecipeTotalTimeInSeconds != nil) {

@@ -271,6 +271,10 @@
          rDVC.currentMeal = selectedMeal;
          
      }
+     
+     if ([segue.identifier isEqualToString:@"showShoppingList"]) {
+         [[segue destinationViewController] setManagedObjectContext:self.managedObjectContext];
+     }
  }
 
 - (NSManagedObjectContext *)managedObjectContext {

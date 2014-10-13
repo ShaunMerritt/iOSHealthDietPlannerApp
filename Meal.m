@@ -20,5 +20,7 @@
 @dynamic recipeRating;
 @dynamic recipeYield;
 @dynamic recipeID;
+@dynamic recipeURL;
+@dynamic numberOfCalories;
 
 @end

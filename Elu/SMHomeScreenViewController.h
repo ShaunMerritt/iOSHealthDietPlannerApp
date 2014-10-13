@@ -79,6 +79,11 @@
 @property (strong, nonatomic) NSMutableDictionary *returnedRecipeImagesDictionary;
 @property (strong, nonatomic) NSString *returnedRecipeMediumImage;
 @property (strong, nonatomic) NSString *returnedRecipeNumberOfServings;
+@property (strong, nonatomic) NSNumber *returnedRecipeNumberCalories;
+@property (strong, nonatomic) NSString *returnedRecipeWebsiteURL;
+@property (strong, nonatomic) NSMutableArray *allIngredientsArray;
+
+
 
 @property int timeForPup;
 @property int testValue;

@@ -21,6 +21,8 @@
 @property (nonatomic, retain) NSNumber * recipeRating;
 @property (nonatomic, retain) NSNumber * recipeYield;
 @property (nonatomic, retain) NSString * recipeID;
+@property (nonatomic, retain) NSString * recipeURL;
+@property (nonatomic, retain) NSNumber * numberOfCalories;
 
 
 @end
