@@ -25,6 +25,9 @@
     <entity name="Ingredients" representedClassName="Ingredients" syncable="YES">
         <attribute name="ingredientsName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="ManuallyAddedMeal" representedClassName="ManuallyAddedMeal" syncable="YES">
+        <attribute name="numberOfCaloriesForMeal" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
     <entity name="Meal" representedClassName="Meal" syncable="YES">
         <attribute name="dateForMeal" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="imageURL" optional="YES" attributeType="String" defaultValueString="IMAGEURL" syncable="YES"/>
@@ -39,7 +42,11 @@
         <attribute name="timeInSeconds" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
     <entity name="Patient" representedClassName="Patient" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="totalCaloriesBurnedToday" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="totalCaloriesEatenToday" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="totalCaloriesForDay" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="patientDetails" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Details" inverseName="details" inverseEntity="Details" syncable="YES"/>
     </entity>
     <entity name="Water" representedClassName="Water" syncable="YES">
@@ -48,10 +55,11 @@
     </entity>
     <elements>
         <element name="Details" positionX="-83" positionY="-238" width="128" height="283"/>
-        <element name="Exercise" positionX="-180" positionY="-90" width="128" height="75"/>
-        <element name="Meal" positionX="-180" positionY="-90" width="128" height="210"/>
-        <element name="Patient" positionX="-270" positionY="-28" width="128" height="73"/>
-        <element name="Water" positionX="-272" positionY="53" width="128" height="73"/>
+        <element name="Exercise" positionX="-180" positionY="-90" width="128" height="73"/>
         <element name="Ingredients" positionX="-180" positionY="-90" width="128" height="60"/>
+        <element name="ManuallyAddedMeal" positionX="-180" positionY="-90" width="128" height="58"/>
+        <element name="Meal" positionX="-180" positionY="-90" width="128" height="210"/>
+        <element name="Patient" positionX="-270" positionY="-28" width="128" height="135"/>
+        <element name="Water" positionX="-272" positionY="53" width="128" height="73"/>
     </elements>
 </model>

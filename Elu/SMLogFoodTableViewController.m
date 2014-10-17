@@ -16,6 +16,10 @@
 @implementation SMLogFoodTableViewController {
     NSMutableDictionary *itemsReturned;
     NSDictionary *weather;
+    NSDictionary *_threeItemsReturned;
+    NSMutableDictionary *_returnedFoodItem;
+    NSMutableArray *_returnedItems;
+    
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -31,7 +35,9 @@
 {
     [super viewDidLoad];
     
-    _searchBar.placeholder = @"Bus Route to...";
+    _searchBar.placeholder = @"Search for food";
+    _threeItemsReturned = [[NSDictionary alloc] init];
+    
     
 //    _client = [SMNutritionixClient sharedSMNutritionixHTTPClient];
 //    _client.delegate = self;
@@ -83,9 +89,10 @@
     
     
     
+    _threeItemsReturned = nil;
+    NSString *textForTheSearch = [searchText stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     
-    
-    NSString *string = [NSString stringWithFormat:@"https://api.nutritionix.com/v1_1/search/%@?results=0:20&cal_min=0&cal_max=50000&fields=item_name,brand_name,item_id,brand_id&appId=3ba33f4d&appKey=3b8f01ca64a3d758f3461605f13df49b", searchText];
+    NSString *string = [NSString stringWithFormat:@"https://api.nutritionix.com/v1_1/search/%@?results=0:20&cal_min=0&cal_max=50000&fields=item_name,brand_name,item_id,brand_id&appId=3ba33f4d&appKey=3b8f01ca64a3d758f3461605f13df49b", textForTheSearch];
     NSURL *url = [NSURL URLWithString:string];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
@@ -97,7 +104,25 @@
         
         // 3
         weather = (NSDictionary *)responseObject;
+        NSLog(@"Weather Here: %@", weather);
         self.title = @"JSON Retrieved";
+        
+        NSArray *test = [[NSArray alloc] init];
+        test = [weather objectForKey:@"hits"];
+
+        for (NSDictionary *arrayOfMeals in test) {
+            
+            
+            NSDictionary* fields = [arrayOfMeals objectForKey:@"fields"];
+            NSString* item_name = [fields objectForKey:@"item_name"];
+            
+            NSLog(@"Items are here: %@", item_name);
+            
+            
+        }
+        
+        
+        
         
         
         NSLog(@"Weather: %@", weather);
@@ -116,6 +141,9 @@
     
     // 5
     [operation start];
+    
+    
+    
 
     
     
@@ -214,6 +242,10 @@
     NSLog(@"List of matching foods: %@", listOfMatchingFoods);
     NSDictionary* bestFoodMatch = [listOfMatchingFoods objectAtIndex:indexPath.row];
     
+    
+    
+    
+    
     NSDictionary* fields = [bestFoodMatch objectForKey:@"fields"];
     NSString* item_name = [fields objectForKey:@"item_name"];
 
@@ -224,6 +256,97 @@
     NSLog(@"Im here");
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    NSArray* listOfMatchingFoods = [weather objectForKey:@"hits"]; //2
+    
+    NSLog(@"YES BABAY");
+    
+    //NSLog(@"List of matching foods: %@", listOfMatchingFoods);
+    NSDictionary* bestFoodMatch = [listOfMatchingFoods objectAtIndex:indexPath.row];
+    
+    
+    NSString* index = [bestFoodMatch objectForKey:@"_index"];
+    NSString* type = [bestFoodMatch objectForKey:@"_type"];
+    NSString* score = [bestFoodMatch objectForKey:@"_score"];
+    NSString* ids = [bestFoodMatch objectForKey:@"_id"];
+    
+    NSLog(@"Regular Index: %@", index);
+    NSLog(@"Regular Type: %@", type);
+    NSLog(@"Regular Score: %@", score);
+    NSLog(@"Regular Id: %@", ids);
+    
+    
+    NSDictionary* fields = [bestFoodMatch objectForKey:@"fields"];
+    NSString* item_name = [fields objectForKey:@"item_name"];
+    NSString* brand_name = [fields objectForKey:@"brand_name"];
+    NSString* nf_serving_size_qty = [fields objectForKey:@"nf_serving_size_qty"];
+    
+    NSLog(@"Fields fields: %@", fields);
+    NSLog(@"Fields item_name: %@", item_name);
+    NSLog(@"Fields brand_name: %@", brand_name);
+    NSLog(@"Fields nf_servine: %@", nf_serving_size_qty);
+    
+    
+    NSString *string = [NSString stringWithFormat:@"https://api.nutritionix.com/v1_1/item?id=%@&appId=3ba33f4d&appKey=3b8f01ca64a3d758f3461605f13df49b", ids];
+    NSURL *url = [NSURL URLWithString:string];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+
+    
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    operation.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        // 3
+        
+        NSDictionary *returnedFoodItem = (NSDictionary *)responseObject;
+        
+        NSLog(@"Weather Here: %@", returnedFoodItem);
+        self.title = @"JSON Retrieved";
+        
+        //NSArray *test = [[NSArray alloc] init];
+        returnedFoodItem = [returnedFoodItem objectForKey:@"nf_calories"];
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Here's some info!" message:[NSString stringWithFormat:@"Hey! You had 1 serving of %@? That would be %@ calories.", item_name,returnedFoodItem] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil];
+        
+        [alert show];
+
+        
+        
+        
+        
+        //NSLog(@"Weather: %@", weather);
+        //[self.tableView reloadData];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        // 4
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving Weather"
+                                                            message:[error localizedDescription]
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"Ok"
+                                                  otherButtonTitles:nil];
+        [alertView show];
+    }];
+    
+    // 5
+    [operation start];
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
 
 
@@ -279,8 +402,8 @@
 
 - (void) nutritionixHTTPClient:(SMNutritionixClient *)client didUpdateWithFoodItem:(id)foodItem {
     itemsReturned = foodItem;
-    NSLog(@"FOOD ITEM HERE: %@", foodItem);
-    [self logItemsReturned];
+    //NSLog(@"FOOD ITEM HERE: %@", foodItem);
+    //[self logItemsReturned];
 }
 
 - (void) nutritionixHTTPClient:(SMNutritionixClient *)client didFailWithError:(NSError *)error {
@@ -326,7 +449,15 @@
     
     
     
+    
+    
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    
+}
+
 
 
 @end

@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "SMNutritionixClient.h"
 
-
 @interface SMLogFoodTableViewController : UITableViewController <UISearchBarDelegate, SMNutritionixHTTPClientDelegate>
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;

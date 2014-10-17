@@ -13,7 +13,7 @@
 #import "SMRecipeDetailViewController.h"
 #import "DIDatepicker.h"
 #import "Meal.h"
-
+#import "SMAppDelegate.h"
 
 @interface SMMealPlanTableViewController () {
     NSDate *currentDate;
@@ -46,6 +46,10 @@
     [super viewDidLoad];
     
     _dateChosenByUser = [NSDate date];
+    
+    SMAppDelegate *myid = [[UIApplication sharedApplication] delegate];
+    
+    _managedObjectContext = myid.managedObjectContext;
     
     [self updateSelectedDate];
     
@@ -191,7 +195,7 @@
     }
 
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Meal" inManagedObjectContext:[self managedObjectContext]];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Meal" inManagedObjectContext:_managedObjectContext];
     [fetchRequest setEntity:entity];
 
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"dateForMeal == %@", _dateChosenByUser];

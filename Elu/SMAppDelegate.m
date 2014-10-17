@@ -12,10 +12,12 @@
 //#import "AFNetworking.h"
 #import "YummlyModel.h"
 #import "Water.h"
+#import "Patient.h"
 
 @implementation SMAppDelegate {
     NSMutableArray *_foods;
     NSArray* returnedFoods;
+    NSDate *_currentDate;
 }
 @synthesize isDoctor;
 
@@ -31,6 +33,8 @@
     
     [self load];
     
+    [self checkForCurrentDayInPatient:[self calculateCurrentDateWithTimeSetToZero]];
+    
     [self copyPlist];
     
 #if TARGET_IPHONE_SIMULATOR
@@ -41,6 +45,71 @@
     
     
     return YES;
+}
+
+- (NSDate *)calculateCurrentDateWithTimeSetToZero {
+    
+    unsigned int flags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay;
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    
+    NSDateComponents* components = [calendar components:flags fromDate:[NSDate date]];
+    
+    NSDate* dateOnly = [calendar dateFromComponents:components];
+    
+    return dateOnly;
+    
+}
+
+- (void) checkForCurrentDayInPatient:(NSDate *)date {
+    
+    NSManagedObjectContext *moc = [self managedObjectContext];
+    NSEntityDescription *entityDescription = [NSEntityDescription
+                                              entityForName:@"Patient" inManagedObjectContext:moc];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    
+    // Set example predicate and sort orderings...
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:
+                              @"date == %@", date];
+    [request setPredicate:predicate];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
+                                        initWithKey:@"date" ascending:YES];
+    [request setSortDescriptors:@[sortDescriptor]];
+    
+    NSError *error;
+    NSArray *array = [moc executeFetchRequest:request error:&error];
+    if (array == nil)
+    {
+        NSLog(@"YAY");
+    }
+    
+    NSLog(@"Got here: %@", array);
+    if ([array count] == 0) {
+        NSLog(@"HHHHAHAALA");
+        
+        NSManagedObjectContext *context = [self managedObjectContext];
+        NSManagedObject *patientObject = [NSEntityDescription
+                                       insertNewObjectForEntityForName:@"Patient"
+                                       inManagedObjectContext:context];
+        
+        
+        [patientObject setValue:@(0) forKey:@"totalCaloriesForDay"];
+        [patientObject setValue:@(0) forKey:@"totalCaloriesBurnedToday"];
+        [patientObject setValue:@(0) forKey:@"totalCaloriesEatenToday"];
+        [patientObject setValue:date forKey:@"date"];
+
+        
+        NSError *error;
+        if (![context save:&error]) {
+            NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+        }
+
+        
+        
+    }
+    
+    
 }
 
 - (void) copyPlist {

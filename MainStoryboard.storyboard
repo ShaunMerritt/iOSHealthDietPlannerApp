@@ -223,7 +223,13 @@
                             <outlet property="delegate" destination="PAL-LB-var" id="Pkr-7Z-ZcQ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="62h-Lb-fZb"/>
+                    <navigationItem key="navigationItem" id="62h-Lb-fZb">
+                        <barButtonItem key="rightBarButtonItem" title="Maually Log" id="XWJ-5t-6yg">
+                            <connections>
+                                <segue destination="1cE-oQ-7mp" kind="push" identifier="pushToManuallyAdd" id="Rqt-bv-KAf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="r54-OM-8je" id="YDf-eT-ScF"/>
                         <outlet property="searchDisplayController" destination="sKg-nC-IK2" id="2F0-JJ-88E"/>
@@ -240,7 +246,82 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1282" y="1258"/>
+            <point key="canvasLocation" x="1261" y="1258"/>
+        </scene>
+        <!--Manually Log Calories Eaten View Controller-->
+        <scene sceneID="AfH-NE-dyT">
+            <objects>
+                <viewController id="1cE-oQ-7mp" customClass="SMManuallyLogCaloriesEatenViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DUA-bI-G71"/>
+                        <viewControllerLayoutGuide type="bottom" id="WLh-Go-wHs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jDi-ZX-rPh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Number Of Calories" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ahI-BD-xSr">
+                                <rect key="frame" x="16" y="110" width="149" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cT5-p3-u4m">
+                                <rect key="frame" x="238" y="109" width="66" height="30"/>
+                                <state key="normal" title="Add Meal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addMealButtonClicked:" destination="1cE-oQ-7mp" eventType="touchUpInside" id="dy8-Cg-MW7"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Manually Add Calories For New Meal" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePH-dc-xLG">
+                                <rect key="frame" x="18" y="79" width="284" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mH2-uf-wIM">
+                                <rect key="frame" x="0.0" y="235" width="320" height="284"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellForManualMealLogging" textLabel="FJu-oZ-nBi" detailTextLabel="mJm-Jy-vFf" style="IBUITableViewCellStyleValue1" id="NFr-1n-Yzm">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NFr-1n-Yzm" id="97c-IR-8gp">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FJu-oZ-nBi">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mJm-Jy-vFf">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="1cE-oQ-7mp" id="zgA-mB-Eej"/>
+                                    <outlet property="delegate" destination="1cE-oQ-7mp" id="wan-CL-zRI"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="im4-LN-5tl"/>
+                    <connections>
+                        <outlet property="logButton" destination="cT5-p3-u4m" id="3ZC-gB-Lkk"/>
+                        <outlet property="newAmountOfCaloriesTextField" destination="ahI-BD-xSr" id="r9z-YO-RrB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5CS-eS-Gzf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1607" y="1258"/>
         </scene>
         <!--Water Log View Controller-->
         <scene sceneID="5MH-Kz-e57">
@@ -293,7 +374,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2BE-pd-nJc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1658" y="1258"/>
+            <point key="canvasLocation" x="1956" y="1258"/>
         </scene>
         <!--Exercise Logging View Controller-->
         <scene sceneID="Grp-X7-0d1">
@@ -380,7 +461,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uzz-nC-iGv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2047" y="1258"/>
+            <point key="canvasLocation" x="2295" y="1258"/>
         </scene>
         <!--Edit Patient Diet View Controller-->
         <scene sceneID="l1t-VV-KnD">
@@ -611,7 +692,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XsK-Rq-xQ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="869" y="-51"/>
+            <point key="canvasLocation" x="856" y="-51"/>
         </scene>
         <!--Log In-->
         <scene sceneID="OXN-II-hAB">
@@ -1432,7 +1513,7 @@
         <scene sceneID="zY4-64-Hzx">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="R5B-w5-AFU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Nutrition" image="CA31AFE9-A7FA-4B0A-A79F-F8AC445FB803" id="1jo-P0-J4L"/>
+                    <tabBarItem key="tabBarItem" title="Nutrition" image="5C5FC5D3-AD3B-438A-8290-5B7D40CFA2E9" id="1jo-P0-J4L"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Dva-hD-uaB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1590,6 +1671,7 @@
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="RZU-la-6pl" kind="relationship" relationship="rootViewController" id="E14-mz-65v"/>
+                        <segue destination="PAL-LB-var" kind="push" id="5zY-hy-naD"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hkE-RX-G6j" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1627,7 +1709,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CA31AFE9-A7FA-4B0A-A79F-F8AC445FB803" width="32" height="21">
+        <image name="5C5FC5D3-AD3B-438A-8290-5B7D40CFA2E9" width="32" height="21">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
