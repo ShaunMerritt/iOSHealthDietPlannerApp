@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *calorieLabel;
 
 @property (nonatomic, strong) NSMutableDictionary *recipeName;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 
 

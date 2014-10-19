@@ -1,4 +1,4 @@
-//
+                                //
 //  SMNutritionViewController.m
 //  Elu
 //
@@ -15,6 +15,8 @@
 #import "DCPathButton.h"
 #import "SMWaterLogViewController.h"
 #import "SMExerciseLoggingViewController.h"
+#import "Patient.h"
+#import "SMSaveCaloricInfoToParse.h"
 
 
 @interface SMNutritionViewController () <YLLongTapShareDelegate, DCPathButtonDelegate>
@@ -467,9 +469,74 @@
     NSLog(@"Regular Score: %@", brand_name);
     NSLog(@"Regular Id: %@", nf_calories);
     
+    [self saveFoodToCoreDataWithAmountOfCalories: nf_calories];
+    
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"YAY!!!" message:[NSString stringWithFormat:@"You scanned an item with the id: %@. The items name is: %@. The Brand Name is: %@. And it has %@ calories.", item_id, item_name, brand_name, nf_calories] delegate:nil cancelButtonTitle:@"Thanks" otherButtonTitles: nil];
     
     [alert show];
+}
+
+
+- (void) saveFoodToCoreDataWithAmountOfCalories: (NSString *)calories {
+    
+    NSManagedObjectContext *moc = [self managedObjectContext];
+    NSEntityDescription *entityDescription = [NSEntityDescription
+                                              entityForName:@"Patient" inManagedObjectContext:moc];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    
+    // Set example predicate and sort orderings...
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:
+                              @"date == %@", [self calculateCurrentDateWithTimeSetToZero]];
+    [request setPredicate:predicate];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
+                                        initWithKey:@"date" ascending:YES];
+    [request setSortDescriptors:@[sortDescriptor]];
+    
+    NSError *error = nil;
+    NSArray *results = [moc executeFetchRequest:request error:&error];
+    
+    Patient *newVehicle = [results objectAtIndex:0];
+    
+    NSNumber *sum = [NSNumber numberWithFloat:([newVehicle.totalCaloriesEatenToday floatValue] + [calories floatValue])];
+    [newVehicle setValue: sum forKey:@"totalCaloriesEatenToday"];
+    [SMSaveCaloricInfoToParse saveTotalCaloriesEatenTodayToParse:sum];
+
+    
+    NSNumber *sumOfTotalForDay = [NSNumber numberWithFloat:([newVehicle.totalCaloriesForDay floatValue] + [calories floatValue])];
+    [newVehicle setValue: sumOfTotalForDay forKey:@"totalCaloriesForDay"];
+    [SMSaveCaloricInfoToParse saveTotalCaloriesForDayToParse:sumOfTotalForDay];
+
+    
+    [self.managedObjectContext save:nil];
+    
+    
+    
+
+    
+}
+
+- (NSManagedObjectContext *)managedObjectContext {
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
+
+- (NSDate *)calculateCurrentDateWithTimeSetToZero {
+    
+    unsigned int flags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay;
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    
+    NSDateComponents* components = [calendar components:flags fromDate:[NSDate date]];
+    
+    NSDate* dateOnly = [calendar dateFromComponents:components];
+    
+    return dateOnly;
+    
 }
 
 

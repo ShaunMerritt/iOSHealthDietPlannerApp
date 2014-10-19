@@ -7,6 +7,8 @@
 //
 
 #import "SMLogFoodTableViewController.h"
+#import "Patient.h"
+#import "SMSaveCaloricInfoToParse.h"
 //#import "SMNutritionixClient.h"
 
 @interface SMLogFoodTableViewController ()
@@ -310,9 +312,15 @@
         self.title = @"JSON Retrieved";
         
         //NSArray *test = [[NSArray alloc] init];
-        returnedFoodItem = [returnedFoodItem objectForKey:@"nf_calories"];
+        NSDictionary *returnedCalories = [returnedFoodItem objectForKey:@"nf_calories"];
+        NSLog(@"Dict; %@", returnedCalories);
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Here's some info!" message:[NSString stringWithFormat:@"Hey! You had 1 serving of %@? That would be %@ calories.", item_name,returnedFoodItem] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil];
+        NSString *amountOfCalories = [NSString stringWithFormat:@"%@",returnedCalories];
+        
+        [self saveFoodToCoreDataWithAmountOfCalories: amountOfCalories];
+
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Here's some info!" message:[NSString stringWithFormat:@"Hey! You had 1 serving of %@? That would be %@ calories.", item_name,amountOfCalories] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil];
         
         [alert show];
 
@@ -347,6 +355,69 @@
     
     
     
+}
+
+- (void) saveFoodToCoreDataWithAmountOfCalories: (NSString *)calories {
+    
+    NSManagedObjectContext *moc = [self managedObjectContext];
+    NSEntityDescription *entityDescription = [NSEntityDescription
+                                              entityForName:@"Patient" inManagedObjectContext:moc];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    
+    // Set example predicate and sort orderings...
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:
+                              @"date == %@", [self calculateCurrentDateWithTimeSetToZero]];
+    [request setPredicate:predicate];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
+                                        initWithKey:@"date" ascending:YES];
+    [request setSortDescriptors:@[sortDescriptor]];
+    
+    NSError *error = nil;
+    NSArray *results = [moc executeFetchRequest:request error:&error];
+    
+    Patient *newVehicle = [results objectAtIndex:0];
+    
+    NSNumber *sum = [NSNumber numberWithFloat:([newVehicle.totalCaloriesEatenToday floatValue] + [calories floatValue])];
+    [newVehicle setValue: sum forKey:@"totalCaloriesEatenToday"];
+    [SMSaveCaloricInfoToParse saveTotalCaloriesEatenTodayToParse:sum];
+
+    
+    NSNumber *sumOfTotalForDay = [NSNumber numberWithFloat:([newVehicle.totalCaloriesForDay floatValue] + [calories floatValue])];
+    [newVehicle setValue: sumOfTotalForDay forKey:@"totalCaloriesForDay"];
+    [SMSaveCaloricInfoToParse saveTotalCaloriesForDayToParse:sumOfTotalForDay];
+
+    
+    [self.managedObjectContext save:nil];
+    
+    
+    
+    
+    
+}
+
+- (NSDate *)calculateCurrentDateWithTimeSetToZero {
+    
+    unsigned int flags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay;
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    
+    NSDateComponents* components = [calendar components:flags fromDate:[NSDate date]];
+    
+    NSDate* dateOnly = [calendar dateFromComponents:components];
+    
+    return dateOnly;
+    
+}
+
+
+- (NSManagedObjectContext *)managedObjectContext {
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
 }
 
 

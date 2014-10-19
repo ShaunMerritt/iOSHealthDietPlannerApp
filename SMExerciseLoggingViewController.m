@@ -8,6 +8,8 @@
 
 @import CoreData;
 #import "SMExerciseLoggingViewController.h"
+#import "Patient.h"
+#import "SMSaveCaloricInfoToParse.h"
 
 @interface SMExerciseLoggingViewController () {
     
@@ -267,8 +269,64 @@
     
 }
 
+- (void) addToCoreDataForHealthImplications {
+    
+    NSManagedObjectContext *moc = [self managedObjectContext];
+    NSEntityDescription *entityDescription = [NSEntityDescription
+                                              entityForName:@"Patient" inManagedObjectContext:moc];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    
+    // Set example predicate and sort orderings...
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:
+                              @"date == %@", [self calculateCurrentDateWithTimeSetToZero]];
+    [request setPredicate:predicate];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
+                                        initWithKey:@"date" ascending:YES];
+    [request setSortDescriptors:@[sortDescriptor]];
+    
+    NSError *error = nil;
+    NSArray *results = [moc executeFetchRequest:request error:&error];
+    
+    Patient *newVehicle = [results objectAtIndex:0];
+    
+    NSNumber *sum = [NSNumber numberWithFloat:([newVehicle.totalCaloriesBurnedToday floatValue] + [newExerciseTextField.text floatValue])];
+    [newVehicle setValue: sum forKey:@"totalCaloriesBurnedToday"];
+    [SMSaveCaloricInfoToParse saveTotalCaloriesBurnedTodayToParse:sum];
+
+    
+    NSNumber *sumOfTotalForDay = [NSNumber numberWithFloat:([newVehicle.totalCaloriesForDay floatValue] - [newExerciseTextField.text floatValue])];
+    [newVehicle setValue: sumOfTotalForDay forKey:@"totalCaloriesForDay"];
+    [SMSaveCaloricInfoToParse saveTotalCaloriesForDayToParse:sumOfTotalForDay];
+
+    
+    [self.managedObjectContext save:nil];
+    
+    
+    
+
+    
+}
+
+- (NSDate *)calculateCurrentDateWithTimeSetToZero {
+    
+    unsigned int flags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay;
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    
+    NSDateComponents* components = [calendar components:flags fromDate:[NSDate date]];
+    
+    NSDate* dateOnly = [calendar dateFromComponents:components];
+    
+    return dateOnly;
+    
+}
+
+
 #pragma mark - IBActions
 - (IBAction)addNewExerciseButtonClicked:(id)sender {
+    
+    [self addToCoreDataForHealthImplications];
     
     NSManagedObjectContext *context = [self managedObjectContext];
     

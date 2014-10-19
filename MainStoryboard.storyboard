@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="GOY-HM-qmH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="GOY-HM-qmH">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
@@ -1513,7 +1513,7 @@
         <scene sceneID="zY4-64-Hzx">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="R5B-w5-AFU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Nutrition" image="5C5FC5D3-AD3B-438A-8290-5B7D40CFA2E9" id="1jo-P0-J4L"/>
+                    <tabBarItem key="tabBarItem" title="Nutrition" image="F9370E12-9A63-4D02-ADC3-464CA832B5AC" id="1jo-P0-J4L"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Dva-hD-uaB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1646,7 +1646,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="1W0-OS-a6O"/>
+                    <navigationItem key="navigationItem" id="1W0-OS-a6O">
+                        <barButtonItem key="rightBarButtonItem" title="I Ate This!" id="1S6-YL-Ld1">
+                            <connections>
+                                <action selector="logRecommendedRecipe:" destination="umj-mB-VEs" id="MZl-7B-2Nc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="calorieLabel" destination="7dF-jx-pHr" id="y2U-9O-9BX"/>
                         <outlet property="recipeImage" destination="cLy-0S-2L7" id="qXD-Pr-EDB"/>
@@ -1709,7 +1715,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="5C5FC5D3-AD3B-438A-8290-5B7D40CFA2E9" width="32" height="21">
+        <image name="F9370E12-9A63-4D02-ADC3-464CA832B5AC" width="32" height="21">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA

@@ -9,6 +9,8 @@
 #import "SMManuallyLogCaloriesEatenViewController.h"
 #import "ManuallyAddedMeal.h"
 #import "SMAppDelegate.h"
+#import "Patient.h"
+#import "SMSaveCaloricInfoToParse.h"
 
 @interface SMManuallyLogCaloriesEatenViewController () {
     
@@ -16,6 +18,7 @@
     __weak IBOutlet UITextField *_newAmountOfCaloriesTextField;
     int _numberOfCaloriesBurnedToday;
     NSArray *reversedArray;
+    SMSaveCaloricInfoToParse *_saveCaloricInfoToParse;
     
 }
 
@@ -175,6 +178,56 @@
 }
 */
 
+- (void) saveTotalCaloriesForDay {
+    
+    NSManagedObjectContext *moc = [self managedObjectContext];
+    NSEntityDescription *entityDescription = [NSEntityDescription
+                                              entityForName:@"Patient" inManagedObjectContext:moc];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    
+    // Set example predicate and sort orderings...
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:
+                              @"date == %@", [self calculateCurrentDateWithTimeSetToZero]];
+    [request setPredicate:predicate];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
+                                        initWithKey:@"date" ascending:YES];
+    [request setSortDescriptors:@[sortDescriptor]];
+    
+    NSError *error = nil;
+    NSArray *results = [moc executeFetchRequest:request error:&error];
+    
+    Patient *newVehicle = [results objectAtIndex:0];
+    
+    NSNumber *sum = [NSNumber numberWithFloat:([newVehicle.totalCaloriesEatenToday floatValue] + [_newAmountOfCaloriesTextField.text floatValue])];
+    [newVehicle setValue: sum forKey:@"totalCaloriesEatenToday"];
+    [SMSaveCaloricInfoToParse saveTotalCaloriesEatenTodayToParse:sum];
+    
+    NSNumber *sumOfTotalForDay = [NSNumber numberWithFloat:([newVehicle.totalCaloriesForDay floatValue] + [_newAmountOfCaloriesTextField.text floatValue])];
+    [newVehicle setValue: sumOfTotalForDay forKey:@"totalCaloriesForDay"];
+    [SMSaveCaloricInfoToParse saveTotalCaloriesForDayToParse:sumOfTotalForDay];
+
+    
+    [self.managedObjectContext save:nil];
+    
+
+    
+}
+
+- (NSDate *)calculateCurrentDateWithTimeSetToZero {
+    
+    unsigned int flags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay;
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    
+    NSDateComponents* components = [calendar components:flags fromDate:[NSDate date]];
+    
+    NSDate* dateOnly = [calendar dateFromComponents:components];
+    
+    return dateOnly;
+    
+}
+
 - (IBAction)addMealButtonClicked:(id)sender {
     
     NSManagedObjectContext *context = [self managedObjectContext];
@@ -184,6 +237,8 @@
     
     
     [mealObject setValue:@([[_newAmountOfCaloriesTextField text] intValue]) forKey:@"numberOfCaloriesForMeal"];
+    
+    [self saveTotalCaloriesForDay];
     
     NSError *error;
     if (![context save:&error]) {
