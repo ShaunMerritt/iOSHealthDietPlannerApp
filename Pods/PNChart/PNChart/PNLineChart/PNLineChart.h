@@ -34,6 +34,10 @@
 
 @property (nonatomic) CGFloat xLabelWidth;
 
+@property (nonatomic) UIFont *xLabelFont;
+
+@property (nonatomic) UIColor *xLabelColor;
+
 @property (nonatomic) CGFloat yValueMax;
 
 @property (nonatomic) CGFloat yValueMin;
@@ -42,14 +46,33 @@
 
 @property (nonatomic) CGFloat yLabelHeight;
 
+@property (nonatomic) UIFont *yLabelFont;
+
+@property (nonatomic) UIColor *yLabelColor;
+
 @property (nonatomic) CGFloat chartCavanHeight;
 
 @property (nonatomic) CGFloat chartCavanWidth;
 
 @property (nonatomic) CGFloat chartMargin;
 
-
-
 @property (nonatomic) BOOL showLabel;
+
+/**
+ *  show CoordinateAxis ornot, Default is not
+ */
+@property (nonatomic, getter = isShowCoordinateAxis) BOOL showCoordinateAxis;
+@property (nonatomic) UIColor *axisColor;
+@property (nonatomic) CGFloat axisWidth;
+
+@property (nonatomic, strong) NSString *xUnit;
+@property (nonatomic, strong) NSString *yUnit;
+
+/**
+ *  String formatter for float values in y labels. If not set, defaults to @"%1.f"
+ */
+@property (nonatomic, strong) NSString *yLabelFormat;
+
+- (void)setXLabels:(NSArray *)xLabels withWidth:(CGFloat)width;
 
 @end

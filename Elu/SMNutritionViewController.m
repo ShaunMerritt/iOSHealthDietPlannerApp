@@ -17,6 +17,7 @@
 #import "SMExerciseLoggingViewController.h"
 #import "Patient.h"
 #import "SMSaveCaloricInfoToParse.h"
+#import <PNChart.h>
 
 
 @interface SMNutritionViewController () <YLLongTapShareDelegate, DCPathButtonDelegate>
@@ -78,18 +79,127 @@
     [self presentViewController:reader animated:YES completion:nil];
 }
 
+- (void) loadGraphs {
+    
+    //For LineChart
+    PNLineChart * lineChart = [[PNLineChart alloc] initWithFrame:CGRectMake(0, 135.0, SCREEN_WIDTH, 200.0)];
+    lineChart.delegate = self;
+    [lineChart setXLabels:[self generateDatesForXLabels]];
+    lineChart.yLabelFormat = @"%1.1f";
+    lineChart.backgroundColor = [UIColor clearColor];
+    lineChart.showCoordinateAxis = YES;
+
+
+    
+    // Line Chart No.1
+    NSArray * data01Array = [self generateCaloriesForYLabels];
+    PNLineChartData *data01 = [PNLineChartData new];
+    data01.inflexionPointStyle = PNLineChartPointStyleCycle;
+    data01.inflexionPointWidth = (CGFloat)5;
+    data01.color = PNDeepGrey;
+    data01.lineWidth = (CGFloat)3;
+    data01.itemCount = lineChart.xLabels.count;
+    data01.getData = ^(NSUInteger index) {
+        CGFloat yValue = [data01Array[index] floatValue];
+        return [PNLineChartDataItem dataItemWithY:yValue];
+    };
+    
+    
+    
+    lineChart.chartData = @[data01];
+    
+    [self.view addSubview:lineChart];
+
+    [lineChart strokeChart];
+
+}
+
+
+
+- (NSArray *) generateCaloriesForYLabels {
+    NSMutableArray *datesArray = [[NSMutableArray alloc] init];
+    
+    NSManagedObjectContext *moc = [self managedObjectContext];
+    NSEntityDescription *entityDescription = [NSEntityDescription
+                                              entityForName:@"Patient" inManagedObjectContext:moc];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
+                                        initWithKey:@"date" ascending:YES];
+    [request setSortDescriptors:@[sortDescriptor]];
+    
+    NSError *error = nil;
+    NSArray *results = [moc executeFetchRequest:request error:&error];
+    
+    NSMutableArray *arrayOfDataForChart = [[NSMutableArray alloc] init];
+    for (int i = 0; i < [results count]; i++) {
+        Patient *newVehicle = [results objectAtIndex:i];
+        [arrayOfDataForChart addObject: newVehicle.totalCaloriesForDay];
+        NSLog(@"data: %@", newVehicle.totalCaloriesForDay);
+
+    }
+    
+    if (arrayOfDataForChart.count < 8) {
+        for (int i = [arrayOfDataForChart count]; i < 7; i++) {
+            [arrayOfDataForChart addObject: @0];
+        }
+    }
+    
+    NSArray *arrayOfDataReversed = [[arrayOfDataForChart reverseObjectEnumerator] allObjects];
+    NSLog(@"Dates Array: %@", datesArray);
+    return arrayOfDataReversed;
+
+}
+
+-(void)userClickedOnLineKeyPoint:(CGPoint)point lineIndex:(NSInteger)lineIndex andPointIndex:(NSInteger)pointIndex{
+    NSLog(@"Click Key on line %f, %f line index is %d and point index is %d",point.x, point.y,(int)lineIndex, (int)pointIndex);
+}
+
+-(void)userClickedOnLinePoint:(CGPoint)point lineIndex:(NSInteger)lineIndex{
+    NSLog(@"Click on line %f, %f, line index is %d",point.x, point.y, (int)lineIndex);
+}
+
+- (NSArray *) generateDatesForXLabels {
+    
+    NSMutableArray *datesArray = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < 7; i++) {
+        if (i == 0) {
+            [datesArray addObject:@"Today"];
+            NSLog(@"Dates Array: %@", datesArray);
+
+        } else {
+            NSDate *currentDate = [NSDate date];
+            NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+            [dateComponents setDay:-i];
+            NSDate *dateToConvetToString = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponents toDate:currentDate options:0];
+            //NSLog(@"\ncurrentDate: %@\nseven days ago: %@", currentDate, dateToConvetToString);
+            
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"MM/dd"];
+            NSString *dateString = [dateFormatter stringFromDate:dateToConvetToString];
+            [datesArray addObject:dateString];
+        }
+    }
+    
+    
+    NSArray *datesReversed = [[datesArray reverseObjectEnumerator] allObjects];
+    NSLog(@"Dates Array: %@", datesArray);
+    return datesReversed;
+    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     NSLog(@"HEREEEE");
     
+    [self loadGraphs];
     
     
     
-    
-    
-
     
 //    // Do any additional setup after loading the view, typically from a nib.
 //    UIImage *buttonImage = [UIImage imageNamed:@"hood.png"];
@@ -363,60 +473,60 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    // Return the number of rows in the section.
-    return [self.allDoctors count];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    static NSString *CellIdentifier = @"CellNow";
-    UITableViewCell *cell           = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    PFUser *user                    = [self.allDoctors objectAtIndex:indexPath.row];
-    cell.textLabel.text             = user.username;
-    
-    return cell;
-    
-}
-
--(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
-    
-    UITableViewCell *cell        = [tableView cellForRowAtIndexPath:indexPath];
-    cell.accessoryType           = UITableViewCellAccessoryCheckmark;
-
-    PFRelation *doctorsRelations = [self.currentUser relationforKey:@"doctorsRelation"];
-    PFUser *user                 = [self.allDoctors objectAtIndex:indexPath.row];
-    [doctorsRelations addObject:user];
-    [self.currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (error){
-            NSLog(@"Error %@, %@", error, [error userInfo]);
-        }
-    }];
-    
-    /*
-    UIStoryboard *sbs        = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    UIViewController *vcs    = [sbs instantiateViewControllerWithIdentifier:@"foodLikedViewController"];
-    vcs.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    [self presentViewController:vcs animated:YES completion:nil];
-    */
-     
-    /*
-    UIStoryboard *sbs        = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    UIViewController *vcs    = [sbs instantiateViewControllerWithIdentifier:@"firstTimePatientSignedIn"];
-    vcs.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    [self presentViewController:vcs animated:YES completion:nil];
-    
-    */
-}
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+//{
+//    // Return the number of sections.
+//    return 1;
+//}
+//
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+//{
+//    // Return the number of rows in the section.
+//    return [self.allDoctors count];
+//}
+//
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    
+//    static NSString *CellIdentifier = @"CellNow";
+//    UITableViewCell *cell           = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+//    PFUser *user                    = [self.allDoctors objectAtIndex:indexPath.row];
+//    cell.textLabel.text             = user.username;
+//    
+//    return cell;
+//    
+//}
+//
+//-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    
+//    [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
+//    
+//    UITableViewCell *cell        = [tableView cellForRowAtIndexPath:indexPath];
+//    cell.accessoryType           = UITableViewCellAccessoryCheckmark;
+//
+//    PFRelation *doctorsRelations = [self.currentUser relationforKey:@"doctorsRelation"];
+//    PFUser *user                 = [self.allDoctors objectAtIndex:indexPath.row];
+//    [doctorsRelations addObject:user];
+//    [self.currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        if (error){
+//            NSLog(@"Error %@, %@", error, [error userInfo]);
+//        }
+//    }];
+//    
+//    /*
+//    UIStoryboard *sbs        = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+//    UIViewController *vcs    = [sbs instantiateViewControllerWithIdentifier:@"foodLikedViewController"];
+//    vcs.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+//    [self presentViewController:vcs animated:YES completion:nil];
+//    */
+//     
+//    /*
+//    UIStoryboard *sbs        = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+//    UIViewController *vcs    = [sbs instantiateViewControllerWithIdentifier:@"firstTimePatientSignedIn"];
+//    vcs.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+//    [self presentViewController:vcs animated:YES completion:nil];
+//    
+//    */
+//}
 
 - (IBAction)logout:(id)sender {
     [PFUser logOut];

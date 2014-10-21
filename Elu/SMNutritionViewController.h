@@ -20,7 +20,7 @@
 
 
 
-@interface SMNutritionViewController : UITableViewController <ZBarReaderDelegate, CHCSVParserDelegate, GHContextOverlayViewDelegate, GHContextOverlayViewDataSource>
+@interface SMNutritionViewController : UIViewController <ZBarReaderDelegate, CHCSVParserDelegate, GHContextOverlayViewDelegate, GHContextOverlayViewDataSource>
 
 - (IBAction)logout:(id)sender;
 - (IBAction)scanItemButtonPressed:(id)sender;

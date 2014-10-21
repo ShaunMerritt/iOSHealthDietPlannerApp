@@ -653,29 +653,24 @@
         <!--Elu Plus-->
         <scene sceneID="LI6-nQ-UeP">
             <objects>
-                <tableViewController id="T4f-Nt-4pB" customClass="SMNutritionViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="nf7-dT-bgh">
+                <viewController id="T4f-Nt-4pB" customClass="SMNutritionViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fLJ-zT-pVA"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ifn-S8-JtJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Zih-RD-DpR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Net Calories " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJl-KI-Utg">
+                                <rect key="frame" x="93" y="100" width="135" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellNow" id="WUX-yP-NRd">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WUX-yP-NRd" id="ayS-Cc-vaY">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="aRT-du-3dY" kind="push" id="ByH-sT-Lf4"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="T4f-Nt-4pB" id="Izz-V0-Oqp"/>
-                            <outlet property="delegate" destination="T4f-Nt-4pB" id="4v6-wT-zkA"/>
-                        </connections>
-                    </tableView>
+                    </view>
                     <navigationItem key="navigationItem" title="Elu Plus" id="xt6-T3-qsn">
                         <barButtonItem key="leftBarButtonItem" title="Scan Item" id="k5I-az-xFX">
                             <connections>
@@ -689,7 +684,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                </tableViewController>
+                </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XsK-Rq-xQ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="856" y="-51"/>
@@ -1513,7 +1508,7 @@
         <scene sceneID="zY4-64-Hzx">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="R5B-w5-AFU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Nutrition" image="F9370E12-9A63-4D02-ADC3-464CA832B5AC" id="1jo-P0-J4L"/>
+                    <tabBarItem key="tabBarItem" title="Nutrition" image="E8A68637-6238-4E8D-AAEB-0241FB8B8C41" id="1jo-P0-J4L"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Dva-hD-uaB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1715,7 +1710,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="F9370E12-9A63-4D02-ADC3-464CA832B5AC" width="32" height="21">
+        <image name="E8A68637-6238-4E8D-AAEB-0241FB8B8C41" width="32" height="21">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
