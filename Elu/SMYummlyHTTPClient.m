@@ -40,6 +40,17 @@ static NSString *const SMAppKey = @"a8908fd1f6e4bff434989f91b138526e";
     return self;
 }
 
+- (int)calculateMinForCalories:(int)suggestedAmount {
+    
+    return suggestedAmount - 50;
+    
+}
+
+- (int)calculateMaxForCalories:(int)suggestedAmount {
+    
+    return suggestedAmount + 50;
+}
+
 - (int)calculateMinAndMax:(int)suggestedAmount {
     //NSLog(@"Suggested Amount: %d", suggestedAmount);
     //NSLog(@"Suggested Bool: %d", firstTime);
@@ -75,7 +86,7 @@ static NSString *const SMAppKey = @"a8908fd1f6e4bff434989f91b138526e";
     return 0;
 }
 
-- (void)searchForRecipe:(NSString *)recipe meal:(NSString *)meal allergies:(NSArray *)allergies valueForCarbs:(int)valueForCarbs valueForFats:(int)valueForFats valueForProteins:(int)valueForProteins  {
+- (void)searchForRecipe:(NSString *)recipe meal:(NSString *)meal allergies:(NSArray *)allergies valueForCarbs:(int)valueForCarbs valueForFats:(int)valueForFats valueForProteins:(int)valueForProteins maxTimeInSeconds:(int)maxTime minNumberOfCalories: (int)minNumberOfCalories maxNumberOfCalories:(int)maxNumberOfCalories{
     
    // valueForCalcium:(int)valueForCalcium valueForCholesterol:(int)valueForCholesterol valueForFiber:(int)valueForFiber valueForIron:(int)valueForIron valueForPotassium:(int)valueForPotassium valueForSodium:(int)valueForSodium valueForSugar:(int)valueForSugar valueForVitaminA:(int)valueForVitaminA valueForVitaminC:(int)valueForVitaminC
     
@@ -100,6 +111,8 @@ static NSString *const SMAppKey = @"a8908fd1f6e4bff434989f91b138526e";
     firstTime = YES;
     int s = [self calculateMinAndMax:valueForFats];
     int d = [self calculateMinAndMax:valueForFats];
+    
+    parameters[@"maxTotalTimeInSeconds"] = [NSString stringWithFormat:@"%d", maxTime];
 
     parameters[@"nutrition.CHOCDF.min"] = [NSString stringWithFormat:@"%d", [self calculateMinAndMax:valueForFats]];
     parameters[@"nutrition.CHOCDF.max"] = [NSString stringWithFormat:@"%d", [self calculateMinAndMax:valueForFats]];
@@ -109,6 +122,9 @@ static NSString *const SMAppKey = @"a8908fd1f6e4bff434989f91b138526e";
 //
     parameters[@"nutrition.PROCNT.min"] = [NSString stringWithFormat:@"%d",[self calculateMinAndMax:valueForProteins]];
     parameters[@"nutrition.PROCNT.max"] = [NSString stringWithFormat:@"%d",[self calculateMinAndMax:valueForProteins]];
+    parameters[@"&nutrition.ENERC_KCAL.min"] = [NSString stringWithFormat:@"%d", [self calculateMinForCalories:maxNumberOfCalories]];
+    parameters[@"&nutrition.ENERC_KCAL.max"] = [NSString stringWithFormat:@"%d", [self calculateMaxForCalories:maxNumberOfCalories]];
+
 
 //    parameters[@"nutrition.CA.min"] = [self calculateMinAndMax:valueForCalcium];
 //    parameters[@"nutrition.CA.max"] = [self calculateMinAndMax:valueForCalcium];

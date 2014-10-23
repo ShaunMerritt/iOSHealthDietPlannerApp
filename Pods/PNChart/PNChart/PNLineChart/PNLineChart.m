@@ -375,7 +375,7 @@
         
         [CATransaction begin];
         CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-        pathAnimation.duration = 1.0;
+        pathAnimation.duration = 1.8;
         pathAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
         pathAnimation.fromValue = @0.0f;
         pathAnimation.toValue   = @1.0f;

@@ -100,9 +100,9 @@
                             for (PFObject *object in objects) {
                                 //log the objects that we got back to the NSLOG
                                 self.allergiesArray = [object valueForKey:@"arrayOfAllergies"];
-                                self.caloriesForFats = [[object valueForKey:@"caloriesDedicatedToFats"] intValue];
-                                self.caloriesForProteins = [[object valueForKey:@"caloriesDedicatedToProteins"] intValue];
-                                self.caloriesForCarbs = [[object valueForKey:@"caloriesDedicatedToCarbs"] intValue];
+                                self.caloriesForFats = [[object valueForKey:@"caloriesDedicatedToFats"] intValue]/9;
+                                self.caloriesForProteins = [[object valueForKey:@"caloriesDedicatedToProteins"] intValue]/4;
+                                self.caloriesForCarbs = [[object valueForKey:@"caloriesDedicatedToCarbs"] intValue]/4;
                                 self.caloriesForDay = [[object valueForKey:@"totalDailyCalories"] intValue];
                                 self.calcium = [[object valueForKey:@"calcium"] intValue];
                                 self.cholesterol = [[object valueForKey:@"cholesterol"] intValue];
@@ -285,7 +285,7 @@
 
         NSLog(@"Meal str: %@", self.mealString);
     
-        [client searchForRecipe:searchFor meal:self.mealString allergies:self.allergiesArray valueForCarbs:caloriesForCarbs valueForFats:caloriesForFat valueForProteins:caloriesForProteins ];
+        [client searchForRecipe:searchFor meal:self.mealString allergies:self.allergiesArray valueForCarbs:caloriesForCarbs valueForFats:caloriesForFat valueForProteins:caloriesForProteins maxTimeInSeconds:100 minNumberOfCalories:0 maxNumberOfCalories:0 ];
     
     //valueForCalcium:self.calcium valueForCholesterol:self.cholesterol valueForFiber:self.fiber valueForIron:self.iron valueForPotassium:self.potassium valueForSodium:self.sodium valueForSugar:self.sugar valueForVitaminA:self.vitaminA valueForVitaminC:self.vitaminC
     

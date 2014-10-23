@@ -7,6 +7,7 @@
 //
 
 #import "SMSignupViewController.h"
+#import "Patient.h"
 
 @interface SMSignupViewController ()
 
@@ -92,6 +93,7 @@
     }
     
 }
+
 
 
 

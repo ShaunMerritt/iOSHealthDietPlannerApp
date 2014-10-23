@@ -24,6 +24,8 @@
 		2803913519C528180014D0C3 /* YLShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2803912619C528180014D0C3 /* YLShareView.m */; };
 		2803916D19C541E90014D0C3 /* GHContextMenuView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2803916B19C541E90014D0C3 /* GHContextMenuView.h */; };
 		2803916E19C541E90014D0C3 /* GHContextMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2803916C19C541E90014D0C3 /* GHContextMenuView.m */; };
+		280950BF19F6FB01003C8783 /* Patient.h in Headers */ = {isa = PBXBuildFile; fileRef = 280950BD19F6FB01003C8783 /* Patient.h */; };
+		280950C019F6FB01003C8783 /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = 280950BE19F6FB01003C8783 /* Patient.m */; };
 		280C794B19C5156C0094B56C /* hood.png in Resources */ = {isa = PBXBuildFile; fileRef = 280C794919C5156C0094B56C /* hood.png */; };
 		280C794C19C5156C0094B56C /* hood@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 280C794A19C5156C0094B56C /* hood@2x.png */; };
 		280C794F19C515E20094B56C /* hood-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 280C794D19C515E20094B56C /* hood-selected.png */; };
@@ -408,8 +410,6 @@
 		28D61AFB19A2A77300C9C3BB /* SMThirdEditScreenForPatientDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D61AFA19A2A77300C9C3BB /* SMThirdEditScreenForPatientDetailsViewController.m */; };
 		28D61AFF19A2AA3A00C9C3BB /* HTAutocompleteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D61AFE19A2AA3A00C9C3BB /* HTAutocompleteManager.m */; };
 		28D9DB8319A3CB57006D9F9F /* SMFourthEditScreenForPatientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D9DB8219A3CB57006D9F9F /* SMFourthEditScreenForPatientViewController.m */; };
-		28E1ED4019F1B5B200822C60 /* Patient.h in Headers */ = {isa = PBXBuildFile; fileRef = 28E1ED3E19F1B5B200822C60 /* Patient.h */; };
-		28E1ED4119F1B5B200822C60 /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E1ED3F19F1B5B200822C60 /* Patient.m */; };
 		28E20805195A9C50004D4AE9 /* SMAddNewPatientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E20804195A9C50004D4AE9 /* SMAddNewPatientViewController.m */; };
 		28E37C5F19EC6CBD00B920E2 /* SMShoppingListViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 28E37C5D19EC6CBD00B920E2 /* SMShoppingListViewController.h */; };
 		28E37C6019EC6CBD00B920E2 /* SMShoppingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E37C5E19EC6CBD00B920E2 /* SMShoppingListViewController.m */; };
@@ -452,6 +452,8 @@
 		2803912619C528180014D0C3 /* YLShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLShareView.m; sourceTree = "<group>"; };
 		2803916B19C541E90014D0C3 /* GHContextMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHContextMenuView.h; sourceTree = "<group>"; };
 		2803916C19C541E90014D0C3 /* GHContextMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHContextMenuView.m; sourceTree = "<group>"; };
+		280950BD19F6FB01003C8783 /* Patient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Patient.h; sourceTree = "<group>"; };
+		280950BE19F6FB01003C8783 /* Patient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Patient.m; sourceTree = "<group>"; };
 		280C794919C5156C0094B56C /* hood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hood.png; sourceTree = "<group>"; };
 		280C794A19C5156C0094B56C /* hood@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hood@2x.png"; sourceTree = "<group>"; };
 		280C794D19C515E20094B56C /* hood-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hood-selected.png"; sourceTree = "<group>"; };
@@ -946,8 +948,6 @@
 		28D61AFE19A2AA3A00C9C3BB /* HTAutocompleteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTAutocompleteManager.m; sourceTree = "<group>"; };
 		28D9DB8119A3CB57006D9F9F /* SMFourthEditScreenForPatientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFourthEditScreenForPatientViewController.h; sourceTree = "<group>"; };
 		28D9DB8219A3CB57006D9F9F /* SMFourthEditScreenForPatientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFourthEditScreenForPatientViewController.m; sourceTree = "<group>"; };
-		28E1ED3E19F1B5B200822C60 /* Patient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Patient.h; sourceTree = "<group>"; };
-		28E1ED3F19F1B5B200822C60 /* Patient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Patient.m; sourceTree = "<group>"; };
 		28E20803195A9C50004D4AE9 /* SMAddNewPatientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAddNewPatientViewController.h; path = ../SMAddNewPatientViewController.h; sourceTree = "<group>"; };
 		28E20804195A9C50004D4AE9 /* SMAddNewPatientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAddNewPatientViewController.m; path = ../SMAddNewPatientViewController.m; sourceTree = "<group>"; };
 		28E37C5D19EC6CBD00B920E2 /* SMShoppingListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMShoppingListViewController.h; path = Elu/SMShoppingListViewController.h; sourceTree = "<group>"; };
@@ -1259,6 +1259,8 @@
 		283D4384195A37760054E16D = {
 			isa = PBXGroup;
 			children = (
+				280950BD19F6FB01003C8783 /* Patient.h */,
+				280950BE19F6FB01003C8783 /* Patient.m */,
 				2820D72119F3ABB8002143B2 /* SMSaveCaloricInfoToParse.h */,
 				2820D72219F3ABB8002143B2 /* SMSaveCaloricInfoToParse.m */,
 				28F6C2DE19EF19F4003229E6 /* ManuallyAddedMeal.h */,
@@ -1345,8 +1347,6 @@
 				28C0B5AE19A7ECD000BB1EC0 /* Details.m */,
 				28BDBB9119C651060052D5BB /* SMLogFoodTableViewController.h */,
 				28BDBB9219C651060052D5BB /* SMLogFoodTableViewController.m */,
-				28E1ED3E19F1B5B200822C60 /* Patient.h */,
-				28E1ED3F19F1B5B200822C60 /* Patient.m */,
 			);
 			path = Elu;
 			sourceTree = "<group>";
@@ -2030,11 +2030,11 @@
 			files = (
 				28127A9619E91D6A0006D366 /* Ingredients.h in Headers */,
 				2803913219C528180014D0C3 /* YLShareButtonView.h in Headers */,
+				280950BF19F6FB01003C8783 /* Patient.h in Headers */,
 				2803912919C528180014D0C3 /* Evaluate.h in Headers */,
 				28BDBB9319C651060052D5BB /* SMLogFoodTableViewController.h in Headers */,
 				280C795319C51C200094B56C /* SMNutritionixClient.h in Headers */,
 				2803912719C528180014D0C3 /* CAAnimation+Blocks.h in Headers */,
-				28E1ED4019F1B5B200822C60 /* Patient.h in Headers */,
 				2803912B19C528180014D0C3 /* OMVector.h in Headers */,
 				284402CB19DF0D7D00E36E5B /* SMWaterLogViewController.h in Headers */,
 				2803912E19C528180014D0C3 /* YLLongTapShareView.h in Headers */,
@@ -2508,7 +2508,6 @@
 				286C6CA01963BE5E0071E678 /* ImageFilterCache.m in Sources */,
 				284386EB1982F83C001A3A57 /* UIButton+AFNetworking.m in Sources */,
 				2853FC51199C6CB90073B891 /* FPTouchView.m in Sources */,
-				28E1ED4119F1B5B200822C60 /* Patient.m in Sources */,
 				28D0DE5F199440730004A2E2 /* RMStep.m in Sources */,
 				283D43ED195A76790054E16D /* SMDoctorPatientsTableViewController.m in Sources */,
 				284386ED1982F83C001A3A57 /* UIProgressView+AFNetworking.m in Sources */,
@@ -2547,6 +2546,7 @@
 				284387161982F87C001A3A57 /* JSONKeyMapper.m in Sources */,
 				2803913319C528180014D0C3 /* YLShareButtonView.m in Sources */,
 				28E8B89F199E682500CEFBBA /* XYPieChart.m in Sources */,
+				280950C019F6FB01003C8783 /* Patient.m in Sources */,
 				28B45BDD19BCFD120018600F /* MZDayPickerCell.m in Sources */,
 				28C0F1D719941E4B007E1D22 /* SMSecondPageForPageViewController.m in Sources */,
 				2843872519832044001A3A57 /* SMYummlyHTTPClient.m in Sources */,

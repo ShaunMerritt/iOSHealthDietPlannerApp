@@ -8,6 +8,7 @@
 
 #import "SMLoginViewController.h"
 #import "SMSignupViewController.h"
+#import "SMNutritionViewController.h"
 
 @interface SMLoginViewController ()
 
@@ -15,6 +16,7 @@
 
 @implementation SMLoginViewController
 @synthesize signUpViewController;
+@synthesize isLoggedOut;
 
 #pragma mark - Lifecycle
 - (void)viewDidLoad
@@ -22,6 +24,35 @@
     [super viewDidLoad];
     self.appDelegate = [[UIApplication sharedApplication] delegate];
     self.navigationItem.hidesBackButton = YES;
+    
+   // BOOL isLoggedOutYes = ((SMAppDelegate *)[UIApplication sharedApplication].delegate).signedOut;
+
+    
+//    // Check if user is logged in
+//    if (isLoggedOutYes == YES) {
+//        
+//        NSLog(@"Here!!!!");
+//                
+//    } else {
+        if ([PFUser currentUser]) {
+            [self performSelector:@selector(yourNewFunction) withObject:nil afterDelay:0.0];
+        }
+    //}
+}
+
+- (void)yourNewFunction
+{
+    
+//    SMNutritionViewController *nutritionViewController = [[SMNutritionViewController alloc] init];
+//
+//    [self presentViewController:nutritionViewController animated:NO completion:nil];
+//    
+    
+    
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    UIViewController *vc = [sb instantiateViewControllerWithIdentifier:@"hereIsTheID"];
+    vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentViewController:vc animated:YES completion:NULL];
 }
 
 #pragma mark - IBActions
@@ -97,6 +128,28 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
         [segue.destinationViewController setHidesBottomBarWhenPushed:NO];
 }
+
+#pragma mark - Core Data
+- (NSManagedObjectContext *)managedObjectContext {
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
+
+- (void) saveSignUpAttributeToCoreData {
+    
+    NSManagedObjectContext *moc = [self managedObjectContext];
+    
+    NSNumber *signedUp = @1;
+    [moc setValue: signedUp forKey:@"signedUp"];
+    
+    [self.managedObjectContext save:nil];
+    
+}
+
 
 @end
 

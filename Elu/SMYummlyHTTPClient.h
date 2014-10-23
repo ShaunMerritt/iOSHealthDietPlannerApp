@@ -17,7 +17,7 @@
 
 + (SMYummlyHTTPClient *)sharedSMYummlyHTTPClient;
 - (instancetype)initWithBaseURL:(NSURL *)url;
-- (void)searchForRecipe:(NSString *)recipe meal:(NSString *)meal allergies:(NSArray *)allergies valueForCarbs:(int)valueForCarbs valueForFats:(int)valueForFats valueForProteins:(int)valueForProteins;
+- (void)searchForRecipe:(NSString *)recipe meal:(NSString *)meal allergies:(NSArray *)allergies valueForCarbs:(int)valueForCarbs valueForFats:(int)valueForFats valueForProteins:(int)valueForProteins maxTimeInSeconds:(int)maxTime minNumberOfCalories: (int)minNumberOfCalories maxNumberOfCalories:(int)maxNumberOfCalories;
 
 //valueForCalcium:(int)valueForCalcium valueForCholesterol:(int)valueForCholesterol valueForFiber:(int)valueForFiber valueForIron:(int)valueForIron valueForPotassium:(int)valueForPotassium valueForSodium:(int)valueForSodium valueForSugar:(int)valueForSugar valueForVitaminA:(int)valueForVitaminA valueForVitaminC:(int)valueForVitaminC
 

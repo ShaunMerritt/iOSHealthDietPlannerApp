@@ -18,6 +18,7 @@
 @property (nonatomic, strong) PFUser                 *currentUserAfterLogin;
 @property (nonatomic, strong) NSString               *email;
 @property (nonatomic, strong) NSString               *password;
+@property (nonatomic) Boolean isLoggedOut;
 
 - (IBAction)login:(id)sender;
 

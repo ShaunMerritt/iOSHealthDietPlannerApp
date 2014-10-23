@@ -17,11 +17,14 @@
 #import "SMExerciseLoggingViewController.h"
 #import "Patient.h"
 #import "SMSaveCaloricInfoToParse.h"
+#import "SMLoginViewController.h"
 #import <PNChart.h>
+#import "SMAppDelegate.h"
 
 
+
+#define UIAppDelegate \ [(SMAppDelegate *)[[UIApplication sharedApplication] delegate];
 @interface SMNutritionViewController () <YLLongTapShareDelegate, DCPathButtonDelegate>
-
 
 @end
 
@@ -198,7 +201,7 @@
     
     [self loadGraphs];
     
-    
+    self.view.backgroundColor = [UIColor whiteColor];
     
     
 //    // Do any additional setup after loading the view, typically from a nib.
@@ -531,12 +534,22 @@
 - (IBAction)logout:(id)sender {
     [PFUser logOut];
     //PFUser *currentUser = [PFUser currentUser];
-    [self performSegueWithIdentifier:@"showLogin" sender:self];
+    NSLog(@"Signed Out");
+    ((SMAppDelegate *)[UIApplication sharedApplication].delegate).signedOut = YES;
+
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    UIViewController *vc = [sb instantiateViewControllerWithIdentifier:@"loginViewController"];
+    vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentViewController:vc animated:YES completion:NULL];
+
+
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"showLogin"]) {
-        //[segue.destinationViewController setHidesBottomBarWhenPushed:YES];
+        [segue.destinationViewController setIsLoggedOut: YES];
+
+        [segue.destinationViewController setHidesBottomBarWhenPushed:YES];
     }
 }
 
