@@ -1,9 +1,9 @@
 //
 //  Patient.m
-//  Pods
+//  Elu
 //
-//  Created by Shaun Merritt on 10/17/14.
-//
+//  Created by Shaun Merritt on 10/21/14.
+//  Copyright (c) 2014 True Merit Development. All rights reserved.
 //
 
 #import "Patient.h"
@@ -12,11 +12,12 @@
 
 @implementation Patient
 
+@dynamic date;
 @dynamic name;
-@dynamic totalCaloriesForDay;
 @dynamic totalCaloriesBurnedToday;
 @dynamic totalCaloriesEatenToday;
-@dynamic date;
+@dynamic totalCaloriesForDay;
+@dynamic signedUp;
 @dynamic patientDetails;
 
 @end
