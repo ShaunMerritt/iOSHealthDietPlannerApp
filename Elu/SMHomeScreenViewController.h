@@ -10,8 +10,15 @@
 #import "SMYummlyHTTPClient.h"
 #import "SMYummlyGetClient.h"
 #import "PAImageView.h"
+#import "SMNutritionixClient.h"
+#import "SMNutritionixUPCClient.h"
+#import "ZBarSDK.h"
+#import "CHCSVParser.h"
+#import "YLShareView.h"
+#import "GHContextMenuView.h"
+#import "SMLogFoodTableViewController.h"
 
-@interface SMHomeScreenViewController : UIViewController <SMYummlyHTTPClientDelegate, SMYummlyGetHTTPClientDelegate, PAImageViewDelegate>
+@interface SMHomeScreenViewController : UIViewController <SMYummlyHTTPClientDelegate, SMYummlyGetHTTPClientDelegate, PAImageViewDelegate, ZBarReaderDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *restrictionsLabel;
 

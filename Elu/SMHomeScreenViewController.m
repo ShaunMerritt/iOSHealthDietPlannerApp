@@ -9,8 +9,20 @@
 #import "SMHomeScreenViewController.h"
 #import "SMConstants.h"
 #import "SMAppDelegate.h"
+#import "DCPathButton.h"
+#import "SMNutritionixClient.h"
+#import "YLLongTapShareView.h"
+#import "UIButton+LongTapShare.h"
+#import "DCPathButton.h"
+#import "SMWaterLogViewController.h"
+#import "SMExerciseLoggingViewController.h"
+#import "Patient.h"
+#import "SMSaveCaloricInfoToParse.h"
+#import "SMLoginViewController.h"
+#import <PNChart.h>
 
-@interface SMHomeScreenViewController () {
+
+@interface SMHomeScreenViewController () <DCPathButtonDelegate>{
     NSMutableDictionary *dicts;
     NSMutableDictionary *dict;
     SMYummlyHTTPClient *client;
@@ -22,6 +34,14 @@
     int numberOfDaysOfMealsCreated;
     int _currentDayOfWeek;
     int _mealNumberForDay;
+    
+    NSArray *returnedFoods;
+    NSArray *returnedRecipe;
+    NSDictionary *dictionary;
+    NSDictionary *dictionarys;
+    NSDictionary *itemsReturned;
+    NSDictionary *infoFromUPCScanReturned;
+    NSString *doctorChosenDietURL;
 }
 
 @end
@@ -63,6 +83,34 @@
 
     
     [super viewDidLoad];
+    
+    DCPathButton *centerButton = [[DCPathButton alloc]initWithCenterImage:[UIImage imageNamed:@"chooser-button-tab"]
+                                                           hilightedImage:[UIImage imageNamed:@"chooser-button-tab-highlighted"]];
+    [self.tabBarController.view addSubview:centerButton];
+    
+    centerButton.delegate = self;
+    
+    DCPathItemButton *itemButton_1 = [[DCPathItemButton alloc]initWithImage:[UIImage imageNamed:@"CameraIcon"]
+                                                           highlightedImage:[UIImage imageNamed:@"CameraIcon"]
+                                                            backgroundImage:[UIImage imageNamed:@"CameraIcon"]
+                                                 backgroundHighlightedImage:[UIImage imageNamed:@"CameraIcon"]];
+    DCPathItemButton *itemButton_2 = [[DCPathItemButton alloc]initWithImage:[UIImage imageNamed:@"SearchIcon"]
+                                                           highlightedImage:[UIImage imageNamed:@"SearchIcon"]
+                                                            backgroundImage:[UIImage imageNamed:@"SearchIcon"]
+                                                 backgroundHighlightedImage:[UIImage imageNamed:@"SearchIcon"]];
+    DCPathItemButton *itemButton_3 = [[DCPathItemButton alloc]initWithImage:[UIImage imageNamed:@"WaterIcon"]
+                                                           highlightedImage:[UIImage imageNamed:@"WaterIcon"]
+                                                            backgroundImage:[UIImage imageNamed:@"WaterIcon"]
+                                                 backgroundHighlightedImage:[UIImage imageNamed:@"WaterIcon"]];
+    DCPathItemButton *itemButton_4 = [[DCPathItemButton alloc]initWithImage:[UIImage imageNamed:@"ExerciseIcon"]
+                                                           highlightedImage:[UIImage imageNamed:@"ExerciseIcon"]
+                                                            backgroundImage:[UIImage imageNamed:@"ExerciseIcon"]
+                                                 backgroundHighlightedImage:[UIImage imageNamed:@"ExerciseIcon"]];
+    
+    [centerButton addPathItem:@[itemButton_1, itemButton_2, itemButton_3, itemButton_4]];
+    
+    NSLog(@"added");
+
 
     
     currentDate = [NSDate date];
@@ -130,6 +178,202 @@
     
 
 }
+
+- (void)itemButtonTappedAtIndex:(NSUInteger)index
+{
+    if(index == 0){
+        // When the user tap index 1 here ...
+        ZBarReaderViewController *reader = [ZBarReaderViewController new];
+        reader.readerDelegate = self;
+        
+        [reader.scanner setSymbology: ZBAR_UPCA config: ZBAR_CFG_ENABLE to: 0];
+        reader.readerView.zoom = 1.0;
+        
+        [self presentViewController:reader animated:YES completion:nil];
+    }
+    if (index == 1) {
+        [self showLog];
+    } if (index == 2) {
+        SMWaterLogViewController *secondViewController =
+        [self.storyboard instantiateViewControllerWithIdentifier:@"logWater"];
+        [self.navigationController pushViewController:secondViewController animated:YES];
+        
+    } else {
+        // other code here ...
+        NSLog(@"dsfdsf");
+        SMExerciseLoggingViewController *exerciseLogViewController =
+        [self.storyboard instantiateViewControllerWithIdentifier:@"ExerciseLog"];
+        [self.navigationController pushViewController:exerciseLogViewController animated:YES];
+    }
+}
+
+- (void) showLog {
+    
+    SMLogFoodTableViewController *secondViewController =
+    [self.storyboard instantiateViewControllerWithIdentifier:@"logFood"];
+    [self.navigationController pushViewController:secondViewController animated:YES];
+    
+}
+
+- (void) testMethod {
+    
+    //[super viewDidLoad];
+    
+    //[self.view addSubview:self.view];
+    //[self viewDidLoad];
+    
+    //[self.view setNeedsDisplay];
+    
+    
+    
+    NSLog(@"YAYAYA");
+    ZBarReaderViewController *reader = [ZBarReaderViewController new];
+    reader.readerDelegate = self;
+    
+    [reader.scanner setSymbology: ZBAR_UPCA config: ZBAR_CFG_ENABLE to: 0];
+    reader.readerView.zoom = 1.0;
+    
+    [self presentViewController:reader animated:YES completion:nil];
+}
+
+
+- (void)yourNewFunction
+{
+    //[self.view addSubview:self.view];
+    
+    
+    ZBarReaderViewController *reader = [ZBarReaderViewController new];
+    reader.readerDelegate = self;
+    
+    [reader.scanner setSymbology: ZBAR_UPCA config: ZBAR_CFG_ENABLE to: 0];
+    reader.readerView.zoom = 1.0;
+    
+    [self presentViewController:reader animated:YES completion:nil];
+}
+
+- (void) nutritionixUPCClient:(SMNutritionixUPCClient *)client didUpdateWithIdFromUPCScan:(id)itemId {
+    infoFromUPCScanReturned = itemId;
+    NSLog(@"FOOD ITEM HERE: %@", itemId);
+    [self logItemsReturnedFromUPCSCAN];
+}
+
+- (void) nutritionixUPCClient:(SMNutritionixClient *)client didFailWithError:(NSError *)error {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"%@", error] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil];
+    
+    [alert show];
+}
+
+- (void) logItemsReturnedFromUPCSCAN {
+    
+    
+    NSString* item_id = [infoFromUPCScanReturned objectForKey:@"item_id"];
+    NSString* item_name = [infoFromUPCScanReturned objectForKey:@"item_name"];
+    NSString* brand_name = [infoFromUPCScanReturned objectForKey:@"brand_name"];
+    NSString* nf_calories = [infoFromUPCScanReturned objectForKey:@"nf_calories"];
+    
+    NSLog(@"Regular Index: %@", item_id);
+    NSLog(@"Regular Type: %@", item_name);
+    NSLog(@"Regular Score: %@", brand_name);
+    NSLog(@"Regular Id: %@", nf_calories);
+    
+    [self saveFoodToCoreDataWithAmountOfCalories: nf_calories];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"YAY!!!" message:[NSString stringWithFormat:@"You scanned an item with the id: %@. The items name is: %@. The Brand Name is: %@. And it has %@ calories.", item_id, item_name, brand_name, nf_calories] delegate:nil cancelButtonTitle:@"Thanks" otherButtonTitles: nil];
+    
+    [alert show];
+}
+
+- (NSDate *)calculateCurrentDateWithTimeSetToZero {
+    
+    unsigned int flags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay;
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    
+    NSDateComponents* components = [calendar components:flags fromDate:[NSDate date]];
+    
+    NSDate* dateOnly = [calendar dateFromComponents:components];
+    
+    return dateOnly;
+    
+}
+
+
+- (void) saveFoodToCoreDataWithAmountOfCalories: (NSString *)calories {
+    
+    NSManagedObjectContext *moc = [self managedObjectContext];
+    NSEntityDescription *entityDescription = [NSEntityDescription
+                                              entityForName:@"Patient" inManagedObjectContext:moc];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    
+    // Set example predicate and sort orderings...
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:
+                              @"date == %@", [self calculateCurrentDateWithTimeSetToZero]];
+    [request setPredicate:predicate];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
+                                        initWithKey:@"date" ascending:YES];
+    [request setSortDescriptors:@[sortDescriptor]];
+    
+    NSError *error = nil;
+    NSArray *results = [moc executeFetchRequest:request error:&error];
+    
+    Patient *newVehicle = [results objectAtIndex:0];
+    
+    NSNumber *sum = [NSNumber numberWithFloat:([newVehicle.totalCaloriesEatenToday floatValue] + [calories floatValue])];
+    [newVehicle setValue: sum forKey:@"totalCaloriesEatenToday"];
+    [SMSaveCaloricInfoToParse saveTotalCaloriesEatenTodayToParse:sum];
+    
+    
+    NSNumber *sumOfTotalForDay = [NSNumber numberWithFloat:([newVehicle.totalCaloriesForDay floatValue] + [calories floatValue])];
+    [newVehicle setValue: sumOfTotalForDay forKey:@"totalCaloriesForDay"];
+    [SMSaveCaloricInfoToParse saveTotalCaloriesForDayToParse:sumOfTotalForDay];
+    
+    
+    [self.managedObjectContext save:nil];
+    
+    
+    
+    
+    
+}
+
+- (IBAction)scanItemButtonPressed:(id)sender {
+    ZBarReaderViewController *reader = [ZBarReaderViewController new];
+    reader.readerDelegate = self;
+    
+    [reader.scanner setSymbology: ZBAR_UPCA config: ZBAR_CFG_ENABLE to: 0];
+    reader.readerView.zoom = 1.0;
+    
+    [self presentViewController:reader animated:YES completion:nil];
+    //    [self presentModalViewController: reader
+    //                            animated: YES];
+}
+
+- (void) imagePickerController: (UIImagePickerController*) reader
+ didFinishPickingMediaWithInfo: (NSDictionary*) info
+{
+    id<NSFastEnumeration> results = [info objectForKey: ZBarReaderControllerResults];
+    NSLog(@"%@", results);
+    
+    ZBarSymbol *symbol = nil;
+    
+    for(symbol in results){
+        
+        NSString *upcString = symbol.data;
+        
+        SMNutritionixUPCClient *upcClient = [SMNutritionixUPCClient sharedSMNutritionixUPCClient];
+        upcClient.delegate = self;
+        [upcClient searchForItemIdFromUPCScan:upcString];
+        
+        [reader dismissViewControllerAnimated:YES completion:nil];
+        //[reader dismissModalViewControllerAnimated: YES];
+        
+    }
+    
+    
+}
+
+
 
 #pragma mark - Helper Methods
 

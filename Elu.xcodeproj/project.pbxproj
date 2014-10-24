@@ -261,7 +261,6 @@
 		283D43DF195A43960054E16D /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 283D43D6195A43960054E16D /* libz.1.1.3.dylib */; };
 		283D43E0195A43960054E16D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 283D43D7195A43960054E16D /* MobileCoreServices.framework */; };
 		283D43E1195A43960054E16D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 283D43D8195A43960054E16D /* QuartzCore.framework */; };
-		283D43E2195A43960054E16D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 283D43D9195A43960054E16D /* Security.framework */; };
 		283D43E4195A43960054E16D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 283D43DB195A43960054E16D /* SystemConfiguration.framework */; };
 		283D43E7195A45380054E16D /* SMLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 283D43E6195A45380054E16D /* SMLoginViewController.m */; };
 		283D43EA195A455C0054E16D /* SMSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 283D43E9195A455C0054E16D /* SMSignupViewController.m */; };
@@ -380,6 +379,17 @@
 		2877474019FA10CA00CCE152 /* SearchIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2877473819FA10CA00CCE152 /* SearchIcon@2x.png */; };
 		2877474119FA10CA00CCE152 /* WaterIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2877473919FA10CA00CCE152 /* WaterIcon.png */; };
 		2877474219FA10CA00CCE152 /* WaterIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2877473A19FA10CA00CCE152 /* WaterIcon@2x.png */; };
+		2877474519FA125D00CCE152 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2877474419FA125D00CCE152 /* AssetsLibrary.framework */; };
+		2877474719FA126500CCE152 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2877474619FA126500CCE152 /* CoreText.framework */; };
+		2877474919FA126B00CCE152 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2877474819FA126B00CCE152 /* QuickLook.framework */; };
+		2877474A19FA12A300CCE152 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 283D43D9195A43960054E16D /* Security.framework */; };
+		2877475819FA13F100CCE152 /* HockeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2877475319FA13E000CCE152 /* HockeySDK.framework */; };
+		2877475B19FA179D00CCE152 /* HomeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2877475919FA179D00CCE152 /* HomeIcon.png */; };
+		2877475C19FA179D00CCE152 /* HomeIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2877475A19FA179D00CCE152 /* HomeIcon@2x.png */; };
+		2877475F19FA17FF00CCE152 /* CalendarIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2877475D19FA17FF00CCE152 /* CalendarIcon.png */; };
+		2877476019FA17FF00CCE152 /* CalendarIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2877475E19FA17FF00CCE152 /* CalendarIcon@2x.png */; };
+		2877476219FA1A1400CCE152 /* HockeySDKResources.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = 2877476119FA1A1400CCE152 /* HockeySDKResources.bundle */; };
+		2877476319FA1ABE00CCE152 /* HockeySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2877474F19FA12FE00CCE152 /* HockeySDKResources.bundle */; };
 		288D874B19624A7A005A93C6 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288D874A19624A7A005A93C6 /* Parse.framework */; };
 		288DEB0619B3A9CF001B5B6D /* PAImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 288DEB0519B3A9CF001B5B6D /* PAImageView.m */; };
 		28921A711986DF34000D2689 /* SMNutritionixUPCClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 28921A701986DF34000D2689 /* SMNutritionixUPCClient.m */; };
@@ -883,6 +893,22 @@
 		2877473819FA10CA00CCE152 /* SearchIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SearchIcon@2x.png"; sourceTree = "<group>"; };
 		2877473919FA10CA00CCE152 /* WaterIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WaterIcon.png; sourceTree = "<group>"; };
 		2877473A19FA10CA00CCE152 /* WaterIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WaterIcon@2x.png"; sourceTree = "<group>"; };
+		2877474419FA125D00CCE152 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		2877474619FA126500CCE152 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		2877474819FA126B00CCE152 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
+		2877474C19FA12FE00CCE152 /* HockeySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HockeySDK.framework; sourceTree = "<group>"; };
+		2877474E19FA12FE00CCE152 /* HockeySDK.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = HockeySDK.xcconfig; sourceTree = "<group>"; };
+		2877474F19FA12FE00CCE152 /* HockeySDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = HockeySDKResources.bundle; sourceTree = "<group>"; };
+		2877475119FA13E000CCE152 /* BuildAgent */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = BuildAgent; sourceTree = "<group>"; };
+		2877475319FA13E000CCE152 /* HockeySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HockeySDK.framework; sourceTree = "<group>"; };
+		2877475519FA13E000CCE152 /* HockeySDK.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = HockeySDK.xcconfig; sourceTree = "<group>"; };
+		2877475619FA13E000CCE152 /* HockeySDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = HockeySDKResources.bundle; sourceTree = "<group>"; };
+		2877475719FA13E000CCE152 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		2877475919FA179D00CCE152 /* HomeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HomeIcon.png; sourceTree = "<group>"; };
+		2877475A19FA179D00CCE152 /* HomeIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HomeIcon@2x.png"; sourceTree = "<group>"; };
+		2877475D19FA17FF00CCE152 /* CalendarIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarIcon.png; sourceTree = "<group>"; };
+		2877475E19FA17FF00CCE152 /* CalendarIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CalendarIcon@2x.png"; sourceTree = "<group>"; };
+		2877476119FA1A1400CCE152 /* HockeySDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = HockeySDKResources.bundle; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDK.framework/Versions/A/Resources/HockeySDKResources.bundle"; sourceTree = "<group>"; };
 		288D874A19624A7A005A93C6 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		288DEB0419B3A9CF001B5B6D /* PAImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAImageView.h; sourceTree = "<group>"; };
 		288DEB0519B3A9CF001B5B6D /* PAImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAImageView.m; sourceTree = "<group>"; };
@@ -987,6 +1013,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2877476219FA1A1400CCE152 /* HockeySDKResources.bundle in Frameworks */,
+				2877475819FA13F100CCE152 /* HockeySDK.framework in Frameworks */,
+				2877474A19FA12A300CCE152 /* Security.framework in Frameworks */,
+				2877474919FA126B00CCE152 /* QuickLook.framework in Frameworks */,
+				2877474719FA126500CCE152 /* CoreText.framework in Frameworks */,
+				2877474519FA125D00CCE152 /* AssetsLibrary.framework in Frameworks */,
 				28921A7A1986E61A000D2689 /* libiconv.dylib in Frameworks */,
 				283D43E1195A43960054E16D /* QuartzCore.framework in Frameworks */,
 				28921B2A1986EC47000D2689 /* libzbar.a in Frameworks */,
@@ -998,7 +1030,6 @@
 				283D43DE195A43960054E16D /* CoreLocation.framework in Frameworks */,
 				283D43DF195A43960054E16D /* libz.1.1.3.dylib in Frameworks */,
 				283D43E0195A43960054E16D /* MobileCoreServices.framework in Frameworks */,
-				283D43E2195A43960054E16D /* Security.framework in Frameworks */,
 				283D43E4195A43960054E16D /* SystemConfiguration.framework in Frameworks */,
 				283D4393195A37770054E16D /* CoreGraphics.framework in Frameworks */,
 				28921B291986EC47000D2689 /* libzbar-sim.a in Frameworks */,
@@ -1314,6 +1345,13 @@
 		283D438F195A37770054E16D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2877476119FA1A1400CCE152 /* HockeySDKResources.bundle */,
+				2877475019FA13E000CCE152 /* HockeySDK-iOS */,
+				283D43D9195A43960054E16D /* Security.framework */,
+				2877474B19FA12FE00CCE152 /* HockeySDK.embeddedframework */,
+				2877474819FA126B00CCE152 /* QuickLook.framework */,
+				2877474619FA126500CCE152 /* CoreText.framework */,
+				2877474419FA125D00CCE152 /* AssetsLibrary.framework */,
 				28921A791986E61A000D2689 /* libiconv.dylib */,
 				28921A771986E603000D2689 /* CoreVideo.framework */,
 				28921A751986E5FA000D2689 /* CoreMedia.framework */,
@@ -1325,7 +1363,6 @@
 				283D43D6195A43960054E16D /* libz.1.1.3.dylib */,
 				283D43D7195A43960054E16D /* MobileCoreServices.framework */,
 				283D43D8195A43960054E16D /* QuartzCore.framework */,
-				283D43D9195A43960054E16D /* Security.framework */,
 				283D43DB195A43960054E16D /* SystemConfiguration.framework */,
 				283D4390195A37770054E16D /* Foundation.framework */,
 				283D4392195A37770054E16D /* CoreGraphics.framework */,
@@ -1419,6 +1456,10 @@
 		283D43CD195A394A0054E16D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				2877475D19FA17FF00CCE152 /* CalendarIcon.png */,
+				2877475E19FA17FF00CCE152 /* CalendarIcon@2x.png */,
+				2877475919FA179D00CCE152 /* HomeIcon.png */,
+				2877475A19FA179D00CCE152 /* HomeIcon@2x.png */,
 				2877473319FA10CA00CCE152 /* CameraIcon.png */,
 				2877473419FA10CA00CCE152 /* CameraIcon@2x.png */,
 				2877473519FA10CA00CCE152 /* ExerciseIcon.png */,
@@ -1814,6 +1855,53 @@
 			name = "Nutritionix Client";
 			sourceTree = "<group>";
 		};
+		2877474B19FA12FE00CCE152 /* HockeySDK.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				2877474C19FA12FE00CCE152 /* HockeySDK.framework */,
+				2877474D19FA12FE00CCE152 /* Resources */,
+			);
+			name = HockeySDK.embeddedframework;
+			path = "HockeySDK-iOS/HockeySDK.embeddedframework";
+			sourceTree = "<group>";
+		};
+		2877474D19FA12FE00CCE152 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2877474E19FA12FE00CCE152 /* HockeySDK.xcconfig */,
+				2877474F19FA12FE00CCE152 /* HockeySDKResources.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2877475019FA13E000CCE152 /* HockeySDK-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				2877475119FA13E000CCE152 /* BuildAgent */,
+				2877475219FA13E000CCE152 /* HockeySDK.embeddedframework */,
+				2877475719FA13E000CCE152 /* LICENSE */,
+			);
+			path = "HockeySDK-iOS";
+			sourceTree = "<group>";
+		};
+		2877475219FA13E000CCE152 /* HockeySDK.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				2877475319FA13E000CCE152 /* HockeySDK.framework */,
+				2877475419FA13E000CCE152 /* Resources */,
+			);
+			path = HockeySDK.embeddedframework;
+			sourceTree = "<group>";
+		};
+		2877475419FA13E000CCE152 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2877475519FA13E000CCE152 /* HockeySDK.xcconfig */,
+				2877475619FA13E000CCE152 /* HockeySDKResources.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		28921A721986DF36000D2689 /* Nutritionix UPC Client */ = {
 			isa = PBXGroup;
 			children = (
@@ -2090,6 +2178,7 @@
 				283D438B195A37760054E16D /* Resources */,
 				8F83366B56F44ED8A5D271C0 /* Copy Pods Resources */,
 				280C795119C51BEB0094B56C /* Headers */,
+				2877474319FA11EA00CCE152 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -2165,6 +2254,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2877476319FA1ABE00CCE152 /* HockeySDKResources.bundle in Resources */,
 				282B4EA619DF4A4200BD1871 /* Mangoes.png in Resources */,
 				282B4EBF19DF4A4200BD1871 /* Pear@2x.png in Resources */,
 				282B4EA719DF4A4200BD1871 /* Mangoes@2x.png in Resources */,
@@ -2251,6 +2341,7 @@
 				282B4E9519DF4A4200BD1871 /* honeydew@2x.png in Resources */,
 				282B4ED419DF4A4200BD1871 /* Quinoa.png in Resources */,
 				2866F70B19651C830052BAD1 /* Bread(products).png in Resources */,
+				2877475F19FA17FF00CCE152 /* CalendarIcon.png in Resources */,
 				2877473D19FA10CA00CCE152 /* ExerciseIcon.png in Resources */,
 				282B4E8F19DF4A4200BD1871 /* Green Beans@2x.png in Resources */,
 				282B4E5119DF4A4200BD1871 /* Banana.png in Resources */,
@@ -2324,6 +2415,7 @@
 				282B4E8119DF4A4200BD1871 /* Cucumber@2x.png in Resources */,
 				280C794B19C5156C0094B56C /* hood.png in Resources */,
 				282B4EA919DF4A4200BD1871 /* Mexican_Shrimp@2x.png in Resources */,
+				2877475C19FA179D00CCE152 /* HomeIcon@2x.png in Resources */,
 				282B4EDE19DF4A4200BD1871 /* Salmon.png in Resources */,
 				282B4EB519DF4A4200BD1871 /* Oysters@2x.png in Resources */,
 				282B4EB819DF4A4200BD1871 /* Peach.png in Resources */,
@@ -2388,6 +2480,7 @@
 				286C6C891963A7D50071E678 /* 5StarsSmall.png in Resources */,
 				283D43CC195A39440054E16D /* inbox@2x.png in Resources */,
 				282B4E6319DF4A4200BD1871 /* Brocolli.png in Resources */,
+				2877475B19FA179D00CCE152 /* HomeIcon.png in Resources */,
 				282B4EB419DF4A4200BD1871 /* Oysters.png in Resources */,
 				282B4EB719DF4A4200BD1871 /* Papaya@2x.png in Resources */,
 				28921B2E1986EC47000D2689 /* zbar-samples.png in Resources */,
@@ -2420,6 +2513,7 @@
 				282B4E7D19DF4A4200BD1871 /* Corn@2x.png in Resources */,
 				282B4EF219DF4A4200BD1871 /* Trout.png in Resources */,
 				282B4EEA19DF4A4200BD1871 /* Sweet Potatoes.png in Resources */,
+				2877476019FA17FF00CCE152 /* CalendarIcon@2x.png in Resources */,
 				284402C819DF09DC00E36E5B /* chooser-button-tab@2x.png in Resources */,
 				282B4EEB19DF4A4200BD1871 /* Sweet Potatoes@2x.png in Resources */,
 				282B4E9C19DF4A4200BD1871 /* Lamb.png in Resources */,
@@ -2448,6 +2542,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2877474319FA11EA00CCE152 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "FILE=\"${SRCROOT}/HockeySDK-iOS/BuildAgent\"\nif [ -f \"$FILE\" ]; then\n\"$FILE\"\nfi";
+		};
 		8F83366B56F44ED8A5D271C0 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2716,6 +2823,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/HockeySDK-iOS/HockeySDK.embeddedframework",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Elu/Elu-Prefix.pch";
@@ -2745,6 +2853,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/HockeySDK-iOS/HockeySDK.embeddedframework",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Elu/Elu-Prefix.pch";

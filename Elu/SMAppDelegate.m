@@ -13,6 +13,7 @@
 #import "YummlyModel.h"
 #import "Water.h"
 #import "Patient.h"
+#import <HockeySDK/HockeySDK.h>
 
 @implementation SMAppDelegate {
     NSMutableArray *_foods;
@@ -28,6 +29,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"217ec3bc4bfcc2cc6c1355018571e843"];
+    [[BITHockeyManager sharedHockeyManager] startManager];
+    [[BITHockeyManager sharedHockeyManager].authenticator authenticateInstallation];
+
+    
     // Set parse key
     [Parse setApplicationId:@"d9xTmAjHJXo1tiW1mGacy4pD26Nk6ACajDYfoeHU"
                   clientKey:@"y58tkd1AM5Gx83PRvnwN8riwuO0fURwJtVjh7Dpa"];
