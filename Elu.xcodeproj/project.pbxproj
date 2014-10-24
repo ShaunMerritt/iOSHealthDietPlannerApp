@@ -372,6 +372,14 @@
 		286C6CA21963BE5E0071E678 /* NGFilterStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 286C6C981963BE5E0071E678 /* NGFilterStore.m */; };
 		286C6CA31963BE5E0071E678 /* UIImage+Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = 286C6C9B1963BE5E0071E678 /* UIImage+Filter.m */; };
 		287202071986BEF40019C5DC /* SMNutritionixClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 287202061986BEF40019C5DC /* SMNutritionixClient.m */; };
+		2877473B19FA10CA00CCE152 /* CameraIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2877473319FA10CA00CCE152 /* CameraIcon.png */; };
+		2877473C19FA10CA00CCE152 /* CameraIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2877473419FA10CA00CCE152 /* CameraIcon@2x.png */; };
+		2877473D19FA10CA00CCE152 /* ExerciseIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2877473519FA10CA00CCE152 /* ExerciseIcon.png */; };
+		2877473E19FA10CA00CCE152 /* ExerciseIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2877473619FA10CA00CCE152 /* ExerciseIcon@2x.png */; };
+		2877473F19FA10CA00CCE152 /* SearchIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2877473719FA10CA00CCE152 /* SearchIcon.png */; };
+		2877474019FA10CA00CCE152 /* SearchIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2877473819FA10CA00CCE152 /* SearchIcon@2x.png */; };
+		2877474119FA10CA00CCE152 /* WaterIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2877473919FA10CA00CCE152 /* WaterIcon.png */; };
+		2877474219FA10CA00CCE152 /* WaterIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2877473A19FA10CA00CCE152 /* WaterIcon@2x.png */; };
 		288D874B19624A7A005A93C6 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288D874A19624A7A005A93C6 /* Parse.framework */; };
 		288DEB0619B3A9CF001B5B6D /* PAImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 288DEB0519B3A9CF001B5B6D /* PAImageView.m */; };
 		28921A711986DF34000D2689 /* SMNutritionixUPCClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 28921A701986DF34000D2689 /* SMNutritionixUPCClient.m */; };
@@ -867,6 +875,14 @@
 		286C6C9B1963BE5E0071E678 /* UIImage+Filter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Filter.m"; sourceTree = "<group>"; };
 		287202051986BEF40019C5DC /* SMNutritionixClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMNutritionixClient.h; sourceTree = "<group>"; };
 		287202061986BEF40019C5DC /* SMNutritionixClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMNutritionixClient.m; sourceTree = "<group>"; };
+		2877473319FA10CA00CCE152 /* CameraIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CameraIcon.png; sourceTree = "<group>"; };
+		2877473419FA10CA00CCE152 /* CameraIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CameraIcon@2x.png"; sourceTree = "<group>"; };
+		2877473519FA10CA00CCE152 /* ExerciseIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ExerciseIcon.png; sourceTree = "<group>"; };
+		2877473619FA10CA00CCE152 /* ExerciseIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ExerciseIcon@2x.png"; sourceTree = "<group>"; };
+		2877473719FA10CA00CCE152 /* SearchIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SearchIcon.png; sourceTree = "<group>"; };
+		2877473819FA10CA00CCE152 /* SearchIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SearchIcon@2x.png"; sourceTree = "<group>"; };
+		2877473919FA10CA00CCE152 /* WaterIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WaterIcon.png; sourceTree = "<group>"; };
+		2877473A19FA10CA00CCE152 /* WaterIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WaterIcon@2x.png"; sourceTree = "<group>"; };
 		288D874A19624A7A005A93C6 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		288DEB0419B3A9CF001B5B6D /* PAImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAImageView.h; sourceTree = "<group>"; };
 		288DEB0519B3A9CF001B5B6D /* PAImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAImageView.m; sourceTree = "<group>"; };
@@ -1403,6 +1419,14 @@
 		283D43CD195A394A0054E16D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				2877473319FA10CA00CCE152 /* CameraIcon.png */,
+				2877473419FA10CA00CCE152 /* CameraIcon@2x.png */,
+				2877473519FA10CA00CCE152 /* ExerciseIcon.png */,
+				2877473619FA10CA00CCE152 /* ExerciseIcon@2x.png */,
+				2877473719FA10CA00CCE152 /* SearchIcon.png */,
+				2877473819FA10CA00CCE152 /* SearchIcon@2x.png */,
+				2877473919FA10CA00CCE152 /* WaterIcon.png */,
+				2877473A19FA10CA00CCE152 /* WaterIcon@2x.png */,
 				282B4D8519DF4A4100BD1871 /* Food pics */,
 				280C794919C5156C0094B56C /* hood.png */,
 				280C794A19C5156C0094B56C /* hood@2x.png */,
@@ -2169,6 +2193,7 @@
 				283118BD198AFFC8003BA51D /* Data.plist in Resources */,
 				282B4ED219DF4A4200BD1871 /* Pumpkin.png in Resources */,
 				282B4EF619DF4A4200BD1871 /* Turkey.png in Resources */,
+				2877474119FA10CA00CCE152 /* WaterIcon.png in Resources */,
 				282B4E7119DF4A4200BD1871 /* Cherry@2x.png in Resources */,
 				282B4EDC19DF4A4200BD1871 /* Rice.png in Resources */,
 				282B4EAE19DF4A4200BD1871 /* Oats.png in Resources */,
@@ -2206,6 +2231,7 @@
 				282B4E8E19DF4A4200BD1871 /* Green Beans.png in Resources */,
 				28921B2D1986EC47000D2689 /* zbar-helpicons.png in Resources */,
 				282B4E4F19DF4A4200BD1871 /* Avocado.png in Resources */,
+				2877473C19FA10CA00CCE152 /* CameraIcon@2x.png in Resources */,
 				282B4EEE19DF4A4200BD1871 /* Tofu.png in Resources */,
 				282B4EC419DF4A4200BD1871 /* Pinto Beans.png in Resources */,
 				282B4EA119DF4A4200BD1871 /* Lentils@2x.png in Resources */,
@@ -2215,6 +2241,7 @@
 				2855A89519648C6200081F5A /* chickenBW.png in Resources */,
 				282B4E6B19DF4A4200BD1871 /* Cantaloupe.png in Resources */,
 				282B4EDB19DF4A4200BD1871 /* Raspberries@2x.png in Resources */,
+				2877474219FA10CA00CCE152 /* WaterIcon@2x.png in Resources */,
 				280C794C19C5156C0094B56C /* hood@2x.png in Resources */,
 				282B4E5B19DF4A4200BD1871 /* Black Beans.png in Resources */,
 				2866F71519651C830052BAD1 /* Quinoa.png in Resources */,
@@ -2224,6 +2251,7 @@
 				282B4E9519DF4A4200BD1871 /* honeydew@2x.png in Resources */,
 				282B4ED419DF4A4200BD1871 /* Quinoa.png in Resources */,
 				2866F70B19651C830052BAD1 /* Bread(products).png in Resources */,
+				2877473D19FA10CA00CCE152 /* ExerciseIcon.png in Resources */,
 				282B4E8F19DF4A4200BD1871 /* Green Beans@2x.png in Resources */,
 				282B4E5119DF4A4200BD1871 /* Banana.png in Resources */,
 				283D43CA195A39440054E16D /* friends@2x.png in Resources */,
@@ -2305,6 +2333,7 @@
 				2855A8A019648C6B00081F5A /* egg.png in Resources */,
 				282B4E8419DF4A4200BD1871 /* Egg.png in Resources */,
 				282B4E6519DF4A4200BD1871 /* Brussel Sprouts.png in Resources */,
+				2877473F19FA10CA00CCE152 /* SearchIcon.png in Resources */,
 				282B4ED719DF4A4200BD1871 /* Radish@2x.png in Resources */,
 				282B4EAC19DF4A4200BD1871 /* Nectarines.png in Resources */,
 				282B4E4A19DF4A4200BD1871 /* Apricot@2x.png in Resources */,
@@ -2366,6 +2395,7 @@
 				2866F71619651C830052BAD1 /* Quinoa@2x.png in Resources */,
 				282B4E4E19DF4A4200BD1871 /* Asparagus@2x.png in Resources */,
 				282B4E9A19DF4A4200BD1871 /* Kiwi.png in Resources */,
+				2877473B19FA10CA00CCE152 /* CameraIcon.png in Resources */,
 				286C6C731963A2F30071E678 /* 4Stars.png in Resources */,
 				282B4EA219DF4A4200BD1871 /* Lime.png in Resources */,
 				282B4EF819DF4A4200BD1871 /* TVP.png in Resources */,
@@ -2380,10 +2410,12 @@
 				282B4ECE19DF4A4200BD1871 /* Potatoes.png in Resources */,
 				282B4E5619DF4A4200BD1871 /* Beef@2x.png in Resources */,
 				282B4E6D19DF4A4200BD1871 /* Carrots@2x.png in Resources */,
+				2877474019FA10CA00CCE152 /* SearchIcon@2x.png in Resources */,
 				282B4E7219DF4A4200BD1871 /* Chicken.png in Resources */,
 				282B4E9D19DF4A4200BD1871 /* Lamb@2x.png in Resources */,
 				286C6C831963A7D50071E678 /* 2StarsSmall.png in Resources */,
 				289C31F319B251A50095911D /* WeeklyDietPropertyList.plist in Resources */,
+				2877473E19FA10CA00CCE152 /* ExerciseIcon@2x.png in Resources */,
 				282B4E6619DF4A4200BD1871 /* Brussel Sprouts@2x.png in Resources */,
 				282B4E7D19DF4A4200BD1871 /* Corn@2x.png in Resources */,
 				282B4EF219DF4A4200BD1871 /* Trout.png in Resources */,

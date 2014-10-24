@@ -332,22 +332,22 @@
     
     centerButton.delegate = self;
     
-    DCPathItemButton *itemButton_1 = [[DCPathItemButton alloc]initWithImage:[UIImage imageNamed:@"chooser-button-tab"]
-                                                           highlightedImage:[UIImage imageNamed:@"chooser-button-tab"]
-                                                            backgroundImage:[UIImage imageNamed:@"chooser-button-tab"]
-                                                 backgroundHighlightedImage:[UIImage imageNamed:@"chooser-button-tab"]];
-    DCPathItemButton *itemButton_2 = [[DCPathItemButton alloc]initWithImage:[UIImage imageNamed:@"chooser-button-tab"]
-                                                           highlightedImage:[UIImage imageNamed:@"chooser-button-tab"]
-                                                            backgroundImage:[UIImage imageNamed:@"chooser-button-tab"]
-                                                 backgroundHighlightedImage:[UIImage imageNamed:@"chooser-button-tab"]];
-    DCPathItemButton *itemButton_3 = [[DCPathItemButton alloc]initWithImage:[UIImage imageNamed:@"chooser-button-tab"]
-                                                           highlightedImage:[UIImage imageNamed:@"chooser-button-tab"]
-                                                            backgroundImage:[UIImage imageNamed:@"chooser-button-tab"]
-                                                 backgroundHighlightedImage:[UIImage imageNamed:@"chooser-button-tab"]];
-    DCPathItemButton *itemButton_4 = [[DCPathItemButton alloc]initWithImage:[UIImage imageNamed:@"chooser-button-tab"]
-                                                           highlightedImage:[UIImage imageNamed:@"chooser-button-tab"]
-                                                            backgroundImage:[UIImage imageNamed:@"chooser-button-tab"]
-                                                 backgroundHighlightedImage:[UIImage imageNamed:@"chooser-button-tab"]];
+    DCPathItemButton *itemButton_1 = [[DCPathItemButton alloc]initWithImage:[UIImage imageNamed:@"CameraIcon"]
+                                                           highlightedImage:[UIImage imageNamed:@"CameraIcon"]
+                                                            backgroundImage:[UIImage imageNamed:@"CameraIcon"]
+                                                 backgroundHighlightedImage:[UIImage imageNamed:@"CameraIcon"]];
+    DCPathItemButton *itemButton_2 = [[DCPathItemButton alloc]initWithImage:[UIImage imageNamed:@"SearchIcon"]
+                                                           highlightedImage:[UIImage imageNamed:@"SearchIcon"]
+                                                            backgroundImage:[UIImage imageNamed:@"SearchIcon"]
+                                                 backgroundHighlightedImage:[UIImage imageNamed:@"SearchIcon"]];
+    DCPathItemButton *itemButton_3 = [[DCPathItemButton alloc]initWithImage:[UIImage imageNamed:@"WaterIcon"]
+                                                           highlightedImage:[UIImage imageNamed:@"WaterIcon"]
+                                                            backgroundImage:[UIImage imageNamed:@"WaterIcon"]
+                                                 backgroundHighlightedImage:[UIImage imageNamed:@"WaterIcon"]];
+    DCPathItemButton *itemButton_4 = [[DCPathItemButton alloc]initWithImage:[UIImage imageNamed:@"ExerciseIcon"]
+                                                           highlightedImage:[UIImage imageNamed:@"ExerciseIcon"]
+                                                            backgroundImage:[UIImage imageNamed:@"ExerciseIcon"]
+                                                 backgroundHighlightedImage:[UIImage imageNamed:@"ExerciseIcon"]];
     
     [centerButton addPathItem:@[itemButton_1, itemButton_2, itemButton_3, itemButton_4]];
 
