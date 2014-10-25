@@ -9,6 +9,7 @@
 #import "SMLoginViewController.h"
 #import "SMSignupViewController.h"
 #import "SMNutritionViewController.h"
+#import "Patient.h"
 
 @interface SMLoginViewController ()
 
@@ -112,17 +113,84 @@
                     NSLog(@"%@", error);
                     //[self.navigationController popToRootViewControllerAnimated:YES];
                     
+                    
+                    
+                    
+                    if ([self hasLoggedIn] == NO) {
+                    
+                    
                     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
                     UIViewController *vc = [sb instantiateViewControllerWithIdentifier:@"FirstTimeForPatient"];
                     vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
                     vc.hidesBottomBarWhenPushed = NO;
                     vc.navigationController.toolbar.hidden = NO;
                     [self presentViewController:vc animated:YES completion:NULL];
+                    } else {
+                        
+                        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+                        UIViewController *vc = [sb instantiateViewControllerWithIdentifier:@"hereIsTheID"];
+                        vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+                        vc.hidesBottomBarWhenPushed = NO;
+                        vc.navigationController.toolbar.hidden = NO;
+                        [self presentViewController:vc animated:YES completion:NULL];
+                        
+                    }
                 }
                 
             }
         }];
     }
+}
+
+- (BOOL)hasLoggedIn {
+    
+    NSManagedObjectContext *moc = [self managedObjectContext];
+    NSEntityDescription *entityDescription = [NSEntityDescription
+                                              entityForName:@"Patient" inManagedObjectContext:moc];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    
+    // Set example predicate and sort orderings...
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:
+                              @"signedUp == YES"];
+    [request setPredicate:predicate];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
+                                        initWithKey:@"date" ascending:YES];
+    [request setSortDescriptors:@[sortDescriptor]];
+    
+    NSError *error = nil;
+    NSArray *results = [moc executeFetchRequest:request error:&error];
+    
+    //Patient *newVehicle = [results objectAtIndex:0];
+    
+    //NSNumber *sum = @1;
+
+    //[newVehicle setValue: sum forKey:@"signedUp"];
+    
+    
+    [self.managedObjectContext save:nil];
+
+    
+    if (!results) {
+        NSLog(@"Null");
+        
+        Patient *newVehicle = [results objectAtIndex:0];
+        
+        NSNumber *sum = @1;
+        [newVehicle setValue: sum forKey:@"isSignedUp"];
+    
+        [self.managedObjectContext save:nil];
+        
+        return NO;
+        
+        
+    } else {
+        return YES;
+    }
+    
+    
+    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
