@@ -30,14 +30,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
-    [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"217ec3bc4bfcc2cc6c1355018571e843"];
+    [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@""];
     [[BITHockeyManager sharedHockeyManager] startManager];
     [[BITHockeyManager sharedHockeyManager].authenticator authenticateInstallation];
 
     
     // Set parse key
-    [Parse setApplicationId:@"d9xTmAjHJXo1tiW1mGacy4pD26Nk6ACajDYfoeHU"
-                  clientKey:@"y58tkd1AM5Gx83PRvnwN8riwuO0fURwJtVjh7Dpa"];
+    [Parse setApplicationId:@""
+                  clientKey:@""];
     
     [self load];
     
